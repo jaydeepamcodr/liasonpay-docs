@@ -176,6 +176,6 @@ When new versions are released, we'll provide migration guides and maintain back
 
 - [Interactive API Testing](/interactive-tools/api-testing)
 - [Postman Collection](/interactive-tools/postman-collection)
-- [OpenAPI Explorer](/interactive-tools/openapi-explorer)
+- [API Explorer](/interactive-tools/api-explorer)
 - [Error Handling Guide](/developer-guide/error-handling)
 - [FAQ and Troubleshooting](/developer-guide/faq)

@@ -2,13 +2,16 @@
 sidebar_position: 3
 ---
 
-# OpenAPI Explorer
+import OpenApiExplorer from '@site/src/components/OpenApiExplorer';
+import { ApiBaseUrl, ExampleApiKey } from '@site/src/components/DynamicValues';
 
-The LiasonPay OpenAPI Explorer provides an interactive interface for exploring our API using the OpenAPI (formerly Swagger) specification. This page explains how to use the explorer and its features.
+# API Explorer
 
-## What is the OpenAPI Explorer?
+The LiasonPay API Explorer provides an interactive interface for exploring our API using the OpenAPI (formerly Swagger) specification. This page explains how to use the explorer and its features.
 
-The OpenAPI Explorer is an interactive documentation tool that allows you to:
+## What is the API Explorer?
+
+The API Explorer is an interactive documentation tool based on the OpenAPI specification that allows you to:
 
 1. Browse all available API endpoints
 2. See detailed parameter descriptions
@@ -16,28 +19,17 @@ The OpenAPI Explorer is an interactive documentation tool that allows you to:
 4. View request and response schemas
 5. Understand authentication requirements
 
-## Accessing the Explorer
+## Interactive API Explorer
 
-You can access the OpenAPI Explorer in two ways:
+Our embedded API Explorer provides a user-friendly interface for exploring and testing our API endpoints directly in your browser. You can:
 
-### Option 1: Use the Embedded Explorer
+- Browse all available API endpoints
+- See detailed parameter descriptions
+- Try out API requests directly from your browser
+- View request and response schemas
+- Understand authentication requirements
 
-<div className="openapi-explorer">
-  <iframe
-    src="https://liasonpay.net/docs/openapi-explorer/index.html"
-    width="100%"
-    height="800px"
-    frameBorder="0"
-  ></iframe>
-</div>
-
-### Option 2: Download the OpenAPI Specification
-
-Download the OpenAPI specification file and use it with your preferred OpenAPI viewer:
-
-<a href="https://liasonpay.net/docs/openapi.yaml" download className="button button--primary button--lg">
-  Download OpenAPI Specification
-</a>
+<OpenApiExplorer />
 
 ## Using the Explorer
 

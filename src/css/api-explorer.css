@@ -1,0 +1,76 @@
+.openapi-explorer-container {
+  margin: 2rem 0;
+}
+
+.openapi-explorer-info {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: var(--ifm-color-primary-lightest);
+  border-radius: 0.5rem;
+}
+
+/* Embedded Swagger UI */
+.embedded-swagger-ui {
+  margin-bottom: 2rem;
+}
+
+.swagger-ui-wrapper {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background-color: white;
+}
+
+.swagger-ui-wrapper iframe {
+  display: block;
+  width: 100%;
+  border: none;
+}
+
+/* Alternative options */
+.openapi-explorer-alternatives {
+  margin-bottom: 2rem;
+}
+
+.openapi-explorer-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.openapi-explorer-option {
+  flex: 1;
+  min-width: 300px;
+  padding: 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 0.5rem;
+  background-color: var(--ifm-background-surface-color);
+}
+
+.openapi-explorer-instructions {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 0.5rem;
+  background-color: var(--ifm-background-surface-color);
+}
+
+.openapi-explorer-instructions h3 {
+  margin-top: 0;
+}
+
+.openapi-explorer-instructions ul,
+.openapi-explorer-instructions ol {
+  padding-left: 1.5rem;
+}
+
+.openapi-explorer-instructions li {
+  margin-bottom: 0.5rem;
+}
+
+.openapi-explorer-instructions code {
+  background-color: var(--ifm-code-background);
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.2rem;
+}

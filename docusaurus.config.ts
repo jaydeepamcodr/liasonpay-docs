@@ -91,8 +91,8 @@ const config: Config = {
           position: "right",
         },
         {
-          href: "/interactive-tools/openapi-explorer",
-          label: "OpenAPI Explorer",
+          href: "/interactive-tools/api-explorer",
+          label: "API Explorer",
           position: "right",
         },
         {
@@ -130,8 +130,8 @@ const config: Config = {
               to: "/interactive-tools/postman-collection",
             },
             {
-              label: "OpenAPI Explorer",
-              to: "/interactive-tools/openapi-explorer",
+              label: "API Explorer",
+              to: "/interactive-tools/api-explorer",
             },
           ],
         },

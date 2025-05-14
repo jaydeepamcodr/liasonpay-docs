@@ -31,7 +31,7 @@ Authorization: Bearer sk_test_abcdefghijklmnopqrstuvwxyz123456
 
 The tool provides input fields for all required and optional parameters:
 
-1. Fill in the required parameters (marked with *)
+1. Fill in the required parameters (marked with \*)
 2. Add any optional parameters as needed
 3. Click **Send Request** to execute the API call
 
@@ -125,5 +125,5 @@ The API Testing Tool allows you to:
 ## Next Steps
 
 - [Download the Postman Collection](/interactive-tools/postman-collection) for more advanced testing
-- [Explore the OpenAPI Explorer](/interactive-tools/openapi-explorer) for a comprehensive API reference
+- [Explore the API Explorer](/interactive-tools/api-explorer) for a comprehensive API reference
 - [Review the API Reference](/api-reference) for detailed endpoint documentation

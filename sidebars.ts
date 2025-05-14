@@ -70,7 +70,7 @@ const sidebars: SidebarsConfig = {
   interactiveToolsSidebar: [
     "interactive-tools/api-testing",
     "interactive-tools/postman-collection",
-    "interactive-tools/openapi-explorer",
+    "interactive-tools/api-explorer", // API Explorer (OpenAPI)
   ],
 };
 

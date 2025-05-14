@@ -50,11 +50,11 @@ https://liasonpay.net/docs/collection.json
 3. Name it "LiasonPay Sandbox" or "LiasonPay Production"
 4. Add the following variables:
 
-| Variable | Initial Value | Description |
-|----------|---------------|-------------|
-| baseUrl | https://sandbox.liasonpay.net/api/v1 | The base URL for API requests |
-| apiKey | sk_test_your_api_key | Your LiasonPay API key |
-| storeId | STORE_your_store_id | Your store ID |
+| Variable | Initial Value                        | Description                   |
+| -------- | ------------------------------------ | ----------------------------- |
+| baseUrl  | https://sandbox.liasonpay.net/api/v1 | The base URL for API requests |
+| apiKey   | sk_test_your_api_key                 | Your LiasonPay API key        |
+| storeId  | STORE_your_store_id                  | Your store ID                 |
 
 5. Click **Save**
 
@@ -192,6 +192,6 @@ If you encounter issues with the collection:
 
 ## Next Steps
 
-- [Explore the OpenAPI Explorer](/interactive-tools/openapi-explorer) for a comprehensive API reference
+- [Explore the API Explorer](/interactive-tools/api-explorer) for a comprehensive API reference
 - [Try the API Testing Tool](/interactive-tools/api-testing) for in-browser testing
 - [Review the API Reference](/api-reference) for detailed endpoint documentation

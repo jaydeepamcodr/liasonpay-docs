@@ -55,4 +55,4 @@ For direct access, visit the [LiasonPay API Key page](https://liasonpay.test/api
 You can download our API specifications in the following formats:
 
 - [Postman Collection](/interactive-tools/postman-collection)
-- [OpenAPI Specification](/interactive-tools/openapi-explorer)
+- [API Explorer](/interactive-tools/api-explorer)

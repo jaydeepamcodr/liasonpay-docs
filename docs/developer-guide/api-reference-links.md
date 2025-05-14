@@ -58,4 +58,4 @@ You can test our API endpoints directly from the documentation using the API Tes
 Download our API specifications in the following formats:
 
 - [Postman Collection](/interactive-tools/postman-collection)
-- [OpenAPI Specification](/interactive-tools/openapi-explorer)
+- [API Explorer](/interactive-tools/api-explorer)
