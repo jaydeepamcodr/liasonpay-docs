@@ -3,6 +3,15 @@ sidebar_position: 1
 ---
 
 import ApiTester from "@site/src/components/ApiTester";
+import {
+  ApiBaseUrl,
+  ExampleApiKey,
+  ExampleStoreId,
+  ExampleSubscriptionId,
+  ExamplePriceId,
+  SubscriptionGetUrl,
+  SubscriptionCreateUrl,
+} from "@site/src/components/DynamicValues";
 
 # Subscription Endpoints
 
@@ -13,7 +22,7 @@ This page documents the available subscription-related endpoints in our API.
 <span className="badge badge--primary">requires authentication</span>
 
 ```http
-GET /api/v1/subscription/get
+GET <SubscriptionGetUrl />
 ```
 
 Retrieve a list of subscriptions for a store.
@@ -29,8 +38,8 @@ Retrieve a list of subscriptions for a store.
 
 ```bash
 curl --request GET \
-    --get "https://liasonpay.net/api/v1/subscription/get?store_id=STORE_65C0279F05&subscription_id=SUBSCRIPTION_56FBC7EEE4" \
-    --header "Authorization: Bearer {API_KEY}" \
+    --get "<ApiBaseUrl />/subscription/get?store_id=<ExampleStoreId />&subscription_id=<ExampleSubscriptionId />" \
+    --header "Authorization: Bearer <ExampleApiKey />" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"
 ```
@@ -48,7 +57,6 @@ curl --request GET \
 <ApiTester
   endpoint="/api/v1/subscription/get"
   method="GET"
-  baseUrl="https://liasonpay.net"
   params={[
     {
       name: "store_id",
@@ -70,7 +78,7 @@ curl --request GET \
 <span className="badge badge--primary">requires authentication</span>
 
 ```http
-POST /api/v1/subscription/create
+POST <SubscriptionCreateUrl />
 ```
 
 Create a new subscription.
@@ -98,13 +106,13 @@ Create a new subscription.
 
 ```bash
 curl --request POST \
-    "https://liasonpay.net/api/v1/subscription/create" \
-    --header "Authorization: Bearer {API_KEY}" \
+    "<ApiBaseUrl />/subscription/create" \
+    --header "Authorization: Bearer <ExampleApiKey />" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"store_id\": \"STORE_123\",
-    \"price_id\": \"PRICE_ABC123\",
+    \"store_id\": \"<ExampleStoreId />\",
+    \"price_id\": \"<ExamplePriceId />\",
     \"trial_period_days\": 30,
     \"customer\": {
         \"name\": \"John Doe\",
@@ -135,7 +143,6 @@ curl --request POST \
 <ApiTester
   endpoint="/api/v1/subscription/create"
   method="POST"
-  baseUrl="https://liasonpay.net"
   params={[
     {
       name: "store_id",

@@ -2,6 +2,14 @@
 sidebar_position: 1
 ---
 
+import {
+ApiBaseUrl,
+ExampleApiKey,
+ExampleStoreId,
+ExampleSubscriptionId,
+ApiRateLimit
+} from '@site/src/components/DynamicValues';
+
 # API Reference
 
 Welcome to the LiasonPay API Reference. This section provides detailed information about all available endpoints, request parameters, and response formats.
@@ -12,24 +20,16 @@ The LiasonPay API is a RESTful API that allows you to integrate payment processi
 
 ## Base URL
 
-All API requests should be made to:
+All API requests should be made to the following base URL:
 
-```
-https://liasonpay.net/api/v1/
-```
-
-For sandbox testing, use:
-
-```
-https://sandbox.liasonpay.net/api/v1/
-```
+<ApiBaseUrl />
 
 ## Authentication
 
 To authenticate requests, include an **`Authorization`** header with the value **`"Bearer {API_KEY}"`**.
 
 ```http
-Authorization: Bearer sk_test_abcdefghijklmnopqrstuvwxyz123456
+Authorization: Bearer <ExampleApiKey />
 ```
 
 All authenticated endpoints are marked with a `requires authentication` badge in the documentation.
@@ -133,8 +133,7 @@ The API uses standard HTTP status codes to indicate the success or failure of a 
 
 The API has rate limiting in place to prevent abuse:
 
-- **Sandbox**: 100 requests per minute
-- **Production**: 300 requests per minute
+- <ApiRateLimit /> requests per minute
 
 If you exceed these limits, you'll receive a `429 Too Many Requests` response with a `Retry-After` header indicating how many seconds to wait before retrying.
 
@@ -143,7 +142,7 @@ If you exceed these limits, you'll receive a `429 Too Many Requests` response wi
 For endpoints that return lists of objects, the API uses cursor-based pagination:
 
 ```
-GET /api/v1/subscription/get?store_id=STORE_123&limit=10&cursor=CURSOR_TOKEN
+GET /api/v1/subscription/get?store_id=<ExampleStoreId />&limit=10&cursor=CURSOR_TOKEN
 ```
 
 - `limit`: The number of objects to return (default: 20, max: 100)
@@ -168,7 +167,7 @@ The response will include pagination information in the `meta` field:
 The current version of the LiasonPay API is v1. The version is included in the URL path:
 
 ```
-https://liasonpay.net/api/v1/
+<ApiBaseUrl />
 ```
 
 When new versions are released, we'll provide migration guides and maintain backward compatibility for a reasonable period.

@@ -2,6 +2,20 @@ import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 
+// Import constants
+const {
+  API_BASE_URL,
+  DASHBOARD_URL,
+  EXAMPLE_STORE_ID,
+  EXAMPLE_SUBSCRIPTION_ID,
+  EXAMPLE_PACKAGE_ID,
+  EXAMPLE_TRANSACTION_ID,
+  EXAMPLE_PRICE_ID,
+  EXAMPLE_API_KEY,
+  EXAMPLE_COUPON,
+  API_RATE_LIMIT,
+} = require("./src/constants");
+
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
@@ -142,6 +156,18 @@ const config: Config = {
       darkTheme: prismThemes.dracula,
     },
   } satisfies Preset.ThemeConfig,
+  customFields: {
+    apiBaseUrl: API_BASE_URL,
+    dashboardUrl: DASHBOARD_URL,
+    exampleStoreId: EXAMPLE_STORE_ID,
+    exampleSubscriptionId: EXAMPLE_SUBSCRIPTION_ID,
+    examplePackageId: EXAMPLE_PACKAGE_ID,
+    exampleTransactionId: EXAMPLE_TRANSACTION_ID,
+    examplePriceId: EXAMPLE_PRICE_ID,
+    exampleApiKey: EXAMPLE_API_KEY,
+    exampleCoupon: EXAMPLE_COUPON,
+    apiRateLimit: API_RATE_LIMIT,
+  },
 };
 
 export default config;
