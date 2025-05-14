@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# OpenAPI/Swagger Explorer
+# OpenAPI Explorer
 
 The LiasonPay OpenAPI Explorer provides an interactive interface for exploring our API using the OpenAPI (formerly Swagger) specification. This page explains how to use the explorer and its features.
 
@@ -24,7 +24,7 @@ You can access the OpenAPI Explorer in two ways:
 
 <div className="openapi-explorer">
   <iframe
-    src="/docs/openapi-explorer"
+    src="https://liasonpay.net/docs/openapi-explorer/index.html"
     width="100%"
     height="800px"
     frameBorder="0"
@@ -35,7 +35,7 @@ You can access the OpenAPI Explorer in two ways:
 
 Download the OpenAPI specification file and use it with your preferred OpenAPI viewer:
 
-<a href="/openapi.yaml" download className="button button--primary button--lg">
+<a href="https://liasonpay.net/docs/openapi.yaml" download className="button button--primary button--lg">
   Download OpenAPI Specification
 </a>
 

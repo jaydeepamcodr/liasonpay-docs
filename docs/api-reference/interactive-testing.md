@@ -1,8 +1,8 @@
 ---
-sidebar_position: 4
+sidebar_position: 5
 ---
 
-# Interactive API Testing
+# Interactive Testing
 
 Our API documentation includes interactive testing capabilities that allow you to try out API calls directly from your browser.
 
@@ -54,5 +54,5 @@ For direct access, visit the [LiasonPay API Key page](https://liasonpay.test/api
 
 You can download our API specifications in the following formats:
 
-- [Postman Collection](../collection.json)
-- [OpenAPI Specification](../openapi.yaml)
+- [Postman Collection](/interactive-tools/postman-collection)
+- [OpenAPI Specification](/interactive-tools/openapi-explorer)

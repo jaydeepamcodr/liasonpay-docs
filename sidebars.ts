@@ -33,6 +33,7 @@ const sidebars: SidebarsConfig = {
       ],
     },
     "developer-guide/faq",
+    "developer-guide/api-reference-links",
   ],
 
   // API Reference sidebar
@@ -62,7 +63,6 @@ const sidebars: SidebarsConfig = {
       label: "Package Endpoints",
       items: ["api-reference/packages/get-packages"],
     },
-    "api-reference/interactive-testing",
     "api-reference/faq",
   ],
 

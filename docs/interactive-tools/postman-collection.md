@@ -1,8 +1,8 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
-# Download Postman Collection
+# Postman Collection
 
 The LiasonPay Postman Collection provides a comprehensive set of pre-configured API requests that you can use to test and explore our API. This page explains how to download and use the collection in Postman.
 
@@ -22,7 +22,7 @@ The LiasonPay Postman Collection is a set of pre-configured API requests that co
 
 Download the Postman Collection directly from our website:
 
-<a href="/collection.json" download className="button button--primary button--lg">
+<a href="/docs/collection.json" download className="button button--primary button--lg">
   Download Postman Collection
 </a>
 

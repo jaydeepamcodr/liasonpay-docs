@@ -10,9 +10,9 @@ const config: Config = {
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
-  url: "https://liasonpay.net",
+  url: "https://docs.liasonpay.net",
   // Set the /<baseUrl>/ pathname under which your site is served
-  baseUrl: "/docs/",
+  baseUrl: "/docs",
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -28,7 +28,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: "./sidebars.ts",
-          routeBasePath: "/", // Serve the docs at the site's root
+          routeBasePath: "/docs", // Serve the docs at the /docs/ path
         },
         // No blog configuration
         theme: {
@@ -72,13 +72,13 @@ const config: Config = {
           label: "Interactive Tools",
         },
         {
-          href: "/collection.json",
-          label: "Postman Collection",
+          href: "/interactive-tools/postman-collection",
+          label: "Download Postman Collection",
           position: "right",
         },
         {
-          href: "/openapi.yaml",
-          label: "OpenAPI Spec",
+          href: "/interactive-tools/openapi-explorer",
+          label: "OpenAPI Explorer",
           position: "right",
         },
         {
@@ -95,12 +95,12 @@ const config: Config = {
           title: "API Documentation",
           items: [
             {
-              label: "Introduction",
-              to: "/",
+              label: "Getting Started",
+              to: "/getting-started/introduction",
             },
             {
               label: "API Reference",
-              to: "/api-reference",
+              to: "/api-reference/index",
             },
             {
               label: "Interactive Tools",
@@ -116,8 +116,8 @@ const config: Config = {
               to: "/interactive-tools/postman-collection",
             },
             {
-              label: "OpenAPI Spec",
-              to: "/openapi.yaml",
+              label: "OpenAPI Explorer",
+              to: "/interactive-tools/openapi-explorer",
             },
           ],
         },

@@ -1,8 +1,8 @@
 ---
-sidebar_position: 8
+sidebar_position: 9
 ---
 
-# API Reference Links
+# API Reference
 
 This page provides quick links to the detailed API reference documentation for each API group.
 
@@ -41,21 +41,21 @@ The Packages API allows you to retrieve and manage package information.
 
 - [Get a list of packages](/api-reference/packages#get-a-list-of-packages)
 
-## Complete API Reference
+## API Reference
 
-For a comprehensive overview of all available endpoints, visit the main API Reference page.
+For a comprehensive overview of all available endpoints, visit the API Reference page.
 
-[View Complete API Reference →](/api-reference)
+[View API Reference →](/api-reference)
 
-## Interactive Testing
+## API Testing Tool
 
-You can test our API endpoints directly from the documentation using the interactive testing tools.
+You can test our API endpoints directly from the documentation using the API Testing Tool.
 
-[Try Interactive Testing →](/api-reference/interactive-testing)
+[Try the API Testing Tool →](/interactive-tools/api-testing)
 
 ## API Specifications
 
 Download our API specifications in the following formats:
 
-- [Postman Collection](/collection.json)
-- [OpenAPI Specification](/openapi.yaml)
+- [Postman Collection](/interactive-tools/postman-collection)
+- [OpenAPI Specification](/interactive-tools/openapi-explorer)
