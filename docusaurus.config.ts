@@ -10,7 +10,7 @@ const config: Config = {
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
-  url: "https://docs.liasonpay.net",
+  url: "https://liasonpay.net",
   // Set the /<baseUrl>/ pathname under which your site is served
   baseUrl: "/docs",
 
@@ -28,7 +28,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: "./sidebars.ts",
-          routeBasePath: "/docs", // Serve the docs at the /docs/ path
+          routeBasePath: "/", // Serve the docs at the /docs/ path
         },
         // No blog configuration
         theme: {
