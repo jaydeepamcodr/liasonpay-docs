@@ -12,7 +12,7 @@ const config: Config = {
   // Set the production url of your site here
   url: "https://liasonpay.net",
   // Set the /<baseUrl>/ pathname under which your site is served
-  baseUrl: "/docs",
+  baseUrl: "/",
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -28,7 +28,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: "./sidebars.ts",
-          routeBasePath: "/", // Serve the docs at the /docs/ path
+          routeBasePath: "/", // Serve the docs at the site's root
         },
         // No blog configuration
         theme: {
