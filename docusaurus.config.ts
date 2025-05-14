@@ -100,7 +100,7 @@ const config: Config = {
             },
             {
               label: "API Reference",
-              to: "/api-reference/index",
+              to: "/api-reference",
             },
             {
               label: "Interactive Tools",
