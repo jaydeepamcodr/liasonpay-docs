@@ -49,9 +49,37 @@ const config: Config = {
       items: [
         {
           type: "docSidebar",
-          sidebarId: "tutorialSidebar",
+          sidebarId: "gettingStartedSidebar",
+          position: "left",
+          label: "Getting Started",
+        },
+        {
+          type: "docSidebar",
+          sidebarId: "developerGuideSidebar",
+          position: "left",
+          label: "Developer Guide",
+        },
+        {
+          type: "docSidebar",
+          sidebarId: "apiReferenceSidebar",
           position: "left",
           label: "API Reference",
+        },
+        {
+          type: "docSidebar",
+          sidebarId: "interactiveToolsSidebar",
+          position: "left",
+          label: "Interactive Tools",
+        },
+        {
+          href: "/collection.json",
+          label: "Postman Collection",
+          position: "right",
+        },
+        {
+          href: "/openapi.yaml",
+          label: "OpenAPI Spec",
+          position: "right",
         },
         {
           href: "https://liasonpay.net",
@@ -75,8 +103,8 @@ const config: Config = {
               to: "/api-reference",
             },
             {
-              label: "Interactive Testing",
-              to: "/api-reference/interactive-testing",
+              label: "Interactive Tools",
+              to: "/interactive-tools/api-testing",
             },
           ],
         },
@@ -85,7 +113,7 @@ const config: Config = {
           items: [
             {
               label: "Postman Collection",
-              to: "/collection.json",
+              to: "/interactive-tools/postman-collection",
             },
             {
               label: "OpenAPI Spec",
