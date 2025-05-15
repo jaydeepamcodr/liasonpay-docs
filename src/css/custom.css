@@ -462,9 +462,531 @@
   display: inline-block;
 }
 
+/* Environment Cards */
+.environments-section {
+  margin: 2rem 0;
+}
+
+.environment-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.environment-card {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.environment-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.environment-header {
+  padding: 1rem 1.5rem;
+  color: white;
+}
+
+.environment-header.sandbox {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+}
+
+.environment-header.production {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+}
+
+.environment-header h3 {
+  margin: 0;
+  color: white;
+}
+
+.environment-content {
+  padding: 1.5rem;
+}
+
+/* Advanced Testing Section */
+.advanced-testing-section {
+  margin: 2rem 0;
+}
+
+.advanced-testing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.advanced-testing-card {
+  padding: 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  background-color: var(--ifm-background-surface-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.advanced-testing-card h3 {
+  margin-top: 0;
+  color: var(--ifm-color-primary);
+}
+
+/* Parameter Details */
+.parameter-details,
+.response-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+/* Getting Started Section */
+.getting-started-section {
+  margin: 2rem 0;
+}
+
+/* API Info Section */
+.api-info-section {
+  margin: 2rem 0;
+}
+
+.api-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.api-info-card {
+  padding: 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  background-color: var(--ifm-background-surface-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.api-info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.api-info-card h3 {
+  margin-top: 0;
+  color: var(--ifm-color-primary);
+}
+
+/* Tools Section */
+.tools-section {
+  margin: 2rem 0;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Security Section */
+.security-section {
+  margin: 2rem 0;
+}
+
+.security-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.security-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  background-color: var(--ifm-background-surface-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.security-icon {
+  font-size: 1.5rem;
+  color: var(--ifm-color-primary);
+}
+
+.security-content {
+  flex: 1;
+}
+
+.security-content h4 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-color-primary);
+}
+
+.security-content p {
+  margin-bottom: 0;
+}
+
+/* Capabilities Section */
+.capabilities-section {
+  margin: 2rem 0;
+}
+
+.capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.capability-card {
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  background-color: var(--ifm-background-surface-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.capability-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.capability-icon {
+  font-size: 2rem;
+  color: var(--ifm-color-primary);
+}
+
+.capability-content {
+  flex: 1;
+}
+
+.capability-content h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-color-primary);
+}
+
+.capability-content p {
+  margin-bottom: 0;
+}
+
+/* Workflow Section */
+.workflows-section {
+  margin: 2rem 0;
+}
+
+.workflow-card {
+  padding: 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  background-color: var(--ifm-background-surface-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1.5rem;
+}
+
+.workflow-card h3 {
+  margin-top: 0;
+  color: var(--ifm-color-primary);
+}
+
+.workflow-steps {
+  margin-top: 1.5rem;
+}
+
+.workflow-step {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.workflow-step:last-child {
+  margin-bottom: 0;
+}
+
+.step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--ifm-color-primary);
+  color: white;
+  border-radius: 50%;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.step-content {
+  flex: 1;
+}
+
+.step-content p {
+  margin-top: 0;
+}
+
+/* Testing Section */
+.testing-section {
+  margin: 2rem 0;
+}
+
+.testing-card {
+  padding: 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  background-color: var(--ifm-background-surface-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.testing-card h3 {
+  margin-top: 0;
+  color: var(--ifm-color-primary);
+}
+
+.testing-steps {
+  margin: 1.5rem 0;
+}
+
+.testing-step {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.testing-step:last-child {
+  margin-bottom: 0;
+}
+
+.step-icon {
+  font-size: 1.5rem;
+  color: var(--ifm-color-primary);
+}
+
+.step-content h4 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+/* Event Types Section */
+.event-types-section {
+  margin: 2rem 0;
+}
+
+.event-types-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.event-type-card {
+  padding: 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  background-color: var(--ifm-background-surface-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.event-type-card h3 {
+  margin-top: 0;
+  color: var(--ifm-color-primary);
+}
+
+.event-list {
+  padding-left: 1.5rem;
+  margin-bottom: 0;
+}
+
+.event-list li {
+  margin-bottom: 0.5rem;
+}
+
+.event-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* Webhook Examples Section */
+.webhook-examples-section {
+  margin: 2rem 0;
+}
+
+.webhook-example-tabs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.webhook-example-tab {
+  padding: 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  background-color: var(--ifm-background-surface-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.webhook-example-tab h3 {
+  margin-top: 0;
+  color: var(--ifm-color-primary);
+}
+
+/* Verification Steps */
+.verification-steps {
+  margin: 1.5rem 0;
+}
+
+.verification-step {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.verification-step:last-child {
+  margin-bottom: 0;
+}
+
+/* Webhook Handler Section */
+.webhook-handler-section {
+  margin: 2rem 0;
+}
+
+.webhook-handler-card {
+  padding: 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  background-color: var(--ifm-background-surface-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.webhook-handler-card h3 {
+  margin-top: 0;
+  color: var(--ifm-color-primary);
+}
+
+/* Event Handling Section */
+.event-handling-section {
+  margin: 2rem 0;
+}
+
+.event-handling-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.event-handling-card {
+  padding: 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  background-color: var(--ifm-background-surface-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.event-handling-card h3 {
+  margin-top: 0;
+  color: var(--ifm-color-primary);
+}
+
+.event-handling-list {
+  padding-left: 1.5rem;
+  margin-bottom: 0;
+}
+
+.event-handling-list li {
+  margin-bottom: 0.75rem;
+}
+
+.event-handling-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* Best Practices Section */
+.best-practices-section {
+  margin: 2rem 0;
+}
+
+.best-practices-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.best-practice-card {
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  background-color: var(--ifm-background-surface-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.best-practice-icon {
+  font-size: 1.5rem;
+  color: var(--ifm-color-primary);
+}
+
+.best-practice-content {
+  flex: 1;
+}
+
+.best-practice-content h4 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-color-primary);
+}
+
+.best-practice-content p {
+  margin-bottom: 0;
+}
+
+/* Retry Policy Section */
+.retry-policy-section {
+  margin: 2rem 0;
+}
+
+.retry-policy-card {
+  padding: 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  background-color: var(--ifm-background-surface-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.retry-policy-card h3 {
+  margin-top: 0;
+  color: var(--ifm-color-primary);
+}
+
+.retry-schedule {
+  margin: 1.5rem 0;
+}
+
+.retry-item {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  align-items: center;
+}
+
+.retry-item:last-child {
+  margin-bottom: 0;
+}
+
+.retry-number {
+  font-weight: bold;
+  color: var(--ifm-color-primary);
+  width: 3rem;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .postman-header {
+
+  .postman-header,
+  .explorer-header {
     padding: 1.5rem;
   }
 
@@ -473,8 +995,41 @@
   .workflows-section,
   .two-column-section,
   .faq-section,
-  .next-steps-section {
+  .next-steps-section,
+  .environment-cards,
+  .advanced-testing-grid,
+  .api-info-grid,
+  .tools-grid,
+  .security-grid,
+  .capabilities-grid,
+  .event-types-grid,
+  .webhook-example-tabs,
+  .event-handling-grid,
+  .best-practices-grid {
     grid-template-columns: 1fr;
+  }
+
+  .security-item,
+  .capability-card,
+  .workflow-step,
+  .testing-step,
+  .verification-step,
+  .best-practice-card,
+  .retry-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .security-icon,
+  .capability-icon,
+  .step-icon,
+  .best-practice-icon {
+    margin-bottom: 0.5rem;
+  }
+
+  .step-number,
+  .retry-number {
+    margin-bottom: 0.5rem;
   }
 
   .setup-step {

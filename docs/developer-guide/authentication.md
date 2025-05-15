@@ -2,52 +2,221 @@
 sidebar_position: 2
 ---
 
+import { AppUrl, ExampleApiKey } from '@site/src/components/DynamicValues';
+
 # Authentication
 
-All requests to the LiasonPay API must be authenticated using API keys. This page explains how to obtain and use your API keys.
+<div className="explorer-header">
+  <div className="explorer-header-content">
+    <h2>Secure Your API Requests with Authentication</h2>
+    <p>Learn how to obtain and use API keys to authenticate your requests to the LiasonPay API</p>
+  </div>
+</div>
+
+## API Key Overview
+
+<div className="features-grid">
+  <div className="feature-card">
+    <h3>🔑 What are API Keys?</h3>
+    <p>API keys are unique identifiers that authenticate your requests to the LiasonPay API. They are used to:</p>
+    <ul>
+      <li>Identify your account</li>
+      <li>Authorize your API requests</li>
+      <li>Track your API usage</li>
+      <li>Apply rate limits and permissions</li>
+    </ul>
+    <div className="warning-callout">
+      <p><strong>⚠️ Important:</strong> Always keep your API keys secure and never share them publicly.</p>
+    </div>
+  </div>
+
+  <div className="feature-card">
+    <h3>🔄 Types of API Keys</h3>
+    <p>LiasonPay provides two types of API keys:</p>
+    <ul>
+      <li><strong>Test Keys</strong> (<code>sk_test_</code>) - For development and testing</li>
+      <li><strong>Live Keys</strong> (<code>sk_live_</code>) - For production use</li>
+    </ul>
+    <p>Test keys can only be used with the sandbox environment and won't process real payments.</p>
+  </div>
+</div>
 
 ## Obtaining API Keys
 
-To obtain your API key, please follow these steps:
+<div className="setup-steps">
+  <div className="setup-step">
+    <div className="step-number">1</div>
+    <div className="step-content">
+      <h3>Access Your Dashboard</h3>
+      <p>Log in to your <a href={AppUrl()} target="_blank" rel="noopener noreferrer">LiasonPay</a> account and navigate to the Dashboard.</p>
+    </div>
+  </div>
 
-1. Log in to your [LiasonPay](https://liasonpay.test) account
-2. Navigate to the **Dashboard**
-3. Click on the **Profile icon** in the top right corner
-4. Click on the **API Keys** section
-5. Generate a new API key or copy your existing key
+  <div className="setup-step">
+    <div className="step-number">2</div>
+    <div className="step-content">
+      <h3>Find API Keys Section</h3>
+      <ol>
+        <li>Click on the <strong>Profile icon</strong> in the top right corner</li>
+        <li>Click on the <strong>API Keys</strong> section</li>
+      </ol>
+    </div>
+  </div>
 
-For direct access, visit the [LiasonPay API Key page](https://liasonpay.test/api-key).
-
-## API Keys
-
-LiasonPay provides API keys for authenticating your requests to the API. These keys are used to identify your account and authorize your API requests.
-
-Always keep your API keys secure and never share them publicly.
+  <div className="setup-step">
+    <div className="step-number">3</div>
+    <div className="step-content">
+      <h3>Generate or Copy Keys</h3>
+      <p>Generate a new API key or copy your existing key.</p>
+      <div className="info-callout">
+        <p><strong>💡 Tip:</strong> For direct access, visit the <a href={`${AppUrl()}/api-key`} target="_blank" rel="noopener noreferrer">LiasonPay API Key page</a>.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 ## Using API Keys
 
-To authenticate your API requests, include an **`Authorization`** header with the value **`"Bearer {API_KEY}"`**.
-
-Example:
-
+<div className="examples-container">
+  <div className="example-card">
+    <h3>🔐 Authentication Header</h3>
+    <p>To authenticate your API requests, include an <strong>Authorization</strong> header with the value <strong>"Bearer {'{API_KEY}'}"</strong>.</p>
+    <div className="code-block-container">
+      <pre className="code-block">
 ```http
-Authorization: Bearer sk_abcdefghijklmnopqrstuvwxyz123456
+Authorization: Bearer {ExampleApiKey()}
 ```
+      </pre>
+    </div>
+    <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the API Reference documentation.</p>
+  </div>
 
-All authenticated endpoints are marked with a `requires authentication` badge in the API Reference documentation.
+  <div className="example-card">
+    <h3>💻 Code Examples</h3>
+    <div className="code-block-container">
+      <pre className="code-block">
+```javascript
+// JavaScript/Node.js example
+const fetch = require('node-fetch');
+
+const apiKey = process.env.LIASONPAY_API_KEY; // Store in environment variable
+
+async function makeApiRequest() {
+const response = await fetch('https://liasonpay.test/api/v1/payments', {
+method: 'POST',
+headers: {
+'Authorization': `Bearer ${apiKey}`,
+'Content-Type': 'application/json'
+},
+body: JSON.stringify({
+// Request data
+})
+});
+
+return await response.json();
+}
+
+```
+      </pre>
+    </div>
+  </div>
+</div>
 
 ## API Key Security
 
-Follow these best practices to keep your API keys secure:
+<div className="security-section">
+  <h3>Best Practices for API Key Security</h3>
 
-1. **Never expose API keys in client-side code**: Your API keys should only be used in server-side code
-2. **Rotate keys regularly**: Generate new API keys periodically and update your integrations
-3. **Use environment variables**: Store API keys in environment variables rather than hardcoding them
-4. **Restrict access**: Only share API keys with team members who need them
-5. **Monitor usage**: Regularly check your API usage for any suspicious activity
+  <div className="security-grid">
+    <div className="security-item">
+      <div className="security-icon">🔒</div>
+      <div className="security-content">
+        <h4>Server-Side Only</h4>
+        <p>Never expose API keys in client-side code. Your API keys should only be used in server-side code.</p>
+      </div>
+    </div>
+
+    <div className="security-item">
+      <div className="security-icon">🔄</div>
+      <div className="security-content">
+        <h4>Rotate Keys Regularly</h4>
+        <p>Generate new API keys periodically and update your integrations to maintain security.</p>
+      </div>
+    </div>
+
+    <div className="security-item">
+      <div className="security-icon">🔐</div>
+      <div className="security-content">
+        <h4>Use Environment Variables</h4>
+        <p>Store API keys in environment variables rather than hardcoding them in your application.</p>
+      </div>
+    </div>
+
+    <div className="security-item">
+      <div className="security-icon">👥</div>
+      <div className="security-content">
+        <h4>Restrict Access</h4>
+        <p>Only share API keys with team members who need them for their work.</p>
+      </div>
+    </div>
+
+    <div className="security-item">
+      <div className="security-icon">📊</div>
+      <div className="security-content">
+        <h4>Monitor Usage</h4>
+        <p>Regularly check your API usage for any suspicious activity or unauthorized access.</p>
+      </div>
+    </div>
+  </div>
+
+  <div className="warning-callout">
+    <p><strong>⚠️ Warning:</strong> If you suspect your API key has been compromised, generate a new key immediately and revoke the old one.</p>
+  </div>
+</div>
+
+## Frequently Asked Questions
+
+<div className="faq-section">
+  <div className="faq-item">
+    <h3>Can I use the same API key for testing and production?</h3>
+    <p>No, you should use test keys (<code>sk_test_</code>) for development and testing, and live keys (<code>sk_live_</code>) for production.</p>
+  </div>
+
+  <div className="faq-item">
+    <h3>What happens if I expose my API key?</h3>
+    <p>If you accidentally expose your API key, generate a new key immediately and revoke the exposed key to prevent unauthorized access.</p>
+  </div>
+
+  <div className="faq-item">
+    <h3>Are there rate limits for API requests?</h3>
+    <p>Yes, there are rate limits for API requests. See our <a href="./best-practices">best practices</a> for details on rate limits.</p>
+  </div>
+
+  <div className="faq-item">
+    <h3>Can I create multiple API keys?</h3>
+    <p>Yes, you can create multiple API keys for different applications or environments to better manage and track API usage.</p>
+  </div>
+</div>
 
 ## Next Steps
 
-- Learn [How to Use the API](./how-to-use)
-- Understand [Environment Information](./environment-info)
-- Explore [Best Practices](./best-practices)
+<div className="next-steps-section">
+  <div className="next-step-card">
+    <h3>📘 How to Use the API</h3>
+    <p>Learn how to make API requests and integrate with LiasonPay</p>
+    <a href="./how-to-use" className="button button--secondary">View Guide</a>
+  </div>
+
+  <div className="next-step-card">
+    <h3>🌐 Environment Information</h3>
+    <p>Understand the different environments available for testing and production</p>
+    <a href="./environment-info" className="button button--secondary">Learn More</a>
+  </div>
+
+  <div className="next-step-card">
+    <h3>✅ Best Practices</h3>
+    <p>Explore best practices for integrating with the LiasonPay API</p>
+    <a href="./best-practices" className="button button--secondary">View Best Practices</a>
+  </div>
+</div>
+```
