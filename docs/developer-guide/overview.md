@@ -145,7 +145,7 @@ Authorization: Bearer sk_test_your_api_key
       </div>
       <div className="environment-content">
         <p><strong>Purpose:</strong> For testing and development</p>
-        <p><strong>Base URL:</strong> <code>https://liasonpay.test/api/v1</code></p>
+        <p><strong>Base URL:</strong> <code>{ApiBaseUrl()}</code></p>
         <p><strong>API Keys:</strong> Use test keys (<code>sk_test_</code>)</p>
         <div className="info-callout">
           <p><strong>💡 Tip:</strong> Always use the sandbox environment for testing before moving to production.</p>

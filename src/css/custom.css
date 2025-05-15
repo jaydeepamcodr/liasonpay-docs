@@ -588,6 +588,214 @@
   font-weight: bold;
 }
 
+/* Compliance Subsections */
+.compliance-subsection {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.compliance-subsection:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.compliance-subsection-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.compliance-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 8px;
+  background-color: var(--ifm-color-primary-lightest);
+  color: var(--ifm-color-primary);
+  font-size: 1.25rem;
+  margin-right: 1rem;
+}
+
+.compliance-subsection-header h3 {
+  margin: 0;
+  font-size: 1.35rem;
+  color: var(--ifm-color-primary-darker);
+}
+
+.compliance-content {
+  padding-left: 3.5rem;
+}
+
+/* Requirements Grid */
+.requirements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.requirement-card {
+  background-color: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.requirement-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.requirement-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: var(--ifm-color-primary);
+  color: white;
+  font-weight: bold;
+  margin-right: 0.75rem;
+}
+
+.requirement-header h4 {
+  margin: 0;
+  color: var(--ifm-color-primary-darker);
+}
+
+.requirement-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.requirement-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.requirement-list li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--ifm-color-success);
+  font-weight: bold;
+}
+
+/* Implementation Options */
+.implementation-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.implementation-option {
+  background-color: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.implementation-option h4 {
+  margin-top: 0;
+  color: var(--ifm-color-primary-darker);
+  margin-bottom: 1rem;
+}
+
+.implementation-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.implementation-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.implementation-list li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--ifm-color-success);
+  font-weight: bold;
+}
+
+/* Implementation Steps */
+.implementation-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 1.5rem 0;
+}
+
+.implementation-step {
+  background-color: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.implementation-step h4 {
+  margin-top: 0;
+  color: var(--ifm-color-primary-darker);
+  margin-bottom: 1rem;
+}
+
+/* Testing Subsections */
+.testing-subsection {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.testing-subsection:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.testing-subsection-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.testing-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 8px;
+  background-color: var(--ifm-color-primary-lightest);
+  color: var(--ifm-color-primary);
+  font-size: 1.25rem;
+  margin-right: 1rem;
+}
+
+.testing-subsection-header h3 {
+  margin: 0;
+  font-size: 1.35rem;
+  color: var(--ifm-color-primary-darker);
+}
+
+.testing-content {
+  padding-left: 3.5rem;
+}
+
 .workflow-tab h3 {
   margin-top: 0;
   margin-bottom: 1.5rem;

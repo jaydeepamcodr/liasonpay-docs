@@ -523,44 +523,109 @@ app.post("/privacy/data-request", async (req, res) => {
   </div>
 </div>
 
-## Strong Customer Authentication (SCA)
+<div className="step-by-step-section">
+  <div className="step-by-step-card">
+    <h2>4. Strong Customer Authentication (SCA)</h2>
 
-### SCA Overview
+    <div className="compliance-subsection">
+      <div className="compliance-subsection-header">
+        <div className="compliance-icon">🔐</div>
+        <h3>SCA Overview</h3>
+      </div>
 
-SCA is a requirement of the EU Revised Directive on Payment Services (PSD2) that requires additional authentication for online payments.
+      <div className="compliance-content">
+        <p>SCA is a requirement of the EU Revised Directive on Payment Services (PSD2) that requires additional authentication for online payments.</p>
 
-### Key Requirements
+        <div className="warning-callout">
+          <div className="warning-icon">⚠️</div>
+          <div className="warning-content">
+            <p><strong>Important:</strong> SCA applies to electronic payments where both the payer's and payee's payment service providers are located within the European Economic Area (EEA).</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-1. **Two-Factor Authentication**
+    <div className="compliance-subsection">
+      <div className="compliance-subsection-header">
+        <div className="compliance-icon">📋</div>
+        <h3>Key Requirements</h3>
+      </div>
 
-   - Require at least two of the following:
-     - Something the customer knows (password, PIN)
-     - Something the customer has (phone, hardware token)
-     - Something the customer is (biometrics)
+      <div className="compliance-content">
+        <div className="requirements-grid">
+          <div className="requirement-card">
+            <div className="requirement-header">
+              <div className="requirement-number">1</div>
+              <h4>Two-Factor Authentication</h4>
+            </div>
+            <p>Require at least two of the following:</p>
+            <ul className="requirement-list">
+              <li>Something the customer knows (password, PIN)</li>
+              <li>Something the customer has (phone, hardware token)</li>
+              <li>Something the customer is (biometrics)</li>
+            </ul>
+          </div>
 
-2. **Dynamic Linking**
+          <div className="requirement-card">
+            <div className="requirement-header">
+              <div className="requirement-number">2</div>
+              <h4>Dynamic Linking</h4>
+            </div>
+            <ul className="requirement-list">
+              <li>Authentication must be linked to a specific amount and recipient</li>
+            </ul>
+          </div>
 
-   - Authentication must be linked to a specific amount and recipient
+          <div className="requirement-card">
+            <div className="requirement-header">
+              <div className="requirement-number">3</div>
+              <h4>Exemptions</h4>
+            </div>
+            <ul className="requirement-list">
+              <li>Low-value transactions (under €30)</li>
+              <li>Recurring transactions of the same amount to the same recipient</li>
+              <li>Transactions assessed as low-risk</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
 
-3. **Exemptions**
-   - Low-value transactions (under €30)
-   - Recurring transactions of the same amount to the same recipient
-   - Transactions assessed as low-risk
+    <div className="compliance-subsection">
+      <div className="compliance-subsection-header">
+        <div className="compliance-icon">✅</div>
+        <h3>SCA Implementation with LiasonPay</h3>
+      </div>
 
-### SCA Implementation with LiasonPay
+      <div className="compliance-content">
+        <p>LiasonPay handles SCA requirements automatically:</p>
 
-LiasonPay handles SCA requirements automatically:
+        <div className="implementation-options">
+          <div className="implementation-option">
+            <h4>3D Secure 2.0</h4>
+            <ul className="implementation-list">
+              <li>LiasonPay implements 3D Secure 2.0 for card payments</li>
+              <li>Dynamically applies SCA when required</li>
+              <li>Handles exemptions appropriately</li>
+            </ul>
+          </div>
 
-1. **3D Secure 2.0**
+          <div className="implementation-option">
+            <h4>Recurring Payments</h4>
+            <ul className="implementation-list">
+              <li>Initial payment requires SCA</li>
+              <li>Subsequent payments may be exempt</li>
+              <li>LiasonPay manages this automatically</li>
+            </ul>
+          </div>
+        </div>
 
-   - LiasonPay implements 3D Secure 2.0 for card payments
-   - Dynamically applies SCA when required
-   - Handles exemptions appropriately
-
-2. **Recurring Payments**
-   - Initial payment requires SCA
-   - Subsequent payments may be exempt
-   - LiasonPay manages this automatically
+        <div className="code-example-container">
+          <div className="code-example-header">
+            <div className="code-example-badge good">SCA-Compliant Implementation</div>
+          </div>
+          <div className="code-block-container">
+            <pre className="code-block">
 
 ```javascript
 // LiasonPay handles SCA automatically
@@ -576,85 +641,440 @@ const subscription = await liasonpay.subscription.create({
 window.location.href = subscription.data.checkout_url;
 ```
 
-## Anti-Money Laundering (AML) and Know Your Customer (KYC)
+            </pre>
+          </div>
+        </div>
 
-### AML/KYC Overview
+        <div className="note-box">
+          <div className="note-icon">💡</div>
+          <div className="note-content">
+            <p>By using LiasonPay's hosted checkout, you automatically benefit from SCA compliance without having to implement complex authentication flows yourself.</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-AML and KYC regulations require businesses to verify customer identities and monitor transactions to prevent financial crimes.
+  </div>
+</div>
 
-### Key Requirements
+<div className="step-by-step-section">
+  <div className="step-by-step-card">
+    <h2>5. Anti-Money Laundering (AML) and Know Your Customer (KYC)</h2>
 
-1. **Customer Due Diligence**
+    <div className="compliance-subsection">
+      <div className="compliance-subsection-header">
+        <div className="compliance-icon">🔍</div>
+        <h3>AML/KYC Overview</h3>
+      </div>
 
-   - Verify customer identities
-   - Assess risk profiles
-   - Monitor for suspicious activities
+      <div className="compliance-content">
+        <p>AML and KYC regulations require businesses to verify customer identities and monitor transactions to prevent financial crimes.</p>
 
-2. **Transaction Monitoring**
-   - Screen against sanctions lists
-   - Identify unusual transaction patterns
-   - Report suspicious activities
+        <div className="warning-callout">
+          <div className="warning-icon">⚠️</div>
+          <div className="warning-content">
+            <p><strong>Important:</strong> AML/KYC requirements vary by country and industry, but most financial services businesses worldwide are subject to some form of these regulations.</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-### AML/KYC Implementation
+    <div className="compliance-subsection">
+      <div className="compliance-subsection-header">
+        <div className="compliance-icon">📋</div>
+        <h3>Key Requirements</h3>
+      </div>
 
-1. **Identity Verification**
+      <div className="compliance-content">
+        <div className="requirements-grid">
+          <div className="requirement-card">
+            <div className="requirement-header">
+              <div className="requirement-number">1</div>
+              <h4>Customer Due Diligence</h4>
+            </div>
+            <ul className="requirement-list">
+              <li>Verify customer identities</li>
+              <li>Assess risk profiles</li>
+              <li>Monitor for suspicious activities</li>
+            </ul>
+          </div>
 
-   - Collect appropriate identification information
-   - Verify identities using reliable sources
-   - Maintain verification records
+          <div className="requirement-card">
+            <div className="requirement-header">
+              <div className="requirement-number">2</div>
+              <h4>Transaction Monitoring</h4>
+            </div>
+            <ul className="requirement-list">
+              <li>Screen against sanctions lists</li>
+              <li>Identify unusual transaction patterns</li>
+              <li>Report suspicious activities</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
 
-2. **Risk Assessment**
-   - Implement risk-based approach
-   - Apply enhanced due diligence for high-risk customers
-   - Regularly review risk assessments
+    <div className="compliance-subsection">
+      <div className="compliance-subsection-header">
+        <div className="compliance-icon">✅</div>
+        <h3>AML/KYC Implementation</h3>
+      </div>
 
-## Accessibility Compliance
+      <div className="compliance-content">
+        <div className="implementation-steps">
+          <div className="implementation-step">
+            <h4>1. Identity Verification</h4>
+            <ul className="implementation-list">
+              <li>Collect appropriate identification information</li>
+              <li>Verify identities using reliable sources</li>
+              <li>Maintain verification records</li>
+            </ul>
 
-### Web Content Accessibility Guidelines (WCAG)
+            <div className="code-example-container">
+              <div className="code-example-header">
+                <div className="code-example-badge good">Identity Verification Form Example</div>
+              </div>
+              <div className="code-block-container">
+                <pre className="code-block">
 
-WCAG provides guidelines for making web content accessible to people with disabilities.
+```html
+<form id="kyc-verification-form">
+  <div class="form-group">
+    <label for="full-name">Full Legal Name</label>
+    <input type="text" id="full-name" name="full-name" required />
+  </div>
 
-### Key Requirements
+  <div class="form-group">
+    <label for="date-of-birth">Date of Birth</label>
+    <input type="date" id="date-of-birth" name="date-of-birth" required />
+  </div>
 
-1. **Perceivable**
+  <div class="form-group">
+    <label for="address">Residential Address</label>
+    <input type="text" id="address" name="address" required />
+  </div>
 
-   - Provide text alternatives for non-text content
-   - Provide captions and alternatives for multimedia
-   - Create content that can be presented in different ways
-   - Make it easier for users to see and hear content
+  <div class="form-group">
+    <label for="id-document">Government-Issued ID</label>
+    <select id="id-document-type" name="id-document-type" required>
+      <option value="">Select ID Type</option>
+      <option value="passport">Passport</option>
+      <option value="drivers-license">Driver's License</option>
+      <option value="national-id">National ID Card</option>
+    </select>
+    <input type="file" id="id-document" name="id-document" required />
+  </div>
 
-2. **Operable**
+  <button type="submit">Submit Verification</button>
+</form>
+```
 
-   - Make all functionality available from a keyboard
-   - Give users enough time to read and use content
-   - Do not use content that causes seizures
-   - Help users navigate and find content
+                </pre>
+              </div>
+            </div>
+          </div>
 
-3. **Understandable**
+          <div className="implementation-step">
+            <h4>2. Risk Assessment</h4>
+            <ul className="implementation-list">
+              <li>Implement risk-based approach</li>
+              <li>Apply enhanced due diligence for high-risk customers</li>
+              <li>Regularly review risk assessments</li>
+            </ul>
+          </div>
+        </div>
 
-   - Make text readable and understandable
-   - Make content appear and operate in predictable ways
-   - Help users avoid and correct mistakes
+        <div className="note-box">
+          <div className="note-icon">💡</div>
+          <div className="note-content">
+            <p>LiasonPay handles many aspects of AML/KYC compliance for you, but you may still need to implement additional measures depending on your business model and jurisdiction.</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-4. **Robust**
-   - Maximize compatibility with current and future user tools
+  </div>
+</div>
 
-### Accessibility Implementation
+<div className="step-by-step-section">
+  <div className="step-by-step-card">
+    <h2>6. Accessibility Compliance</h2>
 
-1. **Semantic HTML**
+    <div className="compliance-subsection">
+      <div className="compliance-subsection-header">
+        <div className="compliance-icon">♿</div>
+        <h3>Web Content Accessibility Guidelines (WCAG)</h3>
+      </div>
 
-   - Use proper HTML elements
-   - Implement appropriate ARIA attributes
-   - Ensure logical tab order
+      <div className="compliance-content">
+        <p>WCAG provides guidelines for making web content accessible to people with disabilities.</p>
 
-2. **Keyboard Navigation**
-   - Make all interactive elements keyboard accessible
-   - Provide visible focus indicators
-   - Test the entire flow using only a keyboard
+        <div className="warning-callout">
+          <div className="warning-icon">⚠️</div>
+          <div className="warning-content">
+            <p><strong>Important:</strong> In many jurisdictions, accessibility is not just a best practice but a legal requirement. For example, in the US, the Americans with Disabilities Act (ADA) has been interpreted to apply to websites.</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-## Next Steps
+    <div className="compliance-subsection">
+      <div className="compliance-subsection-header">
+        <div className="compliance-icon">📋</div>
+        <h3>Key Requirements</h3>
+      </div>
 
-- [Understand Testing Strategies](./testing)
-- [Review Security Best Practices](./security)
-- [Explore Performance Optimization](./performance)
-- [Learn about User Experience Guidelines](./user-experience)
+      <div className="compliance-content">
+        <div className="requirements-grid">
+          <div className="requirement-card">
+            <div className="requirement-header">
+              <div className="requirement-number">1</div>
+              <h4>Perceivable</h4>
+            </div>
+            <ul className="requirement-list">
+              <li>Provide text alternatives for non-text content</li>
+              <li>Provide captions and alternatives for multimedia</li>
+              <li>Create content that can be presented in different ways</li>
+              <li>Make it easier for users to see and hear content</li>
+            </ul>
+          </div>
+
+          <div className="requirement-card">
+            <div className="requirement-header">
+              <div className="requirement-number">2</div>
+              <h4>Operable</h4>
+            </div>
+            <ul className="requirement-list">
+              <li>Make all functionality available from a keyboard</li>
+              <li>Give users enough time to read and use content</li>
+              <li>Do not use content that causes seizures</li>
+              <li>Help users navigate and find content</li>
+            </ul>
+          </div>
+
+          <div className="requirement-card">
+            <div className="requirement-header">
+              <div className="requirement-number">3</div>
+              <h4>Understandable</h4>
+            </div>
+            <ul className="requirement-list">
+              <li>Make text readable and understandable</li>
+              <li>Make content appear and operate in predictable ways</li>
+              <li>Help users avoid and correct mistakes</li>
+            </ul>
+          </div>
+
+          <div className="requirement-card">
+            <div className="requirement-header">
+              <div className="requirement-number">4</div>
+              <h4>Robust</h4>
+            </div>
+            <ul className="requirement-list">
+              <li>Maximize compatibility with current and future user tools</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div className="compliance-subsection">
+      <div className="compliance-subsection-header">
+        <div className="compliance-icon">✅</div>
+        <h3>Accessibility Implementation</h3>
+      </div>
+
+      <div className="compliance-content">
+        <div className="implementation-steps">
+          <div className="implementation-step">
+            <h4>1. Semantic HTML</h4>
+            <ul className="implementation-list">
+              <li>Use proper HTML elements</li>
+              <li>Implement appropriate ARIA attributes</li>
+              <li>Ensure logical tab order</li>
+            </ul>
+
+            <div className="code-example-container">
+              <div className="code-example-header">
+                <div className="code-example-badge good">Accessible Form Example</div>
+              </div>
+              <div className="code-block-container">
+                <pre className="code-block">
+
+```html
+<!-- Accessible payment form example -->
+<form aria-labelledby="payment-form-title" role="form">
+  <h2 id="payment-form-title">Payment Information</h2>
+
+  <div class="form-group">
+    <label for="card-number" id="card-number-label">Card Number</label>
+    <input
+      type="text"
+      id="card-number"
+      name="card-number"
+      aria-labelledby="card-number-label"
+      aria-describedby="card-number-hint card-number-error"
+      aria-required="true"
+      autocomplete="cc-number"
+    />
+    <p id="card-number-hint" class="hint">
+      Enter the 16-digit number on your card
+    </p>
+    <p id="card-number-error" class="error" aria-live="polite" role="alert"></p>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label for="expiry-date" id="expiry-date-label">Expiry Date</label>
+      <input
+        type="text"
+        id="expiry-date"
+        name="expiry-date"
+        aria-labelledby="expiry-date-label"
+        aria-required="true"
+        autocomplete="cc-exp"
+        placeholder="MM/YY"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="cvv" id="cvv-label">Security Code</label>
+      <input
+        type="text"
+        id="cvv"
+        name="cvv"
+        aria-labelledby="cvv-label"
+        aria-required="true"
+        autocomplete="cc-csc"
+      />
+    </div>
+  </div>
+
+  <button type="submit" aria-describedby="submit-hint">Pay Now</button>
+  <p id="submit-hint" class="hint">Your card will be charged immediately</p>
+</form>
+```
+
+                </pre>
+              </div>
+            </div>
+          </div>
+
+          <div className="implementation-step">
+            <h4>2. Keyboard Navigation</h4>
+            <ul className="implementation-list">
+              <li>Make all interactive elements keyboard accessible</li>
+              <li>Provide visible focus indicators</li>
+              <li>Test the entire flow using only a keyboard</li>
+            </ul>
+
+            <div className="code-example-container">
+              <div className="code-example-header">
+                <div className="code-example-badge good">Focus Styles Example</div>
+              </div>
+              <div className="code-block-container">
+                <pre className="code-block">
+
+```css
+/* Ensure clear focus styles for keyboard navigation */
+:focus {
+  outline: 2px solid #4d90fe;
+  outline-offset: 2px;
+}
+
+/* Custom focus styles for interactive elements */
+button:focus,
+input:focus,
+select:focus,
+textarea:focus,
+a:focus {
+  outline: 2px solid #4d90fe;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px rgba(77, 144, 254, 0.5);
+}
+```
+
+                </pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="note-box">
+          <div className="note-icon">💡</div>
+          <div className="note-content">
+            <p>LiasonPay's hosted checkout pages are designed to be accessible, but you should ensure that your own payment flow and integration points also meet accessibility standards.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div className="step-by-step-section">
+  <div className="step-by-step-card">
+    <h2>Next Steps</h2>
+
+    <div className="next-steps-container">
+      <p>Explore these related guides to further enhance your payment integration:</p>
+
+      <div className="next-steps-grid">
+        <div className="next-step-item">
+          <div className="next-step-icon">🧪</div>
+          <div className="next-step-content">
+            <h4>Testing Strategies</h4>
+            <p>Comprehensive approaches to testing your integration</p>
+            <a href="./testing" className="button button--primary">View Testing Guide</a>
+          </div>
+        </div>
+
+        <div className="next-step-item">
+          <div className="next-step-icon">🔒</div>
+          <div className="next-step-content">
+            <h4>Security Best Practices</h4>
+            <p>Keep payment data secure and protect your users</p>
+            <a href="./security" className="button button--primary">View Security Guide</a>
+          </div>
+        </div>
+
+        <div className="next-step-item">
+          <div className="next-step-icon">⚡</div>
+          <div className="next-step-content">
+            <h4>Performance Optimization</h4>
+            <p>Optimize your integration for speed and reliability</p>
+            <a href="./performance" className="button button--primary">View Performance Guide</a>
+          </div>
+        </div>
+
+        <div className="next-step-item">
+          <div className="next-step-icon">👤</div>
+          <div className="next-step-content">
+            <h4>User Experience Guidelines</h4>
+            <p>Create a seamless payment experience for your users</p>
+            <a href="./user-experience" className="button button--primary">View UX Guide</a>
+          </div>
+        </div>
+      </div>
+
+      <div className="conclusion-content">
+        <h3>Conclusion</h3>
+        <p>Compliance with regulatory requirements is essential for any payment integration. By following the guidelines in this document, you can ensure that your LiasonPay integration meets the necessary legal and regulatory standards while providing a secure and accessible experience for your users.</p>
+
+        <p>Remember that compliance requirements may change over time, so it's important to stay informed about updates to regulations in your jurisdiction.</p>
+
+        <div className="key-takeaways">
+          <h4>Key Takeaways</h4>
+          <ul>
+            <li>Use LiasonPay's hosted checkout to reduce your PCI DSS compliance burden</li>
+            <li>Implement proper consent mechanisms for GDPR compliance</li>
+            <li>Handle CCPA data access and deletion requests appropriately</li>
+            <li>Leverage LiasonPay's built-in SCA compliance for European payments</li>
+            <li>Implement appropriate AML/KYC measures based on your business model</li>
+            <li>Ensure your payment flow is accessible to all users</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
