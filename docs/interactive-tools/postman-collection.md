@@ -30,8 +30,10 @@ Download the Postman Collection directly from our website:
 
 Import the collection directly in Postman using this URL:
 
+import { AppUrl } from '@site/src/components/DynamicValues';
+
 ```
-https://liasonpay.net/docs/collection.json
+<AppUrl />/docs/collection.json
 ```
 
 ## Setting Up the Collection

@@ -1,68 +1,68 @@
-{ 
-  "variable": [ 
-    { 
-      "id": "baseUrl", 
-      "key": "baseUrl", 
-      "type": "string", 
-      "name": "string", 
-      "value": "https://liasonpay.net/" 
-    } 
-  ], 
-  "info": { 
-    "name": "LiasonPay API Documentation", 
-    "_postman_id": "c7b7c961-94cd-46b7-9af6-307e220272f1", 
-    "description": "This documentation aims to provide all the information you need to work with our API.", 
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json" 
-  }, 
-  "item": [ 
-    { 
-      "name": "Endpoints", 
-      "description": "", 
-      "item": [ 
-        { 
-          "name": "Get a list of subscriptions", 
-          "request": { 
-            "url": { 
-              "host": "{{baseUrl}}", 
-              "path": "api/v1/subscription/get", 
-              "query": [ 
-                { 
-                  "key": "store_id", 
-                  "value": "STORE_65C0279F05", 
-                  "description": "The ID of the store. The store_id of an existing record in the stores table. Must not be greater than 255 characters.", 
-                  "disabled": false 
-                }, 
-                { 
-                  "key": "subscription_id", 
-                  "value": "SUBSCRIPTION_56FBC7EEE4", 
-                  "description": "The ID of the subscription. The subscription_id of an existing record in the subscriptions table. Must not be greater than 255 characters.", 
-                  "disabled": false 
-                } 
-              ], 
-              "raw": "{{baseUrl}}/api/v1/subscription/get?store_id=STORE_65C0279F05&subscription_id=SUBSCRIPTION_56FBC7EEE4" 
-            }, 
-            "method": "GET", 
-            "header": [ 
-              { 
-                "key": "Content-Type", 
-                "value": "application/json" 
-              }, 
-              { 
-                "key": "Accept", 
-                "value": "application/json" 
-              } 
-            ], 
-            "body": null, 
-            "description": "" 
-          }, 
-          "response": [ 
-            { 
-              "header": [], 
-              "code": 200, 
-              "body": "{\n \"status\": true,\n \"message\": \"Subscriptions retrieved successfully\",\n \"data\": []\n}", 
-              "name": "" 
-            } 
-          ] 
+{
+  "variable": [
+    {
+      "id": "baseUrl",
+      "key": "baseUrl",
+      "type": "string",
+      "name": "string",
+      "value": "{{baseUrl}}"
+    }
+  ],
+  "info": {
+    "name": "LiasonPay API Documentation",
+    "_postman_id": "c7b7c961-94cd-46b7-9af6-307e220272f1",
+    "description": "This documentation aims to provide all the information you need to work with our API.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Endpoints",
+      "description": "",
+      "item": [
+        {
+          "name": "Get a list of subscriptions",
+          "request": {
+            "url": {
+              "host": "{{baseUrl}}",
+              "path": "api/v1/subscription/get",
+              "query": [
+                {
+                  "key": "store_id",
+                  "value": "STORE_65C0279F05",
+                  "description": "The ID of the store. The store_id of an existing record in the stores table. Must not be greater than 255 characters.",
+                  "disabled": false
+                },
+                {
+                  "key": "subscription_id",
+                  "value": "SUBSCRIPTION_56FBC7EEE4",
+                  "description": "The ID of the subscription. The subscription_id of an existing record in the subscriptions table. Must not be greater than 255 characters.",
+                  "disabled": false
+                }
+              ],
+              "raw": "{{baseUrl}}/api/v1/subscription/get?store_id=STORE_65C0279F05&subscription_id=SUBSCRIPTION_56FBC7EEE4"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": null,
+            "description": ""
+          },
+          "response": [
+            {
+              "header": [],
+              "code": 200,
+              "body": "{\n \"status\": true,\n \"message\": \"Subscriptions retrieved successfully\",\n \"data\": []\n}",
+              "name": ""
+            }
+          ]
         },
         {
           "name": "Create a subscription",

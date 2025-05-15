@@ -9,8 +9,8 @@ export function ApiBaseUrl() {
   return <code>{apiBaseUrl}</code>;
 }
 
-export function DashboardUrl() {
-  return <code>{Constants.DASHBOARD_URL}</code>;
+export function AppUrl() {
+  return <code>{Constants.APP_URL}</code>;
 }
 
 // Example values components

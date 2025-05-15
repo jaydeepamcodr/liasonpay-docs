@@ -82,7 +82,7 @@ To test subscription creation:
 
 For testing without processing real payments:
 
-1. Use the sandbox base URL: `https://sandbox.liasonpay.net/api/v1/`
+1. Use the sandbox base URL: `https://sandbox.liasonpay.test/api/v1/`
 2. Use a test API key (`sk_test_`)
 3. Set the `mode` parameter to "sandbox"
 4. Use test card numbers for payment testing
@@ -91,7 +91,9 @@ For testing without processing real payments:
 
 For testing with real payments:
 
-1. Use the production base URL: `https://liasonpay.net/api/v1/`
+import { ApiBaseUrl } from '@site/src/components/DynamicValues';
+
+1. Use the production base URL: <ApiBaseUrl />
 2. Use a live API key (`sk_live_`)
 3. Set the `mode` parameter to "production"
 4. Use real card information

@@ -8,11 +8,11 @@ This guide provides a step-by-step approach to using the LiasonPay API effective
 
 ## Basic Request Structure
 
+import { AppUrl } from '@site/src/components/DynamicValues';
+
 All API requests should be made to the base URL:
 
-```
-https://liasonpay.net/
-```
+<AppUrl />
 
 ## Request Headers
 

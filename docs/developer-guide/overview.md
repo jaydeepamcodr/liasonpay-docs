@@ -33,8 +33,10 @@ To get started with the LiasonPay API, you'll need to:
 
 LiasonPay provides two environments:
 
-- **Sandbox**: For testing and development (`https://sandbox.liasonpay.net/`)
-- **Production**: For live transactions (`https://liasonpay.net/`)
+import { AppUrl } from '@site/src/components/DynamicValues';
+
+- **Sandbox**: For testing and development (`https://sandbox.liasonpay.test/`)
+- **Production**: For live transactions (<AppUrl />)
 
 Always use the sandbox environment for testing before moving to production.
 

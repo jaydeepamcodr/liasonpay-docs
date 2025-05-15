@@ -10,10 +10,12 @@ This guide provides a comprehensive overview of how to use the LiasonPay API, in
 
 ### Base URL
 
+import { ApiBaseUrl, AppUrl } from '@site/src/components/DynamicValues';
+
 All API requests should be made to the appropriate base URL:
 
-- **Sandbox**: `https://sandbox.liasonpay.net/api/v1/`
-- **Production**: `https://liasonpay.net/api/v1/`
+- **Sandbox**: `https://sandbox.liasonpay.test/api/v1/`
+- **Production**: <ApiBaseUrl />
 
 ### Request Format
 
@@ -46,9 +48,9 @@ All API responses are returned in JSON format with the following structure:
 
 ```json
 {
-    "status": true,
-    "message": "Operation successful",
-    "data": {}
+  "status": true,
+  "message": "Operation successful",
+  "data": {}
 }
 ```
 
@@ -62,12 +64,12 @@ When an error occurs, the API will return a JSON response with a `status` of `fa
 
 ```json
 {
-    "status": false,
-    "message": "Error message",
-    "data": {
-        "error_code": "error_type",
-        "errors": {}
-    }
+  "status": false,
+  "message": "Error message",
+  "data": {
+    "error_code": "error_type",
+    "errors": {}
+  }
 }
 ```
 
@@ -82,15 +84,15 @@ When an error occurs, the API will return a JSON response with a `status` of `fa
 Example configuration in Node.js:
 
 ```javascript
-const axios = require('axios');
+const axios = require("axios");
 
 const liasonpay = axios.create({
-  baseURL: 'https://sandbox.liasonpay.net/api/v1',
+  baseURL: "https://sandbox.liasonpay.test/api/v1",
   headers: {
-    'Authorization': `Bearer ${process.env.LIASONPAY_API_KEY}`,
-    'Content-Type': 'application/json',
-    'Accept': 'application/json'
-  }
+    Authorization: `Bearer ${process.env.LIASONPAY_API_KEY}`,
+    "Content-Type": "application/json",
+    Accept: "application/json",
+  },
 });
 ```
 
@@ -108,25 +110,28 @@ const paymentData = {
       name: "Product 1",
       description: "Product description",
       price: 100,
-      quantity: 1
-    }
+      quantity: 1,
+    },
   ],
   customer: {
     name: "John Doe",
     email: "john.doe@example.com",
-    phone_number: "+1234567890"
+    phone_number: "+1234567890",
   },
   success_url: "https://example.com/success",
   cancel_url: "https://example.com/cancel",
-  mode: "sandbox"
+  mode: "sandbox",
 };
 
 // Make the request
 try {
-  const response = await liasonpay.post('/payments/process', paymentData);
-  console.log('Payment processed:', response.data);
+  const response = await liasonpay.post("/payments/process", paymentData);
+  console.log("Payment processed:", response.data);
 } catch (error) {
-  console.error('Error processing payment:', error.response?.data || error.message);
+  console.error(
+    "Error processing payment:",
+    error.response?.data || error.message
+  );
 }
 ```
 
@@ -134,14 +139,17 @@ try {
 
 ```javascript
 try {
-  const response = await liasonpay.get('/subscription/get', {
+  const response = await liasonpay.get("/subscription/get", {
     params: {
-      store_id: "STORE_123"
-    }
+      store_id: "STORE_123",
+    },
   });
-  console.log('Subscriptions:', response.data);
+  console.log("Subscriptions:", response.data);
 } catch (error) {
-  console.error('Error fetching subscriptions:', error.response?.data || error.message);
+  console.error(
+    "Error fetching subscriptions:",
+    error.response?.data || error.message
+  );
 }
 ```
 
@@ -151,8 +159,8 @@ Always implement proper error handling:
 
 ```javascript
 try {
-  const response = await liasonpay.post('/endpoint', data);
-  
+  const response = await liasonpay.post("/endpoint", data);
+
   if (response.data.status) {
     // Success case
     handleSuccess(response.data);
@@ -186,22 +194,26 @@ Set up webhook handlers to receive real-time notifications:
 Example webhook handler in Express.js:
 
 ```javascript
-const express = require('express');
-const crypto = require('crypto');
+const express = require("express");
+const crypto = require("crypto");
 const app = express();
 
-app.post('/webhooks/liasonpay', express.json(), (req, res) => {
+app.post("/webhooks/liasonpay", express.json(), (req, res) => {
   // Verify webhook signature
-  const signature = req.headers['liasonpay-signature'];
-  const isValid = verifyWebhookSignature(req.body, signature, process.env.WEBHOOK_SECRET);
-  
+  const signature = req.headers["liasonpay-signature"];
+  const isValid = verifyWebhookSignature(
+    req.body,
+    signature,
+    process.env.WEBHOOK_SECRET
+  );
+
   if (!isValid) {
-    return res.status(400).send('Invalid signature');
+    return res.status(400).send("Invalid signature");
   }
-  
+
   // Acknowledge receipt immediately
-  res.status(200).send('Webhook received');
-  
+  res.status(200).send("Webhook received");
+
   // Process the webhook asynchronously
   const event = req.body;
   processWebhookEvent(event).catch(console.error);
@@ -262,7 +274,7 @@ For endpoints that return lists, use pagination parameters:
 import requests
 
 api_key = "sk_test_abcdefghijklmnopqrstuvwxyz123456"
-base_url = "https://sandbox.liasonpay.net/api/v1"
+base_url = "https://sandbox.liasonpay.test/api/v1"
 
 headers = {
     "Authorization": f"Bearer {api_key}",
@@ -301,7 +313,7 @@ print(response.json())
 ```php
 <?php
 $api_key = "sk_test_abcdefghijklmnopqrstuvwxyz123456";
-$base_url = "https://sandbox.liasonpay.net/api/v1";
+$base_url = "https://sandbox.liasonpay.test/api/v1";
 
 $headers = [
     "Authorization: Bearer " . $api_key,

@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-import ApiTester from '@site/src/components/ApiTester';
+import ApiTester from "@site/src/components/ApiTester";
 
 # Payment Endpoints
 
@@ -20,33 +20,35 @@ Process a payment.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-|------|------|----------|-------------|
-| store_id | string | Yes | The ID of the store. Must not be greater than 255 characters. |
-| currency | string | Yes | The currency of the payment. Must not be greater than 3 characters. |
-| products | array | Yes | The products to be purchased. |
-| products[].name | string | Yes | The name of the product. Must not be greater than 255 characters. |
-| products[].description | string | Yes | The description of the product. Must not be greater than 500 characters. |
-| products[].price | number | Yes | The price of the product. Must be at least 1. |
-| products[].quantity | integer | Yes | The quantity of the product. Must be at least 1. |
-| customer | object | No | The customer details. |
-| customer.name | string | No | The name of the customer. Must not be greater than 255 characters. |
-| customer.email | string | No | The email of the customer. Must be a valid email address. Must not be greater than 255 characters. |
-| customer.phone_number | string | No | The phone number of the customer. Must not be greater than 255 characters. |
-| metadata | object | No | The metadata of the payment. |
-| metadata.order_id | string | No | The order ID. |
-| metadata.order_code | string | No | The order code. |
-| success_url | string | Yes | The URL to redirect to after successful payment. Must be a valid URL. |
-| cancel_url | string | Yes | The URL to redirect to after payment cancellation. Must be a valid URL. |
-| return_url | string | No | The URL to redirect to after payment completion. Must be a valid URL. |
-| mode | string | Yes | The mode of the payment. Must be one of: `sandbox`, `production`. |
-| coupon | string | No | The coupon code. The `code` of an existing record in the coupons table. |
+| Name                   | Type    | Required | Description                                                                                        |
+| ---------------------- | ------- | -------- | -------------------------------------------------------------------------------------------------- |
+| store_id               | string  | Yes      | The ID of the store. Must not be greater than 255 characters.                                      |
+| currency               | string  | Yes      | The currency of the payment. Must not be greater than 3 characters.                                |
+| products               | array   | Yes      | The products to be purchased.                                                                      |
+| products[].name        | string  | Yes      | The name of the product. Must not be greater than 255 characters.                                  |
+| products[].description | string  | Yes      | The description of the product. Must not be greater than 500 characters.                           |
+| products[].price       | number  | Yes      | The price of the product. Must be at least 1.                                                      |
+| products[].quantity    | integer | Yes      | The quantity of the product. Must be at least 1.                                                   |
+| customer               | object  | No       | The customer details.                                                                              |
+| customer.name          | string  | No       | The name of the customer. Must not be greater than 255 characters.                                 |
+| customer.email         | string  | No       | The email of the customer. Must be a valid email address. Must not be greater than 255 characters. |
+| customer.phone_number  | string  | No       | The phone number of the customer. Must not be greater than 255 characters.                         |
+| metadata               | object  | No       | The metadata of the payment.                                                                       |
+| metadata.order_id      | string  | No       | The order ID.                                                                                      |
+| metadata.order_code    | string  | No       | The order code.                                                                                    |
+| success_url            | string  | Yes      | The URL to redirect to after successful payment. Must be a valid URL.                              |
+| cancel_url             | string  | Yes      | The URL to redirect to after payment cancellation. Must be a valid URL.                            |
+| return_url             | string  | No       | The URL to redirect to after payment completion. Must be a valid URL.                              |
+| mode                   | string  | Yes      | The mode of the payment. Must be one of: `sandbox`, `production`.                                  |
+| coupon                 | string  | No       | The coupon code. The `code` of an existing record in the coupons table.                            |
 
 ### Example Request
 
+import { ApiBaseUrl } from "@site/src/components/DynamicValues";
+
 ```bash
 curl --request POST \
-    "https://liasonpay.net/api/v1/payments/process" \
+    "<ApiBaseUrl />/payments/process" \
     --header "Authorization: Bearer {API_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -78,71 +80,71 @@ curl --request POST \
 }"
 ```
 
-<ApiTester 
-  endpoint="/api/v1/payments/process" 
+<ApiTester
+  endpoint="/api/v1/payments/process"
   method="POST"
-  baseUrl="https://liasonpay.net" 
+  baseUrl="https://liasonpay.net"
   params={[
-    { 
-      name: "store_id", 
-      required: true, 
+    {
+      name: "store_id",
+      required: true,
       in: "body",
-      description: "The ID of the store" 
+      description: "The ID of the store",
     },
-    { 
-      name: "currency", 
-      required: true, 
+    {
+      name: "currency",
+      required: true,
       in: "body",
-      description: "The currency of the payment (e.g., usd)" 
+      description: "The currency of the payment (e.g., usd)",
     },
-    { 
-      name: "products", 
-      required: true, 
+    {
+      name: "products",
+      required: true,
       in: "body",
-      description: "The products to be purchased (array of objects)" 
+      description: "The products to be purchased (array of objects)",
     },
-    { 
-      name: "customer", 
-      required: false, 
+    {
+      name: "customer",
+      required: false,
       in: "body",
-      description: "The customer details (object)" 
+      description: "The customer details (object)",
     },
-    { 
-      name: "metadata", 
-      required: false, 
+    {
+      name: "metadata",
+      required: false,
       in: "body",
-      description: "The metadata of the payment (object)" 
+      description: "The metadata of the payment (object)",
     },
-    { 
-      name: "success_url", 
-      required: true, 
+    {
+      name: "success_url",
+      required: true,
       in: "body",
-      description: "The URL to redirect to after successful payment" 
+      description: "The URL to redirect to after successful payment",
     },
-    { 
-      name: "cancel_url", 
-      required: true, 
+    {
+      name: "cancel_url",
+      required: true,
       in: "body",
-      description: "The URL to redirect to after payment cancellation" 
+      description: "The URL to redirect to after payment cancellation",
     },
-    { 
-      name: "return_url", 
-      required: false, 
+    {
+      name: "return_url",
+      required: false,
       in: "body",
-      description: "The URL to redirect to after payment completion" 
+      description: "The URL to redirect to after payment completion",
     },
-    { 
-      name: "mode", 
-      required: true, 
+    {
+      name: "mode",
+      required: true,
       in: "body",
-      description: "The mode of the payment (sandbox or production)" 
+      description: "The mode of the payment (sandbox or production)",
     },
-    { 
-      name: "coupon", 
-      required: false, 
+    {
+      name: "coupon",
+      required: false,
       in: "body",
-      description: "The coupon code" 
-    }
+      description: "The coupon code",
+    },
   ]}
 />
 
@@ -158,9 +160,9 @@ Verify a payment.
 
 ### Parameters
 
-| Name | Type | Required | Description |
-|------|------|----------|-------------|
-| transaction_id | string | Yes | The ID of the transaction. The `transaction_id` of an existing record in the transactions table. Must not be greater than 255 characters. |
+| Name           | Type   | Required | Description                                                                                                                               |
+| -------------- | ------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| transaction_id | string | Yes      | The ID of the transaction. The `transaction_id` of an existing record in the transactions table. Must not be greater than 255 characters. |
 
 ### Example Request
 
@@ -175,16 +177,16 @@ curl --request POST \
 }"
 ```
 
-<ApiTester 
-  endpoint="/api/v1/payments/verify" 
+<ApiTester
+  endpoint="/api/v1/payments/verify"
   method="POST"
-  baseUrl="https://liasonpay.net" 
+  baseUrl="https://liasonpay.net"
   params={[
-    { 
-      name: "transaction_id", 
-      required: true, 
+    {
+      name: "transaction_id",
+      required: true,
       in: "body",
-      description: "The ID of the transaction" 
-    }
+      description: "The ID of the transaction",
+    },
   ]}
 />

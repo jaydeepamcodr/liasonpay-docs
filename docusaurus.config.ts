@@ -5,7 +5,7 @@ import type * as Preset from "@docusaurus/preset-classic";
 // Import constants
 const {
   API_BASE_URL,
-  DASHBOARD_URL,
+  APP_URL,
   EXAMPLE_STORE_ID,
   EXAMPLE_SUBSCRIPTION_ID,
   EXAMPLE_PACKAGE_ID,
@@ -24,7 +24,7 @@ const config: Config = {
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
-  url: "https://liasonpay.net",
+  url: APP_URL,
   // Set the /<baseUrl>/ pathname under which your site is served
   baseUrl: "/",
 
@@ -96,7 +96,7 @@ const config: Config = {
           position: "right",
         },
         {
-          href: "https://liasonpay.net",
+          href: APP_URL,
           label: "Main Website",
           position: "right",
         },
@@ -140,7 +140,7 @@ const config: Config = {
           items: [
             {
               label: "Website",
-              href: "https://liasonpay.net",
+              href: APP_URL,
             },
             {
               label: "API Keys",
@@ -157,8 +157,8 @@ const config: Config = {
     },
   } satisfies Preset.ThemeConfig,
   customFields: {
+    appUrl: APP_URL,
     apiBaseUrl: API_BASE_URL,
-    dashboardUrl: DASHBOARD_URL,
     exampleStoreId: EXAMPLE_STORE_ID,
     exampleSubscriptionId: EXAMPLE_SUBSCRIPTION_ID,
     examplePackageId: EXAMPLE_PACKAGE_ID,

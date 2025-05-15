@@ -43,17 +43,11 @@ To get started with the LiasonPay API:
 
 ## Base URL
 
+import { AppUrl } from '@site/src/components/DynamicValues';
+
 All API requests should be made to:
 
-```
-https://liasonpay.net/
-```
-
-For sandbox testing, use:
-
-```
-https://sandbox.liasonpay.net/
-```
+<AppUrl />
 
 ## Support
 

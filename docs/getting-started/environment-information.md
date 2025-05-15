@@ -8,7 +8,9 @@ LiasonPay provides a production environment for processing payments. This guide 
 
 ## Production Environment
 
-- **Base URL**: `https://liasonpay.net/`
+import { AppUrl } from '@site/src/components/DynamicValues';
+
+- **Base URL**: <AppUrl />
 - **Purpose**: Live transactions and real payments
 - **API Keys**: API keys (prefixed with `sk_`)
 - **Payments**: Real money is processed
@@ -20,7 +22,7 @@ LiasonPay provides a production environment for processing payments. This guide 
 
 1. **Create a LiasonPay Account**:
 
-   - Sign up at [https://liasonpay.test](https://liasonpay.test)
+   - Sign up at [LiasonPay](<AppUrl />)
    - Verify your email address
 
 2. **Generate API Keys**:
@@ -31,7 +33,7 @@ LiasonPay provides a production environment for processing payments. This guide 
 
 3. **Configure Your Environment**:
 
-   - Set the base URL to `https://liasonpay.net/`
+   - Set the base URL to <AppUrl />
    - Use your API key for authentication
    - Set the `mode` parameter to `production` in relevant API calls
 
@@ -41,14 +43,16 @@ LiasonPay provides a production environment for processing payments. This guide 
 
 ## Environment Details
 
-| Feature        | Details                  |
-| -------------- | ------------------------ |
-| Base URL       | `https://liasonpay.net/` |
-| API Keys       | Keys (`sk_`)             |
-| Money Movement | Real transactions        |
-| Rate Limits    | 300 requests per minute  |
-| Webhooks       | Live events              |
-| Dashboard      | Live data                |
+import { ApiRateLimit } from '@site/src/components/DynamicValues';
+
+| Feature        | Details                              |
+| -------------- | ------------------------------------ |
+| Base URL       | <AppUrl />                           |
+| API Keys       | Keys (`sk_`)                         |
+| Money Movement | Real transactions                    |
+| Rate Limits    | <ApiRateLimit /> requests per minute |
+| Webhooks       | Live events                          |
+| Dashboard      | Live data                            |
 
 ## Test Cards
 

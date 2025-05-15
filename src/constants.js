@@ -1,8 +1,5 @@
-export const APP_URL = 'https://liasonpay.net';
-export const API_BASE_URL = 'https://liasonpay.net/api/v1';
-
-// Dashboard URL
-export const DASHBOARD_URL = 'https://liasonpay.test';
+export const APP_URL = 'https://liasonpay.test';
+export const API_BASE_URL = 'https://liasonpay.test/api/v1';
 
 // Example values
 export const EXAMPLE_STORE_ID = 'STORE_65C0279F05';

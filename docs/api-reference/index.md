@@ -40,7 +40,11 @@ To obtain your API key, please follow these steps:
 2. Navigate to the **Dashboard**
 3. Click on the **Profile icon** in the top right corner
 4. Click on the **API Keys** section
-5. Generate a new API key or copy your existing key
+5. You will see your API key listed here. You can either:
+   - **Copy your existing API key**, or
+   - **Generate a new API key**, if needed.
+
+> **Note:** You can also access your API key directly from the **sidebar menu** by clicking on the **"API Keys"** option.
 
 For more details, see the [Authentication](/getting-started/authentication) guide.
 

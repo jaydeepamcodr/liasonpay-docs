@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-import { SITE_URL } from "@site/src/constants";
+import { AppUrl, ApiBaseUrl } from "@site/src/components/DynamicValues";
 
 # Introduction
 
@@ -66,9 +66,7 @@ To start integrating with the LiasonPay API:
 
 The current version of the LiasonPay API is v1. All API requests should include the version in the URL path:
 
-```
-https://liasonpay.net/api/v1/
-```
+<ApiBaseUrl />
 
 ## Support
 

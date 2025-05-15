@@ -8,7 +8,9 @@ LiasonPay provides a production environment for processing payments. This page e
 
 ## Production Environment
 
-- **Base URL**: `https://liasonpay.net/`
+import { AppUrl } from '@site/src/components/DynamicValues';
+
+- **Base URL**: <AppUrl />
 - **Purpose**: Live transactions and real payments
 - **API Keys**: API keys (prefixed with `sk_`)
 - **Payments**: Real money is processed
@@ -18,7 +20,7 @@ LiasonPay provides a production environment for processing payments. This page e
 
 When making API requests, you need to:
 
-1. Use the base URL for your API requests
+1. Use the base URL (<AppUrl />) for your API requests
 2. Use your API key for authentication
 3. Set the `mode` parameter to `production` in relevant API calls
 

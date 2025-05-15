@@ -21,8 +21,10 @@ For more details, see the [Environment Information](/getting-started/environment
 
 To set up your production environment:
 
+import { AppUrl } from '@site/src/components/DynamicValues';
+
 1. Ensure you're using the correct API key
-2. Use the base URL `https://liasonpay.net/` for all API calls
+2. Use the base URL <AppUrl /> for all API calls
 3. Set the `mode` parameter to `production` in relevant API calls
 4. Configure your webhook endpoints to handle events
 
@@ -40,9 +42,11 @@ LiasonPay currently supports the following currencies:
 
 ### Are there any rate limits?
 
+import { ApiRateLimit } from '@site/src/components/DynamicValues';
+
 Yes, the API has rate limits to prevent abuse:
 
-- **Rate Limit**: 300 requests per minute
+- **Rate Limit**: <ApiRateLimit /> requests per minute
 
 If you exceed these limits, you'll receive a `429 Too Many Requests` response.
 
@@ -282,4 +286,4 @@ If you couldn't find an answer to your question, please contact our support team
 
 - Email: support@liasonpay.test
 - Support Portal: [https://support.liasonpay.test](https://support.liasonpay.test)
-- Documentation: [https://liasonpay.net/docs](https://liasonpay.net/docs)
+- Documentation: [<AppUrl />/docs](<AppUrl />/docs)
