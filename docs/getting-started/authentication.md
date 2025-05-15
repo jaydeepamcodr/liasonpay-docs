@@ -14,6 +14,7 @@ LiasonPay provides two types of API keys:
 - **Live API Keys**: Used with the production environment for processing real transactions
 
 Each API key has a prefix that indicates its type:
+
 - Test keys start with `sk_test_`
 - Live keys start with `sk_live_`
 
@@ -63,6 +64,7 @@ Follow these best practices to keep your API keys secure:
 ### 1. Never Expose API Keys in Client-Side Code
 
 API keys should only be used in server-side code. Never include them in:
+
 - JavaScript that runs in the browser
 - Mobile app code
 - Public repositories

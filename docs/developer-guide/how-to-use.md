@@ -14,12 +14,6 @@ All API requests should be made to the base URL:
 https://liasonpay.net/
 ```
 
-For sandbox testing, use:
-
-```
-https://sandbox.liasonpay.net/
-```
-
 ## Request Headers
 
 Include these headers with all API requests:
@@ -36,9 +30,9 @@ All API responses are returned in JSON format with the following structure:
 
 ```json
 {
-    "status": true,
-    "message": "Operation successful",
-    "data": {}
+  "status": true,
+  "message": "Operation successful",
+  "data": {}
 }
 ```
 
@@ -52,9 +46,9 @@ When an error occurs, the API will return a JSON response with a `status` of `fa
 
 ```json
 {
-    "status": false,
-    "message": "Error message",
-    "data": null
+  "status": false,
+  "message": "Error message",
+  "data": null
 }
 ```
 
@@ -76,9 +70,9 @@ When an error occurs, the API will return a JSON response with a `status` of `fa
 
 ## Testing Your Integration
 
-Always test your integration thoroughly in the sandbox environment before moving to production:
+Always test your integration thoroughly before going live:
 
-1. Use test API keys for all sandbox requests
+1. Use test card numbers and amounts to simulate different scenarios
 2. Test successful payment flows
 3. Test error scenarios and edge cases
 4. Verify webhook handling

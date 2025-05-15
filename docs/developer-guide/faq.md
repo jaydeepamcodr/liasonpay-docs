@@ -8,23 +8,23 @@ This page provides answers to frequently asked questions and solutions to common
 
 ## General Questions
 
-### What is the difference between sandbox and production environments?
+### How can I test my integration without processing real payments?
 
-The sandbox environment is for testing and development, while the production environment is for processing real payments:
+You can use test card numbers and special test amounts to simulate different payment scenarios without processing real payments:
 
-- **Sandbox**: Uses test API keys (prefixed with `sk_test_`), doesn't process real money
-- **Production**: Uses live API keys (prefixed with `sk_live_`), processes real money
+- Use test card numbers like `4111111111111111` for successful payments
+- Use specific amounts to trigger different responses (e.g., 999 for insufficient funds)
 
 For more details, see the [Environment Information](/getting-started/environment-information) guide.
 
-### How do I switch from sandbox to production?
+### How do I set up my production environment?
 
-To switch from sandbox to production:
+To set up your production environment:
 
-1. Update your API key from a test key to a live key
-2. Change the base URL from `https://sandbox.liasonpay.net/` to `https://liasonpay.net/`
+1. Ensure you're using the correct API key
+2. Use the base URL `https://liasonpay.net/` for all API calls
 3. Set the `mode` parameter to `production` in relevant API calls
-4. Update your webhook endpoints to handle production events
+4. Configure your webhook endpoints to handle events
 
 ### What currencies are supported?
 
@@ -42,8 +42,7 @@ LiasonPay currently supports the following currencies:
 
 Yes, the API has rate limits to prevent abuse:
 
-- **Sandbox**: 100 requests per minute
-- **Production**: 300 requests per minute
+- **Rate Limit**: 300 requests per minute
 
 If you exceed these limits, you'll receive a `429 Too Many Requests` response.
 
@@ -53,10 +52,10 @@ If you exceed these limits, you'll receive a `429 Too Many Requests` response.
 
 If your API key isn't working, check the following:
 
-1. Ensure you're using the correct API key for the environment (test key for sandbox, live key for production)
-2. Verify that the API key is correctly formatted in the Authorization header: `Authorization: Bearer {API_KEY}`
-3. Check that the API key has not expired or been revoked
-4. Ensure you're making the request to the correct base URL
+1. Verify that the API key is correctly formatted in the Authorization header: `Authorization: Bearer {API_KEY}`
+2. Check that the API key has not expired or been revoked
+3. Ensure you're making the request to the correct base URL
+4. Confirm that your account is in good standing
 
 ### How do I rotate my API keys?
 
@@ -155,7 +154,7 @@ To test webhooks in a local development environment:
 
 1. Use a tool like [ngrok](https://ngrok.com/) to create a public URL for your local server
 2. Configure your webhook URL in the LiasonPay dashboard to point to the ngrok URL
-3. Trigger test events by creating test payments or subscriptions
+3. Trigger events by creating payments or subscriptions
 4. Check your logs to ensure webhooks are being received and processed correctly
 
 ### How do I verify webhook signatures?
@@ -163,28 +162,28 @@ To test webhooks in a local development environment:
 To verify webhook signatures:
 
 ```javascript
-const crypto = require('crypto');
+const crypto = require("crypto");
 
 function verifyWebhookSignature(payload, signatureHeader, secret) {
   if (!signatureHeader) return false;
-  
-  const [timestamp, signature] = signatureHeader.split(',');
-  const timestampValue = timestamp.split('=')[1];
-  const signatureValue = signature.split('=')[1];
-  
+
+  const [timestamp, signature] = signatureHeader.split(",");
+  const timestampValue = timestamp.split("=")[1];
+  const signatureValue = signature.split("=")[1];
+
   // Check if the timestamp is too old (5 minutes)
   const now = Math.floor(Date.now() / 1000);
   if (now - parseInt(timestampValue) > 300) {
     return false;
   }
-  
+
   // Create the expected signature
   const signedPayload = `${timestampValue}.${JSON.stringify(payload)}`;
   const expectedSignature = crypto
-    .createHmac('sha256', secret)
+    .createHmac("sha256", secret)
     .update(signedPayload)
-    .digest('hex');
-  
+    .digest("hex");
+
   // Compare signatures using a constant-time comparison
   return crypto.timingSafeEqual(
     Buffer.from(signatureValue),
@@ -212,16 +211,25 @@ Idempotency-Key: 123e4567-e89b-12d3-a456-426614174000
 
 ### How can I test different payment scenarios?
 
-In the sandbox environment, you can use specific test card numbers to trigger different payment scenarios:
+You can use specific test card numbers to trigger different payment scenarios:
 
-| Card Number | Scenario |
-|-------------|----------|
-| 4111111111111111 | Successful payment |
+| Card Number      | Scenario                              |
+| ---------------- | ------------------------------------- |
+| 4111111111111111 | Successful payment                    |
 | 4000000000000002 | Declined payment (insufficient funds) |
-| 4000000000000069 | Expired card |
-| 4000000000000119 | Card declined (generic) |
+| 4000000000000069 | Expired card                          |
+| 4000000000000119 | Card declined (generic)               |
 
-For more test cards, see the [Environment Information](/getting-started/environment-information) guide.
+You can also use specific amounts to trigger different responses:
+
+| Amount | Response                            |
+| ------ | ----------------------------------- |
+| 100    | Successful payment                  |
+| 999    | Failed payment (insufficient funds) |
+| 888    | Failed payment (expired card)       |
+| 777    | Failed payment (declined)           |
+
+For more test options, see the [Environment Information](/getting-started/environment-information) guide.
 
 ### How do I handle errors in my integration?
 

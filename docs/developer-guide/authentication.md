@@ -18,12 +18,9 @@ To obtain your API key, please follow these steps:
 
 For direct access, visit the [LiasonPay API Key page](https://liasonpay.test/api-key).
 
-## API Key Types
+## API Keys
 
-LiasonPay provides two types of API keys:
-
-- **Test Keys**: Used with the sandbox environment for development and testing
-- **Live Keys**: Used with the production environment for processing real transactions
+LiasonPay provides API keys for authenticating your requests to the API. These keys are used to identify your account and authorize your API requests.
 
 Always keep your API keys secure and never share them publicly.
 
@@ -34,7 +31,7 @@ To authenticate your API requests, include an **`Authorization`** header with th
 Example:
 
 ```http
-Authorization: Bearer sk_test_abcdefghijklmnopqrstuvwxyz123456
+Authorization: Bearer sk_abcdefghijklmnopqrstuvwxyz123456
 ```
 
 All authenticated endpoints are marked with a `requires authentication` badge in the API Reference documentation.

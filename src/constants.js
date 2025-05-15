@@ -1,5 +1,4 @@
-// Central configuration for API URLs and important values
-// API URL
+export const APP_URL = 'https://liasonpay.net';
 export const API_BASE_URL = 'https://liasonpay.net/api/v1';
 
 // Dashboard URL
