@@ -199,7 +199,7 @@ Authorization: Bearer {ExampleApiKey()}
       <div className="environment-content">
         <p>For testing without processing real payments:</p>
         <ul>
-          <li>Use the sandbox base URL: <code>https://liasonpay.test/api/v1/</code></li>
+          <li>Use the sandbox base URL: <code>https://liasonpay.net/api/v1/</code></li>
           <li>Use a test API key (<code>sk_test_</code>)</li>
           <li>Set the <code>mode</code> parameter to "sandbox"</li>
           <li>Use test card numbers for payment testing</li>
@@ -288,7 +288,7 @@ Authorization: Bearer {ExampleApiKey()}
         <pre className="code-block">
 
 ```bash
-curl -X POST "https://liasonpay.test/api/v1/payments/process" \
+curl -X POST "https://liasonpay.net/api/v1/payments/process" \
   -H "Authorization: Bearer {ExampleApiKey()}" \
   -H "Content-Type: application/json" \
   -d '{

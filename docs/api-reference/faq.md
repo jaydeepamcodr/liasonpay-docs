@@ -626,7 +626,7 @@ const response = await axios.post(
     <div className="support-content">
       <h3>Email Support</h3>
       <p>Contact our support team via email</p>
-      <a href="mailto:support@liasonpay.test" className="button button--secondary">support@liasonpay.test</a>
+      <a href="mailto:support@liasonpay.net" className="button button--secondary">support@liasonpay.net</a>
     </div>
   </div>
 
@@ -635,7 +635,7 @@ const response = await axios.post(
     <div className="support-content">
       <h3>Support Portal</h3>
       <p>Visit our support portal for additional resources</p>
-      <a href="https://support.liasonpay.test" target="_blank" rel="noopener noreferrer" className="button button--secondary">Open Support Portal</a>
+      <a href="https://support.liasonpay.net" target="_blank" rel="noopener noreferrer" className="button button--secondary">Open Support Portal</a>
     </div>
   </div>
 

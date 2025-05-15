@@ -160,7 +160,7 @@ const config: Config = {
             },
             {
               label: "API Keys",
-              href: "https://liasonpay.test/api-key",
+              href: "https://liasonpay.net/api-key",
             },
           ],
         },

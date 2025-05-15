@@ -190,7 +190,7 @@ import { ApiBaseUrl, ExampleApiKey, AppUrl } from '@site/src/components/DynamicV
   "status": "pending",
   "amount": 100,
   "currency": "usd",
-  "payment_url": "https://liasonpay.test/pay/PAYMENT_123456789",
+  "payment_url": "https://liasonpay.net/pay/PAYMENT_123456789",
   "created_at": "2023-06-15T10:30:00Z"
 }
 ```

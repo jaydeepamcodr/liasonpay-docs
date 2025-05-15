@@ -1,0 +1,87 @@
+---
+sidebar_position: 3
+---
+
+import {
+  ApiBaseUrl,
+  ExampleApiKey,
+  ExampleStoreId,
+  ExampleTransactionId,
+  ApiRateLimit,
+  AppUrl,
+} from "@site/src/components/DynamicValues";
+
+# Payment API
+
+<div className="explorer-header">
+  <div className="explorer-header-content">
+    <h2>Payment Processing API</h2>
+    <p>
+      Process one-time payments from your customers
+    </p>
+  </div>
+</div>
+
+<div className="introduction-section">
+  <div className="introduction-card">
+    <h3>Overview</h3>
+    <p>
+      The Payment API allows you to process one-time payments and verify payment status.
+      These endpoints provide a simple way to integrate payment processing into your application.
+    </p>
+  </div>
+</div>
+
+## Available Endpoints
+
+<div className="endpoints-section">
+  <div className="endpoints-card">
+    <div className="endpoint-category">
+      <div className="endpoint-list">
+        <div className="endpoint-item">
+          <div className="endpoint-icon">💳</div>
+          <div className="endpoint-content">
+            <a href="/api-reference/payments/process-payment">Process Payment</a>
+            <p>Process a one-time payment</p>
+          </div>
+        </div>
+
+        <div className="endpoint-item">
+          <div className="endpoint-icon">✅</div>
+          <div className="endpoint-content">
+            <a href="/api-reference/payments/verify-payment">Verify Payment</a>
+            <p>Verify a payment's status</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Common Use Cases
+
+<div className="use-cases-section">
+  <div className="use-case-item">
+    <h4>E-commerce Checkout</h4>
+    <p>Integrate payment processing into your online store checkout flow.</p>
+  </div>
+
+  <div className="use-case-item">
+    <h4>Donation Collection</h4>
+    <p>Accept one-time donations for your organization or cause.</p>
+  </div>
+
+  <div className="use-case-item">
+    <h4>Service Payments</h4>
+    <p>Collect payments for one-time services or products.</p>
+  </div>
+</div>
+
+## Getting Started
+
+To start using the Payment API, you'll need:
+
+1. Your API key for authentication
+2. Your store ID to identify your account
+
+Check out the [Process Payment](/api-reference/payments/process-payment) endpoint to begin implementing payment functionality in your application.

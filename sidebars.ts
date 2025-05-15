@@ -38,6 +38,7 @@ const sidebars: SidebarsConfig = {
   // API Reference sidebar
   apiReferenceSidebar: [
     "api-reference/index",
+    "api-reference/subscriptions",
     {
       type: "category",
       label: "Subscription Endpoints",
@@ -49,6 +50,7 @@ const sidebars: SidebarsConfig = {
         "api-reference/subscriptions/upgrade-subscription",
       ],
     },
+    "api-reference/payments",
     {
       type: "category",
       label: "Payment Endpoints",
@@ -57,6 +59,7 @@ const sidebars: SidebarsConfig = {
         "api-reference/payments/verify-payment",
       ],
     },
+    "api-reference/packages",
     {
       type: "category",
       label: "Package Endpoints",

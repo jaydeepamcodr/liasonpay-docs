@@ -1,0 +1,79 @@
+---
+sidebar_position: 4
+---
+
+import {
+  ApiBaseUrl,
+  ExampleApiKey,
+  ExampleStoreId,
+  ExamplePackageId,
+  ApiRateLimit,
+  AppUrl,
+} from "@site/src/components/DynamicValues";
+
+# Package API
+
+<div className="explorer-header">
+  <div className="explorer-header-content">
+    <h2>Package Management API</h2>
+    <p>
+      Retrieve and manage package information
+    </p>
+  </div>
+</div>
+
+<div className="introduction-section">
+  <div className="introduction-card">
+    <h3>Overview</h3>
+    <p>
+      The Package API allows you to retrieve information about available packages and their pricing options.
+      Use these endpoints to display package information to your customers or to integrate with your subscription management system.
+    </p>
+  </div>
+</div>
+
+## Available Endpoints
+
+<div className="endpoints-section">
+  <div className="endpoints-card">
+    <div className="endpoint-category">
+      <div className="endpoint-list">
+        <div className="endpoint-item">
+          <div className="endpoint-icon">📦</div>
+          <div className="endpoint-content">
+            <a href="/api-reference/packages/get-packages">Get Packages</a>
+            <p>Retrieve a list of packages</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Common Use Cases
+
+<div className="use-cases-section">
+  <div className="use-case-item">
+    <h4>Pricing Pages</h4>
+    <p>Dynamically display package options and pricing on your website.</p>
+  </div>
+
+  <div className="use-case-item">
+    <h4>Subscription Management</h4>
+    <p>Show available upgrade options to existing subscribers.</p>
+  </div>
+
+  <div className="use-case-item">
+    <h4>Product Catalogs</h4>
+    <p>Integrate package information into your product catalog.</p>
+  </div>
+</div>
+
+## Getting Started
+
+To start using the Package API, you'll need:
+
+1. Your API key for authentication
+2. Your store ID to identify your account
+
+Check out the [Get Packages](/api-reference/packages/get-packages) endpoint to begin retrieving package information for your application.

@@ -229,7 +229,7 @@ POST /api/v1/payments/process
   "message": "Payment created successfully",
   "data": {
     "payment_id": "PAYMENT_123456",
-    "payment_url": "https://liasonpay.test/pay/PAYMENT_123456",
+    "payment_url": "https://liasonpay.net/pay/PAYMENT_123456",
     "amount": 100,
     "currency": "usd",
     "status": "pending"
@@ -377,7 +377,7 @@ POST /api/v1/subscriptions/create
   "message": "Subscription created successfully",
   "data": {
     "subscription_id": "SUBSCRIPTION_123456",
-    "subscription_url": "https://liasonpay.test/subscribe/SUBSCRIPTION_123456",
+    "subscription_url": "https://liasonpay.net/subscribe/SUBSCRIPTION_123456",
     "amount": 20,
     "currency": "usd",
     "interval": "month",

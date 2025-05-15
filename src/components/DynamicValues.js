@@ -59,6 +59,21 @@ export function SubscriptionGetUrl() {
   return <code>{apiBaseUrl}/subscription/get</code>;
 }
 
+// Full cURL command for subscription get
+export function SubscriptionGetCurl() {
+  const { siteConfig } = useDocusaurusContext();
+  const apiBaseUrl = siteConfig.customFields.apiBaseUrl || Constants.API_BASE_URL;
+  return (
+    <code>
+      curl --request GET \<br />
+      --url "{apiBaseUrl}/subscription/get?store_id={Constants.EXAMPLE_STORE_ID}&subscription_id={Constants.EXAMPLE_SUBSCRIPTION_ID}" \<br />
+      --header "Authorization: Bearer YOUR_API_KEY" \<br />
+      --header "Content-Type: application/json" \<br />
+      --header "Accept: application/json"
+    </code>
+  );
+}
+
 export function SubscriptionCreateUrl() {
   const { siteConfig } = useDocusaurusContext();
   const apiBaseUrl = siteConfig.customFields.apiBaseUrl || Constants.API_BASE_URL;

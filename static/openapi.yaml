@@ -1,50 +1,47 @@
 openapi: 3.0.3
 info:
-  title: 'LiasonPay API Documentation'
-  description: 'This documentation aims to provide all the information you need to work with our API.'
+  title: "LiasonPay API Documentation"
+  description: "This documentation aims to provide all the information you need to work with our API."
   version: 1.0.0
 servers:
-  -
-    url: 'https://liasonpay.test'
+  - url: "https://liasonpay.net"
 paths:
   /api/v1/subscription/get:
     get:
-      summary: 'Get a list of subscriptions'
+      summary: "Get a list of subscriptions"
       operationId: getAListOfSubscriptions
-      description: ''
+      description: ""
       parameters:
-        -
-          in: query
+        - in: query
           name: store_id
-          description: 'The ID of the store. The <code>store_id</code> of an existing record in the stores table. Must not be greater than 255 characters.'
+          description: "The ID of the store. The <code>store_id</code> of an existing record in the stores table. Must not be greater than 255 characters."
           example: STORE_65C0279F05
           required: true
           schema:
             type: string
-            description: 'The ID of the store. The <code>store_id</code> of an existing record in the stores table. Must not be greater than 255 characters.'
+            description: "The ID of the store. The <code>store_id</code> of an existing record in the stores table. Must not be greater than 255 characters."
             example: STORE_65C0279F05
             nullable: false
-        -
-          in: query
+        - in: query
           name: subscription_id
-          description: 'The ID of the subscription. The <code>subscription_id</code> of an existing record in the subscriptions table. Must not be greater than 255 characters.'
+          description: "The ID of the subscription. The <code>subscription_id</code> of an existing record in the subscriptions table. Must not be greater than 255 characters."
           example: SUBSCRIPTION_56FBC7EEE4
           required: false
           schema:
             type: string
-            description: 'The ID of the subscription. The <code>subscription_id</code> of an existing record in the subscriptions table. Must not be greater than 255 characters.'
+            description: "The ID of the subscription. The <code>subscription_id</code> of an existing record in the subscriptions table. Must not be greater than 255 characters."
             example: SUBSCRIPTION_56FBC7EEE4
             nullable: true
       responses:
         200:
-          description: ''
+          description: ""
           content:
             application/json:
               schema:
                 type: object
                 example:
                   status: true
-                  message: 'Subscriptions retrieved successfully'
+                  message: "Subscriptions retrieved successfully"
                   data: []
                 properties:
                   status:
@@ -52,7 +49,7 @@ paths:
                     example: true
                   message:
                     type: string
-                    example: 'Subscriptions retrieved successfully'
+                    example: "Subscriptions retrieved successfully"
                   data:
                     type: array
                     example: []
@@ -60,31 +57,31 @@ paths:
         - Endpoints
   /api/v1/subscription/create:
     post:
-      summary: 'Create a subscription'
+      summary: "Create a subscription"
       operationId: createASubscription
-      description: ''
+      description: ""
       parameters: []
       responses:
         200:
-          description: ''
+          description: ""
           content:
             application/json:
               schema:
                 type: object
                 example:
                   status: true
-                  message: 'Payment processed successfully'
-                  data: {  }
+                  message: "Payment processed successfully"
+                  data: {}
                 properties:
                   status:
                     type: boolean
                     example: true
                   message:
                     type: string
-                    example: 'Payment processed successfully'
+                    example: "Payment processed successfully"
                   data:
                     type: object
-                    properties: {  }
+                    properties: {}
       tags:
         - Endpoints
       requestBody:
@@ -96,74 +93,74 @@ paths:
               properties:
                 store_id:
                   type: string
-                  description: 'The ID of the store. The <code>store_id</code> of an existing record in the stores table. Must not be greater than 255 characters.'
+                  description: "The ID of the store. The <code>store_id</code> of an existing record in the stores table. Must not be greater than 255 characters."
                   example: STORE_123
                   nullable: false
                 price_id:
                   type: string
-                  description: 'The ID of the price. The <code>price_id</code> of an existing record in the prices table. Must not be greater than 255 characters.'
+                  description: "The ID of the price. The <code>price_id</code> of an existing record in the prices table. Must not be greater than 255 characters."
                   example: PRICE_ABC123
                   nullable: false
                 trial_period_days:
                   type: integer
-                  description: 'The number of days for the trial period. Note: Flutterwave does not support trials. Must be at least 0.'
+                  description: "The number of days for the trial period. Note: Flutterwave does not support trials. Must be at least 0."
                   example: 30
                   nullable: true
                 customer:
                   type: object
-                  description: 'The customer details.'
+                  description: "The customer details."
                   example: null
                   nullable: true
                   properties:
                     name:
                       type: string
-                      description: 'The name of the customer. Must not be greater than 255 characters.'
-                      example: 'John Doe'
+                      description: "The name of the customer. Must not be greater than 255 characters."
+                      example: "John Doe"
                       nullable: true
                     email:
                       type: string
-                      description: 'The email of the customer. Must be a valid email address. Must not be greater than 255 characters.'
+                      description: "The email of the customer. Must be a valid email address. Must not be greater than 255 characters."
                       example: john.doe@example.com
                       nullable: true
                     phone_number:
                       type: string
-                      description: 'The phone number of the customer. Must not be greater than 255 characters.'
-                      example: '+2348123456789'
+                      description: "The phone number of the customer. Must not be greater than 255 characters."
+                      example: "+2348123456789"
                       nullable: true
                 metadata:
                   type: object
-                  description: 'The metadata of the payment.'
+                  description: "The metadata of the payment."
                   example: null
                   nullable: true
                   properties:
                     order_id:
                       type: string
-                      description: 'The order ID.'
-                      example: '1234567890'
+                      description: "The order ID."
+                      example: "1234567890"
                       nullable: true
                     order_code:
                       type: string
-                      description: 'The order code.'
+                      description: "The order code."
                       example: ORD_1234567890
                       nullable: true
                 success_url:
                   type: string
-                  description: 'The URL to redirect to after successful payment. Must be a valid URL.'
-                  example: 'https://example.com/success'
+                  description: "The URL to redirect to after successful payment. Must be a valid URL."
+                  example: "https://example.com/success"
                   nullable: false
                 cancel_url:
                   type: string
-                  description: 'The URL to redirect to after payment cancellation. Must be a valid URL.'
-                  example: 'https://example.com/cancel'
+                  description: "The URL to redirect to after payment cancellation. Must be a valid URL."
+                  example: "https://example.com/cancel"
                   nullable: false
                 return_url:
                   type: string
-                  description: 'The URL to redirect to after payment completion. Must be a valid URL.'
-                  example: 'https://example.com/return'
+                  description: "The URL to redirect to after payment completion. Must be a valid URL."
+                  example: "https://example.com/return"
                   nullable: true
                 mode:
                   type: string
-                  description: 'The mode of the payment.'
+                  description: "The mode of the payment."
                   example: sandbox
                   nullable: false
                   enum:
@@ -177,31 +174,31 @@ paths:
                 - mode
   /api/v1/subscription/verify:
     post:
-      summary: 'Verify a subscription'
+      summary: "Verify a subscription"
       operationId: verifyASubscription
-      description: ''
+      description: ""
       parameters: []
       responses:
         200:
-          description: ''
+          description: ""
           content:
             application/json:
               schema:
                 type: object
                 example:
                   status: true
-                  message: 'Subscription verified successfully'
-                  data: {  }
+                  message: "Subscription verified successfully"
+                  data: {}
                 properties:
                   status:
                     type: boolean
                     example: true
                   message:
                     type: string
-                    example: 'Subscription verified successfully'
+                    example: "Subscription verified successfully"
                   data:
                     type: object
-                    properties: {  }
+                    properties: {}
       tags:
         - Endpoints
       requestBody:
@@ -213,38 +210,38 @@ paths:
               properties:
                 subscription_request_id:
                   type: string
-                  description: 'The ID of the subscription request. The <code>log_id</code> of an existing record in the subscription_logs table. Must not be greater than 255 characters.'
+                  description: "The ID of the subscription request. The <code>log_id</code> of an existing record in the subscription_logs table. Must not be greater than 255 characters."
                   example: 552852D7C8
                   nullable: false
               required:
                 - subscription_request_id
   /api/v1/subscription/cancel:
     post:
-      summary: 'Cancel a subscription'
+      summary: "Cancel a subscription"
       operationId: cancelASubscription
-      description: ''
+      description: ""
       parameters: []
       responses:
         200:
-          description: ''
+          description: ""
           content:
             application/json:
               schema:
                 type: object
                 example:
                   status: true
-                  message: 'Subscription cancelled successfully'
-                  data: {  }
+                  message: "Subscription cancelled successfully"
+                  data: {}
                 properties:
                   status:
                     type: boolean
                     example: true
                   message:
                     type: string
-                    example: 'Subscription cancelled successfully'
+                    example: "Subscription cancelled successfully"
                   data:
                     type: object
-                    properties: {  }
+                    properties: {}
       tags:
         - Endpoints
       requestBody:
@@ -256,43 +253,43 @@ paths:
               properties:
                 subscription_id:
                   type: string
-                  description: 'The ID of the subscription. The <code>subscription_id</code> of an existing record in the subscriptions table. Must not be greater than 255 characters.'
+                  description: "The ID of the subscription. The <code>subscription_id</code> of an existing record in the subscriptions table. Must not be greater than 255 characters."
                   example: SUBSCRIPTION_879F7492C4
                   nullable: false
                 cancel_at_period_end:
                   type: boolean
-                  description: 'Cancel the subscription at the end of the billing period.'
+                  description: "Cancel the subscription at the end of the billing period."
                   example: false
                   nullable: false
               required:
                 - subscription_id
   /api/v1/subscription/upgrade:
     post:
-      summary: 'Upgrade a subscription'
+      summary: "Upgrade a subscription"
       operationId: upgradeASubscription
-      description: ''
+      description: ""
       parameters: []
       responses:
         200:
-          description: ''
+          description: ""
           content:
             application/json:
               schema:
                 type: object
                 example:
                   status: true
-                  message: 'Subscription upgrade initiated successfully'
-                  data: {  }
+                  message: "Subscription upgrade initiated successfully"
+                  data: {}
                 properties:
                   status:
                     type: boolean
                     example: true
                   message:
                     type: string
-                    example: 'Subscription upgrade initiated successfully'
+                    example: "Subscription upgrade initiated successfully"
                   data:
                     type: object
-                    properties: {  }
+                    properties: {}
       tags:
         - Endpoints
       requestBody:
@@ -304,38 +301,38 @@ paths:
               properties:
                 subscription_id:
                   type: string
-                  description: 'The ID of the subscription to upgrade. The <code>subscription_id</code> of an existing record in the subscriptions table. Must not be greater than 255 characters.'
+                  description: "The ID of the subscription to upgrade. The <code>subscription_id</code> of an existing record in the subscriptions table. Must not be greater than 255 characters."
                   example: SUBSCRIPTION_879F7492C4
                   nullable: false
                 store_id:
                   type: string
-                  description: 'The ID of the store. The <code>store_id</code> of an existing record in the stores table. Must not be greater than 255 characters.'
+                  description: "The ID of the store. The <code>store_id</code> of an existing record in the stores table. Must not be greater than 255 characters."
                   example: STORE_123
                   nullable: false
                 price_id:
                   type: string
-                  description: 'The ID of the price to use for the upgrade. The <code>price_id</code> of an existing record in the prices table. Must not be greater than 255 characters.'
+                  description: "The ID of the price to use for the upgrade. The <code>price_id</code> of an existing record in the prices table. Must not be greater than 255 characters."
                   example: PRICE_ABC123
                   nullable: false
                 metadata:
                   type: object
-                  description: 'The metadata of the payment.'
+                  description: "The metadata of the payment."
                   example: null
                   nullable: true
                   properties:
                     order_id:
                       type: string
-                      description: 'The order ID.'
-                      example: '1234567890'
+                      description: "The order ID."
+                      example: "1234567890"
                       nullable: true
                     order_code:
                       type: string
-                      description: 'The order code.'
+                      description: "The order code."
                       example: ORD_1234567890
                       nullable: true
                 mode:
                   type: string
-                  description: 'The mode of the payment.'
+                  description: "The mode of the payment."
                   example: sandbox
                   nullable: false
                   enum:
@@ -348,42 +345,40 @@ paths:
                 - mode
   /api/v1/packages/get:
     get:
-      summary: 'Get a list of packages'
+      summary: "Get a list of packages"
       operationId: getAListOfPackages
-      description: ''
+      description: ""
       parameters:
-        -
-          in: query
+        - in: query
           name: store_id
-          description: 'The ID of the store. The <code>store_id</code> of an existing record in the stores table. Must not be greater than 255 characters.'
+          description: "The ID of the store. The <code>store_id</code> of an existing record in the stores table. Must not be greater than 255 characters."
           example: STORE_65C0279F05
           required: true
           schema:
             type: string
-            description: 'The ID of the store. The <code>store_id</code> of an existing record in the stores table. Must not be greater than 255 characters.'
+            description: "The ID of the store. The <code>store_id</code> of an existing record in the stores table. Must not be greater than 255 characters."
             example: STORE_65C0279F05
             nullable: false
-        -
-          in: query
+        - in: query
           name: package_id
-          description: 'The ID of the package. The <code>package_id</code> of an existing record in the packages table. Must not be greater than 255 characters.'
+          description: "The ID of the package. The <code>package_id</code> of an existing record in the packages table. Must not be greater than 255 characters."
           example: PACKAGE_7CC53FC9B0
           required: false
           schema:
             type: string
-            description: 'The ID of the package. The <code>package_id</code> of an existing record in the packages table. Must not be greater than 255 characters.'
+            description: "The ID of the package. The <code>package_id</code> of an existing record in the packages table. Must not be greater than 255 characters."
             example: PACKAGE_7CC53FC9B0
             nullable: true
       responses:
         200:
-          description: ''
+          description: ""
           content:
             application/json:
               schema:
                 type: object
                 example:
                   status: true
-                  message: 'Packages retrieved successfully'
+                  message: "Packages retrieved successfully"
                   data: []
                 properties:
                   status:
@@ -391,7 +386,7 @@ paths:
                     example: true
                   message:
                     type: string
-                    example: 'Packages retrieved successfully'
+                    example: "Packages retrieved successfully"
                   data:
                     type: array
                     example: []
@@ -399,11 +394,11 @@ paths:
         - Endpoints
   /api/v1/payments/process:
     post:
-      summary: ''
+      summary: ""
       operationId: postApiV1PaymentsProcess
-      description: ''
+      description: ""
       parameters: []
-      responses: {  }
+      responses: {}
       tags:
         - Endpoints
       requestBody:
@@ -415,39 +410,39 @@ paths:
               properties:
                 store_id:
                   type: string
-                  description: 'The ID of the store. Must not be greater than 255 characters.'
+                  description: "The ID of the store. Must not be greater than 255 characters."
                   example: STORE_1DB9B0447A
                   nullable: false
                 currency:
                   type: string
-                  description: 'The currency of the payment. Must not be greater than 3 characters.'
+                  description: "The currency of the payment. Must not be greater than 3 characters."
                   example: usd
                   nullable: false
                 products:
                   type: array
-                  description: 'The products to be purchased.'
+                  description: "The products to be purchased."
                   example: null
                   items:
                     type: object
                     properties:
                       name:
                         type: string
-                        description: 'The name of the product. Must not be greater than 255 characters.'
-                        example: 'Product 1'
+                        description: "The name of the product. Must not be greater than 255 characters."
+                        example: "Product 1"
                         nullable: false
                       description:
                         type: string
-                        description: 'The description of the product. Must not be greater than 500 characters.'
-                        example: 'Product 1 description'
+                        description: "The description of the product. Must not be greater than 500 characters."
+                        example: "Product 1 description"
                         nullable: false
                       price:
                         type: number
-                        description: 'The price of the product. Must be at least 1.'
+                        description: "The price of the product. Must be at least 1."
                         example: 100.0
                         nullable: false
                       quantity:
                         type: integer
-                        description: 'The quantity of the product. Must be at least 1.'
+                        description: "The quantity of the product. Must be at least 1."
                         example: 1
                         nullable: false
                     required:
@@ -457,59 +452,59 @@ paths:
                       - quantity
                 customer:
                   type: object
-                  description: 'The customer details.'
+                  description: "The customer details."
                   example: null
                   nullable: true
                   properties:
                     name:
                       type: string
-                      description: 'The name of the customer. Must not be greater than 255 characters.'
-                      example: 'John Doe'
+                      description: "The name of the customer. Must not be greater than 255 characters."
+                      example: "John Doe"
                       nullable: true
                     email:
                       type: string
-                      description: 'The email of the customer. Must be a valid email address. Must not be greater than 255 characters.'
+                      description: "The email of the customer. Must be a valid email address. Must not be greater than 255 characters."
                       example: john.doe@example.com
                       nullable: true
                     phone_number:
                       type: string
-                      description: 'The phone number of the customer. Must not be greater than 255 characters.'
-                      example: '+2348123456789'
+                      description: "The phone number of the customer. Must not be greater than 255 characters."
+                      example: "+2348123456789"
                       nullable: true
                 metadata:
                   type: object
-                  description: 'The metadata of the payment.'
+                  description: "The metadata of the payment."
                   example: null
                   nullable: true
                   properties:
                     order_id:
                       type: string
-                      description: 'The order ID.'
-                      example: '1234567890'
+                      description: "The order ID."
+                      example: "1234567890"
                       nullable: true
                     order_code:
                       type: string
-                      description: 'The order code.'
+                      description: "The order code."
                       example: ORD_1234567890
                       nullable: true
                 success_url:
                   type: string
-                  description: 'The URL to redirect to after successful payment. Must be a valid URL.'
-                  example: 'https://example.com/success'
+                  description: "The URL to redirect to after successful payment. Must be a valid URL."
+                  example: "https://example.com/success"
                   nullable: false
                 cancel_url:
                   type: string
-                  description: 'The URL to redirect to after payment cancellation. Must be a valid URL.'
-                  example: 'https://example.com/cancel'
+                  description: "The URL to redirect to after payment cancellation. Must be a valid URL."
+                  example: "https://example.com/cancel"
                   nullable: false
                 return_url:
                   type: string
-                  description: 'The URL to redirect to after payment completion. Must be a valid URL.'
-                  example: 'https://example.com/return'
+                  description: "The URL to redirect to after payment completion. Must be a valid URL."
+                  example: "https://example.com/return"
                   nullable: true
                 mode:
                   type: string
-                  description: 'The mode of the payment.'
+                  description: "The mode of the payment."
                   example: sandbox
                   nullable: false
                   enum:
@@ -517,7 +512,7 @@ paths:
                     - production
                 coupon:
                   type: string
-                  description: 'The coupon code. The <code>code</code> of an existing record in the coupons table.'
+                  description: "The coupon code. The <code>code</code> of an existing record in the coupons table."
                   example: GYRPVBK06Q
                   nullable: true
               required:
@@ -529,11 +524,11 @@ paths:
                 - mode
   /api/v1/payments/verify:
     post:
-      summary: ''
+      summary: ""
       operationId: postApiV1PaymentsVerify
-      description: ''
+      description: ""
       parameters: []
-      responses: {  }
+      responses: {}
       tags:
         - Endpoints
       requestBody:
@@ -545,21 +540,19 @@ paths:
               properties:
                 transaction_id:
                   type: string
-                  description: 'The ID of the transaction. The <code>transaction_id</code> of an existing record in the transactions table. Must not be greater than 255 characters.'
-                  example: '1234567890'
+                  description: "The ID of the transaction. The <code>transaction_id</code> of an existing record in the transactions table. Must not be greater than 255 characters."
+                  example: "1234567890"
                   nullable: false
               required:
                 - transaction_id
 tags:
-  -
-    name: Endpoints
-    description: ''
+  - name: Endpoints
+    description: ""
 components:
   securitySchemes:
     default:
       type: http
       scheme: bearer
-      description: "To obtain your API key, please follow these steps:\n\n1. Log in to your [LiasonPay](https://liasonpay.test) account.\n2. Navigate to the **Dashboard**.\n3. Click on the **Profile icon** in the top right corner.\n4. Click on the **API Keys** section.\n5. Generate a new API key or copy your existing key.\n\nFor direct access, visit the [LiasonPay API Key page](https://liasonpay.test/api-key)."
+      description: "To obtain your API key, please follow these steps:\n\n1. Log in to your [LiasonPay](https://liasonpay.net) account.\n2. Navigate to the **Dashboard**.\n3. Click on the **Profile icon** in the top right corner.\n4. Click on the **API Keys** section.\n5. Generate a new API key or copy your existing key.\n\nFor direct access, visit the [LiasonPay API Key page](https://liasonpay.net/api-key)."
 security:
-  -
-    default: []
+  - default: []

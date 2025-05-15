@@ -1,0 +1,112 @@
+---
+sidebar_position: 2
+---
+
+import {
+  ApiBaseUrl,
+  ExampleApiKey,
+  ExampleStoreId,
+  ExampleSubscriptionId,
+  ApiRateLimit,
+  AppUrl,
+} from "@site/src/components/DynamicValues";
+
+# Subscription API
+
+<div className="explorer-header">
+  <div className="explorer-header-content">
+    <h2>Subscription Management API</h2>
+    <p>
+      Create and manage recurring billing for your customers
+    </p>
+  </div>
+</div>
+
+<div className="introduction-section">
+  <div className="introduction-card">
+    <h3>Overview</h3>
+    <p>
+      The Subscription API allows you to create, verify, cancel, and upgrade subscriptions for your customers.
+      With these endpoints, you can implement a complete subscription management system in your application.
+    </p>
+  </div>
+</div>
+
+## Available Endpoints
+
+<div className="endpoints-section">
+  <div className="endpoints-card">
+    <div className="endpoint-category">
+      <div className="endpoint-list">
+        <div className="endpoint-item">
+          <div className="endpoint-icon">📋</div>
+          <div className="endpoint-content">
+            <a href="/api-reference/subscriptions/get-subscriptions">Get Subscriptions</a>
+            <p>Retrieve a list of subscriptions</p>
+          </div>
+        </div>
+
+        <div className="endpoint-item">
+          <div className="endpoint-icon">➕</div>
+          <div className="endpoint-content">
+            <a href="/api-reference/subscriptions/create-subscription">Create Subscription</a>
+            <p>Create a new subscription</p>
+          </div>
+        </div>
+
+        <div className="endpoint-item">
+          <div className="endpoint-icon">✅</div>
+          <div className="endpoint-content">
+            <a href="/api-reference/subscriptions/verify-subscription">Verify Subscription</a>
+            <p>Verify a subscription's status</p>
+          </div>
+        </div>
+
+        <div className="endpoint-item">
+          <div className="endpoint-icon">❌</div>
+          <div className="endpoint-content">
+            <a href="/api-reference/subscriptions/cancel-subscription">Cancel Subscription</a>
+            <p>Cancel an active subscription</p>
+          </div>
+        </div>
+
+        <div className="endpoint-item">
+          <div className="endpoint-icon">⬆️</div>
+          <div className="endpoint-content">
+            <a href="/api-reference/subscriptions/upgrade-subscription">Upgrade Subscription</a>
+            <p>Change a subscription to a different plan</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Common Use Cases
+
+<div className="use-cases-section">
+  <div className="use-case-item">
+    <h4>SaaS Billing</h4>
+    <p>Implement recurring billing for your SaaS platform with automatic renewals and plan changes.</p>
+  </div>
+
+  <div className="use-case-item">
+    <h4>Membership Sites</h4>
+    <p>Create tiered membership levels with different pricing and features.</p>
+  </div>
+
+  <div className="use-case-item">
+    <h4>Content Subscriptions</h4>
+    <p>Offer premium content access with subscription-based pricing models.</p>
+  </div>
+</div>
+
+## Getting Started
+
+To start using the Subscription API, you'll need:
+
+1. Your API key for authentication
+2. Your store ID to identify your account
+3. Price IDs for the subscription plans you want to offer
+
+Check out the [Create Subscription](/api-reference/subscriptions/create-subscription) endpoint to begin implementing subscription functionality in your application.

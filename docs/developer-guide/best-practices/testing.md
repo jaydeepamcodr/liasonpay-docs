@@ -42,7 +42,7 @@ sidebar_position: 5
           </div>
           <div className="environment-content">
             <ul className="testing-checklist">
-              <li><strong>Base URL</strong>: <code>https://sandbox.liasonpay.test/</code></li>
+              <li><strong>Base URL</strong>: <code>https://sandbox.liasonpay.net/</code></li>
               <li><strong>API Keys</strong>: Test API keys (prefixed with <code>sk_test_</code>)</li>
               <li><strong>Payments</strong>: No real money is processed</li>
               <li><strong>Features</strong>: Full API functionality with simulated responses</li>
@@ -64,7 +64,7 @@ import { ExampleApiKey } from "@site/src/components/DynamicValues";
 const liasonpay = require("liasonpay-node");
 const client = new liasonpay({
   apiKey: <ExampleApiKey />,
-  baseUrl: "https://sandbox.liasonpay.test/api/v1",
+  baseUrl: "https://sandbox.liasonpay.net/api/v1",
 });
 ```
 

@@ -65,7 +65,7 @@ If your API key isn't working, check the following:
 
 To rotate your API keys:
 
-1. Log in to your [LiasonPay dashboard](https://liasonpay.test)
+1. Log in to your [LiasonPay dashboard](https://liasonpay.net)
 2. Navigate to **Settings** > **API Keys**
 3. Click **Generate New Key**
 4. Update your integration to use the new key
@@ -89,7 +89,7 @@ Check the error message in the API response for more specific information.
 
 To issue a refund:
 
-1. Log in to your [LiasonPay dashboard](https://liasonpay.test)
+1. Log in to your [LiasonPay dashboard](https://liasonpay.net)
 2. Navigate to **Payments** > **Transactions**
 3. Find the transaction you want to refund
 4. Click **Refund** and follow the prompts
@@ -284,6 +284,6 @@ See the [Performance Optimization](/developer-guide/best-practices/performance) 
 
 If you couldn't find an answer to your question, please contact our support team:
 
-- Email: support@liasonpay.test
-- Support Portal: [https://support.liasonpay.test](https://support.liasonpay.test)
+- Email: support@liasonpay.net
+- Support Portal: [https://support.liasonpay.net](https://support.liasonpay.net)
 - Documentation: [<AppUrl />/docs](<AppUrl />/docs)

@@ -102,7 +102,7 @@ const fetch = require('node-fetch');
 const apiKey = process.env.LIASONPAY_API_KEY; // Store in environment variable
 
 async function makeApiRequest() {
-const response = await fetch('https://liasonpay.test/api/v1/payments', {
+const response = await fetch('https://liasonpay.net/api/v1/payments', {
 method: 'POST',
 headers: {
 'Authorization': `Bearer ${apiKey}`,
