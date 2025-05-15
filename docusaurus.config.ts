@@ -62,6 +62,10 @@ const config: Config = {
       src: "/js/api-reference.js",
       async: true,
     },
+    {
+      src: "/js/homepage.js",
+      async: true,
+    },
   ],
 
   themeConfig: {

@@ -33,7 +33,6 @@ const sidebars: SidebarsConfig = {
       ],
     },
     "developer-guide/faq",
-    "developer-guide/api-reference-links",
   ],
 
   // API Reference sidebar
