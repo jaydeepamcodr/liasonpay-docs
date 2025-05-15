@@ -56,17 +56,17 @@ When an error occurs, the API will return a JSON response with a `status` of `fa
 
 ### Processing a One-Time Payment
 
-1. Create a payment request using the [Process a payment](/api-reference/payments#process-a-payment) endpoint
+1. Create a payment request using the [Process a payment](/api-reference/payments/process-payment) endpoint
 2. Redirect the customer to the payment URL returned in the response
 3. After payment completion, the customer will be redirected to your success or cancel URL
-4. Verify the payment status using the [Verify a payment](/api-reference/payments#verify-a-payment) endpoint
+4. Verify the payment status using the [Verify a payment](/api-reference/payments/verify-payment) endpoint
 
 ### Creating a Subscription
 
-1. Create a subscription using the [Create a subscription](/api-reference/subscriptions#create-a-subscription) endpoint
+1. Create a subscription using the [Create a subscription](/api-reference/subscriptions/create-subscription) endpoint
 2. Redirect the customer to the subscription URL returned in the response
 3. After subscription setup, the customer will be redirected to your success or cancel URL
-4. Verify the subscription status using the [Verify a subscription](/api-reference/subscriptions#verify-a-subscription) endpoint
+4. Verify the subscription status using the [Verify a subscription](/api-reference/subscriptions/verify-subscription) endpoint
 
 ## Testing Your Integration
 

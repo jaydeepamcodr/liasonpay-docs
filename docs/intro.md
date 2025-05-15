@@ -26,10 +26,10 @@ The [Developer Guide](/developer-guide/overview) provides conceptual information
 
 The [API Reference](/api-reference) provides detailed technical information about each API endpoint:
 
-- [Subscriptions API](/api-reference/subscriptions) - Create and manage recurring billing
-- [Payments API](/api-reference/payments) - Process one-time payments
-- [Packages API](/api-reference/packages) - Retrieve and manage package information
-- [Interactive Testing](/api-reference/interactive-testing) - Test API endpoints directly from the documentation
+- [Subscriptions API](/api-reference/subscriptions/get-subscriptions) - Create and manage recurring billing
+- [Payments API](/api-reference/payments/process-payment) - Process one-time payments
+- [Packages API](/api-reference/packages/get-packages) - Retrieve and manage package information
+- [Interactive Testing](/interactive-tools/api-testing) - Test API endpoints directly from the documentation
 - [FAQ / Troubleshooting](/api-reference/faq) - Answers to common questions and issues
 
 ## Getting Started

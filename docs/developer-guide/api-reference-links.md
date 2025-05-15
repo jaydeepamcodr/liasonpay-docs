@@ -10,36 +10,30 @@ This page provides quick links to the detailed API reference documentation for e
 
 The Subscriptions API allows you to create and manage recurring billing for your customers.
 
-[View Subscriptions API Reference →](/api-reference/subscriptions)
-
 ### Key Endpoints:
 
-- [Get a list of subscriptions](/api-reference/subscriptions#get-a-list-of-subscriptions)
-- [Create a subscription](/api-reference/subscriptions#create-a-subscription)
-- [Verify a subscription](/api-reference/subscriptions#verify-a-subscription)
-- [Cancel a subscription](/api-reference/subscriptions#cancel-a-subscription)
-- [Upgrade a subscription](/api-reference/subscriptions#upgrade-a-subscription)
+- [Get a list of subscriptions](/api-reference/subscriptions/get-subscriptions)
+- [Create a subscription](/api-reference/subscriptions/create-subscription)
+- [Verify a subscription](/api-reference/subscriptions/verify-subscription)
+- [Cancel a subscription](/api-reference/subscriptions/cancel-subscription)
+- [Upgrade a subscription](/api-reference/subscriptions/upgrade-subscription)
 
 ## Payments API
 
 The Payments API allows you to process one-time payments from your customers.
 
-[View Payments API Reference →](/api-reference/payments)
-
 ### Key Endpoints:
 
-- [Process a payment](/api-reference/payments#process-a-payment)
-- [Verify a payment](/api-reference/payments#verify-a-payment)
+- [Process a payment](/api-reference/payments/process-payment)
+- [Verify a payment](/api-reference/payments/verify-payment)
 
 ## Packages API
 
 The Packages API allows you to retrieve and manage package information.
 
-[View Packages API Reference →](/api-reference/packages)
-
 ### Key Endpoints:
 
-- [Get a list of packages](/api-reference/packages#get-a-list-of-packages)
+- [Get a list of packages](/api-reference/packages/get-packages)
 
 ## API Reference
 

@@ -102,8 +102,8 @@ Note: Refunds can only be issued for successful payments and may take 5-10 busin
 
 To change a subscription's billing cycle:
 
-1. Cancel the current subscription using the [Cancel a subscription](/api-reference/subscriptions#cancel-a-subscription) endpoint
-2. Create a new subscription with the desired billing cycle using the [Create a subscription](/api-reference/subscriptions#create-a-subscription) endpoint
+1. Cancel the current subscription using the [Cancel a subscription](/api-reference/subscriptions/cancel-subscription) endpoint
+2. Create a new subscription with the desired billing cycle using the [Create a subscription](/api-reference/subscriptions/create-subscription) endpoint
 
 ### What happens when a subscription payment fails?
 
