@@ -3,63 +3,209 @@ sidebar_position: 2
 ---
 
 import ApiTester from '@site/src/components/ApiTester';
+import { AppUrl, ApiBaseUrl, ExampleApiKey, ExampleStoreId, ExamplePriceId, ExampleSubscriptionId } from '@site/src/components/DynamicValues';
 
 # Create Subscription
 
-<span className="badge badge--primary">requires authentication</span>
+<div className="explorer-header">
+  <div className="explorer-header-content">
+    <h2>Create a New Subscription</h2>
+    <p>Set up a recurring billing plan for your customers</p>
+    <div className="explorer-badges">
+      <span className="badge badge--primary">requires authentication</span>
+      <span className="badge badge--success">POST</span>
+      <span className="badge badge--info">/api/v1/subscription/create</span>
+    </div>
+  </div>
+</div>
 
+<div className="endpoint-section">
+  <div className="endpoint-card">
+    <h3>Endpoint</h3>
+    <div className="code-block-container">
+      <pre className="code-block">
 ```http
-POST /api/v1/subscription/create
+POST {ApiBaseUrl()}/subscription/create
 ```
-
-Create a new subscription for a customer.
+      </pre>
+    </div>
+    <p>This endpoint allows you to create a new subscription for a customer and generate a checkout URL for subscription setup.</p>
+  </div>
+</div>
 
 ## Request Parameters
 
-### Body Parameters
-
-| Name | Type | Required | Description |
-|------|------|----------|-------------|
-| store_id | string | Yes | The ID of the store. The `store_id` of an existing record in the stores table. Must not be greater than 255 characters. |
-| price_id | string | Yes | The ID of the price. The `price_id` of an existing record in the prices table. Must not be greater than 255 characters. |
-| trial_period_days | integer | No | The number of days for the trial period. Note: Flutterwave does not support trials. Must be at least 0. |
-| customer | object | No | The customer details. |
-| customer.name | string | No | The name of the customer. Must not be greater than 255 characters. |
-| customer.email | string | No | The email of the customer. Must be a valid email address. Must not be greater than 255 characters. |
-| customer.phone_number | string | No | The phone number of the customer. Must not be greater than 255 characters. |
-| metadata | object | No | The metadata of the payment. |
-| metadata.order_id | string | No | The order ID. |
-| metadata.order_code | string | No | The order code. |
-| success_url | string | Yes | The URL to redirect to after successful payment. Must be a valid URL. |
-| cancel_url | string | Yes | The URL to redirect to after payment cancellation. Must be a valid URL. |
-| return_url | string | No | The URL to redirect to after payment completion. Must be a valid URL. |
-| mode | string | Yes | The mode of the payment. Must be one of: `sandbox`, `production`. |
+<div className="parameters-section">
+  <div className="parameters-card">
+    <h3>Body Parameters</h3>
+    <div className="parameters-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Required</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>store_id</code></td>
+            <td><span className="param-type">string</span></td>
+            <td><span className="param-required">Yes</span></td>
+            <td>The ID of the store. The <code>store_id</code> of an existing record in the stores table. Must not be greater than 255 characters.</td>
+          </tr>
+          <tr>
+            <td><code>price_id</code></td>
+            <td><span className="param-type">string</span></td>
+            <td><span className="param-required">Yes</span></td>
+            <td>The ID of the price. The <code>price_id</code> of an existing record in the prices table. Must not be greater than 255 characters.</td>
+          </tr>
+          <tr>
+            <td><code>trial_period_days</code></td>
+            <td><span className="param-type">integer</span></td>
+            <td><span className="param-optional">No</span></td>
+            <td>The number of days for the trial period. Note: Flutterwave does not support trials. Must be at least 0.</td>
+          </tr>
+          <tr>
+            <td><code>customer</code></td>
+            <td><span className="param-type">object</span></td>
+            <td><span className="param-optional">No</span></td>
+            <td>The customer details.</td>
+          </tr>
+          <tr>
+            <td><code>customer.name</code></td>
+            <td><span className="param-type">string</span></td>
+            <td><span className="param-optional">No</span></td>
+            <td>The name of the customer. Must not be greater than 255 characters.</td>
+          </tr>
+          <tr>
+            <td><code>customer.email</code></td>
+            <td><span className="param-type">string</span></td>
+            <td><span className="param-optional">No</span></td>
+            <td>The email of the customer. Must be a valid email address. Must not be greater than 255 characters.</td>
+          </tr>
+          <tr>
+            <td><code>customer.phone_number</code></td>
+            <td><span className="param-type">string</span></td>
+            <td><span className="param-optional">No</span></td>
+            <td>The phone number of the customer. Must not be greater than 255 characters.</td>
+          </tr>
+          <tr>
+            <td><code>metadata</code></td>
+            <td><span className="param-type">object</span></td>
+            <td><span className="param-optional">No</span></td>
+            <td>The metadata of the subscription.</td>
+          </tr>
+          <tr>
+            <td><code>metadata.order_id</code></td>
+            <td><span className="param-type">string</span></td>
+            <td><span className="param-optional">No</span></td>
+            <td>The order ID.</td>
+          </tr>
+          <tr>
+            <td><code>metadata.order_code</code></td>
+            <td><span className="param-type">string</span></td>
+            <td><span className="param-optional">No</span></td>
+            <td>The order code.</td>
+          </tr>
+          <tr>
+            <td><code>success_url</code></td>
+            <td><span className="param-type">string</span></td>
+            <td><span className="param-required">Yes</span></td>
+            <td>The URL to redirect to after successful subscription setup. Must be a valid URL.</td>
+          </tr>
+          <tr>
+            <td><code>cancel_url</code></td>
+            <td><span className="param-type">string</span></td>
+            <td><span className="param-required">Yes</span></td>
+            <td>The URL to redirect to after subscription cancellation. Must be a valid URL.</td>
+          </tr>
+          <tr>
+            <td><code>return_url</code></td>
+            <td><span className="param-type">string</span></td>
+            <td><span className="param-optional">No</span></td>
+            <td>The URL to redirect to after subscription completion. Must be a valid URL.</td>
+          </tr>
+          <tr>
+            <td><code>mode</code></td>
+            <td><span className="param-type">string</span></td>
+            <td><span className="param-required">Yes</span></td>
+            <td>The mode of the subscription. Must be one of: <code>sandbox</code>, <code>production</code>.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
 ## Response
 
-### Response Parameters
-
-| Name | Type | Description |
-|------|------|-------------|
-| status | boolean | Whether the request was successful. |
-| message | string | A message describing the result of the request. |
-| data | object | The subscription data. |
-| data.subscription_request_id | string | The ID of the subscription request. Use this to verify the subscription status. |
-| data.checkout_url | string | The URL to redirect the customer to for completing the subscription setup. |
+<div className="parameters-section">
+  <div className="parameters-card">
+    <h3>Response Parameters</h3>
+    <div className="parameters-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>status</code></td>
+            <td><span className="param-type">boolean</span></td>
+            <td>Whether the request was successful.</td>
+          </tr>
+          <tr>
+            <td><code>message</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>A message describing the result of the request.</td>
+          </tr>
+          <tr>
+            <td><code>data</code></td>
+            <td><span className="param-type">object</span></td>
+            <td>The subscription data.</td>
+          </tr>
+          <tr>
+            <td><code>data.subscription_request_id</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>The ID of the subscription request. Use this to verify the subscription status.</td>
+          </tr>
+          <tr>
+            <td><code>data.checkout_url</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>The URL to redirect the customer to for completing the subscription setup.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
 ## Example Request
 
-### cURL
+<div className="code-examples">
+  <div className="code-example-tabs">
+    <button className="code-example-tab active" data-language="curl">cURL</button>
+    <button className="code-example-tab" data-language="javascript">Node.js</button>
+    <button className="code-example-tab" data-language="python">Python</button>
+  </div>
 
+  <div className="code-example-panel active" data-language="curl">
+    <div className="code-block-container">
+      <pre className="code-block">
 ```bash
 curl --request POST \
-    "https://liasonpay.net/api/v1/subscription/create" \
-    --header "Authorization: Bearer {API_KEY}" \
+    "{ApiBaseUrl()}/subscription/create" \
+    --header "Authorization: Bearer YOUR_API_KEY" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"store_id\": \"STORE_123\",
-    \"price_id\": \"PRICE_ABC123\",
+    \"store_id\": \"{ExampleStoreId()}\",
+    \"price_id\": \"{ExamplePriceId()}\",
     \"trial_period_days\": 30,
     \"customer\": {
         \"name\": \"John Doe\",
@@ -73,67 +219,89 @@ curl --request POST \
     \"success_url\": \"https://example.com/success\",
     \"cancel_url\": \"https://example.com/cancel\",
     \"return_url\": \"https://example.com/return\",
-    \"mode\": \"sandbox\"
+    \"mode\": \"production\"
 }"
 ```
+      </pre>
+    </div>
+  </div>
 
-### Node.js
-
+  <div className="code-example-panel" data-language="javascript">
+    <div className="code-block-container">
+      <pre className="code-block">
 ```javascript
-const axios = require('axios');
+const axios = require("axios");
 
 const createSubscription = async () => {
-  try {
-    const response = await axios.post('https://liasonpay.net/api/v1/subscription/create', {
-      store_id: 'STORE_123',
-      price_id: 'PRICE_ABC123',
-      trial_period_days: 30,
-      customer: {
-        name: 'John Doe',
-        email: 'john.doe@example.com',
-        phone_number: '+2348123456789'
-      },
-      metadata: {
-        order_id: '1234567890',
-        order_code: 'ORD_1234567890'
-      },
-      success_url: 'https://example.com/success',
-      cancel_url: 'https://example.com/cancel',
-      return_url: 'https://example.com/return',
-      mode: 'sandbox'
-    }, {
-      headers: {
-        'Authorization': 'Bearer {API_KEY}',
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      }
-    });
-    
-    console.log(response.data);
-    return response.data;
-  } catch (error) {
-    console.error('Error creating subscription:', error.response?.data || error.message);
-    throw error;
-  }
+// Initialize API client
+const liasonpay = axios.create({
+baseURL: "{ApiBaseUrl()}",
+headers: {
+Authorization: `Bearer ${process.env.LIASONPAY_API_KEY}`,
+"Content-Type": "application/json",
+Accept: "application/json",
+},
+});
+
+try {
+const response = await liasonpay.post("/subscription/create", {
+store_id: "{ExampleStoreId()}",
+price_id: "{ExamplePriceId()}",
+trial_period_days: 30,
+customer: {
+name: "John Doe",
+email: "john.doe@example.com",
+phone_number: "+2348123456789",
+},
+metadata: {
+order_id: "1234567890",
+order_code: "ORD_1234567890",
+},
+success_url: "https://example.com/success",
+cancel_url: "https://example.com/cancel",
+return_url: "https://example.com/return",
+mode: "production",
+});
+
+      console.log(response.data);
+      return response.data;
+
+} catch (error) {
+console.error(
+"Error creating subscription:",
+error.response?.data || error.message
+);
+throw error;
+}
 };
-```
 
-### Python
+````
+      </pre>
+    </div>
+  </div>
 
+  <div className="code-example-panel" data-language="python">
+    <div className="code-block-container">
+      <pre className="code-block">
 ```python
 import requests
 import json
+import os
 
 def create_subscription():
-    url = "https://liasonpay.net/api/v1/subscription/create"
+    # API configuration
+    api_base_url = "{ApiBaseUrl()}"
+    api_key = os.environ.get("LIASONPAY_API_KEY")
+
+    url = f"{api_base_url}/subscription/create"
     headers = {
-        "Authorization": "Bearer {API_KEY}",
+        "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json",
         "Accept": "application/json"
     }
     payload = {
-        "store_id": "STORE_123",
-        "price_id": "PRICE_ABC123",
+        "store_id": "{ExampleStoreId()}",
+        "price_id": "{ExamplePriceId()}",
         "trial_period_days": 30,
         "customer": {
             "name": "John Doe",
@@ -147,9 +315,9 @@ def create_subscription():
         "success_url": "https://example.com/success",
         "cancel_url": "https://example.com/cancel",
         "return_url": "https://example.com/return",
-        "mode": "sandbox"
+        "mode": "production"
     }
-    
+
     try:
         response = requests.post(url, headers=headers, data=json.dumps(payload))
         response.raise_for_status()
@@ -157,143 +325,252 @@ def create_subscription():
     except requests.exceptions.RequestException as e:
         print(f"Error creating subscription: {e}")
         raise
-```
+````
+
+      </pre>
+    </div>
+
+  </div>
+</div>
 
 ## Example Response
 
+<div className="response-example">
+  <div className="code-block-container">
+    <pre className="code-block">
 ```json
 {
-    "status": true,
-    "message": "Payment processed successfully",
-    "data": {
-        "subscription_request_id": "552852D7C8",
-        "checkout_url": "https://checkout.liasonpay.net/c/552852D7C8"
-    }
+  "status": true,
+  "message": "Subscription created successfully",
+  "data": {
+    "subscription_request_id": "{ExampleSubscriptionId()}",
+    "checkout_url": "https://checkout.liasonpay.net/c/{ExampleSubscriptionId()}"
+  }
 }
 ```
+    </pre>
+  </div>
+</div>
 
 ## Error Responses
 
-### Validation Error
+<div className="error-examples">
+  <div className="error-example-tabs">
+    <button className="error-example-tab active" data-error="validation">Validation Error</button>
+    <button className="error-example-tab" data-error="store-not-found">Store Not Found</button>
+    <button className="error-example-tab" data-error="price-not-found">Price Not Found</button>
+    <button className="error-example-tab" data-error="auth">Authentication Error</button>
+  </div>
 
+  <div className="error-example-panel active" data-error="validation">
+    <div className="code-block-container">
+      <pre className="code-block">
 ```json
 {
-    "status": false,
-    "message": "Validation error",
-    "data": {
-        "error_code": "validation_error",
-        "errors": {
-            "store_id": ["The store_id field is required."],
-            "price_id": ["The price_id field is required."]
-        }
+  "status": false,
+  "message": "Validation error",
+  "data": {
+    "error_code": "validation_error",
+    "errors": {
+      "store_id": ["The store_id field is required."],
+      "price_id": ["The price_id field is required."]
     }
+  }
 }
 ```
+      </pre>
+    </div>
+    <div className="error-description">
+      <p>This error occurs when the request is missing required fields or contains invalid data.</p>
+    </div>
+  </div>
 
-### Store Not Found
-
+  <div className="error-example-panel" data-error="store-not-found">
+    <div className="code-block-container">
+      <pre className="code-block">
 ```json
 {
-    "status": false,
-    "message": "Store not found",
-    "data": {
-        "error_code": "resource_not_found"
-    }
+  "status": false,
+  "message": "Store not found",
+  "data": {
+    "error_code": "resource_not_found"
+  }
 }
 ```
+      </pre>
+    </div>
+    <div className="error-description">
+      <p>This error occurs when the specified store ID does not exist in the system.</p>
+    </div>
+  </div>
 
-### Price Not Found
-
+  <div className="error-example-panel" data-error="price-not-found">
+    <div className="code-block-container">
+      <pre className="code-block">
 ```json
 {
-    "status": false,
-    "message": "Price not found",
-    "data": {
-        "error_code": "resource_not_found"
-    }
+  "status": false,
+  "message": "Price not found",
+  "data": {
+    "error_code": "resource_not_found"
+  }
 }
 ```
+      </pre>
+    </div>
+    <div className="error-description">
+      <p>This error occurs when the specified price ID does not exist in the system.</p>
+    </div>
+  </div>
 
-### Authentication Error
-
+  <div className="error-example-panel" data-error="auth">
+    <div className="code-block-container">
+      <pre className="code-block">
 ```json
 {
-    "status": false,
-    "message": "Invalid API key provided",
-    "data": {
-        "error_code": "authentication_error"
-    }
+  "status": false,
+  "message": "Invalid API key provided",
+  "data": {
+    "error_code": "authentication_error"
+  }
 }
 ```
+      </pre>
+    </div>
+    <div className="error-description">
+      <p>This error occurs when the API key provided in the Authorization header is invalid or has been revoked.</p>
+    </div>
+  </div>
+</div>
 
 ## Notes
 
-- After creating a subscription, redirect the customer to the `checkout_url` to complete the subscription setup.
-- Use the `subscription_request_id` with the [Verify Subscription](/api-reference/subscriptions/verify-subscription) endpoint to check the status of the subscription.
-- If you provide customer details, a new customer will be created if one doesn't already exist with the provided email.
-- The `trial_period_days` parameter is only supported with certain payment processors. Flutterwave does not support trial periods.
-- The `mode` parameter determines whether the subscription is created in sandbox or production mode. Use `sandbox` for testing and `production` for live subscriptions.
+<div className="notes-section">
+  <div className="notes-card">
+    <div className="notes-items">
+      <div className="notes-item">
+        <div className="notes-icon">🔗</div>
+        <div className="notes-content">
+          <p>After creating a subscription, redirect the customer to the <code>checkout_url</code> to complete the subscription setup.</p>
+        </div>
+      </div>
+
+      <div className="notes-item">
+        <div className="notes-icon">✅</div>
+        <div className="notes-content">
+          <p>Use the <code>subscription_request_id</code> with the <a href="/api-reference/subscriptions/verify-subscription">Verify Subscription</a> endpoint to check the status of the subscription.</p>
+        </div>
+      </div>
+
+      <div className="notes-item">
+        <div className="notes-icon">👤</div>
+        <div className="notes-content">
+          <p>If you provide customer details, a new customer will be created if one doesn't already exist with the provided email.</p>
+        </div>
+      </div>
+
+      <div className="notes-item">
+        <div className="notes-icon">⏱️</div>
+        <div className="notes-content">
+          <p>The <code>trial_period_days</code> parameter is only supported with certain payment processors. Flutterwave does not support trial periods.</p>
+        </div>
+      </div>
+
+      <div className="notes-item">
+        <div className="notes-icon">🔄</div>
+        <div className="notes-content">
+          <p>The <code>mode</code> parameter determines whether the subscription is created in sandbox or production mode. Use <code>sandbox</code> for testing and <code>production</code> for live subscriptions.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 ## Interactive Testing
 
-<ApiTester 
-  endpoint="/api/v1/subscription/create" 
-  method="POST"
-  baseUrl="https://liasonpay.net" 
-  params={[
-    { 
-      name: "store_id", 
-      required: true, 
-      in: "body",
-      description: "The ID of the store" 
-    },
-    { 
-      name: "price_id", 
-      required: true, 
-      in: "body",
-      description: "The ID of the price" 
-    },
-    { 
-      name: "trial_period_days", 
-      required: false, 
-      in: "body",
-      description: "The number of days for the trial period" 
-    },
-    { 
-      name: "customer", 
-      required: false, 
-      in: "body",
-      description: "The customer details (object)" 
-    },
-    { 
-      name: "metadata", 
-      required: false, 
-      in: "body",
-      description: "The metadata of the payment (object)" 
-    },
-    { 
-      name: "success_url", 
-      required: true, 
-      in: "body",
-      description: "The URL to redirect to after successful payment" 
-    },
-    { 
-      name: "cancel_url", 
-      required: true, 
-      in: "body",
-      description: "The URL to redirect to after payment cancellation" 
-    },
-    { 
-      name: "return_url", 
-      required: false, 
-      in: "body",
-      description: "The URL to redirect to after payment completion" 
-    },
-    { 
-      name: "mode", 
-      required: true, 
-      in: "body",
-      description: "The mode of the payment (sandbox or production)" 
-    }
-  ]}
-/>
+<div className="interactive-testing-section">
+  <div className="interactive-testing-card">
+    <h3>Try It Out</h3>
+    <p>Use the interactive API tester below to try out this endpoint with your own API key and parameters.</p>
+
+    <ApiTester
+      endpoint="/api/v1/subscription/create"
+      method="POST"
+      baseUrl="{ApiBaseUrl()}"
+      params={[
+        {
+          name: "store_id",
+          required: true,
+          in: "body",
+          description: "The ID of the store",
+          defaultValue: "{ExampleStoreId()}"
+        },
+        {
+          name: "price_id",
+          required: true,
+          in: "body",
+          description: "The ID of the price",
+          defaultValue: "{ExamplePriceId()}"
+        },
+        {
+          name: "trial_period_days",
+          required: false,
+          in: "body",
+          description: "The number of days for the trial period",
+          defaultValue: "30"
+        },
+        {
+          name: "customer",
+          required: false,
+          in: "body",
+          description: "The customer details (object)",
+          defaultValue: JSON.stringify({
+            name: "John Doe",
+            email: "john.doe@example.com",
+            phone_number: "+2348123456789"
+          })
+        },
+        {
+          name: "metadata",
+          required: false,
+          in: "body",
+          description: "The metadata of the subscription (object)",
+          defaultValue: JSON.stringify({
+            order_id: "1234567890",
+            order_code: "ORD_1234567890"
+          })
+        },
+        {
+          name: "success_url",
+          required: true,
+          in: "body",
+          description: "The URL to redirect to after successful subscription setup",
+          defaultValue: "https://example.com/success"
+        },
+        {
+          name: "cancel_url",
+          required: true,
+          in: "body",
+          description: "The URL to redirect to after subscription cancellation",
+          defaultValue: "https://example.com/cancel"
+        },
+        {
+          name: "return_url",
+          required: false,
+          in: "body",
+          description: "The URL to redirect to after subscription completion",
+          defaultValue: "https://example.com/return"
+        },
+        {
+          name: "mode",
+          required: true,
+          in: "body",
+          description: "The mode of the subscription (sandbox or production)",
+          defaultValue: "production"
+        }
+      ]}
+    />
+
+  </div>
+</div>

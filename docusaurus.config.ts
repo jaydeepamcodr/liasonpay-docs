@@ -52,6 +52,18 @@ const config: Config = {
     ],
   ],
 
+  // Add custom scripts
+  scripts: [
+    {
+      src: "/js/custom.js",
+      async: true,
+    },
+    {
+      src: "/js/api-reference.js",
+      async: true,
+    },
+  ],
+
   themeConfig: {
     image: "img/api-docs-social-card.jpg",
     navbar: {

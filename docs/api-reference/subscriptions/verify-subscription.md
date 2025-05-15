@@ -3,104 +3,243 @@ sidebar_position: 3
 ---
 
 import ApiTester from '@site/src/components/ApiTester';
+import { AppUrl, ApiBaseUrl, ExampleApiKey, ExampleStoreId, ExamplePriceId, ExampleSubscriptionId } from '@site/src/components/DynamicValues';
 
 # Verify Subscription
 
-<span className="badge badge--primary">requires authentication</span>
+<div className="explorer-header">
+  <div className="explorer-header-content">
+    <h2>Verify Subscription Status</h2>
+    <p>Check the status of a subscription after customer checkout</p>
+    <div className="explorer-badges">
+      <span className="badge badge--primary">requires authentication</span>
+      <span className="badge badge--success">POST</span>
+      <span className="badge badge--info">/api/v1/subscription/verify</span>
+    </div>
+  </div>
+</div>
 
+<div className="endpoint-section">
+  <div className="endpoint-card">
+    <h3>Endpoint</h3>
+    <div className="code-block-container">
+      <pre className="code-block">
 ```http
-POST /api/v1/subscription/verify
+POST {ApiBaseUrl()}/subscription/verify
 ```
-
-Verify the status of a subscription after creation.
+      </pre>
+    </div>
+    <p>This endpoint allows you to verify the status of a subscription after the customer has been redirected to the checkout page.</p>
+  </div>
+</div>
 
 ## Request Parameters
 
-### Body Parameters
-
-| Name | Type | Required | Description |
-|------|------|----------|-------------|
-| subscription_request_id | string | Yes | The ID of the subscription request. The `log_id` of an existing record in the subscription_logs table. Must not be greater than 255 characters. |
+<div className="parameters-section">
+  <div className="parameters-card">
+    <h3>Body Parameters</h3>
+    <div className="parameters-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Required</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>subscription_request_id</code></td>
+            <td><span className="param-type">string</span></td>
+            <td><span className="param-required">Yes</span></td>
+            <td>The ID of the subscription request. The <code>log_id</code> of an existing record in the subscription_logs table. Must not be greater than 255 characters.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
 ## Response
 
-### Response Parameters
-
-| Name | Type | Description |
-|------|------|-------------|
-| status | boolean | Whether the request was successful. |
-| message | string | A message describing the result of the request. |
-| data | object | The subscription data. |
-| data.subscription_id | string | The unique identifier for the subscription. |
-| data.store_id | string | The ID of the store the subscription belongs to. |
-| data.customer_id | string | The ID of the customer who owns the subscription. |
-| data.price_id | string | The ID of the price associated with the subscription. |
-| data.status | string | The status of the subscription. Possible values: `active`, `canceled`, `past_due`, `unpaid`, `trialing`. |
-| data.current_period_start | string | The start date of the current billing period in ISO 8601 format. |
-| data.current_period_end | string | The end date of the current billing period in ISO 8601 format. |
-| data.cancel_at_period_end | boolean | Whether the subscription will be canceled at the end of the current period. |
-| data.canceled_at | string | If the subscription has been canceled, the date of that cancellation in ISO 8601 format. |
-| data.created_at | string | The date the subscription was created in ISO 8601 format. |
-| data.updated_at | string | The date the subscription was last updated in ISO 8601 format. |
+<div className="parameters-section">
+  <div className="parameters-card">
+    <h3>Response Parameters</h3>
+    <div className="parameters-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>status</code></td>
+            <td><span className="param-type">boolean</span></td>
+            <td>Whether the request was successful.</td>
+          </tr>
+          <tr>
+            <td><code>message</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>A message describing the result of the request.</td>
+          </tr>
+          <tr>
+            <td><code>data</code></td>
+            <td><span className="param-type">object</span></td>
+            <td>The subscription data.</td>
+          </tr>
+          <tr>
+            <td><code>data.subscription_id</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>The unique identifier for the subscription.</td>
+          </tr>
+          <tr>
+            <td><code>data.store_id</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>The ID of the store the subscription belongs to.</td>
+          </tr>
+          <tr>
+            <td><code>data.customer_id</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>The ID of the customer who owns the subscription.</td>
+          </tr>
+          <tr>
+            <td><code>data.price_id</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>The ID of the price associated with the subscription.</td>
+          </tr>
+          <tr>
+            <td><code>data.status</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>The status of the subscription. Possible values: <code>active</code>, <code>canceled</code>, <code>past_due</code>, <code>unpaid</code>, <code>trialing</code>.</td>
+          </tr>
+          <tr>
+            <td><code>data.current_period_start</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>The start date of the current billing period in ISO 8601 format.</td>
+          </tr>
+          <tr>
+            <td><code>data.current_period_end</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>The end date of the current billing period in ISO 8601 format.</td>
+          </tr>
+          <tr>
+            <td><code>data.cancel_at_period_end</code></td>
+            <td><span className="param-type">boolean</span></td>
+            <td>Whether the subscription will be canceled at the end of the current period.</td>
+          </tr>
+          <tr>
+            <td><code>data.canceled_at</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>If the subscription has been canceled, the date of that cancellation in ISO 8601 format.</td>
+          </tr>
+          <tr>
+            <td><code>data.created_at</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>The date the subscription was created in ISO 8601 format.</td>
+          </tr>
+          <tr>
+            <td><code>data.updated_at</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>The date the subscription was last updated in ISO 8601 format.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
 ## Example Request
 
-### cURL
+<div className="code-examples">
+  <div className="code-example-tabs">
+    <button className="code-example-tab active" data-language="curl">cURL</button>
+    <button className="code-example-tab" data-language="javascript">Node.js</button>
+    <button className="code-example-tab" data-language="python">Python</button>
+  </div>
 
+  <div className="code-example-panel active" data-language="curl">
+    <div className="code-block-container">
+      <pre className="code-block">
 ```bash
 curl --request POST \
-    "https://liasonpay.net/api/v1/subscription/verify" \
-    --header "Authorization: Bearer {API_KEY}" \
+    "{ApiBaseUrl()}/subscription/verify" \
+    --header "Authorization: Bearer YOUR_API_KEY" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
     \"subscription_request_id\": \"552852D7C8\"
 }"
 ```
+      </pre>
+    </div>
+  </div>
 
-### Node.js
-
+  <div className="code-example-panel" data-language="javascript">
+    <div className="code-block-container">
+      <pre className="code-block">
 ```javascript
-const axios = require('axios');
+const axios = require("axios");
 
 const verifySubscription = async () => {
-  try {
-    const response = await axios.post('https://liasonpay.net/api/v1/subscription/verify', {
-      subscription_request_id: '552852D7C8'
-    }, {
-      headers: {
-        'Authorization': 'Bearer {API_KEY}',
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      }
-    });
-    
-    console.log(response.data);
-    return response.data;
-  } catch (error) {
-    console.error('Error verifying subscription:', error.response?.data || error.message);
-    throw error;
-  }
+// Initialize API client
+const liasonpay = axios.create({
+baseURL: "{ApiBaseUrl()}",
+headers: {
+Authorization: `Bearer ${process.env.LIASONPAY_API_KEY}`,
+"Content-Type": "application/json",
+Accept: "application/json",
+},
+});
+
+try {
+const response = await liasonpay.post("/subscription/verify", {
+subscription_request_id: "552852D7C8"
+});
+
+      console.log(response.data);
+      return response.data;
+
+} catch (error) {
+console.error(
+"Error verifying subscription:",
+error.response?.data || error.message
+);
+throw error;
+}
 };
-```
 
-### Python
+````
+      </pre>
+    </div>
+  </div>
 
+  <div className="code-example-panel" data-language="python">
+    <div className="code-block-container">
+      <pre className="code-block">
 ```python
 import requests
 import json
+import os
 
 def verify_subscription():
-    url = "https://liasonpay.net/api/v1/subscription/verify"
+    # API configuration
+    api_base_url = "{ApiBaseUrl()}"
+    api_key = os.environ.get("LIASONPAY_API_KEY")
+
+    url = f"{api_base_url}/subscription/verify"
     headers = {
-        "Authorization": "Bearer {API_KEY}",
+        "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json",
         "Accept": "application/json"
     }
     payload = {
         "subscription_request_id": "552852D7C8"
     }
-    
+
     try:
         response = requests.post(url, headers=headers, data=json.dumps(payload))
         response.raise_for_status()
@@ -108,88 +247,174 @@ def verify_subscription():
     except requests.exceptions.RequestException as e:
         print(f"Error verifying subscription: {e}")
         raise
-```
+````
+
+      </pre>
+    </div>
+
+  </div>
+</div>
 
 ## Example Response
 
+<div className="response-example">
+  <div className="code-block-container">
+    <pre className="code-block">
 ```json
 {
-    "status": true,
-    "message": "Subscription verified successfully",
-    "data": {
-        "subscription_id": "SUBSCRIPTION_56FBC7EEE4",
-        "store_id": "STORE_65C0279F05",
-        "customer_id": "CUSTOMER_8A7B6C5D4E",
-        "price_id": "PRICE_1A2B3C4D5E",
-        "status": "active",
-        "current_period_start": "2023-05-01T00:00:00Z",
-        "current_period_end": "2023-06-01T00:00:00Z",
-        "cancel_at_period_end": false,
-        "canceled_at": null,
-        "created_at": "2023-04-15T10:30:00Z",
-        "updated_at": "2023-04-15T10:30:00Z"
-    }
+  "status": true,
+  "message": "Subscription verified successfully",
+  "data": {
+    "subscription_id": "{ExampleSubscriptionId()}",
+    "store_id": "{ExampleStoreId()}",
+    "customer_id": "CUSTOMER_8A7B6C5D4E",
+    "price_id": "{ExamplePriceId()}",
+    "status": "active",
+    "current_period_start": "2023-05-01T00:00:00Z",
+    "current_period_end": "2023-06-01T00:00:00Z",
+    "cancel_at_period_end": false,
+    "canceled_at": null,
+    "created_at": "2023-04-15T10:30:00Z",
+    "updated_at": "2023-04-15T10:30:00Z"
+  }
 }
 ```
+    </pre>
+  </div>
+</div>
 
 ## Error Responses
 
-### Subscription Request Not Found
+<div className="error-examples">
+  <div className="error-example-tabs">
+    <button className="error-example-tab active" data-error="not-found">Request Not Found</button>
+    <button className="error-example-tab" data-error="incomplete">Not Completed</button>
+    <button className="error-example-tab" data-error="auth">Authentication Error</button>
+  </div>
 
+  <div className="error-example-panel active" data-error="not-found">
+    <div className="code-block-container">
+      <pre className="code-block">
 ```json
 {
-    "status": false,
-    "message": "Subscription request not found",
-    "data": {
-        "error_code": "resource_not_found"
-    }
+  "status": false,
+  "message": "Subscription request not found",
+  "data": {
+    "error_code": "resource_not_found"
+  }
 }
 ```
+      </pre>
+    </div>
+    <div className="error-description">
+      <p>This error occurs when the specified subscription request ID does not exist in the system.</p>
+    </div>
+  </div>
 
-### Subscription Not Completed
-
+  <div className="error-example-panel" data-error="incomplete">
+    <div className="code-block-container">
+      <pre className="code-block">
 ```json
 {
-    "status": false,
-    "message": "Subscription has not been completed",
-    "data": {
-        "error_code": "subscription_incomplete"
-    }
+  "status": false,
+  "message": "Subscription has not been completed",
+  "data": {
+    "error_code": "subscription_incomplete"
+  }
 }
 ```
+      </pre>
+    </div>
+    <div className="error-description">
+      <p>This error occurs when the customer has not completed the subscription checkout process yet.</p>
+    </div>
+  </div>
 
-### Authentication Error
-
+  <div className="error-example-panel" data-error="auth">
+    <div className="code-block-container">
+      <pre className="code-block">
 ```json
 {
-    "status": false,
-    "message": "Invalid API key provided",
-    "data": {
-        "error_code": "authentication_error"
-    }
+  "status": false,
+  "message": "Invalid API key provided",
+  "data": {
+    "error_code": "authentication_error"
+  }
 }
 ```
+      </pre>
+    </div>
+    <div className="error-description">
+      <p>This error occurs when the API key provided in the Authorization header is invalid or has been revoked.</p>
+    </div>
+  </div>
+</div>
 
 ## Notes
 
-- Use this endpoint to verify the status of a subscription after redirecting the customer to the checkout URL.
-- The `subscription_request_id` is returned from the [Create Subscription](/api-reference/subscriptions/create-subscription) endpoint.
-- If the subscription has not been completed by the customer, the API will return an error with the `subscription_incomplete` error code.
-- Once a subscription is verified as active, you can use the returned `subscription_id` with other subscription endpoints.
-- It's recommended to implement webhook handling for subscription events to receive real-time updates about subscription status changes.
+<div className="notes-section">
+  <div className="notes-card">
+    <div className="notes-items">
+      <div className="notes-item">
+        <div className="notes-icon">🔍</div>
+        <div className="notes-content">
+          <p>Use this endpoint to verify the status of a subscription after redirecting the customer to the checkout URL.</p>
+        </div>
+      </div>
+
+      <div className="notes-item">
+        <div className="notes-icon">🔄</div>
+        <div className="notes-content">
+          <p>The <code>subscription_request_id</code> is returned from the <a href="/api-reference/subscriptions/create-subscription">Create Subscription</a> endpoint.</p>
+        </div>
+      </div>
+
+      <div className="notes-item">
+        <div className="notes-icon">⚠️</div>
+        <div className="notes-content">
+          <p>If the subscription has not been completed by the customer, the API will return an error with the <code>subscription_incomplete</code> error code.</p>
+        </div>
+      </div>
+
+      <div className="notes-item">
+        <div className="notes-icon">✅</div>
+        <div className="notes-content">
+          <p>Once a subscription is verified as active, you can use the returned <code>subscription_id</code> with other subscription endpoints.</p>
+        </div>
+      </div>
+
+      <div className="notes-item">
+        <div className="notes-icon">🔔</div>
+        <div className="notes-content">
+          <p>It's recommended to implement webhook handling for subscription events to receive real-time updates about subscription status changes.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 ## Interactive Testing
 
-<ApiTester 
-  endpoint="/api/v1/subscription/verify" 
-  method="POST"
-  baseUrl="https://liasonpay.net" 
-  params={[
-    { 
-      name: "subscription_request_id", 
-      required: true, 
-      in: "body",
-      description: "The ID of the subscription request" 
-    }
-  ]}
-/>
+<div className="interactive-testing-section">
+  <div className="interactive-testing-card">
+    <h3>Try It Out</h3>
+    <p>Use the interactive API tester below to try out this endpoint with your own API key and parameters.</p>
+
+    <ApiTester
+      endpoint="/api/v1/subscription/verify"
+      method="POST"
+      baseUrl="{ApiBaseUrl()}"
+      params={[
+        {
+          name: "subscription_request_id",
+          required: true,
+          in: "body",
+          description: "The ID of the subscription request",
+          defaultValue: "552852D7C8"
+        }
+      ]}
+    />
+
+  </div>
+</div>

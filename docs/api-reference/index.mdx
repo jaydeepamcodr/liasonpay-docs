@@ -8,111 +8,306 @@ import {
   ExampleStoreId,
   ExampleSubscriptionId,
   ApiRateLimit,
+  AppUrl,
 } from "@site/src/components/DynamicValues";
 
 # API Reference
 
-Welcome to the LiasonPay API Reference. This section provides detailed information about all available endpoints, request parameters, and response formats.
+<div className="explorer-header">
+  <div className="explorer-header-content">
+    <h2>LiasonPay API Reference</h2>
+    <p>
+      Complete documentation for the LiasonPay payment processing and
+      subscription management API
+    </p>
+  </div>
+</div>
 
-## Introduction
+<div className="introduction-section">
+  <div className="introduction-card">
+    <h3>Introduction</h3>
+    <p>
+      Welcome to the LiasonPay API Reference. This section provides detailed
+      information about all available endpoints, request parameters, and
+      response formats.
+    </p>
+    <p>
+      The LiasonPay API is a RESTful API that allows you to integrate payment
+      processing and subscription management into your applications. All API
+      requests are made over HTTPS and return responses in JSON format.
+    </p>
+  </div>
+</div>
 
-The LiasonPay API is a RESTful API that allows you to integrate payment processing and subscription management into your applications. All API requests are made over HTTPS and return responses in JSON format.
+<div className="base-url-section">
+  <div className="base-url-card">
+    <h3>Base URL</h3>
+    <div className="code-block-container">
+      <pre className="code-block">
+        <ApiBaseUrl />
+      </pre>
+    </div>
+    <p>All API requests should be made to the base URL shown above.</p>
+  </div>
+</div>
 
-## Base URL
+<div className="authentication-section">
+  <div className="authentication-card">
+    <h3>Authentication</h3>
+    <p>
+      To authenticate requests, include an <code>Authorization</code> header with the value <code>Bearer {'{API_KEY}'}</code>.
+    </p>
 
-All API requests should be made to the following base URL:
-
-<ApiBaseUrl />
-
-## Authentication
-
-To authenticate requests, include an **`Authorization`** header with the value **`"Bearer {API_KEY}"`**.
+    <div className="code-block-container">
+      <pre className="code-block">
 
 ```http
 Authorization: Bearer <ExampleApiKey />
 ```
 
-All authenticated endpoints are marked with a `requires authentication` badge in the documentation.
+      </pre>
+    </div>
 
-To obtain your API key, please follow these steps:
+    <p>All authenticated endpoints are marked with a <span className="badge badge--primary">requires authentication</span> badge in the documentation.</p>
 
-1. Log in to your [LiasonPay](https://liasonpay.test) account
-2. Navigate to the **Dashboard**
-3. Click on the **Profile icon** in the top right corner
-4. Click on the **API Keys** section
-5. You will see your API key listed here. You can either:
-   - **Copy your existing API key**, or
-   - **Generate a new API key**, if needed.
+    <div className="authentication-steps">
+      <h4>Obtaining Your API Key</h4>
+      <ol>
+        <li>Log in to your <a href="{AppUrl()}">LiasonPay</a> account</li>
+        <li>Navigate to the <strong>Dashboard</strong></li>
+        <li>Click on the <strong>Profile icon</strong> in the top right corner</li>
+        <li>Click on the <strong>API Keys</strong> section</li>
+        <li>
+          You will see your API key listed here. You can either:
+          <ul>
+            <li><strong>Copy your existing API key</strong>, or</li>
+            <li><strong>Generate a new API key</strong>, if needed.</li>
+          </ul>
+        </li>
+      </ol>
 
-> **Note:** You can also access your API key directly from the **sidebar menu** by clicking on the **"API Keys"** option.
+      <div className="note-box">
+        <div className="note-icon">📝</div>
+        <div className="note-content">
+          <p>You can also access your API key directly from the <strong>sidebar menu</strong> by clicking on the <strong>"API Keys"</strong> option.</p>
+        </div>
+      </div>
+    </div>
 
-For more details, see the [Authentication](/getting-started/authentication) guide.
+    <p>For more details, see the <a href="/getting-started/authentication">Authentication</a> guide.</p>
 
-## API Endpoints
+  </div>
+</div>
 
-### Subscription Endpoints
+<div className="endpoints-section">
+  <div className="endpoints-card">
+    <h3>API Endpoints</h3>
 
-The Subscription API allows you to create and manage recurring billing for your customers.
+    <div className="endpoint-category">
+      <h4>Subscription Endpoints</h4>
+      <p>The Subscription API allows you to create and manage recurring billing for your customers.</p>
 
-- [Get Subscriptions](/api-reference/subscriptions/get-subscriptions) - Retrieve a list of subscriptions
-- [Create Subscription](/api-reference/subscriptions/create-subscription) - Create a new subscription
-- [Verify Subscription](/api-reference/subscriptions/verify-subscription) - Verify a subscription's status
-- [Cancel Subscription](/api-reference/subscriptions/cancel-subscription) - Cancel an active subscription
-- [Upgrade Subscription](/api-reference/subscriptions/upgrade-subscription) - Upgrade a subscription to a different plan
+      <div className="endpoint-list">
+        <div className="endpoint-item">
+          <div className="endpoint-icon">📋</div>
+          <div className="endpoint-content">
+            <a href="/api-reference/subscriptions/get-subscriptions">Get Subscriptions</a>
+            <p>Retrieve a list of subscriptions</p>
+          </div>
+        </div>
 
-### Payment Endpoints
+        <div className="endpoint-item">
+          <div className="endpoint-icon">➕</div>
+          <div className="endpoint-content">
+            <a href="/api-reference/subscriptions/create-subscription">Create Subscription</a>
+            <p>Create a new subscription</p>
+          </div>
+        </div>
 
-The Payment API allows you to process one-time payments from your customers.
+        <div className="endpoint-item">
+          <div className="endpoint-icon">✅</div>
+          <div className="endpoint-content">
+            <a href="/api-reference/subscriptions/verify-subscription">Verify Subscription</a>
+            <p>Verify a subscription's status</p>
+          </div>
+        </div>
 
-- [Process Payment](/api-reference/payments/process-payment) - Process a one-time payment
-- [Verify Payment](/api-reference/payments/verify-payment) - Verify a payment's status
+        <div className="endpoint-item">
+          <div className="endpoint-icon">🚫</div>
+          <div className="endpoint-content">
+            <a href="/api-reference/subscriptions/cancel-subscription">Cancel Subscription</a>
+            <p>Cancel an active subscription</p>
+          </div>
+        </div>
 
-### Package Endpoints
+        <div className="endpoint-item">
+          <div className="endpoint-icon">⬆️</div>
+          <div className="endpoint-content">
+            <a href="/api-reference/subscriptions/upgrade-subscription">Upgrade Subscription</a>
+            <p>Upgrade a subscription to a different plan</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-The Package API allows you to retrieve and manage package information.
+    <div className="endpoint-category">
+      <h4>Payment Endpoints</h4>
+      <p>The Payment API allows you to process one-time payments from your customers.</p>
 
-- [Get Packages](/api-reference/packages/get-packages) - Retrieve a list of packages
+      <div className="endpoint-list">
+        <div className="endpoint-item">
+          <div className="endpoint-icon">💳</div>
+          <div className="endpoint-content">
+            <a href="/api-reference/payments/process-payment">Process Payment</a>
+            <p>Process a one-time payment</p>
+          </div>
+        </div>
 
-## Webhook Events
+        <div className="endpoint-item">
+          <div className="endpoint-icon">✅</div>
+          <div className="endpoint-content">
+            <a href="/api-reference/payments/verify-payment">Verify Payment</a>
+            <p>Verify a payment's status</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-LiasonPay uses webhooks to notify your application when events happen in your account. For detailed information about webhook events and how to handle them, see the [Webhooks](/developer-guide/webhooks) guide.
+    <div className="endpoint-category">
+      <h4>Package Endpoints</h4>
+      <p>The Package API allows you to retrieve and manage package information.</p>
 
-Common webhook events include:
+      <div className="endpoint-list">
+        <div className="endpoint-item">
+          <div className="endpoint-icon">📦</div>
+          <div className="endpoint-content">
+            <a href="/api-reference/packages/get-packages">Get Packages</a>
+            <p>Retrieve a list of packages</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-### Charge Events
+  </div>
+</div>
 
-- `session.created` - A new payment session was created
-- `charge.created` - A new charge was created
-- `charge.updated` - A charge was updated
-- `charge.completed` - A charge was successfully completed
-- `charge.failed` - A charge attempt failed
-- `charge.cancelled` - A charge was cancelled
+<div className="webhooks-section">
+  <div className="webhooks-card">
+    <h3>Webhook Events</h3>
 
-### Refund Events
+    <p>
+      LiasonPay uses webhooks to notify your application when events happen in your account.
+      For detailed information about webhook events and how to handle them, see the
+      <a href="/developer-guide/webhooks">Webhooks</a> guide.
+    </p>
 
-- `refund.created` - A new refund was created
-- `refund.updated` - A refund was updated
-- `refund.failed` - A refund attempt failed
-- `charge.refunded` - A charge was refunded
+    <div className="webhook-categories">
+      <div className="webhook-category">
+        <h4>Charge Events</h4>
+        <div className="webhook-list">
+          <div className="webhook-item">
+            <div className="webhook-event-name"><code>session.created</code></div>
+            <div className="webhook-event-description">A new payment session was created</div>
+          </div>
+          <div className="webhook-item">
+            <div className="webhook-event-name"><code>charge.created</code></div>
+            <div className="webhook-event-description">A new charge was created</div>
+          </div>
+          <div className="webhook-item">
+            <div className="webhook-event-name"><code>charge.updated</code></div>
+            <div className="webhook-event-description">A charge was updated</div>
+          </div>
+          <div className="webhook-item">
+            <div className="webhook-event-name"><code>charge.completed</code></div>
+            <div className="webhook-event-description">A charge was successfully completed</div>
+          </div>
+          <div className="webhook-item">
+            <div className="webhook-event-name"><code>charge.failed</code></div>
+            <div className="webhook-event-description">A charge attempt failed</div>
+          </div>
+          <div className="webhook-item">
+            <div className="webhook-event-name"><code>charge.cancelled</code></div>
+            <div className="webhook-event-description">A charge was cancelled</div>
+          </div>
+        </div>
+      </div>
 
-### Dispute Events
+      <div className="webhook-category">
+        <h4>Refund Events</h4>
+        <div className="webhook-list">
+          <div className="webhook-item">
+            <div className="webhook-event-name"><code>refund.created</code></div>
+            <div className="webhook-event-description">A new refund was created</div>
+          </div>
+          <div className="webhook-item">
+            <div className="webhook-event-name"><code>refund.updated</code></div>
+            <div className="webhook-event-description">A refund was updated</div>
+          </div>
+          <div className="webhook-item">
+            <div className="webhook-event-name"><code>refund.failed</code></div>
+            <div className="webhook-event-description">A refund attempt failed</div>
+          </div>
+          <div className="webhook-item">
+            <div className="webhook-event-name"><code>charge.refunded</code></div>
+            <div className="webhook-event-description">A charge was refunded</div>
+          </div>
+        </div>
+      </div>
 
-- `charge.dispute.created` - A new dispute was created for a charge
-- `charge.dispute.closed` - A dispute for a charge was closed
+      <div className="webhook-category">
+        <h4>Dispute Events</h4>
+        <div className="webhook-list">
+          <div className="webhook-item">
+            <div className="webhook-event-name"><code>charge.dispute.created</code></div>
+            <div className="webhook-event-description">A new dispute was created for a charge</div>
+          </div>
+          <div className="webhook-item">
+            <div className="webhook-event-name"><code>charge.dispute.closed</code></div>
+            <div className="webhook-event-description">A dispute for a charge was closed</div>
+          </div>
+        </div>
+      </div>
 
-### Subscription Events
+      <div className="webhook-category">
+        <h4>Subscription Events</h4>
+        <div className="webhook-list">
+          <div className="webhook-item">
+            <div className="webhook-event-name"><code>subscription.created</code></div>
+            <div className="webhook-event-description">A new subscription was created</div>
+          </div>
+          <div className="webhook-item">
+            <div className="webhook-event-name"><code>subscription.updated</code></div>
+            <div className="webhook-event-description">A subscription was updated</div>
+          </div>
+          <div className="webhook-item">
+            <div className="webhook-event-name"><code>subscription.cancelled</code></div>
+            <div className="webhook-event-description">A subscription was cancelled</div>
+          </div>
+          <div className="webhook-item">
+            <div className="webhook-event-name"><code>subscription.payment.failed</code></div>
+            <div className="webhook-event-description">A subscription payment failed</div>
+          </div>
+          <div className="webhook-item">
+            <div className="webhook-event-name"><code>subscription.expired</code></div>
+            <div className="webhook-event-description">A subscription has expired</div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-- `subscription.created` - A new subscription was created
-- `subscription.updated` - A subscription was updated
-- `subscription.cancelled` - A subscription was cancelled
-- `subscription.payment.failed` - A subscription payment failed
-- `subscription.expired` - A subscription has expired
+  </div>
+</div>
 
-## Errors & Responses
+<div className="errors-responses-section">
+  <div className="errors-responses-card">
+    <h3>Errors & Responses</h3>
 
-### Response Format
+    <div className="response-format">
+      <h4>Response Format</h4>
+      <p>All API responses are returned in JSON format with the following structure:</p>
 
-All API responses are returned in JSON format with the following structure:
+      <div className="code-block-container">
+        <pre className="code-block">
 
 ```json
 {
@@ -122,13 +317,32 @@ All API responses are returned in JSON format with the following structure:
 }
 ```
 
-- `status`: A boolean indicating whether the request was successful
-- `message`: A string providing information about the result of the request
-- `data`: An object or array containing the response data
+        </pre>
+      </div>
 
-### Simple Error Format
+      <div className="response-fields">
+        <div className="response-field">
+          <div className="response-field-name"><code>status</code></div>
+          <div className="response-field-description">A boolean indicating whether the request was successful</div>
+        </div>
+        <div className="response-field">
+          <div className="response-field-name"><code>message</code></div>
+          <div className="response-field-description">A string providing information about the result of the request</div>
+        </div>
+        <div className="response-field">
+          <div className="response-field-name"><code>data</code></div>
+          <div className="response-field-description">An object or array containing the response data</div>
+        </div>
+      </div>
+    </div>
 
-When an error occurs, the API will return a JSON response with a `status` of `false` and an error message:
+    <div className="error-formats">
+      <div className="error-format">
+        <h4>Simple Error Format</h4>
+        <p>When an error occurs, the API will return a JSON response with a <code>status</code> of <code>false</code> and an error message:</p>
+
+        <div className="code-block-container">
+          <pre className="code-block">
 
 ```json
 {
@@ -138,9 +352,16 @@ When an error occurs, the API will return a JSON response with a `status` of `fa
 }
 ```
 
-### Validation Error Format
+          </pre>
+        </div>
+      </div>
 
-When an error occurs, the API will return a JSON response with a `status` of `false` and an error message:
+      <div className="error-format">
+        <h4>Validation Error Format</h4>
+        <p>When validation errors occur, the API will return a JSON response with field-specific error messages:</p>
+
+        <div className="code-block-container">
+          <pre className="code-block">
 
 ```json
 {
@@ -153,44 +374,126 @@ When an error occurs, the API will return a JSON response with a `status` of `fa
 }
 ```
 
-For more details on error handling, see the [Error Handling](/developer-guide/error-handling) guide.
+          </pre>
+        </div>
+      </div>
+    </div>
 
-## HTTP Status Codes
+    <p>For more details on error handling, see the <a href="/developer-guide/error-handling">Error Handling</a> guide.</p>
 
-The API uses standard HTTP status codes to indicate the success or failure of a request:
+  </div>
+</div>
 
-| Status Code | Description                                                 |
-| ----------- | ----------------------------------------------------------- |
-| 200         | OK - The request was successful                             |
-| 400         | Bad Request - The request was invalid or cannot be served   |
-| 401         | Unauthorized - Authentication is required or has failed     |
-| 403         | Forbidden - The request is not allowed                      |
-| 404         | Not Found - The requested resource does not exist           |
-| 422         | Unprocessable Entity - Validation error                     |
-| 429         | Too Many Requests - Rate limit exceeded                     |
-| 500         | Internal Server Error - Something went wrong on the server  |
-| 503         | Service Unavailable - The server is temporarily unavailable |
+<div className="status-codes-section">
+  <div className="status-codes-card">
+    <h3>HTTP Status Codes</h3>
 
-## Rate Limiting
+    <p>The API uses standard HTTP status codes to indicate the success or failure of a request:</p>
 
-The API has rate limiting in place to prevent abuse:
+    <div className="status-codes-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Status Code</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span className="status-code success">200</span></td>
+            <td><strong>OK</strong> - The request was successful</td>
+          </tr>
+          <tr>
+            <td><span className="status-code error">400</span></td>
+            <td><strong>Bad Request</strong> - The request was invalid or cannot be served</td>
+          </tr>
+          <tr>
+            <td><span className="status-code error">401</span></td>
+            <td><strong>Unauthorized</strong> - Authentication is required or has failed</td>
+          </tr>
+          <tr>
+            <td><span className="status-code error">403</span></td>
+            <td><strong>Forbidden</strong> - The request is not allowed</td>
+          </tr>
+          <tr>
+            <td><span className="status-code error">404</span></td>
+            <td><strong>Not Found</strong> - The requested resource does not exist</td>
+          </tr>
+          <tr>
+            <td><span className="status-code error">422</span></td>
+            <td><strong>Unprocessable Entity</strong> - Validation error</td>
+          </tr>
+          <tr>
+            <td><span className="status-code warning">429</span></td>
+            <td><strong>Too Many Requests</strong> - Rate limit exceeded</td>
+          </tr>
+          <tr>
+            <td><span className="status-code error">500</span></td>
+            <td><strong>Internal Server Error</strong> - Something went wrong on the server</td>
+          </tr>
+          <tr>
+            <td><span className="status-code error">503</span></td>
+            <td><strong>Service Unavailable</strong> - The server is temporarily unavailable</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-- <ApiRateLimit /> requests per minute
+  </div>
+</div>
 
-If you exceed these limits, you'll receive a `429 Too Many Requests` response with a `Retry-After` header indicating how many seconds to wait before retrying.
+<div className="rate-limiting-section">
+  <div className="rate-limiting-card">
+    <h3>Rate Limiting</h3>
 
-## Pagination
+    <p>The API has rate limiting in place to prevent abuse:</p>
 
-For endpoints that return lists of objects, the API uses cursor-based pagination:
+    <div className="rate-limit-info">
+      <div className="rate-limit-icon">⏱️</div>
+      <div className="rate-limit-value"><ApiRateLimit /> requests per minute</div>
+    </div>
+
+    <div className="rate-limit-note">
+      <p>
+        If you exceed these limits, you'll receive a <code>429 Too Many Requests</code> response
+        with a <code>Retry-After</code> header indicating how many seconds to wait before retrying.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<div className="pagination-section">
+  <div className="pagination-card">
+    <h3>Pagination</h3>
+
+    <p>For endpoints that return lists of objects, the API uses cursor-based pagination:</p>
+
+    <div className="code-block-container">
+      <pre className="code-block">
 
 ```
-GET /api/v1/subscription/get?store_id=<ExampleStoreId />&limit=10&cursor=CURSOR_TOKEN
+GET {ApiBaseUrl()}/subscription/get?store_id={ExampleStoreId()}&limit=10&cursor=CURSOR_TOKEN
 ```
 
-- `limit`: The number of objects to return (default: 20, max: 100)
-- `cursor`: A token that points to the end of the previous page
+      </pre>
+    </div>
 
-The response will include pagination information in the `meta` field:
+    <div className="pagination-params">
+      <div className="pagination-param">
+        <div className="pagination-param-name"><code>limit</code></div>
+        <div className="pagination-param-description">The number of objects to return (default: 20, max: 100)</div>
+      </div>
+      <div className="pagination-param">
+        <div className="pagination-param-name"><code>cursor</code></div>
+        <div className="pagination-param-description">A token that points to the end of the previous page</div>
+      </div>
+    </div>
+
+    <p>The response will include pagination information in the <code>meta</code> field:</p>
+
+    <div className="code-block-container">
+      <pre className="code-block">
 
 ```json
 {
@@ -204,18 +507,74 @@ The response will include pagination information in the `meta` field:
 }
 ```
 
-## API Versioning
+      </pre>
+    </div>
 
-The current version of the LiasonPay API is v1. The version is included in the URL path:
+  </div>
+</div>
 
-<ApiBaseUrl />
+<div className="api-versioning-section">
+  <div className="api-versioning-card">
+    <h3>API Versioning</h3>
 
-When new versions are released, we'll provide migration guides and maintain backward compatibility for a reasonable period.
+    <p>The current version of the LiasonPay API is v1. The version is included in the URL path:</p>
 
-## Additional Resources
+    <div className="code-block-container">
+      <pre className="code-block">
+        <ApiBaseUrl />
+      </pre>
+    </div>
 
-- [Interactive API Testing](/interactive-tools/api-testing)
-- [Postman Collection](/interactive-tools/postman-collection)
-- [API Explorer](/interactive-tools/api-explorer)
-- [Error Handling Guide](/developer-guide/error-handling)
-- [FAQ and Troubleshooting](/developer-guide/faq)
+    <p>When new versions are released, we'll provide migration guides and maintain backward compatibility for a reasonable period.</p>
+
+  </div>
+</div>
+
+<div className="additional-resources-section">
+  <div className="additional-resources-card">
+    <h3>Additional Resources</h3>
+
+    <div className="resources-list">
+      <div className="resource-item">
+        <div className="resource-icon">🧪</div>
+        <div className="resource-content">
+          <a href="/interactive-tools/api-testing">Interactive API Testing</a>
+          <p>Try out API endpoints directly in your browser</p>
+        </div>
+      </div>
+
+      <div className="resource-item">
+        <div className="resource-icon">📦</div>
+        <div className="resource-content">
+          <a href="/interactive-tools/postman-collection">Postman Collection</a>
+          <p>Download our Postman collection for easy API testing</p>
+        </div>
+      </div>
+
+      <div className="resource-item">
+        <div className="resource-icon">🔍</div>
+        <div className="resource-content">
+          <a href="/interactive-tools/api-explorer">API Explorer</a>
+          <p>Interactive tool to explore and test API endpoints</p>
+        </div>
+      </div>
+
+      <div className="resource-item">
+        <div className="resource-icon">⚠️</div>
+        <div className="resource-content">
+          <a href="/developer-guide/error-handling">Error Handling Guide</a>
+          <p>Learn how to handle API errors effectively</p>
+        </div>
+      </div>
+
+      <div className="resource-item">
+        <div className="resource-icon">❓</div>
+        <div className="resource-content">
+          <a href="/developer-guide/faq">FAQ and Troubleshooting</a>
+          <p>Common questions and solutions to problems</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -3,108 +3,252 @@ sidebar_position: 4
 ---
 
 import ApiTester from '@site/src/components/ApiTester';
+import { AppUrl, ApiBaseUrl, ExampleApiKey, ExampleStoreId, ExamplePriceId, ExampleSubscriptionId } from '@site/src/components/DynamicValues';
 
 # Cancel Subscription
 
-<span className="badge badge--primary">requires authentication</span>
+<div className="explorer-header">
+  <div className="explorer-header-content">
+    <h2>Cancel an Active Subscription</h2>
+    <p>End a customer's recurring billing plan immediately or at the end of the current period</p>
+    <div className="explorer-badges">
+      <span className="badge badge--primary">requires authentication</span>
+      <span className="badge badge--success">POST</span>
+      <span className="badge badge--info">/api/v1/subscription/cancel</span>
+    </div>
+  </div>
+</div>
 
+<div className="endpoint-section">
+  <div className="endpoint-card">
+    <h3>Endpoint</h3>
+    <div className="code-block-container">
+      <pre className="code-block">
 ```http
-POST /api/v1/subscription/cancel
+POST {ApiBaseUrl()}/subscription/cancel
 ```
-
-Cancel an active subscription.
+      </pre>
+    </div>
+    <p>This endpoint allows you to cancel an active subscription either immediately or at the end of the current billing period.</p>
+  </div>
+</div>
 
 ## Request Parameters
 
-### Body Parameters
-
-| Name | Type | Required | Description |
-|------|------|----------|-------------|
-| subscription_id | string | Yes | The ID of the subscription. The `subscription_id` of an existing record in the subscriptions table. Must not be greater than 255 characters. |
-| cancel_at_period_end | boolean | No | Cancel the subscription at the end of the billing period. Default: `false`. |
+<div className="parameters-section">
+  <div className="parameters-card">
+    <h3>Body Parameters</h3>
+    <div className="parameters-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Required</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>subscription_id</code></td>
+            <td><span className="param-type">string</span></td>
+            <td><span className="param-required">Yes</span></td>
+            <td>The ID of the subscription. The <code>subscription_id</code> of an existing record in the subscriptions table. Must not be greater than 255 characters.</td>
+          </tr>
+          <tr>
+            <td><code>cancel_at_period_end</code></td>
+            <td><span className="param-type">boolean</span></td>
+            <td><span className="param-optional">No</span></td>
+            <td>Cancel the subscription at the end of the billing period. Default: <code>false</code>.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
 ## Response
 
-### Response Parameters
-
-| Name | Type | Description |
-|------|------|-------------|
-| status | boolean | Whether the request was successful. |
-| message | string | A message describing the result of the request. |
-| data | object | The canceled subscription data. |
-| data.subscription_id | string | The unique identifier for the subscription. |
-| data.store_id | string | The ID of the store the subscription belongs to. |
-| data.customer_id | string | The ID of the customer who owns the subscription. |
-| data.price_id | string | The ID of the price associated with the subscription. |
-| data.status | string | The status of the subscription. Will be `canceled` if immediate cancellation, or `active` if canceling at period end. |
-| data.current_period_start | string | The start date of the current billing period in ISO 8601 format. |
-| data.current_period_end | string | The end date of the current billing period in ISO 8601 format. |
-| data.cancel_at_period_end | boolean | Whether the subscription will be canceled at the end of the current period. |
-| data.canceled_at | string | The date the subscription was canceled in ISO 8601 format. |
-| data.created_at | string | The date the subscription was created in ISO 8601 format. |
-| data.updated_at | string | The date the subscription was last updated in ISO 8601 format. |
+<div className="parameters-section">
+  <div className="parameters-card">
+    <h3>Response Parameters</h3>
+    <div className="parameters-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>status</code></td>
+            <td><span className="param-type">boolean</span></td>
+            <td>Whether the request was successful.</td>
+          </tr>
+          <tr>
+            <td><code>message</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>A message describing the result of the request.</td>
+          </tr>
+          <tr>
+            <td><code>data</code></td>
+            <td><span className="param-type">object</span></td>
+            <td>The canceled subscription data.</td>
+          </tr>
+          <tr>
+            <td><code>data.subscription_id</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>The unique identifier for the subscription.</td>
+          </tr>
+          <tr>
+            <td><code>data.store_id</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>The ID of the store the subscription belongs to.</td>
+          </tr>
+          <tr>
+            <td><code>data.customer_id</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>The ID of the customer who owns the subscription.</td>
+          </tr>
+          <tr>
+            <td><code>data.price_id</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>The ID of the price associated with the subscription.</td>
+          </tr>
+          <tr>
+            <td><code>data.status</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>The status of the subscription. Will be <code>canceled</code> if immediate cancellation, or <code>active</code> if canceling at period end.</td>
+          </tr>
+          <tr>
+            <td><code>data.current_period_start</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>The start date of the current billing period in ISO 8601 format.</td>
+          </tr>
+          <tr>
+            <td><code>data.current_period_end</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>The end date of the current billing period in ISO 8601 format.</td>
+          </tr>
+          <tr>
+            <td><code>data.cancel_at_period_end</code></td>
+            <td><span className="param-type">boolean</span></td>
+            <td>Whether the subscription will be canceled at the end of the current period.</td>
+          </tr>
+          <tr>
+            <td><code>data.canceled_at</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>The date the subscription was canceled in ISO 8601 format.</td>
+          </tr>
+          <tr>
+            <td><code>data.created_at</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>The date the subscription was created in ISO 8601 format.</td>
+          </tr>
+          <tr>
+            <td><code>data.updated_at</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>The date the subscription was last updated in ISO 8601 format.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
 ## Example Request
 
-### cURL
+<div className="code-examples">
+  <div className="code-example-tabs">
+    <button className="code-example-tab active" data-language="curl">cURL</button>
+    <button className="code-example-tab" data-language="javascript">Node.js</button>
+    <button className="code-example-tab" data-language="python">Python</button>
+  </div>
 
+  <div className="code-example-panel active" data-language="curl">
+    <div className="code-block-container">
+      <pre className="code-block">
 ```bash
 curl --request POST \
-    "https://liasonpay.net/api/v1/subscription/cancel" \
-    --header "Authorization: Bearer {API_KEY}" \
+    "{ApiBaseUrl()}/subscription/cancel" \
+    --header "Authorization: Bearer YOUR_API_KEY" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"subscription_id\": \"SUBSCRIPTION_879F7492C4\",
+    \"subscription_id\": \"{ExampleSubscriptionId()}\",
     \"cancel_at_period_end\": false
 }"
 ```
+      </pre>
+    </div>
+  </div>
 
-### Node.js
-
+  <div className="code-example-panel" data-language="javascript">
+    <div className="code-block-container">
+      <pre className="code-block">
 ```javascript
-const axios = require('axios');
+const axios = require("axios");
 
 const cancelSubscription = async () => {
-  try {
-    const response = await axios.post('https://liasonpay.net/api/v1/subscription/cancel', {
-      subscription_id: 'SUBSCRIPTION_879F7492C4',
-      cancel_at_period_end: false
-    }, {
-      headers: {
-        'Authorization': 'Bearer {API_KEY}',
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      }
-    });
-    
-    console.log(response.data);
-    return response.data;
-  } catch (error) {
-    console.error('Error canceling subscription:', error.response?.data || error.message);
-    throw error;
-  }
+// Initialize API client
+const liasonpay = axios.create({
+baseURL: "{ApiBaseUrl()}",
+headers: {
+Authorization: `Bearer ${process.env.LIASONPAY_API_KEY}`,
+"Content-Type": "application/json",
+Accept: "application/json",
+},
+});
+
+try {
+const response = await liasonpay.post("/subscription/cancel", {
+subscription_id: "{ExampleSubscriptionId()}",
+cancel_at_period_end: false,
+});
+
+      console.log(response.data);
+      return response.data;
+
+} catch (error) {
+console.error(
+"Error canceling subscription:",
+error.response?.data || error.message
+);
+throw error;
+}
 };
-```
 
-### Python
+````
+      </pre>
+    </div>
+  </div>
 
+  <div className="code-example-panel" data-language="python">
+    <div className="code-block-container">
+      <pre className="code-block">
 ```python
 import requests
 import json
+import os
 
 def cancel_subscription():
-    url = "https://liasonpay.net/api/v1/subscription/cancel"
+    # API configuration
+    api_base_url = "{ApiBaseUrl()}"
+    api_key = os.environ.get("LIASONPAY_API_KEY")
+
+    url = f"{api_base_url}/subscription/cancel"
     headers = {
-        "Authorization": "Bearer {API_KEY}",
+        "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json",
         "Accept": "application/json"
     }
     payload = {
-        "subscription_id": "SUBSCRIPTION_879F7492C4",
+        "subscription_id": "{ExampleSubscriptionId()}",
         "cancel_at_period_end": False
     }
-    
+
     try:
         response = requests.post(url, headers=headers, data=json.dumps(payload))
         response.raise_for_status()
@@ -112,95 +256,188 @@ def cancel_subscription():
     except requests.exceptions.RequestException as e:
         print(f"Error canceling subscription: {e}")
         raise
-```
+````
+
+      </pre>
+    </div>
+
+  </div>
+</div>
 
 ## Example Response
 
+<div className="response-example">
+  <div className="code-block-container">
+    <pre className="code-block">
 ```json
 {
-    "status": true,
-    "message": "Subscription cancelled successfully",
-    "data": {
-        "subscription_id": "SUBSCRIPTION_879F7492C4",
-        "store_id": "STORE_65C0279F05",
-        "customer_id": "CUSTOMER_8A7B6C5D4E",
-        "price_id": "PRICE_1A2B3C4D5E",
-        "status": "canceled",
-        "current_period_start": "2023-05-01T00:00:00Z",
-        "current_period_end": "2023-06-01T00:00:00Z",
-        "cancel_at_period_end": false,
-        "canceled_at": "2023-05-15T14:30:00Z",
-        "created_at": "2023-04-15T10:30:00Z",
-        "updated_at": "2023-05-15T14:30:00Z"
-    }
+  "status": true,
+  "message": "Subscription cancelled successfully",
+  "data": {
+    "subscription_id": "{ExampleSubscriptionId()}",
+    "store_id": "{ExampleStoreId()}",
+    "customer_id": "CUSTOMER_8A7B6C5D4E",
+    "price_id": "{ExamplePriceId()}",
+    "status": "canceled",
+    "current_period_start": "2023-05-01T00:00:00Z",
+    "current_period_end": "2023-06-01T00:00:00Z",
+    "cancel_at_period_end": false,
+    "canceled_at": "2023-05-15T14:30:00Z",
+    "created_at": "2023-04-15T10:30:00Z",
+    "updated_at": "2023-05-15T14:30:00Z"
+  }
 }
 ```
+    </pre>
+  </div>
+</div>
 
 ## Error Responses
 
-### Subscription Not Found
+<div className="error-examples">
+  <div className="error-example-tabs">
+    <button className="error-example-tab active" data-error="not-found">Subscription Not Found</button>
+    <button className="error-example-tab" data-error="already-canceled">Already Canceled</button>
+    <button className="error-example-tab" data-error="auth">Authentication Error</button>
+  </div>
 
+  <div className="error-example-panel active" data-error="not-found">
+    <div className="code-block-container">
+      <pre className="code-block">
 ```json
 {
-    "status": false,
-    "message": "Subscription not found",
-    "data": {
-        "error_code": "resource_not_found"
-    }
+  "status": false,
+  "message": "Subscription not found",
+  "data": {
+    "error_code": "resource_not_found"
+  }
 }
 ```
+      </pre>
+    </div>
+    <div className="error-description">
+      <p>This error occurs when the specified subscription ID does not exist in the system.</p>
+    </div>
+  </div>
 
-### Already Canceled
-
+  <div className="error-example-panel" data-error="already-canceled">
+    <div className="code-block-container">
+      <pre className="code-block">
 ```json
 {
-    "status": false,
-    "message": "Subscription is already canceled",
-    "data": {
-        "error_code": "subscription_already_canceled"
-    }
+  "status": false,
+  "message": "Subscription is already canceled",
+  "data": {
+    "error_code": "subscription_already_canceled"
+  }
 }
 ```
+      </pre>
+    </div>
+    <div className="error-description">
+      <p>This error occurs when you try to cancel a subscription that has already been canceled.</p>
+    </div>
+  </div>
 
-### Authentication Error
-
+  <div className="error-example-panel" data-error="auth">
+    <div className="code-block-container">
+      <pre className="code-block">
 ```json
 {
-    "status": false,
-    "message": "Invalid API key provided",
-    "data": {
-        "error_code": "authentication_error"
-    }
+  "status": false,
+  "message": "Invalid API key provided",
+  "data": {
+    "error_code": "authentication_error"
+  }
 }
 ```
+      </pre>
+    </div>
+    <div className="error-description">
+      <p>This error occurs when the API key provided in the Authorization header is invalid or has been revoked.</p>
+    </div>
+  </div>
+</div>
 
 ## Notes
 
-- When `cancel_at_period_end` is set to `false` (the default), the subscription is canceled immediately.
-- When `cancel_at_period_end` is set to `true`, the subscription will remain active until the end of the current billing period, then automatically cancel.
-- If a subscription is canceled immediately, the customer will lose access to the subscription benefits right away.
-- If a subscription is set to cancel at period end, the customer will retain access until the end of the current billing period.
-- Once a subscription is canceled, it cannot be reactivated. A new subscription must be created instead.
-- You will receive a webhook event `subscription.cancelled` when a subscription is canceled.
+<div className="notes-section">
+  <div className="notes-card">
+    <div className="notes-items">
+      <div className="notes-item">
+        <div className="notes-icon">⚡</div>
+        <div className="notes-content">
+          <p>When <code>cancel_at_period_end</code> is set to <code>false</code> (the default), the subscription is canceled immediately.</p>
+        </div>
+      </div>
+
+      <div className="notes-item">
+        <div className="notes-icon">⏱️</div>
+        <div className="notes-content">
+          <p>When <code>cancel_at_period_end</code> is set to <code>true</code>, the subscription will remain active until the end of the current billing period, then automatically cancel.</p>
+        </div>
+      </div>
+
+      <div className="notes-item">
+        <div className="notes-icon">🚫</div>
+        <div className="notes-content">
+          <p>If a subscription is canceled immediately, the customer will lose access to the subscription benefits right away.</p>
+        </div>
+      </div>
+
+      <div className="notes-item">
+        <div className="notes-icon">✅</div>
+        <div className="notes-content">
+          <p>If a subscription is set to cancel at period end, the customer will retain access until the end of the current billing period.</p>
+        </div>
+      </div>
+
+      <div className="notes-item">
+        <div className="notes-icon">🔄</div>
+        <div className="notes-content">
+          <p>Once a subscription is canceled, it cannot be reactivated. A new subscription must be created instead.</p>
+        </div>
+      </div>
+
+      <div className="notes-item">
+        <div className="notes-icon">🔔</div>
+        <div className="notes-content">
+          <p>You will receive a webhook event <code>subscription.cancelled</code> when a subscription is canceled.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 ## Interactive Testing
 
-<ApiTester 
-  endpoint="/api/v1/subscription/cancel" 
-  method="POST"
-  baseUrl="https://liasonpay.net" 
-  params={[
-    { 
-      name: "subscription_id", 
-      required: true, 
-      in: "body",
-      description: "The ID of the subscription" 
-    },
-    { 
-      name: "cancel_at_period_end", 
-      required: false, 
-      in: "body",
-      description: "Cancel the subscription at the end of the billing period" 
-    }
-  ]}
-/>
+<div className="interactive-testing-section">
+  <div className="interactive-testing-card">
+    <h3>Try It Out</h3>
+    <p>Use the interactive API tester below to try out this endpoint with your own API key and parameters.</p>
+
+    <ApiTester
+      endpoint="/api/v1/subscription/cancel"
+      method="POST"
+      baseUrl="{ApiBaseUrl()}"
+      params={[
+        {
+          name: "subscription_id",
+          required: true,
+          in: "body",
+          description: "The ID of the subscription",
+          defaultValue: "{ExampleSubscriptionId()}"
+        },
+        {
+          name: "cancel_at_period_end",
+          required: false,
+          in: "body",
+          description: "Cancel the subscription at the end of the billing period",
+          defaultValue: "false"
+        }
+      ]}
+    />
+
+  </div>
+</div>

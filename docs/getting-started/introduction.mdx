@@ -6,77 +6,307 @@ import { AppUrl, ApiBaseUrl } from "@site/src/components/DynamicValues";
 
 # Introduction
 
-Welcome to the LiasonPay API documentation. This guide provides all the information you need to integrate with our payment processing platform.
+<div className="explorer-header">
+  <div className="explorer-header-content">
+    <h2>Welcome to LiasonPay</h2>
+    <p>A comprehensive payment processing platform for modern businesses</p>
+  </div>
+</div>
 
-## What is LiasonPay?
+<div className="introduction-section">
+  <div className="introduction-card">
+    <h3>Getting Started with LiasonPay</h3>
+    <p>
+      Welcome to the LiasonPay API documentation. This guide provides all the information you need to integrate with our payment processing platform.
+    </p>
 
-LiasonPay is a comprehensive payment processing platform designed to help businesses accept payments, manage subscriptions, and handle recurring billing. Our API provides a flexible and powerful way to integrate these capabilities into your applications.
+    <div className="what-is-section">
+      <h4>What is LiasonPay?</h4>
+      <p>
+        LiasonPay is a comprehensive payment processing platform designed to help businesses accept payments, manage subscriptions, and handle recurring billing. Our API provides a flexible and powerful way to integrate these capabilities into your applications.
+      </p>
+    </div>
 
-### Key Features
+  </div>
+</div>
 
-- **Payment Processing**: Accept one-time payments from your customers
-- **Subscription Management**: Create, verify, cancel, and upgrade subscription plans
-- **Package Management**: Retrieve and manage package information
-- **Webhook Notifications**: Receive real-time updates about payment events
-- **Multi-currency Support**: Process payments in multiple currencies
-- **Secure Transactions**: PCI-compliant payment processing
+<div className="features-section">
+  <div className="features-card">
+    <h3>Key Features</h3>
 
-## Who Should Use LiasonPay?
+    <div className="features-grid">
+      <div className="feature-item">
+        <div className="feature-icon">💳</div>
+        <div className="feature-content">
+          <h4>Payment Processing</h4>
+          <p>Accept one-time payments from your customers</p>
+        </div>
+      </div>
 
-LiasonPay is ideal for:
+      <div className="feature-item">
+        <div className="feature-icon">🔄</div>
+        <div className="feature-content">
+          <h4>Subscription Management</h4>
+          <p>Create, verify, cancel, and upgrade subscription plans</p>
+        </div>
+      </div>
 
-- **E-commerce Businesses**: Integrate payment processing into your online store
-- **SaaS Companies**: Manage subscription billing for your software services
-- **Marketplaces**: Process payments between buyers and sellers
-- **Service Providers**: Bill clients for recurring services
-- **Mobile Applications**: Add in-app purchases and subscription capabilities
+      <div className="feature-item">
+        <div className="feature-icon">📦</div>
+        <div className="feature-content">
+          <h4>Package Management</h4>
+          <p>Retrieve and manage package information</p>
+        </div>
+      </div>
 
-## API Capabilities
+      <div className="feature-item">
+        <div className="feature-icon">🔔</div>
+        <div className="feature-content">
+          <h4>Webhook Notifications</h4>
+          <p>Receive real-time updates about payment events</p>
+        </div>
+      </div>
 
-With the LiasonPay API, you can:
+      <div className="feature-item">
+        <div className="feature-icon">🌐</div>
+        <div className="feature-content">
+          <h4>Multi-currency Support</h4>
+          <p>Process payments in multiple currencies</p>
+        </div>
+      </div>
 
-### Subscription Management
+      <div className="feature-item">
+        <div className="feature-icon">🔒</div>
+        <div className="feature-content">
+          <h4>Secure Transactions</h4>
+          <p>PCI-compliant payment processing</p>
+        </div>
+      </div>
+    </div>
 
-- Create new subscriptions with customizable billing cycles
-- Verify subscription status and payment history
-- Cancel subscriptions immediately or at the end of the billing period
-- Upgrade subscriptions to different plans
+  </div>
+</div>
 
-### Payment Processing
+<div className="who-should-use-section">
+  <div className="who-should-use-card">
+    <h3>Who Should Use LiasonPay?</h3>
+    <p>LiasonPay is ideal for:</p>
 
-- Process one-time payments with various payment methods
-- Verify payment status and transaction details
-- Support for multiple currencies and payment gateways
+    <div className="use-cases">
+      <div className="use-case-item">
+        <div className="use-case-icon">🛒</div>
+        <div className="use-case-content">
+          <h4>E-commerce Businesses</h4>
+          <p>Integrate payment processing into your online store</p>
+        </div>
+      </div>
 
-### Package Management
+      <div className="use-case-item">
+        <div className="use-case-icon">💻</div>
+        <div className="use-case-content">
+          <h4>SaaS Companies</h4>
+          <p>Manage subscription billing for your software services</p>
+        </div>
+      </div>
 
-- Retrieve package information and pricing details
-- List available packages for your store
+      <div className="use-case-item">
+        <div className="use-case-icon">🏪</div>
+        <div className="use-case-content">
+          <h4>Marketplaces</h4>
+          <p>Process payments between buyers and sellers</p>
+        </div>
+      </div>
 
-## Getting Started
+      <div className="use-case-item">
+        <div className="use-case-icon">🔧</div>
+        <div className="use-case-content">
+          <h4>Service Providers</h4>
+          <p>Bill clients for recurring services</p>
+        </div>
+      </div>
 
-To start integrating with the LiasonPay API:
+      <div className="use-case-item">
+        <div className="use-case-icon">📱</div>
+        <div className="use-case-content">
+          <h4>Mobile Applications</h4>
+          <p>Add in-app purchases and subscription capabilities</p>
+        </div>
+      </div>
+    </div>
 
-1. [Create a LiasonPay account](https://liasonpay.test)
-2. [Obtain your API keys](./authentication)
-3. [Set up your environment](./environment-information)
-4. [Learn how to use the API](./how-to-use)
+  </div>
+</div>
 
-## API Versions
+<div className="capabilities-section">
+  <div className="capabilities-card">
+    <h3>API Capabilities</h3>
+    <p>With the LiasonPay API, you can:</p>
 
-The current version of the LiasonPay API is v1. All API requests should include the version in the URL path:
+    <div className="capabilities-grid">
+      <div className="capability-category">
+        <div className="capability-header">
+          <div className="capability-icon">🔄</div>
+          <h4>Subscription Management</h4>
+        </div>
+        <ul className="capability-list">
+          <li>Create new subscriptions with customizable billing cycles</li>
+          <li>Verify subscription status and payment history</li>
+          <li>Cancel subscriptions immediately or at the end of the billing period</li>
+          <li>Upgrade subscriptions to different plans</li>
+        </ul>
+      </div>
 
-<ApiBaseUrl />
+      <div className="capability-category">
+        <div className="capability-header">
+          <div className="capability-icon">💳</div>
+          <h4>Payment Processing</h4>
+        </div>
+        <ul className="capability-list">
+          <li>Process one-time payments with various payment methods</li>
+          <li>Verify payment status and transaction details</li>
+          <li>Support for multiple currencies and payment gateways</li>
+        </ul>
+      </div>
 
-## Support
+      <div className="capability-category">
+        <div className="capability-header">
+          <div className="capability-icon">📦</div>
+          <h4>Package Management</h4>
+        </div>
+        <ul className="capability-list">
+          <li>Retrieve package information and pricing details</li>
+          <li>List available packages for your store</li>
+        </ul>
+      </div>
+    </div>
 
-If you need assistance with the API, please contact our support team:
+  </div>
+</div>
 
-- Email: support@liasonpay.test
-- Support Portal: [https://support.liasonpay.test](https://support.liasonpay.test)
+<div className="getting-started-section">
+  <div className="getting-started-card">
+    <h3>Getting Started</h3>
+    <p>To start integrating with the LiasonPay API:</p>
 
-## Next Steps
+    <div className="steps-container">
+      <div className="step-item">
+        <div className="step-number">1</div>
+        <div className="step-content">
+          <h4>Create an Account</h4>
+          <p>Sign up for a <a href={AppUrl()}>LiasonPay account</a></p>
+        </div>
+      </div>
 
-- [Learn about Authentication](./authentication)
-- [Understand Environment Information](./environment-information)
-- [Explore How to Use the API](./how-to-use)
+      <div className="step-item">
+        <div className="step-number">2</div>
+        <div className="step-content">
+          <h4>Get API Keys</h4>
+          <p><a href="./authentication">Obtain your API keys</a> from the dashboard</p>
+        </div>
+      </div>
+
+      <div className="step-item">
+        <div className="step-number">3</div>
+        <div className="step-content">
+          <h4>Set Up Environment</h4>
+          <p><a href="./environment-information">Configure your environment</a> for development</p>
+        </div>
+      </div>
+
+      <div className="step-item">
+        <div className="step-number">4</div>
+        <div className="step-content">
+          <h4>Start Integrating</h4>
+          <p><a href="./how-to-use">Learn how to use the API</a> with examples</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div className="api-versions-section">
+  <div className="api-versions-card">
+    <h3>API Versions</h3>
+    <p>The current version of the LiasonPay API is v1. All API requests should include the version in the URL path:</p>
+
+    <div className="api-base-url">
+      <div className="code-block-container">
+        <pre className="code-block">
+          <ApiBaseUrl />
+        </pre>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div className="support-section">
+  <div className="support-card">
+    <h3>Support</h3>
+    <p>If you need assistance with the API, please contact our support team:</p>
+
+    <div className="support-options-container">
+      <div className="support-option-card">
+        <div className="support-option-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+            <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
+            <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
+          </svg>
+        </div>
+        <div className="support-option-content">
+          <h4>Email Support</h4>
+          <p>Contact our support team via email</p>
+          <a href="mailto:support@liasonpay.test" className="support-option-link">support@liasonpay.test</a>
+        </div>
+      </div>
+
+      <div className="support-option-card">
+        <div className="support-option-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+            <path fillRule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM6.262 6.072a8.25 8.25 0 1010.562-.766 4.5 4.5 0 01-1.318 1.357L14.25 7.5l.165.33a.809.809 0 01-1.086 1.085l-.604-.302a1.125 1.125 0 00-1.298.21l-.132.131c-.439.44-.439 1.152 0 1.591l.296.296c.256.257.622.374.98.314l1.17-.195c.323-.054.654.036.905.245l1.33 1.108c.32.267.46.694.358 1.1a8.7 8.7 0 01-2.288 4.04l-.723.724a1.125 1.125 0 01-1.298.21l-.153-.076a1.125 1.125 0 01-.622-1.006v-1.089c0-.298-.119-.585-.33-.796l-1.347-1.347a1.125 1.125 0 01-.21-1.298L9.75 12l-1.64-1.64a6 6 0 01-1.676-3.257l-.172-1.03z" clipRule="evenodd" />
+          </svg>
+        </div>
+        <div className="support-option-content">
+          <h4>Support Portal</h4>
+          <p>Visit our online support center</p>
+          <a href="https://support.liasonpay.test" target="_blank" rel="noopener noreferrer" className="support-option-link">https://support.liasonpay.test</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div className="next-steps-section">
+  <div className="next-steps-card">
+    <h3>Next Steps</h3>
+
+    <div className="next-steps-grid">
+      <div className="next-step-item">
+        <div className="next-step-icon">🔑</div>
+        <div className="next-step-content">
+          <a href="./authentication">Learn about Authentication</a>
+          <p>Understand how to authenticate your API requests</p>
+        </div>
+      </div>
+
+      <div className="next-step-item">
+        <div className="next-step-icon">⚙️</div>
+        <div className="next-step-content">
+          <a href="./environment-information">Understand Environment Information</a>
+          <p>Configure your development environment</p>
+        </div>
+      </div>
+
+      <div className="next-step-item">
+        <div className="next-step-icon">📘</div>
+        <div className="next-step-content">
+          <a href="./how-to-use">Explore How to Use the API</a>
+          <p>Get started with practical examples</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

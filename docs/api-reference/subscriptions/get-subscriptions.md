@@ -3,109 +3,280 @@ sidebar_position: 1
 ---
 
 import ApiTester from '@site/src/components/ApiTester';
+import { AppUrl, ApiBaseUrl, ExampleApiKey, ExampleStoreId, ExamplePriceId, ExampleSubscriptionId } from '@site/src/components/DynamicValues';
 
 # Get Subscriptions
 
-<span className="badge badge--primary">requires authentication</span>
+<div className="explorer-header">
+  <div className="explorer-header-content">
+    <h2>Retrieve Subscriptions</h2>
+    <p>Get a list of active and canceled subscriptions for a store</p>
+    <div className="explorer-badges">
+      <span className="badge badge--primary">requires authentication</span>
+      <span className="badge badge--info">GET</span>
+      <span className="badge badge--info">/api/v1/subscription/get</span>
+    </div>
+  </div>
+</div>
 
+<div className="endpoint-section">
+  <div className="endpoint-card">
+    <h3>Endpoint</h3>
+    <div className="code-block-container">
+      <pre className="code-block">
 ```http
-GET /api/v1/subscription/get
+GET {ApiBaseUrl()}/subscription/get
 ```
-
-Retrieve a list of subscriptions for a store.
+      </pre>
+    </div>
+    <p>This endpoint allows you to retrieve a list of subscriptions for a store, with optional filtering by subscription ID and pagination support.</p>
+  </div>
+</div>
 
 ## Request Parameters
 
-### Query Parameters
-
-| Name | Type | Required | Description |
-|------|------|----------|-------------|
-| store_id | string | Yes | The ID of the store. The `store_id` of an existing record in the stores table. Must not be greater than 255 characters. |
-| subscription_id | string | No | The ID of the subscription. The `subscription_id` of an existing record in the subscriptions table. Must not be greater than 255 characters. |
-| limit | integer | No | The maximum number of subscriptions to return. Default: 20, Maximum: 100. |
-| cursor | string | No | A cursor for pagination. Use the `next_cursor` value from the previous response to get the next page of results. |
+<div className="parameters-section">
+  <div className="parameters-card">
+    <h3>Query Parameters</h3>
+    <div className="parameters-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Required</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>store_id</code></td>
+            <td><span className="param-type">string</span></td>
+            <td><span className="param-required">Yes</span></td>
+            <td>The ID of the store. The <code>store_id</code> of an existing record in the stores table. Must not be greater than 255 characters.</td>
+          </tr>
+          <tr>
+            <td><code>subscription_id</code></td>
+            <td><span className="param-type">string</span></td>
+            <td><span className="param-optional">No</span></td>
+            <td>The ID of the subscription. The <code>subscription_id</code> of an existing record in the subscriptions table. Must not be greater than 255 characters.</td>
+          </tr>
+          <tr>
+            <td><code>limit</code></td>
+            <td><span className="param-type">integer</span></td>
+            <td><span className="param-optional">No</span></td>
+            <td>The maximum number of subscriptions to return. Default: 20, Maximum: 100.</td>
+          </tr>
+          <tr>
+            <td><code>cursor</code></td>
+            <td><span className="param-type">string</span></td>
+            <td><span className="param-optional">No</span></td>
+            <td>A cursor for pagination. Use the <code>next_cursor</code> value from the previous response to get the next page of results.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
 ## Response
 
-### Response Parameters
-
-| Name | Type | Description |
-|------|------|-------------|
-| status | boolean | Whether the request was successful. |
-| message | string | A message describing the result of the request. |
-| data | array | An array of subscription objects. |
-| data[].subscription_id | string | The unique identifier for the subscription. |
-| data[].store_id | string | The ID of the store the subscription belongs to. |
-| data[].customer_id | string | The ID of the customer who owns the subscription. |
-| data[].price_id | string | The ID of the price associated with the subscription. |
-| data[].status | string | The status of the subscription. Possible values: `active`, `canceled`, `past_due`, `unpaid`, `trialing`. |
-| data[].current_period_start | string | The start date of the current billing period in ISO 8601 format. |
-| data[].current_period_end | string | The end date of the current billing period in ISO 8601 format. |
-| data[].cancel_at_period_end | boolean | Whether the subscription will be canceled at the end of the current period. |
-| data[].canceled_at | string | If the subscription has been canceled, the date of that cancellation in ISO 8601 format. |
-| data[].created_at | string | The date the subscription was created in ISO 8601 format. |
-| data[].updated_at | string | The date the subscription was last updated in ISO 8601 format. |
-| meta | object | Metadata about the response. |
-| meta.has_more | boolean | Whether there are more subscriptions available. |
-| meta.next_cursor | string | A cursor to use for pagination. Pass this as the `cursor` parameter to get the next page of results. |
+<div className="parameters-section">
+  <div className="parameters-card">
+    <h3>Response Parameters</h3>
+    <div className="parameters-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>status</code></td>
+            <td><span className="param-type">boolean</span></td>
+            <td>Whether the request was successful.</td>
+          </tr>
+          <tr>
+            <td><code>message</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>A message describing the result of the request.</td>
+          </tr>
+          <tr>
+            <td><code>data</code></td>
+            <td><span className="param-type">array</span></td>
+            <td>An array of subscription objects.</td>
+          </tr>
+          <tr>
+            <td><code>data[].subscription_id</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>The unique identifier for the subscription.</td>
+          </tr>
+          <tr>
+            <td><code>data[].store_id</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>The ID of the store the subscription belongs to.</td>
+          </tr>
+          <tr>
+            <td><code>data[].customer_id</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>The ID of the customer who owns the subscription.</td>
+          </tr>
+          <tr>
+            <td><code>data[].price_id</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>The ID of the price associated with the subscription.</td>
+          </tr>
+          <tr>
+            <td><code>data[].status</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>The status of the subscription. Possible values: <code>active</code>, <code>canceled</code>, <code>past_due</code>, <code>unpaid</code>, <code>trialing</code>.</td>
+          </tr>
+          <tr>
+            <td><code>data[].current_period_start</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>The start date of the current billing period in ISO 8601 format.</td>
+          </tr>
+          <tr>
+            <td><code>data[].current_period_end</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>The end date of the current billing period in ISO 8601 format.</td>
+          </tr>
+          <tr>
+            <td><code>data[].cancel_at_period_end</code></td>
+            <td><span className="param-type">boolean</span></td>
+            <td>Whether the subscription will be canceled at the end of the current period.</td>
+          </tr>
+          <tr>
+            <td><code>data[].canceled_at</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>If the subscription has been canceled, the date of that cancellation in ISO 8601 format.</td>
+          </tr>
+          <tr>
+            <td><code>data[].created_at</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>The date the subscription was created in ISO 8601 format.</td>
+          </tr>
+          <tr>
+            <td><code>data[].updated_at</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>The date the subscription was last updated in ISO 8601 format.</td>
+          </tr>
+          <tr>
+            <td><code>meta</code></td>
+            <td><span className="param-type">object</span></td>
+            <td>Metadata about the response.</td>
+          </tr>
+          <tr>
+            <td><code>meta.has_more</code></td>
+            <td><span className="param-type">boolean</span></td>
+            <td>Whether there are more subscriptions available.</td>
+          </tr>
+          <tr>
+            <td><code>meta.next_cursor</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>A cursor to use for pagination. Pass this as the <code>cursor</code> parameter to get the next page of results.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
 ## Example Request
 
-### cURL
+<div className="code-examples">
+  <div className="code-example-tabs">
+    <button className="code-example-tab active" data-language="curl">cURL</button>
+    <button className="code-example-tab" data-language="javascript">Node.js</button>
+    <button className="code-example-tab" data-language="python">Python</button>
+  </div>
 
+  <div className="code-example-panel active" data-language="curl">
+    <div className="code-block-container">
+      <pre className="code-block">
 ```bash
 curl --request GET \
-    --get "https://liasonpay.net/api/v1/subscription/get?store_id=STORE_65C0279F05&subscription_id=SUBSCRIPTION_56FBC7EEE4" \
-    --header "Authorization: Bearer {API_KEY}" \
+    --get "{ApiBaseUrl()}/subscription/get?store_id={ExampleStoreId()}&subscription_id={ExampleSubscriptionId()}" \
+    --header "Authorization: Bearer YOUR_API_KEY" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"
 ```
+      </pre>
+    </div>
+  </div>
 
-### Node.js
-
+  <div className="code-example-panel" data-language="javascript">
+    <div className="code-block-container">
+      <pre className="code-block">
 ```javascript
-const axios = require('axios');
+const axios = require("axios");
 
 const getSubscriptions = async () => {
-  try {
-    const response = await axios.get('https://liasonpay.net/api/v1/subscription/get', {
-      params: {
-        store_id: 'STORE_65C0279F05',
-        subscription_id: 'SUBSCRIPTION_56FBC7EEE4'
-      },
-      headers: {
-        'Authorization': 'Bearer {API_KEY}',
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      }
-    });
-    
-    console.log(response.data);
-    return response.data;
-  } catch (error) {
-    console.error('Error fetching subscriptions:', error.response?.data || error.message);
-    throw error;
-  }
+// Initialize API client
+const liasonpay = axios.create({
+baseURL: "{ApiBaseUrl()}",
+headers: {
+Authorization: `Bearer ${process.env.LIASONPAY_API_KEY}`,
+"Content-Type": "application/json",
+Accept: "application/json",
+},
+});
+
+try {
+const response = await liasonpay.get("/subscription/get", {
+params: {
+store_id: "{ExampleStoreId()}",
+subscription_id: "{ExampleSubscriptionId()}",
+limit: 20,
+cursor: null
+}
+});
+
+      console.log(response.data);
+      return response.data;
+
+} catch (error) {
+console.error(
+"Error fetching subscriptions:",
+error.response?.data || error.message
+);
+throw error;
+}
 };
-```
 
-### Python
+````
+      </pre>
+    </div>
+  </div>
 
+  <div className="code-example-panel" data-language="python">
+    <div className="code-block-container">
+      <pre className="code-block">
 ```python
 import requests
+import os
 
 def get_subscriptions():
-    url = "https://liasonpay.net/api/v1/subscription/get"
+    # API configuration
+    api_base_url = "{ApiBaseUrl()}"
+    api_key = os.environ.get("LIASONPAY_API_KEY")
+
+    url = f"{api_base_url}/subscription/get"
     params = {
-        "store_id": "STORE_65C0279F05",
-        "subscription_id": "SUBSCRIPTION_56FBC7EEE4"
+        "store_id": "{ExampleStoreId()}",
+        "subscription_id": "{ExampleSubscriptionId()}",
+        "limit": 20,
+        "cursor": None
     }
     headers = {
-        "Authorization": "Bearer {API_KEY}",
+        "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json",
         "Accept": "application/json"
     }
-    
+
     try:
         response = requests.get(url, params=params, headers=headers)
         response.raise_for_status()
@@ -113,100 +284,180 @@ def get_subscriptions():
     except requests.exceptions.RequestException as e:
         print(f"Error fetching subscriptions: {e}")
         raise
-```
+````
+
+      </pre>
+    </div>
+
+  </div>
+</div>
 
 ## Example Response
 
+<div className="response-example">
+  <div className="code-block-container">
+    <pre className="code-block">
 ```json
 {
-    "status": true,
-    "message": "Subscriptions retrieved successfully",
-    "data": [
-        {
-            "subscription_id": "SUBSCRIPTION_56FBC7EEE4",
-            "store_id": "STORE_65C0279F05",
-            "customer_id": "CUSTOMER_8A7B6C5D4E",
-            "price_id": "PRICE_1A2B3C4D5E",
-            "status": "active",
-            "current_period_start": "2023-05-01T00:00:00Z",
-            "current_period_end": "2023-06-01T00:00:00Z",
-            "cancel_at_period_end": false,
-            "canceled_at": null,
-            "created_at": "2023-04-15T10:30:00Z",
-            "updated_at": "2023-04-15T10:30:00Z"
-        }
-    ],
-    "meta": {
-        "has_more": false,
-        "next_cursor": null
+  "status": true,
+  "message": "Subscriptions retrieved successfully",
+  "data": [
+    {
+      "subscription_id": "{ExampleSubscriptionId()}",
+      "store_id": "{ExampleStoreId()}",
+      "customer_id": "CUSTOMER_8A7B6C5D4E",
+      "price_id": "{ExamplePriceId()}",
+      "status": "active",
+      "current_period_start": "2023-05-01T00:00:00Z",
+      "current_period_end": "2023-06-01T00:00:00Z",
+      "cancel_at_period_end": false,
+      "canceled_at": null,
+      "created_at": "2023-04-15T10:30:00Z",
+      "updated_at": "2023-04-15T10:30:00Z"
     }
+  ],
+  "meta": {
+    "has_more": false,
+    "next_cursor": null
+  }
 }
 ```
+    </pre>
+  </div>
+</div>
 
 ## Error Responses
 
-### Invalid Store ID
+<div className="error-examples">
+  <div className="error-example-tabs">
+    <button className="error-example-tab active" data-error="store-not-found">Invalid Store ID</button>
+    <button className="error-example-tab" data-error="auth">Authentication Error</button>
+  </div>
 
+  <div className="error-example-panel active" data-error="store-not-found">
+    <div className="code-block-container">
+      <pre className="code-block">
 ```json
 {
-    "status": false,
-    "message": "Store not found",
-    "data": {
-        "error_code": "resource_not_found"
-    }
+  "status": false,
+  "message": "Store not found",
+  "data": {
+    "error_code": "resource_not_found"
+  }
 }
 ```
+      </pre>
+    </div>
+    <div className="error-description">
+      <p>This error occurs when the specified store ID does not exist in the system.</p>
+    </div>
+  </div>
 
-### Authentication Error
-
+  <div className="error-example-panel" data-error="auth">
+    <div className="code-block-container">
+      <pre className="code-block">
 ```json
 {
-    "status": false,
-    "message": "Invalid API key provided",
-    "data": {
-        "error_code": "authentication_error"
-    }
+  "status": false,
+  "message": "Invalid API key provided",
+  "data": {
+    "error_code": "authentication_error"
+  }
 }
 ```
+      </pre>
+    </div>
+    <div className="error-description">
+      <p>This error occurs when the API key provided in the Authorization header is invalid or has been revoked.</p>
+    </div>
+  </div>
+</div>
 
 ## Notes
 
-- If `subscription_id` is provided, the response will contain only that specific subscription if it exists.
-- If only `store_id` is provided, the response will contain all subscriptions for that store, paginated according to the `limit` parameter.
-- Results are ordered by `created_at` in descending order (newest first).
-- The `meta.has_more` field indicates whether there are more results available beyond the current page.
-- If `meta.has_more` is `true`, use the `meta.next_cursor` value as the `cursor` parameter to fetch the next page of results.
+<div className="notes-section">
+  <div className="notes-card">
+    <div className="notes-items">
+      <div className="notes-item">
+        <div className="notes-icon">🔍</div>
+        <div className="notes-content">
+          <p>If <code>subscription_id</code> is provided, the response will contain only that specific subscription if it exists.</p>
+        </div>
+      </div>
+
+      <div className="notes-item">
+        <div className="notes-icon">📋</div>
+        <div className="notes-content">
+          <p>If only <code>store_id</code> is provided, the response will contain all subscriptions for that store, paginated according to the <code>limit</code> parameter.</p>
+        </div>
+      </div>
+
+      <div className="notes-item">
+        <div className="notes-icon">⏱️</div>
+        <div className="notes-content">
+          <p>Results are ordered by <code>created_at</code> in descending order (newest first).</p>
+        </div>
+      </div>
+
+      <div className="notes-item">
+        <div className="notes-icon">📄</div>
+        <div className="notes-content">
+          <p>The <code>meta.has_more</code> field indicates whether there are more results available beyond the current page.</p>
+        </div>
+      </div>
+
+      <div className="notes-item">
+        <div className="notes-icon">🔄</div>
+        <div className="notes-content">
+          <p>If <code>meta.has_more</code> is <code>true</code>, use the <code>meta.next_cursor</code> value as the <code>cursor</code> parameter to fetch the next page of results.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 ## Interactive Testing
 
-<ApiTester 
-  endpoint="/api/v1/subscription/get" 
-  method="GET"
-  baseUrl="https://liasonpay.net" 
-  params={[
-    { 
-      name: "store_id", 
-      required: true, 
-      in: "query",
-      description: "The ID of the store" 
-    },
-    { 
-      name: "subscription_id", 
-      required: false, 
-      in: "query",
-      description: "The ID of the subscription" 
-    },
-    { 
-      name: "limit", 
-      required: false, 
-      in: "query",
-      description: "Maximum number of subscriptions to return" 
-    },
-    { 
-      name: "cursor", 
-      required: false, 
-      in: "query",
-      description: "Cursor for pagination" 
-    }
-  ]}
-/>
+<div className="interactive-testing-section">
+  <div className="interactive-testing-card">
+    <h3>Try It Out</h3>
+    <p>Use the interactive API tester below to try out this endpoint with your own API key and parameters.</p>
+
+    <ApiTester
+      endpoint="/api/v1/subscription/get"
+      method="GET"
+      baseUrl="{ApiBaseUrl()}"
+      params={[
+        {
+          name: "store_id",
+          required: true,
+          in: "query",
+          description: "The ID of the store",
+          defaultValue: "{ExampleStoreId()}"
+        },
+        {
+          name: "subscription_id",
+          required: false,
+          in: "query",
+          description: "The ID of the subscription",
+          defaultValue: "{ExampleSubscriptionId()}"
+        },
+        {
+          name: "limit",
+          required: false,
+          in: "query",
+          description: "Maximum number of subscriptions to return",
+          defaultValue: "20"
+        },
+        {
+          name: "cursor",
+          required: false,
+          in: "query",
+          description: "Cursor for pagination"
+        }
+      ]}
+    />
+
+  </div>
+</div>

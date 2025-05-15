@@ -2,183 +2,669 @@
 sidebar_position: 5
 ---
 
+import { AppUrl, ApiBaseUrl, ExampleApiKey } from '@site/src/components/DynamicValues';
+
 # FAQ / Troubleshooting
 
-This page provides answers to frequently asked questions and solutions to common issues when working with the LiasonPay API.
+<div className="explorer-header">
+  <div className="explorer-header-content">
+    <h2>API Frequently Asked Questions</h2>
+    <p>Find answers to common questions and solutions to issues when working with the LiasonPay API</p>
+    <div className="explorer-buttons">
+      <a href="/interactive-tools/api-explorer" className="button button--primary button--lg">
+        <span>🔍 Try API Explorer</span>
+      </a>
+      <a href="/developer-guide/error-handling" className="button button--secondary button--lg">
+        <span>❌ Error Handling Guide</span>
+      </a>
+    </div>
+  </div>
+</div>
 
 ## General Questions
 
-### How can I test my integration without processing real payments?
+<div className="faq-section">
+  <div className="faq-item">
+    <h3>How can I test my integration without processing real payments?</h3>
+    <p>You can use test card numbers and special test amounts to simulate different payment scenarios without processing real payments:</p>
+    <ul>
+      <li>Use test card numbers like <code>4111111111111111</code> for successful payments</li>
+      <li>Use specific amounts to trigger different responses (e.g., 999 for insufficient funds)</li>
+    </ul>
+    <p>For more details, see the <a href="/developer-guide/environment-info">Environment Information</a> guide.</p>
+  </div>
 
-You can use test card numbers and special test amounts to simulate different payment scenarios without processing real payments:
+  <div className="faq-item">
+    <h3>How do I set up my production environment?</h3>
+    <p>To set up your production environment:</p>
+    <ol>
+      <li>Ensure you're using the correct API key</li>
+      <li>Use the base URL <code>{ApiBaseUrl()}</code> for all API calls</li>
+      <li>Set the <code>mode</code> parameter to <code>production</code> in relevant API calls</li>
+      <li>Configure your webhook endpoints to handle events</li>
+    </ol>
+  </div>
 
-- Use test card numbers like `4111111111111111` for successful payments
-- Use specific amounts to trigger different responses (e.g., 999 for insufficient funds)
+  <div className="faq-item">
+    <h3>What currencies are supported?</h3>
+    <p>LiasonPay currently supports the following currencies:</p>
+    <div className="currency-grid">
+      <div className="currency-card">
+        <span className="currency-code">USD</span>
+        <span className="currency-name">US Dollar</span>
+      </div>
+      <div className="currency-card">
+        <span className="currency-code">EUR</span>
+        <span className="currency-name">Euro</span>
+      </div>
+      <div className="currency-card">
+        <span className="currency-code">GBP</span>
+        <span className="currency-name">British Pound</span>
+      </div>
+      <div className="currency-card">
+        <span className="currency-code">NGN</span>
+        <span className="currency-name">Nigerian Naira</span>
+      </div>
+      <div className="currency-card">
+        <span className="currency-code">KES</span>
+        <span className="currency-name">Kenyan Shilling</span>
+      </div>
+      <div className="currency-card">
+        <span className="currency-code">GHS</span>
+        <span className="currency-name">Ghanaian Cedi</span>
+      </div>
+      <div className="currency-card">
+        <span className="currency-code">ZAR</span>
+        <span className="currency-name">South African Rand</span>
+      </div>
+    </div>
+  </div>
 
-For more details, see the [Environment Information](/developer-guide/environment-info) guide.
-
-### How do I set up my production environment?
-
-To set up your production environment:
-
-import { AppUrl } from '@site/src/components/DynamicValues';
-
-1. Ensure you're using the correct API key
-2. Use the base URL <AppUrl /> for all API calls
-3. Set the `mode` parameter to `production` in relevant API calls
-4. Configure your webhook endpoints to handle events
-
-### What currencies are supported?
-
-LiasonPay currently supports the following currencies:
-
-- USD (US Dollar)
-- EUR (Euro)
-- GBP (British Pound)
-- NGN (Nigerian Naira)
-- KES (Kenyan Shilling)
-- GHS (Ghanaian Cedi)
-- ZAR (South African Rand)
-
-### Are there any rate limits?
-
-import { ApiRateLimit } from '@site/src/components/DynamicValues';
-
-Yes, the API has rate limits to prevent abuse:
-
-- **Rate Limit**: <ApiRateLimit /> requests per minute
-
-If you exceed these limits, you'll receive a `429 Too Many Requests` response.
+  <div className="faq-item">
+    <h3>Are there any rate limits?</h3>
+    <p>Yes, the API has rate limits to prevent abuse:</p>
+    <div className="rate-limit-item">
+      <div className="rate-limit-env">Production</div>
+      <div className="rate-limit-value">300 requests per minute</div>
+    </div>
+    <p>If you exceed these limits, you'll receive a <code>429 Too Many Requests</code> response.</p>
+  </div>
+</div>
 
 ## Authentication Issues
 
-### My API key isn't working
+<div className="faq-section">
+  <div className="faq-item">
+    <h3>My API key isn't working</h3>
+    <p>If your API key isn't working, check the following:</p>
+    <div className="checklist-items">
+      <div className="checklist-item">
+        <div className="checklist-icon">✓</div>
+        <div className="checklist-content">
+          <h4>Verify API Key Format</h4>
+          <p>Ensure that the API key is correctly formatted in the Authorization header: <code>Authorization: Bearer YOUR_API_KEY</code></p>
+        </div>
+      </div>
 
-If your API key isn't working, check the following:
+      <div className="checklist-item">
+        <div className="checklist-icon">✓</div>
+        <div className="checklist-content">
+          <h4>Check Key Status</h4>
+          <p>Verify that the API key has not expired or been revoked</p>
+        </div>
+      </div>
 
-1. Verify that the API key is correctly formatted in the Authorization header: `Authorization: Bearer {API_KEY}`
-2. Check that the API key has not expired or been revoked
-3. Ensure you're making the request to the correct base URL
-4. Confirm that your account is in good standing
+      <div className="checklist-item">
+        <div className="checklist-icon">✓</div>
+        <div className="checklist-content">
+          <h4>Confirm Base URL</h4>
+          <p>Ensure you're making the request to the correct base URL: <code>{ApiBaseUrl()}</code></p>
+        </div>
+      </div>
 
-### How do I rotate my API keys?
+      <div className="checklist-item">
+        <div className="checklist-icon">✓</div>
+        <div className="checklist-content">
+          <h4>Check Account Status</h4>
+          <p>Confirm that your account is in good standing</p>
+        </div>
+      </div>
+    </div>
 
-To rotate your API keys:
+  </div>
 
-1. Log in to your [LiasonPay dashboard](https://liasonpay.test)
-2. Navigate to **Settings** > **API Keys**
-3. Click **Generate New Key**
-4. Update your integration to use the new key
-5. Once your integration is working with the new key, click **Revoke** on the old key
+  <div className="faq-item">
+    <h3>How do I rotate my API keys?</h3>
+    <p>To rotate your API keys:</p>
+    <div className="setup-steps">
+      <div className="setup-step">
+        <div className="step-number">1</div>
+        <div className="step-content">
+          <h4>Access Your Dashboard</h4>
+          <p>Log in to your <a href={AppUrl()} target="_blank" rel="noopener noreferrer">LiasonPay dashboard</a></p>
+        </div>
+      </div>
+
+      <div className="setup-step">
+        <div className="step-number">2</div>
+        <div className="step-content">
+          <h4>Navigate to API Keys</h4>
+          <p>Go to <strong>Settings</strong> → <strong>API Keys</strong></p>
+        </div>
+      </div>
+
+      <div className="setup-step">
+        <div className="step-number">3</div>
+        <div className="step-content">
+          <h4>Generate New Key</h4>
+          <p>Click <strong>Generate New Key</strong></p>
+        </div>
+      </div>
+
+      <div className="setup-step">
+        <div className="step-number">4</div>
+        <div className="step-content">
+          <h4>Update Integration</h4>
+          <p>Update your integration to use the new key</p>
+        </div>
+      </div>
+
+      <div className="setup-step">
+        <div className="step-number">5</div>
+        <div className="step-content">
+          <h4>Revoke Old Key</h4>
+          <p>Once your integration is working with the new key, click <strong>Revoke</strong> on the old key</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 ## Payment Processing
 
-### Why did a payment fail?
+<div className="faq-section">
+  <div className="faq-item">
+    <h3>Why did a payment fail?</h3>
+    <p>Payments can fail for various reasons:</p>
+    <div className="error-reasons">
+      <div className="error-reason">
+        <div className="error-icon">💰</div>
+        <div className="error-content">
+          <h4>Insufficient Funds</h4>
+          <p>The customer doesn't have enough money in their account</p>
+        </div>
+      </div>
 
-Payments can fail for various reasons:
+      <div className="error-reason">
+        <div className="error-icon">❌</div>
+        <div className="error-content">
+          <h4>Card Declined</h4>
+          <p>The card issuer declined the transaction</p>
+        </div>
+      </div>
 
-1. **Insufficient funds**: The customer doesn't have enough money in their account
-2. **Card declined**: The card issuer declined the transaction
-3. **Expired card**: The card has expired
-4. **Invalid card details**: The card number, expiry date, or CVV is incorrect
-5. **Fraud detection**: The transaction was flagged as potentially fraudulent
+      <div className="error-reason">
+        <div className="error-icon">📅</div>
+        <div className="error-content">
+          <h4>Expired Card</h4>
+          <p>The card has expired</p>
+        </div>
+      </div>
 
-Check the error message in the API response for more specific information.
+      <div className="error-reason">
+        <div className="error-icon">🔢</div>
+        <div className="error-content">
+          <h4>Invalid Card Details</h4>
+          <p>The card number, expiry date, or CVV is incorrect</p>
+        </div>
+      </div>
 
-### How do I issue a refund?
+      <div className="error-reason">
+        <div className="error-icon">🚨</div>
+        <div className="error-content">
+          <h4>Fraud Detection</h4>
+          <p>The transaction was flagged as potentially fraudulent</p>
+        </div>
+      </div>
+    </div>
+    <div className="info-callout">
+      <p><strong>💡 Tip:</strong> Check the error message in the API response for more specific information.</p>
+    </div>
 
-To issue a refund:
+  </div>
 
-1. Log in to your [LiasonPay dashboard](https://liasonpay.test)
-2. Navigate to **Payments** > **Transactions**
-3. Find the transaction you want to refund
-4. Click **Refund** and follow the prompts
+  <div className="faq-item">
+    <h3>How do I issue a refund?</h3>
+    <p>To issue a refund:</p>
+    <div className="setup-steps">
+      <div className="setup-step">
+        <div className="step-number">1</div>
+        <div className="step-content">
+          <h4>Access Your Dashboard</h4>
+          <p>Log in to your <a href={AppUrl()} target="_blank" rel="noopener noreferrer">LiasonPay dashboard</a></p>
+        </div>
+      </div>
 
-Note: Refunds can only be issued for successful payments and may take 5-10 business days to process.
+      <div className="setup-step">
+        <div className="step-number">2</div>
+        <div className="step-content">
+          <h4>Navigate to Transactions</h4>
+          <p>Go to <strong>Payments</strong> → <strong>Transactions</strong></p>
+        </div>
+      </div>
+
+      <div className="setup-step">
+        <div className="step-number">3</div>
+        <div className="step-content">
+          <h4>Find Transaction</h4>
+          <p>Find the transaction you want to refund</p>
+        </div>
+      </div>
+
+      <div className="setup-step">
+        <div className="step-number">4</div>
+        <div className="step-content">
+          <h4>Process Refund</h4>
+          <p>Click <strong>Refund</strong> and follow the prompts</p>
+        </div>
+      </div>
+    </div>
+    <div className="warning-callout">
+      <p><strong>⚠️ Note:</strong> Refunds can only be issued for successful payments and may take 5-10 business days to process.</p>
+    </div>
+
+  </div>
+</div>
 
 ## Subscription Management
 
-### How do I change a subscription's billing cycle?
+<div className="faq-section">
+  <div className="faq-item">
+    <h3>How do I change a subscription's billing cycle?</h3>
+    <p>To change a subscription's billing cycle:</p>
+    <div className="workflow-steps">
+      <div className="workflow-step">
+        <div className="step-number">1</div>
+        <div className="step-content">
+          <h4>Cancel Current Subscription</h4>
+          <p>Cancel the current subscription using the <a href="/api-reference/subscriptions/cancel-subscription">Cancel a subscription</a> endpoint</p>
+          <div className="code-block-container">
+            <pre className="code-block">
+```javascript
+await liasonpay.post("/subscription/cancel", {
+  subscription_id: "SUB_123456789"
+});
+```
+            </pre>
+          </div>
+        </div>
+      </div>
 
-To change a subscription's billing cycle:
+      <div className="workflow-step">
+        <div className="step-number">2</div>
+        <div className="step-content">
+          <h4>Create New Subscription</h4>
+          <p>Create a new subscription with the desired billing cycle using the <a href="/api-reference/subscriptions/create-subscription">Create a subscription</a> endpoint</p>
+          <div className="code-block-container">
+            <pre className="code-block">
 
-1. Cancel the current subscription using the [Cancel a subscription](/api-reference/subscriptions/cancel-subscription) endpoint
-2. Create a new subscription with the desired billing cycle using the [Create a subscription](/api-reference/subscriptions/create-subscription) endpoint
+```javascript
+await liasonpay.post("/subscription/create", {
+  store_id: "STORE_123",
+  price_id: "PRICE_MONTHLY", // or PRICE_YEARLY
+  success_url: "https://example.com/success",
+  cancel_url: "https://example.com/cancel",
+  mode: "production",
+});
+```
 
-### What happens when a subscription payment fails?
+</pre>
+          </div>
+        </div>
+      </div>
+    </div>
 
-When a subscription payment fails:
+  </div>
 
-1. LiasonPay will send a `subscription.payment_failed` webhook event
-2. The system will automatically retry the payment after 3 days
-3. If the retry fails, another webhook event will be sent
-4. After 3 failed attempts, the subscription will be marked as `past_due`
-5. You can then decide whether to cancel the subscription or attempt to recover the payment
+  <div className="faq-item">
+    <h3>What happens when a subscription payment fails?</h3>
+    <p>When a subscription payment fails:</p>
+    <div className="retry-policy">
+      <div className="retry-item">
+        <div className="retry-number">1</div>
+        <div className="retry-content">
+          <h4>Initial Failure</h4>
+          <p>LiasonPay will send a <code>subscription.payment_failed</code> webhook event</p>
+        </div>
+      </div>
+
+      <div className="retry-item">
+        <div className="retry-number">2</div>
+        <div className="retry-content">
+          <h4>First Retry (Day 3)</h4>
+          <p>The system will automatically retry the payment after 3 days</p>
+        </div>
+      </div>
+
+      <div className="retry-item">
+        <div className="retry-number">3</div>
+        <div className="retry-content">
+          <h4>Second Retry (Day 6)</h4>
+          <p>If the retry fails, another webhook event will be sent and a second retry will be attempted</p>
+        </div>
+      </div>
+
+      <div className="retry-item">
+        <div className="retry-number">4</div>
+        <div className="retry-content">
+          <h4>Final Status (Day 9)</h4>
+          <p>After 3 failed attempts, the subscription will be marked as <code>past_due</code></p>
+        </div>
+      </div>
+
+      <div className="retry-item">
+        <div className="retry-number">5</div>
+        <div className="retry-content">
+          <h4>Recovery Options</h4>
+          <p>You can then decide whether to cancel the subscription or attempt to recover the payment</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 ## Webhook Issues
 
-### I'm not receiving webhook events
+<div className="faq-section">
+  <div className="faq-item">
+    <h3>I'm not receiving webhook events</h3>
+    <p>If you're not receiving webhook events, check the following:</p>
+    <div className="checklist-items">
+      <div className="checklist-item">
+        <div className="checklist-icon">✓</div>
+        <div className="checklist-content">
+          <h4>Verify Webhook Configuration</h4>
+          <p>Ensure your webhook URL is correctly configured in the LiasonPay dashboard</p>
+        </div>
+      </div>
 
-If you're not receiving webhook events, check the following:
+      <div className="checklist-item">
+        <div className="checklist-icon">✓</div>
+        <div className="checklist-content">
+          <h4>Check Server Accessibility</h4>
+          <p>Ensure your server is accessible from the internet</p>
+        </div>
+      </div>
 
-1. Verify that your webhook URL is correctly configured in the LiasonPay dashboard
-2. Ensure your server is accessible from the internet
-3. Check that your server is responding with a 200 status code
-4. Look for any firewall or security settings that might be blocking incoming requests
-5. Check the webhook logs in your LiasonPay dashboard for any delivery failures
+      <div className="checklist-item">
+        <div className="checklist-icon">✓</div>
+        <div className="checklist-content">
+          <h4>Verify Response Code</h4>
+          <p>Check that your server is responding with a 200 status code</p>
+        </div>
+      </div>
 
-### How do I test webhooks locally?
+      <div className="checklist-item">
+        <div className="checklist-icon">✓</div>
+        <div className="checklist-content">
+          <h4>Check Firewall Settings</h4>
+          <p>Look for any firewall or security settings that might be blocking incoming requests</p>
+        </div>
+      </div>
 
-To test webhooks in a local development environment:
+      <div className="checklist-item">
+        <div className="checklist-icon">✓</div>
+        <div className="checklist-content">
+          <h4>Review Webhook Logs</h4>
+          <p>Check the webhook logs in your LiasonPay dashboard for any delivery failures</p>
+        </div>
+      </div>
+    </div>
 
-1. Use a tool like [ngrok](https://ngrok.com/) to create a public URL for your local server
-2. Configure your webhook URL in the LiasonPay dashboard to point to the ngrok URL
-3. Trigger events by creating payments or subscriptions
-4. Check your logs to ensure webhooks are being received and processed correctly
+  </div>
+
+  <div className="faq-item">
+    <h3>How do I test webhooks locally?</h3>
+    <p>To test webhooks in a local development environment:</p>
+    <div className="setup-steps">
+      <div className="setup-step">
+        <div className="step-number">1</div>
+        <div className="step-content">
+          <h4>Set Up Tunnel</h4>
+          <p>Use a tool like <a href="https://ngrok.com/" target="_blank" rel="noopener noreferrer">ngrok</a> to create a public URL for your local server</p>
+          <div className="code-block-container">
+            <pre className="code-block">
+```bash
+# Example ngrok command
+ngrok http 3000
+```
+            </pre>
+          </div>
+        </div>
+      </div>
+
+      <div className="setup-step">
+        <div className="step-number">2</div>
+        <div className="step-content">
+          <h4>Configure Webhook URL</h4>
+          <p>Configure your webhook URL in the LiasonPay dashboard to point to the ngrok URL</p>
+          <div className="info-callout">
+            <p><strong>💡 Example:</strong> <code>https://a1b2c3d4.ngrok.io/webhooks/liasonpay</code></p>
+          </div>
+        </div>
+      </div>
+
+      <div className="setup-step">
+        <div className="step-number">3</div>
+        <div className="step-content">
+          <h4>Trigger Events</h4>
+          <p>Trigger events by creating payments or subscriptions</p>
+        </div>
+      </div>
+
+      <div className="setup-step">
+        <div className="step-number">4</div>
+        <div className="step-content">
+          <h4>Check Logs</h4>
+          <p>Check your logs to ensure webhooks are being received and processed correctly</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 ## API Integration
 
-### How do I handle idempotency?
+<div className="faq-section">
+  <div className="faq-item">
+    <h3>How do I handle idempotency?</h3>
+    <p>To handle idempotency and prevent duplicate operations:</p>
+    <div className="workflow-steps">
+      <div className="workflow-step">
+        <div className="step-number">1</div>
+        <div className="step-content">
+          <h4>Generate Unique Key</h4>
+          <p>Generate a unique idempotency key for each operation (e.g., a UUID)</p>
+          <div className="code-block-container">
+            <pre className="code-block">
+```javascript
+// Generate a UUID for idempotency
+const { v4: uuidv4 } = require('uuid');
+const idempotencyKey = uuidv4(); // e.g., "123e4567-e89b-12d3-a456-426614174000"
+```
+            </pre>
+          </div>
+        </div>
+      </div>
 
-To handle idempotency and prevent duplicate operations:
+      <div className="workflow-step">
+        <div className="step-number">2</div>
+        <div className="step-content">
+          <h4>Include in Request Header</h4>
+          <p>Include the idempotency key in the <code>Idempotency-Key</code> header of your API request</p>
+          <div className="code-block-container">
+            <pre className="code-block">
 
-1. Generate a unique idempotency key for each operation
-2. Include the idempotency key in the `Idempotency-Key` header of your API request
-3. If a request fails or times out, retry the request with the same idempotency key
-4. LiasonPay will recognize the duplicate request and return the result of the original request
-
-Example:
-
-```http
-Idempotency-Key: 123e4567-e89b-12d3-a456-426614174000
+```javascript
+const response = await axios.post(
+  `${ApiBaseUrl()}/payments/process`,
+  paymentData,
+  {
+    headers: {
+      Authorization: `Bearer ${process.env.LIASONPAY_API_KEY}`,
+      "Content-Type": "application/json",
+      "Idempotency-Key": idempotencyKey,
+    },
+  }
+);
 ```
 
-### How can I test different payment scenarios?
+</pre>
+          </div>
+        </div>
+      </div>
 
-You can use specific test card numbers to trigger different payment scenarios:
+      <div className="workflow-step">
+        <div className="step-number">3</div>
+        <div className="step-content">
+          <h4>Retry with Same Key</h4>
+          <p>If a request fails or times out, retry the request with the same idempotency key</p>
+        </div>
+      </div>
 
-| Card Number      | Scenario                              |
-| ---------------- | ------------------------------------- |
-| 4111111111111111 | Successful payment                    |
-| 4000000000000002 | Declined payment (insufficient funds) |
-| 4000000000000069 | Expired card                          |
-| 4000000000000119 | Card declined (generic)               |
+      <div className="workflow-step">
+        <div className="step-number">4</div>
+        <div className="step-content">
+          <h4>Receive Consistent Response</h4>
+          <p>LiasonPay will recognize the duplicate request and return the result of the original request</p>
+        </div>
+      </div>
+    </div>
+    <div className="info-callout">
+      <p><strong>💡 Tip:</strong> Store idempotency keys with your transaction records to enable safe retries even after application restarts.</p>
+    </div>
 
-You can also use specific amounts to trigger different responses:
+  </div>
 
-| Amount | Response                            |
-| ------ | ----------------------------------- |
-| 100    | Successful payment                  |
-| 999    | Failed payment (insufficient funds) |
-| 888    | Failed payment (expired card)       |
-| 777    | Failed payment (declined)           |
+  <div className="faq-item">
+    <h3>How can I test different payment scenarios?</h3>
+    <p>You can use specific test card numbers to trigger different payment scenarios:</p>
 
-For more test options, see the [Environment Information](/developer-guide/environment-info) guide.
+    <div className="test-cards-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Card Number</th>
+            <th>Scenario</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>4111 1111 1111 1111</code></td>
+            <td><span className="response-success">✅ Successful payment</span></td>
+          </tr>
+          <tr>
+            <td><code>4000 0000 0000 0002</code></td>
+            <td><span className="response-error">❌ Declined payment (insufficient funds)</span></td>
+          </tr>
+          <tr>
+            <td><code>4000 0000 0000 0069</code></td>
+            <td><span className="response-error">❌ Expired card</span></td>
+          </tr>
+          <tr>
+            <td><code>4000 0000 0000 0119</code></td>
+            <td><span className="response-error">❌ Card declined (generic)</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>You can also use specific amounts to trigger different responses:</p>
+
+    <div className="test-responses-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Amount</th>
+            <th>Response</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>100</code></td>
+            <td><span className="response-success">✅ Successful payment</span></td>
+          </tr>
+          <tr>
+            <td><code>999</code></td>
+            <td><span className="response-error">❌ Failed payment (insufficient funds)</span></td>
+          </tr>
+          <tr>
+            <td><code>888</code></td>
+            <td><span className="response-error">❌ Failed payment (expired card)</span></td>
+          </tr>
+          <tr>
+            <td><code>777</code></td>
+            <td><span className="response-error">❌ Failed payment (declined)</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>For more test options, see the <a href="/developer-guide/environment-info">Environment Information</a> guide.</p>
+
+  </div>
+</div>
 
 ## Still Need Help?
 
-If you couldn't find an answer to your question, please contact our support team:
+<div className="support-section">
+  <div className="support-card">
+    <div className="support-icon">📧</div>
+    <div className="support-content">
+      <h3>Email Support</h3>
+      <p>Contact our support team via email</p>
+      <a href="mailto:support@liasonpay.test" className="button button--secondary">support@liasonpay.test</a>
+    </div>
+  </div>
 
-- Email: support@liasonpay.test
-- Support Portal: [https://support.liasonpay.test](https://support.liasonpay.test)
-- Documentation: [<AppUrl />/docs](<AppUrl />/docs)
+  <div className="support-card">
+    <div className="support-icon">🌐</div>
+    <div className="support-content">
+      <h3>Support Portal</h3>
+      <p>Visit our support portal for additional resources</p>
+      <a href="https://support.liasonpay.test" target="_blank" rel="noopener noreferrer" className="button button--secondary">Open Support Portal</a>
+    </div>
+  </div>
+
+  <div className="support-card">
+    <div className="support-icon">📚</div>
+    <div className="support-content">
+      <h3>Documentation</h3>
+      <p>Browse our comprehensive documentation</p>
+      <a href={`${AppUrl()}/docs`} target="_blank" rel="noopener noreferrer" className="button button--secondary">View Documentation</a>
+    </div>
+  </div>
+</div>
+
+<div className="next-steps-section">
+  <div className="next-step-card">
+    <h3>🔍 API Explorer</h3>
+    <p>Try out API endpoints interactively</p>
+    <a href="/interactive-tools/api-explorer" className="button button--secondary">Open API Explorer</a>
+  </div>
+
+  <div className="next-step-card">
+    <h3>🧪 API Testing</h3>
+    <p>Test your API integration</p>
+    <a href="/interactive-tools/api-testing" className="button button--secondary">Open API Testing</a>
+  </div>
+
+  <div className="next-step-card">
+    <h3>📦 Postman Collection</h3>
+    <p>Download our Postman collection</p>
+    <a href="/interactive-tools/postman-collection" className="button button--secondary">Get Postman Collection</a>
+  </div>
+</div>

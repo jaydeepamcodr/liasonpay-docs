@@ -3,113 +3,300 @@ sidebar_position: 1
 ---
 
 import ApiTester from '@site/src/components/ApiTester';
+import { AppUrl, ApiBaseUrl, ExampleApiKey, ExampleStoreId, ExamplePriceId, ExamplePackageId } from '@site/src/components/DynamicValues';
 
 # Get Packages
 
-<span className="badge badge--primary">requires authentication</span>
+<div className="explorer-header">
+  <div className="explorer-header-content">
+    <h2>Retrieve Packages</h2>
+    <p>Get a list of available packages and their pricing options for a store</p>
+    <div className="explorer-badges">
+      <span className="badge badge--primary">requires authentication</span>
+      <span className="badge badge--info">GET</span>
+      <span className="badge badge--info">/api/v1/packages/get</span>
+    </div>
+  </div>
+</div>
 
+<div className="endpoint-section">
+  <div className="endpoint-card">
+    <h3>Endpoint</h3>
+    <div className="code-block-container">
+      <pre className="code-block">
 ```http
-GET /api/v1/packages/get
+GET {ApiBaseUrl()}/packages/get
 ```
-
-Retrieve a list of packages for a store.
+      </pre>
+    </div>
+    <p>This endpoint allows you to retrieve a list of packages for a store, with optional filtering by package ID and pagination support.</p>
+  </div>
+</div>
 
 ## Request Parameters
 
-### Query Parameters
-
-| Name | Type | Required | Description |
-|------|------|----------|-------------|
-| store_id | string | Yes | The ID of the store. The `store_id` of an existing record in the stores table. Must not be greater than 255 characters. |
-| package_id | string | No | The ID of the package. The `package_id` of an existing record in the packages table. Must not be greater than 255 characters. |
-| limit | integer | No | The maximum number of packages to return. Default: 20, Maximum: 100. |
-| cursor | string | No | A cursor for pagination. Use the `next_cursor` value from the previous response to get the next page of results. |
+<div className="parameters-section">
+  <div className="parameters-card">
+    <h3>Query Parameters</h3>
+    <div className="parameters-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Required</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>store_id</code></td>
+            <td><span className="param-type">string</span></td>
+            <td><span className="param-required">Yes</span></td>
+            <td>The ID of the store. The <code>store_id</code> of an existing record in the stores table. Must not be greater than 255 characters.</td>
+          </tr>
+          <tr>
+            <td><code>package_id</code></td>
+            <td><span className="param-type">string</span></td>
+            <td><span className="param-optional">No</span></td>
+            <td>The ID of the package. The <code>package_id</code> of an existing record in the packages table. Must not be greater than 255 characters.</td>
+          </tr>
+          <tr>
+            <td><code>limit</code></td>
+            <td><span className="param-type">integer</span></td>
+            <td><span className="param-optional">No</span></td>
+            <td>The maximum number of packages to return. Default: 20, Maximum: 100.</td>
+          </tr>
+          <tr>
+            <td><code>cursor</code></td>
+            <td><span className="param-type">string</span></td>
+            <td><span className="param-optional">No</span></td>
+            <td>A cursor for pagination. Use the <code>next_cursor</code> value from the previous response to get the next page of results.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
 ## Response
 
-### Response Parameters
-
-| Name | Type | Description |
-|------|------|-------------|
-| status | boolean | Whether the request was successful. |
-| message | string | A message describing the result of the request. |
-| data | array | An array of package objects. |
-| data[].package_id | string | The unique identifier for the package. |
-| data[].store_id | string | The ID of the store the package belongs to. |
-| data[].name | string | The name of the package. |
-| data[].description | string | The description of the package. |
-| data[].active | boolean | Whether the package is active. |
-| data[].prices | array | An array of price objects associated with the package. |
-| data[].prices[].price_id | string | The unique identifier for the price. |
-| data[].prices[].package_id | string | The ID of the package the price belongs to. |
-| data[].prices[].currency | string | The currency of the price. |
-| data[].prices[].amount | number | The amount of the price. |
-| data[].prices[].interval | string | The billing interval. Possible values: `day`, `week`, `month`, `year`. |
-| data[].prices[].interval_count | integer | The number of intervals between billings. |
-| data[].prices[].active | boolean | Whether the price is active. |
-| data[].created_at | string | The date the package was created in ISO 8601 format. |
-| data[].updated_at | string | The date the package was last updated in ISO 8601 format. |
-| meta | object | Metadata about the response. |
-| meta.has_more | boolean | Whether there are more packages available. |
-| meta.next_cursor | string | A cursor to use for pagination. Pass this as the `cursor` parameter to get the next page of results. |
+<div className="parameters-section">
+  <div className="parameters-card">
+    <h3>Response Parameters</h3>
+    <div className="parameters-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>status</code></td>
+            <td><span className="param-type">boolean</span></td>
+            <td>Whether the request was successful.</td>
+          </tr>
+          <tr>
+            <td><code>message</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>A message describing the result of the request.</td>
+          </tr>
+          <tr>
+            <td><code>data</code></td>
+            <td><span className="param-type">array</span></td>
+            <td>An array of package objects.</td>
+          </tr>
+          <tr>
+            <td><code>data[].package_id</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>The unique identifier for the package.</td>
+          </tr>
+          <tr>
+            <td><code>data[].store_id</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>The ID of the store the package belongs to.</td>
+          </tr>
+          <tr>
+            <td><code>data[].name</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>The name of the package.</td>
+          </tr>
+          <tr>
+            <td><code>data[].description</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>The description of the package.</td>
+          </tr>
+          <tr>
+            <td><code>data[].active</code></td>
+            <td><span className="param-type">boolean</span></td>
+            <td>Whether the package is active.</td>
+          </tr>
+          <tr>
+            <td><code>data[].prices</code></td>
+            <td><span className="param-type">array</span></td>
+            <td>An array of price objects associated with the package.</td>
+          </tr>
+          <tr>
+            <td><code>data[].prices[].price_id</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>The unique identifier for the price.</td>
+          </tr>
+          <tr>
+            <td><code>data[].prices[].package_id</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>The ID of the package the price belongs to.</td>
+          </tr>
+          <tr>
+            <td><code>data[].prices[].currency</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>The currency of the price.</td>
+          </tr>
+          <tr>
+            <td><code>data[].prices[].amount</code></td>
+            <td><span className="param-type">number</span></td>
+            <td>The amount of the price.</td>
+          </tr>
+          <tr>
+            <td><code>data[].prices[].interval</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>The billing interval. Possible values: <code>day</code>, <code>week</code>, <code>month</code>, <code>year</code>.</td>
+          </tr>
+          <tr>
+            <td><code>data[].prices[].interval_count</code></td>
+            <td><span className="param-type">integer</span></td>
+            <td>The number of intervals between billings.</td>
+          </tr>
+          <tr>
+            <td><code>data[].prices[].active</code></td>
+            <td><span className="param-type">boolean</span></td>
+            <td>Whether the price is active.</td>
+          </tr>
+          <tr>
+            <td><code>data[].created_at</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>The date the package was created in ISO 8601 format.</td>
+          </tr>
+          <tr>
+            <td><code>data[].updated_at</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>The date the package was last updated in ISO 8601 format.</td>
+          </tr>
+          <tr>
+            <td><code>meta</code></td>
+            <td><span className="param-type">object</span></td>
+            <td>Metadata about the response.</td>
+          </tr>
+          <tr>
+            <td><code>meta.has_more</code></td>
+            <td><span className="param-type">boolean</span></td>
+            <td>Whether there are more packages available.</td>
+          </tr>
+          <tr>
+            <td><code>meta.next_cursor</code></td>
+            <td><span className="param-type">string</span></td>
+            <td>A cursor to use for pagination. Pass this as the <code>cursor</code> parameter to get the next page of results.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
 ## Example Request
 
-### cURL
+<div className="code-examples">
+  <div className="code-example-tabs">
+    <button className="code-example-tab active" data-language="curl">cURL</button>
+    <button className="code-example-tab" data-language="javascript">Node.js</button>
+    <button className="code-example-tab" data-language="python">Python</button>
+  </div>
 
+  <div className="code-example-panel active" data-language="curl">
+    <div className="code-block-container">
+      <pre className="code-block">
 ```bash
 curl --request GET \
-    --get "https://liasonpay.net/api/v1/packages/get?store_id=STORE_65C0279F05&package_id=PACKAGE_7CC53FC9B0" \
-    --header "Authorization: Bearer {API_KEY}" \
+    --get "{ApiBaseUrl()}/packages/get?store_id={ExampleStoreId()}&package_id={ExamplePackageId()}" \
+    --header "Authorization: Bearer YOUR_API_KEY" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"
 ```
+      </pre>
+    </div>
+  </div>
 
-### Node.js
-
+  <div className="code-example-panel" data-language="javascript">
+    <div className="code-block-container">
+      <pre className="code-block">
 ```javascript
-const axios = require('axios');
+const axios = require("axios");
 
 const getPackages = async () => {
-  try {
-    const response = await axios.get('https://liasonpay.net/api/v1/packages/get', {
-      params: {
-        store_id: 'STORE_65C0279F05',
-        package_id: 'PACKAGE_7CC53FC9B0'
-      },
-      headers: {
-        'Authorization': 'Bearer {API_KEY}',
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      }
-    });
-    
-    console.log(response.data);
-    return response.data;
-  } catch (error) {
-    console.error('Error fetching packages:', error.response?.data || error.message);
-    throw error;
-  }
+// Initialize API client
+const liasonpay = axios.create({
+baseURL: "{ApiBaseUrl()}",
+headers: {
+Authorization: `Bearer ${process.env.LIASONPAY_API_KEY}`,
+"Content-Type": "application/json",
+Accept: "application/json",
+},
+});
+
+try {
+const response = await liasonpay.get("/packages/get", {
+params: {
+store_id: "{ExampleStoreId()}",
+package_id: "{ExamplePackageId()}",
+limit: 20,
+cursor: null
+}
+});
+
+      console.log(response.data);
+      return response.data;
+
+} catch (error) {
+console.error(
+"Error fetching packages:",
+error.response?.data || error.message
+);
+throw error;
+}
 };
-```
 
-### Python
+````
+      </pre>
+    </div>
+  </div>
 
+  <div className="code-example-panel" data-language="python">
+    <div className="code-block-container">
+      <pre className="code-block">
 ```python
 import requests
+import os
 
 def get_packages():
-    url = "https://liasonpay.net/api/v1/packages/get"
+    # API configuration
+    api_base_url = "{ApiBaseUrl()}"
+    api_key = os.environ.get("LIASONPAY_API_KEY")
+
+    url = f"{api_base_url}/packages/get"
     params = {
-        "store_id": "STORE_65C0279F05",
-        "package_id": "PACKAGE_7CC53FC9B0"
+        "store_id": "{ExampleStoreId()}",
+        "package_id": "{ExamplePackageId()}",
+        "limit": 20,
+        "cursor": None
     }
     headers = {
-        "Authorization": "Bearer {API_KEY}",
+        "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json",
         "Accept": "application/json"
     }
-    
+
     try:
         response = requests.get(url, params=params, headers=headers)
         response.raise_for_status()
@@ -117,119 +304,217 @@ def get_packages():
     except requests.exceptions.RequestException as e:
         print(f"Error fetching packages: {e}")
         raise
-```
+````
+
+      </pre>
+    </div>
+
+  </div>
+</div>
 
 ## Example Response
 
+<div className="response-example">
+  <div className="code-block-container">
+    <pre className="code-block">
 ```json
 {
-    "status": true,
-    "message": "Packages retrieved successfully",
-    "data": [
+  "status": true,
+  "message": "Packages retrieved successfully",
+  "data": [
+    {
+      "package_id": "{ExamplePackageId()}",
+      "store_id": "{ExampleStoreId()}",
+      "name": "Premium Plan",
+      "description": "Access to all premium features",
+      "active": true,
+      "prices": [
         {
-            "package_id": "PACKAGE_7CC53FC9B0",
-            "store_id": "STORE_65C0279F05",
-            "name": "Premium Plan",
-            "description": "Access to all premium features",
-            "active": true,
-            "prices": [
-                {
-                    "price_id": "PRICE_1A2B3C4D5E",
-                    "package_id": "PACKAGE_7CC53FC9B0",
-                    "currency": "usd",
-                    "amount": 19.99,
-                    "interval": "month",
-                    "interval_count": 1,
-                    "active": true
-                },
-                {
-                    "price_id": "PRICE_6F7G8H9I0J",
-                    "package_id": "PACKAGE_7CC53FC9B0",
-                    "currency": "usd",
-                    "amount": 199.99,
-                    "interval": "year",
-                    "interval_count": 1,
-                    "active": true
-                }
-            ],
-            "created_at": "2023-04-01T10:00:00Z",
-            "updated_at": "2023-04-01T10:00:00Z"
+          "price_id": "{ExamplePriceId()}",
+          "package_id": "{ExamplePackageId()}",
+          "currency": "usd",
+          "amount": 19.99,
+          "interval": "month",
+          "interval_count": 1,
+          "active": true
+        },
+        {
+          "price_id": "PRICE_6F7G8H9I0J",
+          "package_id": "{ExamplePackageId()}",
+          "currency": "usd",
+          "amount": 199.99,
+          "interval": "year",
+          "interval_count": 1,
+          "active": true
         }
-    ],
-    "meta": {
-        "has_more": false,
-        "next_cursor": null
+      ],
+      "created_at": "2023-04-01T10:00:00Z",
+      "updated_at": "2023-04-01T10:00:00Z"
     }
+  ],
+  "meta": {
+    "has_more": false,
+    "next_cursor": null
+  }
 }
 ```
+    </pre>
+  </div>
+</div>
 
 ## Error Responses
 
-### Invalid Store ID
+<div className="error-examples">
+  <div className="error-example-tabs">
+    <button className="error-example-tab active" data-error="store-not-found">Invalid Store ID</button>
+    <button className="error-example-tab" data-error="auth">Authentication Error</button>
+  </div>
 
+  <div className="error-example-panel active" data-error="store-not-found">
+    <div className="code-block-container">
+      <pre className="code-block">
 ```json
 {
-    "status": false,
-    "message": "Store not found",
-    "data": {
-        "error_code": "resource_not_found"
-    }
+  "status": false,
+  "message": "Store not found",
+  "data": {
+    "error_code": "resource_not_found"
+  }
 }
 ```
+      </pre>
+    </div>
+    <div className="error-description">
+      <p>This error occurs when the specified store ID does not exist in the system.</p>
+    </div>
+  </div>
 
-### Authentication Error
-
+  <div className="error-example-panel" data-error="auth">
+    <div className="code-block-container">
+      <pre className="code-block">
 ```json
 {
-    "status": false,
-    "message": "Invalid API key provided",
-    "data": {
-        "error_code": "authentication_error"
-    }
+  "status": false,
+  "message": "Invalid API key provided",
+  "data": {
+    "error_code": "authentication_error"
+  }
 }
 ```
+      </pre>
+    </div>
+    <div className="error-description">
+      <p>This error occurs when the API key provided in the Authorization header is invalid or has been revoked.</p>
+    </div>
+  </div>
+</div>
 
 ## Notes
 
-- If `package_id` is provided, the response will contain only that specific package if it exists.
-- If only `store_id` is provided, the response will contain all packages for that store, paginated according to the `limit` parameter.
-- Results are ordered by `created_at` in descending order (newest first).
-- The `meta.has_more` field indicates whether there are more results available beyond the current page.
-- If `meta.has_more` is `true`, use the `meta.next_cursor` value as the `cursor` parameter to fetch the next page of results.
-- Each package can have multiple prices with different currencies, intervals, and amounts.
-- The `interval` field indicates the billing frequency (e.g., `month` for monthly billing).
-- The `interval_count` field indicates the number of intervals between billings (e.g., `3` with `interval: "month"` means billing every 3 months).
+<div className="notes-section">
+  <div className="notes-card">
+    <div className="notes-items">
+      <div className="notes-item">
+        <div className="notes-icon">🔍</div>
+        <div className="notes-content">
+          <p>If <code>package_id</code> is provided, the response will contain only that specific package if it exists.</p>
+        </div>
+      </div>
+
+      <div className="notes-item">
+        <div className="notes-icon">📋</div>
+        <div className="notes-content">
+          <p>If only <code>store_id</code> is provided, the response will contain all packages for that store, paginated according to the <code>limit</code> parameter.</p>
+        </div>
+      </div>
+
+      <div className="notes-item">
+        <div className="notes-icon">⏱️</div>
+        <div className="notes-content">
+          <p>Results are ordered by <code>created_at</code> in descending order (newest first).</p>
+        </div>
+      </div>
+
+      <div className="notes-item">
+        <div className="notes-icon">📄</div>
+        <div className="notes-content">
+          <p>The <code>meta.has_more</code> field indicates whether there are more results available beyond the current page.</p>
+        </div>
+      </div>
+
+      <div className="notes-item">
+        <div className="notes-icon">🔄</div>
+        <div className="notes-content">
+          <p>If <code>meta.has_more</code> is <code>true</code>, use the <code>meta.next_cursor</code> value as the <code>cursor</code> parameter to fetch the next page of results.</p>
+        </div>
+      </div>
+
+      <div className="notes-item">
+        <div className="notes-icon">💰</div>
+        <div className="notes-content">
+          <p>Each package can have multiple prices with different currencies, intervals, and amounts.</p>
+        </div>
+      </div>
+
+      <div className="notes-item">
+        <div className="notes-icon">🗓️</div>
+        <div className="notes-content">
+          <p>The <code>interval</code> field indicates the billing frequency (e.g., <code>month</code> for monthly billing).</p>
+        </div>
+      </div>
+
+      <div className="notes-item">
+        <div className="notes-icon">🔢</div>
+        <div className="notes-content">
+          <p>The <code>interval_count</code> field indicates the number of intervals between billings (e.g., <code>3</code> with <code>interval: "month"</code> means billing every 3 months).</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 ## Interactive Testing
 
-<ApiTester 
-  endpoint="/api/v1/packages/get" 
-  method="GET"
-  baseUrl="https://liasonpay.net" 
-  params={[
-    { 
-      name: "store_id", 
-      required: true, 
-      in: "query",
-      description: "The ID of the store" 
-    },
-    { 
-      name: "package_id", 
-      required: false, 
-      in: "query",
-      description: "The ID of the package" 
-    },
-    { 
-      name: "limit", 
-      required: false, 
-      in: "query",
-      description: "Maximum number of packages to return" 
-    },
-    { 
-      name: "cursor", 
-      required: false, 
-      in: "query",
-      description: "Cursor for pagination" 
-    }
-  ]}
-/>
+<div className="interactive-testing-section">
+  <div className="interactive-testing-card">
+    <h3>Try It Out</h3>
+    <p>Use the interactive API tester below to try out this endpoint with your own API key and parameters.</p>
+
+    <ApiTester
+      endpoint="/api/v1/packages/get"
+      method="GET"
+      baseUrl="{ApiBaseUrl()}"
+      params={[
+        {
+          name: "store_id",
+          required: true,
+          in: "query",
+          description: "The ID of the store",
+          defaultValue: "{ExampleStoreId()}"
+        },
+        {
+          name: "package_id",
+          required: false,
+          in: "query",
+          description: "The ID of the package",
+          defaultValue: "{ExamplePackageId()}"
+        },
+        {
+          name: "limit",
+          required: false,
+          in: "query",
+          description: "Maximum number of packages to return",
+          defaultValue: "20"
+        },
+        {
+          name: "cursor",
+          required: false,
+          in: "query",
+          description: "Cursor for pagination"
+        }
+      ]}
+    />
+
+  </div>
+</div>
