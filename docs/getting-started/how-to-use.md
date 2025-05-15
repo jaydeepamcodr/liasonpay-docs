@@ -208,7 +208,7 @@ app.post("/webhooks/liasonpay", express.json(), (req, res) => {
   );
 
   if (!isValid) {
-    return res.status(400).send("Invalid signature");
+    return res.status(401).send("Invalid signature");
   }
 
   // Acknowledge receipt immediately
@@ -216,7 +216,27 @@ app.post("/webhooks/liasonpay", express.json(), (req, res) => {
 
   // Process the webhook asynchronously
   const event = req.body;
-  processWebhookEvent(event).catch(console.error);
+
+  // Handle different event types
+  switch (event.event_type) {
+    case "charge.completed":
+      // Handle successful payment
+      updateOrderStatus(event.data.transaction_id, "paid");
+      sendOrderConfirmation(event.data.customer.email);
+      break;
+    case "charge.failed":
+      // Handle failed payment
+      updateOrderStatus(event.data.transaction_id, "payment_failed");
+      sendPaymentFailureNotification(event.data.customer.email);
+      break;
+    case "subscription.created":
+      // Handle new subscription
+      activateSubscription(event.data.subscription_id);
+      break;
+    // Handle other event types...
+    default:
+      console.log(`Received event: ${event.event_type}`);
+  }
 });
 ```
 

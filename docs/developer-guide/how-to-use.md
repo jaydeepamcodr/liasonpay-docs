@@ -32,7 +32,7 @@ All API responses are returned in JSON format with the following structure:
 {
   "status": true,
   "message": "Operation successful",
-  "data": {}
+  "data": []
 }
 ```
 
@@ -48,7 +48,7 @@ When an error occurs, the API will return a JSON response with a `status` of `fa
 {
   "status": false,
   "message": "Error message",
-  "data": null
+  "data": []
 }
 ```
 

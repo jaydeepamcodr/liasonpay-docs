@@ -3,12 +3,12 @@ sidebar_position: 1
 ---
 
 import {
-ApiBaseUrl,
-ExampleApiKey,
-ExampleStoreId,
-ExampleSubscriptionId,
-ApiRateLimit
-} from '@site/src/components/DynamicValues';
+  ApiBaseUrl,
+  ExampleApiKey,
+  ExampleStoreId,
+  ExampleSubscriptionId,
+  ApiRateLimit,
+} from "@site/src/components/DynamicValues";
 
 # API Reference
 
@@ -79,11 +79,34 @@ LiasonPay uses webhooks to notify your application when events happen in your ac
 
 Common webhook events include:
 
-- `payment.succeeded`
-- `payment.failed`
-- `subscription.created`
-- `subscription.cancelled`
-- `subscription.payment_failed`
+### Charge Events
+
+- `session.created` - A new payment session was created
+- `charge.created` - A new charge was created
+- `charge.updated` - A charge was updated
+- `charge.completed` - A charge was successfully completed
+- `charge.failed` - A charge attempt failed
+- `charge.cancelled` - A charge was cancelled
+
+### Refund Events
+
+- `refund.created` - A new refund was created
+- `refund.updated` - A refund was updated
+- `refund.failed` - A refund attempt failed
+- `charge.refunded` - A charge was refunded
+
+### Dispute Events
+
+- `charge.dispute.created` - A new dispute was created for a charge
+- `charge.dispute.closed` - A dispute for a charge was closed
+
+### Subscription Events
+
+- `subscription.created` - A new subscription was created
+- `subscription.updated` - A subscription was updated
+- `subscription.cancelled` - A subscription was cancelled
+- `subscription.payment.failed` - A subscription payment failed
+- `subscription.expired` - A subscription has expired
 
 ## Errors & Responses
 
@@ -95,7 +118,7 @@ All API responses are returned in JSON format with the following structure:
 {
   "status": true,
   "message": "Operation successful",
-  "data": {}
+  "data": []
 }
 ```
 
@@ -103,7 +126,7 @@ All API responses are returned in JSON format with the following structure:
 - `message`: A string providing information about the result of the request
 - `data`: An object or array containing the response data
 
-### Error Format
+### Simple Error Format
 
 When an error occurs, the API will return a JSON response with a `status` of `false` and an error message:
 
@@ -111,7 +134,22 @@ When an error occurs, the API will return a JSON response with a `status` of `fa
 {
   "status": false,
   "message": "Error message",
-  "data": null
+  "data": []
+}
+```
+
+### Validation Error Format
+
+When an error occurs, the API will return a JSON response with a `status` of `false` and an error message:
+
+```json
+{
+  "status": false,
+  "message": "Error message",
+  "errors": {
+    "field_name": ["Error message"]
+  },
+  "data": []
 }
 ```
 
@@ -170,9 +208,7 @@ The response will include pagination information in the `meta` field:
 
 The current version of the LiasonPay API is v1. The version is included in the URL path:
 
-```
 <ApiBaseUrl />
-```
 
 When new versions are released, we'll provide migration guides and maintain backward compatibility for a reasonable period.
 
