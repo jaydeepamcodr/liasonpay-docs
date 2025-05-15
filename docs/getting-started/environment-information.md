@@ -10,7 +10,7 @@ LiasonPay provides a production environment for processing payments. This guide 
 
 import { AppUrl } from '@site/src/components/DynamicValues';
 
-- **Base URL**: <AppUrl />
+- **Base URL**: https://liasonpay.test
 - **Purpose**: Live transactions and real payments
 - **API Keys**: API keys (prefixed with `sk_`)
 - **Payments**: Real money is processed
@@ -22,7 +22,7 @@ import { AppUrl } from '@site/src/components/DynamicValues';
 
 1. **Create a LiasonPay Account**:
 
-   - Sign up at [LiasonPay](<AppUrl />)
+   - Sign up at [LiasonPay](https://liasonpay.test)
    - Verify your email address
 
 2. **Generate API Keys**:
@@ -33,7 +33,7 @@ import { AppUrl } from '@site/src/components/DynamicValues';
 
 3. **Configure Your Environment**:
 
-   - Set the base URL to <AppUrl />
+   - Set the base URL to https://liasonpay.test
    - Use your API key for authentication
    - Set the `mode` parameter to `production` in relevant API calls
 
@@ -47,7 +47,7 @@ import { ApiRateLimit } from '@site/src/components/DynamicValues';
 
 | Feature        | Details                              |
 | -------------- | ------------------------------------ |
-| Base URL       | <AppUrl />                           |
+| Base URL       | https://liasonpay.test               |
 | API Keys       | Keys (`sk_`)                         |
 | Money Movement | Real transactions                    |
 | Rate Limits    | <ApiRateLimit /> requests per minute |

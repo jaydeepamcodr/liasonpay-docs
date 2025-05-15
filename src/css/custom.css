@@ -126,3 +126,363 @@
   margin-bottom: 0;
   white-space: pre-wrap;
 }
+
+/* Postman Collection Page Styles */
+.postman-header {
+  background: linear-gradient(135deg, var(--ifm-color-primary-darkest), var(--ifm-color-primary));
+  color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.postman-header-content h2 {
+  color: white;
+  margin-top: 0;
+  font-size: 1.8rem;
+}
+
+.postman-header-content p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.postman-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.feature-card {
+  background-color: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card h3 {
+  margin-top: 0;
+  color: var(--ifm-color-primary);
+  font-size: 1.2rem;
+}
+
+.download-container {
+  background-color: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.download-note {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.setup-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.setup-step {
+  display: flex;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.step-number {
+  background-color: var(--ifm-color-primary);
+  color: white;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.step-content {
+  flex: 1;
+}
+
+.step-content h3 {
+  margin-top: 0;
+  color: var(--ifm-color-primary);
+}
+
+.step-image {
+  margin-top: 1rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.step-image img {
+  max-width: 100%;
+  display: block;
+}
+
+.environment-variables {
+  margin: 1.5rem 0;
+  overflow-x: auto;
+}
+
+.environment-variables table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.environment-variables th {
+  background-color: var(--ifm-color-emphasis-200);
+  text-align: left;
+  padding: 0.75rem 1rem;
+}
+
+.environment-variables td {
+  padding: 0.75rem 1rem;
+  border-top: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.info-callout,
+.warning-callout {
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+.info-callout {
+  background-color: var(--ifm-color-info-lightest);
+  border-left: 4px solid var(--ifm-color-info);
+}
+
+.warning-callout {
+  background-color: var(--ifm-color-warning-lightest);
+  border-left: 4px solid var(--ifm-color-warning);
+}
+
+.usage-section {
+  margin: 2rem 0;
+}
+
+.usage-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.usage-image {
+  margin-top: 1rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.auth-section {
+  margin-top: 2rem;
+}
+
+.code-block-container {
+  margin: 1.5rem 0;
+  background-color: var(--ifm-code-background);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.code-block {
+  margin: 0;
+  padding: 1rem;
+}
+
+.examples-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.example-card {
+  background-color: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.example-card h3 {
+  margin-top: 0;
+  color: var(--ifm-color-primary);
+}
+
+.example-steps {
+  margin: 1.5rem 0;
+}
+
+.workflows-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.workflow-card {
+  background-color: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.workflow-card h3 {
+  margin-top: 0;
+  color: var(--ifm-color-primary);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.workflow-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.workflow-step {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.two-column-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.column {
+  background-color: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.column h3 {
+  margin-top: 0;
+  color: var(--ifm-color-primary);
+}
+
+.troubleshooting-tips {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.tip {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.tip-icon {
+  font-size: 1.2rem;
+}
+
+.faq-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.faq-item {
+  background-color: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.faq-item h3 {
+  margin-top: 0;
+  color: var(--ifm-color-primary);
+  font-size: 1.1rem;
+}
+
+.next-steps-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.next-step-card {
+  background-color: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.next-step-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.next-step-card h3 {
+  margin-top: 0;
+  color: var(--ifm-color-primary);
+}
+
+.next-step-card a {
+  margin-top: 1rem;
+  display: inline-block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .postman-header {
+    padding: 1.5rem;
+  }
+
+  .features-grid,
+  .examples-container,
+  .workflows-section,
+  .two-column-section,
+  .faq-section,
+  .next-steps-section {
+    grid-template-columns: 1fr;
+  }
+
+  .setup-step {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .step-number {
+    margin-bottom: 0.5rem;
+  }
+}

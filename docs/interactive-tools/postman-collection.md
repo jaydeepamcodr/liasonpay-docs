@@ -2,99 +2,201 @@
 sidebar_position: 1
 ---
 
+import { AppUrl, ApiBaseUrl, ExampleApiKey, ExampleStoreId } from '@site/src/components/DynamicValues';
+
 # Postman Collection
 
-The LiasonPay Postman Collection provides a comprehensive set of pre-configured API requests that you can use to test and explore our API. This page explains how to download and use the collection in Postman.
+<div className="postman-header">
+  <div className="postman-header-content">
+    <h2>Test and explore the LiasonPay API with our official Postman Collection</h2>
+    <p>A comprehensive set of pre-configured API requests to help you integrate faster and more efficiently</p>
+    <div className="postman-buttons">
+      <a href="/collection.json" download className="button button--primary button--lg">
+        <span>📥 Download Collection</span>
+      </a>
+      <a href="https://learning.postman.com/docs/getting-started/importing-and-exporting-data/" target="_blank" rel="noopener noreferrer" className="button button--secondary button--lg">
+        <span>📚 Postman Docs</span>
+      </a>
+    </div>
+  </div>
+</div>
 
-## What is the LiasonPay Postman Collection?
+## What's Included in the Collection?
 
-The LiasonPay Postman Collection is a set of pre-configured API requests that cover all available endpoints in our API. The collection includes:
+Our Postman Collection is designed to make API integration as smooth as possible. It includes:
 
-- Request templates for all API endpoints
-- Pre-configured request headers
-- Example request bodies
-- Environment variables for easy configuration
-- Test scripts for validating responses
+<div className="features-grid">
+  <div className="feature-card">
+    <h3>✅ Complete API Coverage</h3>
+    <p>Request templates for all available endpoints in the LiasonPay API</p>
+  </div>
+  <div className="feature-card">
+    <h3>🔐 Authentication Setup</h3>
+    <p>Pre-configured authorization headers and environment variables</p>
+  </div>
+  <div className="feature-card">
+    <h3>📋 Example Requests</h3>
+    <p>Ready-to-use request bodies with sample data for quick testing</p>
+  </div>
+  <div className="feature-card">
+    <h3>🧪 Test Scripts</h3>
+    <p>Validation scripts to verify responses and extract data</p>
+  </div>
+</div>
 
-## Downloading the Collection
+## Getting Started
 
 ### Option 1: Direct Download
 
-Download the Postman Collection directly from our website:
+Download our Postman Collection with a single click:
 
-<a href="/docs/collection.json" download className="button button--primary button--lg">
-  Download Postman Collection
-</a>
+<div className="download-container">
+  <a href="/collection.json" download className="button button--primary button--lg">
+    <span>📥 Download Postman Collection</span>
+  </a>
+  <p className="download-note">Save the file to your computer, then import it into Postman</p>
+</div>
 
 ### Option 2: Import from URL
 
 Import the collection directly in Postman using this URL:
 
-import { AppUrl } from '@site/src/components/DynamicValues';
-
-```
-<AppUrl />/docs/collection.json
+```bash
+{AppUrl()}/collection.json
 ```
 
 ## Setting Up the Collection
 
-### Step 1: Import the Collection
+<div className="setup-steps">
+  <div className="setup-step">
+    <div className="step-number">1</div>
+    <div className="step-content">
+      <h3>Import the Collection</h3>
+      <ol>
+        <li>Open Postman</li>
+        <li>Click <strong>Import</strong> in the top left corner</li>
+        <li>Choose the downloaded collection file or paste the URL</li>
+        <li>Click <strong>Import</strong></li>
+      </ol>
+    </div>
+  </div>
 
-1. Open Postman
-2. Click **Import** in the top left corner
-3. Choose the downloaded collection file or paste the URL
-4. Click **Import**
+  <div className="setup-step">
+    <div className="step-number">2</div>
+    <div className="step-content">
+      <h3>Create an Environment</h3>
+      <ol>
+        <li>Click the <strong>Environments</strong> tab in Postman</li>
+        <li>Click <strong>Add</strong> to create a new environment</li>
+        <li>Name it "LiasonPay API"</li>
+        <li>Add the following variables:</li>
+      </ol>
 
-### Step 2: Create an Environment
+      <div className="environment-variables">
+        <table>
+          <thead>
+            <tr>
+              <th>Variable</th>
+              <th>Initial Value</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>baseUrl</code></td>
+              <td><code>{ApiBaseUrl()}</code></td>
+              <td>The base URL for API requests</td>
+            </tr>
+            <tr>
+              <td><code>apiKey</code></td>
+              <td><code>{ExampleApiKey()}</code></td>
+              <td>Your LiasonPay API key</td>
+            </tr>
+            <tr>
+              <td><code>storeId</code></td>
+              <td><code>{ExampleStoreId()}</code></td>
+              <td>Your store ID</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-1. Click the **Environments** tab in Postman
-2. Click **Add** to create a new environment
-3. Name it "LiasonPay Sandbox" or "LiasonPay Production"
-4. Add the following variables:
+      <div className="info-callout">
+        <p><strong>💡 Tip:</strong> You can find your API key in the <a href={`${AppUrl()}/api-key`} target="_blank" rel="noopener noreferrer">LiasonPay Dashboard</a> under Settings → API Keys.</p>
+      </div>
 
-| Variable | Initial Value                        | Description                   |
-| -------- | ------------------------------------ | ----------------------------- |
-| baseUrl  | https://sandbox.liasonpay.net/api/v1 | The base URL for API requests |
-| apiKey   | sk_test_your_api_key                 | Your LiasonPay API key        |
-| storeId  | STORE_your_store_id                  | Your store ID                 |
+      <p>Click <strong>Save</strong> when you're done.</p>
+    </div>
 
-5. Click **Save**
+  </div>
 
-### Step 3: Select the Environment
-
-1. Choose your newly created environment from the environment dropdown in the top right corner
-2. Ensure the environment is active before making requests
+  <div className="setup-step">
+    <div className="step-number">3</div>
+    <div className="step-content">
+      <h3>Select the Environment</h3>
+      <ol>
+        <li>Choose your newly created environment from the environment dropdown in the top right corner</li>
+        <li>Ensure the environment is active before making requests</li>
+      </ol>
+      <div className="warning-callout">
+        <p><strong>⚠️ Important:</strong> Make sure your environment is selected before sending requests, or your variables won't be applied.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 ## Using the Collection
 
-### Making API Requests
+<div className="usage-section">
+  <h3>Making API Requests</h3>
 
-1. Navigate to the LiasonPay collection in the Collections sidebar
-2. Browse through the folders to find the desired endpoint
-3. Click on the request to open it
-4. Review and modify the request parameters as needed
-5. Click **Send** to execute the request
+  <div className="usage-steps">
+    <ol>
+      <li>Navigate to the <strong>LiasonPay</strong> collection in the Collections sidebar</li>
+      <li>Browse through the folders to find the desired endpoint</li>
+      <li>Click on the request to open it</li>
+      <li>Review and modify the request parameters as needed</li>
+      <li>Click <strong>Send</strong> to execute the request</li>
+    </ol>
+  </div>
 
-### Authentication
+  <h3>Authentication</h3>
 
-The collection is pre-configured to use your API key from the environment variables:
+  <div className="auth-section">
+    <p>The collection is pre-configured to use your API key from the environment variables:</p>
 
-```
-Authorization: Bearer {{apiKey}}
-```
+    <div className="code-block-container">
+      <pre className="code-block">
+        <code>Authorization: Bearer {'{{'}{'{apiKey}'}{'}}'}</code>
+      </pre>
+    </div>
 
-Make sure to update the `apiKey` variable in your environment with your actual API key.
+    <div className="warning-callout">
+      <p><strong>🔒 Security Note:</strong> Never share your API keys or commit them to version control. Always use environment variables to store sensitive information.</p>
+    </div>
 
-### Request Examples
+  </div>
+</div>
 
-#### Process a Payment
+## Example Requests
 
-1. Navigate to **Payments > Process Payment**
-2. The request body is pre-filled with example values:
+<div className="examples-container">
+  <div className="example-card">
+    <h3>💳 Process a Payment</h3>
+
+    <div className="example-steps">
+      <ol>
+        <li>Navigate to <strong>Payments > Process Payment</strong></li>
+        <li>The request body is pre-filled with example values:</li>
+      </ol>
+    </div>
+
+    <div className="code-block-container">
+      <pre className="code-block">
 
 ```json
 {
-  "store_id": "{{storeId}}",
+  "store_id": "{'{{'}{'{storeId}'}{'}}'}",
   "currency": "usd",
   "products": [
     {
@@ -106,94 +208,239 @@ Make sure to update the `apiKey` variable in your environment with your actual A
   ],
   "success_url": "https://example.com/success",
   "cancel_url": "https://example.com/cancel",
-  "mode": "sandbox"
+  "mode": "production"
 }
 ```
 
-3. Update the values as needed
-4. Click **Send**
+      </pre>
+    </div>
 
-#### Create a Subscription
+    <div className="example-steps">
+      <ol start="3">
+        <li>Update the values as needed</li>
+        <li>Click <strong>Send</strong></li>
+      </ol>
+    </div>
 
-1. Navigate to **Subscriptions > Create Subscription**
-2. The request body is pre-filled with example values:
+  </div>
+
+  <div className="example-card">
+    <h3>🔄 Create a Subscription</h3>
+
+    <div className="example-steps">
+      <ol>
+        <li>Navigate to <strong>Subscriptions > Create Subscription</strong></li>
+        <li>The request body is pre-filled with example values:</li>
+      </ol>
+    </div>
+
+    <div className="code-block-container">
+      <pre className="code-block">
 
 ```json
 {
-  "store_id": "{{storeId}}",
+  "store_id": "{'{{'}{'{storeId}'}{'}}'}",
   "price_id": "PRICE_ABC123",
   "success_url": "https://example.com/success",
   "cancel_url": "https://example.com/cancel",
-  "mode": "sandbox"
+  "mode": "production"
 }
 ```
 
-3. Update the values as needed
-4. Click **Send**
+      </pre>
+    </div>
 
-## Collection Features
+    <div className="example-steps">
+      <ol start="3">
+        <li>Update the values as needed</li>
+        <li>Click <strong>Send</strong></li>
+      </ol>
+    </div>
 
-### Environment Variables
+  </div>
+</div>
 
-The collection uses environment variables to make it easy to switch between sandbox and production environments:
+## Advanced Features
 
-- `{{baseUrl}}` - The base URL for API requests
-- `{{apiKey}}` - Your LiasonPay API key
-- `{{storeId}}` - Your store ID
+<div className="features-section">
+  <div className="features-grid">
+    <div className="feature-card">
+      <h3>🔄 Environment Variables</h3>
+      <p>The collection uses environment variables to make it easy to switch between different configurations:</p>
+      <ul>
+        <li><code>{'{{'}{'{baseUrl}'}{'}}'}</code> - The base URL for API requests</li>
+        <li><code>{'{{'}{'{apiKey}'}{'}}'}</code> - Your LiasonPay API key</li>
+        <li><code>{'{{'}{'{storeId}'}{'}}'}</code> - Your store ID</li>
+      </ul>
+    </div>
 
-### Pre-request Scripts
+    <div className="feature-card">
+      <h3>⚙️ Pre-request Scripts</h3>
+      <p>Some requests include pre-request scripts that:</p>
+      <ul>
+        <li>Generate unique idempotency keys</li>
+        <li>Set up test data</li>
+        <li>Calculate timestamps</li>
+      </ul>
+    </div>
 
-Some requests include pre-request scripts that:
+    <div className="feature-card">
+      <h3>✅ Test Scripts</h3>
+      <p>The collection includes test scripts that:</p>
+      <ul>
+        <li>Validate response status codes</li>
+        <li>Check for expected response fields</li>
+        <li>Verify data types and formats</li>
+        <li>Extract values for use in subsequent requests</li>
+      </ul>
+    </div>
 
-- Generate unique idempotency keys
-- Set up test data
-- Calculate timestamps
+    <div className="feature-card">
+      <h3>🔍 Request Examples</h3>
+      <p>Each request includes:</p>
+      <ul>
+        <li>Example request bodies</li>
+        <li>Required and optional parameters</li>
+        <li>Detailed descriptions</li>
+        <li>Expected responses</li>
+      </ul>
+    </div>
 
-### Test Scripts
+  </div>
+</div>
 
-The collection includes test scripts that:
+## Common Workflows
 
-- Validate response status codes
-- Check for expected response fields
-- Verify data types and formats
-- Extract values for use in subsequent requests
+<div className="workflows-section">
+  <div className="workflow-card">
+    <h3>💳 Payment Workflow</h3>
+    <div className="workflow-steps">
+      <div className="workflow-step">
+        <div className="step-number">1</div>
+        <div className="step-content">
+          <p><strong>Process a payment</strong> - Create a payment request</p>
+        </div>
+      </div>
+      <div className="workflow-step">
+        <div className="step-number">2</div>
+        <div className="step-content">
+          <p><strong>Verify the payment</strong> - Check the payment status</p>
+        </div>
+      </div>
+      <div className="workflow-step">
+        <div className="step-number">3</div>
+        <div className="step-content">
+          <p><strong>Retrieve details</strong> - Get payment information</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-## Testing Workflows
+  <div className="workflow-card">
+    <h3>🔄 Subscription Workflow</h3>
+    <div className="workflow-steps">
+      <div className="workflow-step">
+        <div className="step-number">1</div>
+        <div className="step-content">
+          <p><strong>Create a subscription</strong> - Set up recurring billing</p>
+        </div>
+      </div>
+      <div className="workflow-step">
+        <div className="step-number">2</div>
+        <div className="step-content">
+          <p><strong>Verify the subscription</strong> - Check the subscription status</p>
+        </div>
+      </div>
+      <div className="workflow-step">
+        <div className="step-number">3</div>
+        <div className="step-content">
+          <p><strong>Manage subscription</strong> - Cancel or upgrade</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-The collection is organized to support testing common workflows:
+## Customization & Troubleshooting
 
-### Payment Workflow
+<div className="two-column-section">
+  <div className="column">
+    <h3>Customizing the Collection</h3>
+    <p>You can customize the collection to fit your specific needs:</p>
+    <ul>
+      <li>Duplicate requests to create variations</li>
+      <li>Add your own test scripts</li>
+      <li>Create additional environments for different configurations</li>
+      <li>Save example responses for reference</li>
+    </ul>
+  </div>
 
-1. Process a payment
-2. Verify the payment status
-3. Retrieve payment details
+  <div className="column">
+    <h3>Troubleshooting</h3>
+    <p>If you encounter issues with the collection:</p>
+    <div className="troubleshooting-tips">
+      <div className="tip">
+        <span className="tip-icon">🔑</span>
+        <span className="tip-text">Verify your API key is correct</span>
+      </div>
+      <div className="tip">
+        <span className="tip-icon">🌐</span>
+        <span className="tip-text">Check that you're using the right environment</span>
+      </div>
+      <div className="tip">
+        <span className="tip-icon">📋</span>
+        <span className="tip-text">Ensure all required parameters are provided</span>
+      </div>
+      <div className="tip">
+        <span className="tip-icon">❓</span>
+        <span className="tip-text">Check the response for specific error messages</span>
+      </div>
+    </div>
+  </div>
+</div>
 
-### Subscription Workflow
+## Frequently Asked Questions
 
-1. Create a subscription
-2. Verify the subscription status
-3. Cancel the subscription
+<div className="faq-section">
+  <div className="faq-item">
+    <h3>How do I update my API key?</h3>
+    <p>To update your API key, edit the <code>apiKey</code> variable in your environment settings in Postman.</p>
+  </div>
 
-## Customizing the Collection
+  <div className="faq-item">
+    <h3>Can I use the collection with Postman on mobile?</h3>
+    <p>Yes, the collection is compatible with Postman's mobile apps for iOS and Android.</p>
+  </div>
 
-You can customize the collection to fit your specific needs:
+  <div className="faq-item">
+    <h3>How do I share the collection with my team?</h3>
+    <p>You can export the collection and share it with your team, or use Postman's team workspaces feature.</p>
+  </div>
 
-1. Duplicate requests to create variations
-2. Add your own test scripts
-3. Create additional environments for different configurations
-4. Save example responses for reference
-
-## Troubleshooting
-
-If you encounter issues with the collection:
-
-1. Verify your API key is correct
-2. Check that you're using the right environment
-3. Ensure all required parameters are provided
-4. Check the response for specific error messages
+  <div className="faq-item">
+    <h3>Are the API requests made through Postman secure?</h3>
+    <p>Yes, all API requests use HTTPS encryption. Just make sure to keep your API keys secure.</p>
+  </div>
+</div>
 
 ## Next Steps
 
-- [Explore the API Explorer](/interactive-tools/api-explorer) for a comprehensive API reference
-- [Try the API Testing Tool](/interactive-tools/api-testing) for in-browser testing
-- [Review the API Reference](/api-reference) for detailed endpoint documentation
+<div className="next-steps-section">
+  <div className="next-step-card">
+    <h3>🔍 Explore the API Explorer</h3>
+    <p>Use our interactive API Explorer for a comprehensive API reference</p>
+    <a href="/interactive-tools/api-explorer" className="button button--secondary">Open API Explorer</a>
+  </div>
+
+  <div className="next-step-card">
+    <h3>🧪 Try the API Testing Tool</h3>
+    <p>Test API endpoints directly in your browser</p>
+    <a href="/interactive-tools/api-testing" className="button button--secondary">Open API Testing Tool</a>
+  </div>
+
+  <div className="next-step-card">
+    <h3>📚 Review the API Reference</h3>
+    <p>Read detailed documentation for all endpoints</p>
+    <a href="/api-reference" className="button button--secondary">View API Reference</a>
+  </div>
+</div>

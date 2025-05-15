@@ -10,16 +10,18 @@ export default function OpenApiExplorer() {
 
   return (
     <div className="openapi-explorer-container">
-      <div className="openapi-explorer-info">
-        <p>
-          The OpenAPI Explorer allows you to browse and test the LiasonPay API.
-          The base URL for all API requests is: <code>{apiBaseUrl}</code>
-        </p>
+      <div className="explorer-info-card">
+        <div className="explorer-info-icon">🔍</div>
+        <div className="explorer-info-content">
+          <h3>Interactive API Explorer</h3>
+          <p>
+            Browse and test the LiasonPay API directly in your browser. The base URL for all API requests is: <code>{apiBaseUrl}</code>
+          </p>
+        </div>
       </div>
 
       {/* Embedded Swagger UI */}
       <div className="embedded-swagger-ui">
-        <h3>Embedded API Explorer</h3>
         <div className="swagger-ui-wrapper">
           <iframe
             src="/swagger-ui/index.html"
@@ -31,49 +33,71 @@ export default function OpenApiExplorer() {
         </div>
       </div>
 
-      <div className="openapi-explorer-alternatives">
-        <h3>Alternative Options</h3>
-        <p>If you prefer to use other tools to explore our API, you can:</p>
+      <div className="explorer-options-container">
+        <div className="explorer-options-grid">
+          <div className="explorer-option-card">
+            <div className="option-icon">📥</div>
+            <div className="option-content">
+              <h4>Download OpenAPI Specification</h4>
+              <p>
+                Download the OpenAPI specification file and use it with your preferred OpenAPI viewer.
+              </p>
+              <a href="/openapi.yaml" download className="button button--primary">
+                <span>Download Specification</span>
+              </a>
+            </div>
+          </div>
 
-        <div className="openapi-explorer-options">
-          <div className="openapi-explorer-option">
-            <h4>Download OpenAPI Specification</h4>
-            <p>
-              Download the OpenAPI specification file and use it with your preferred OpenAPI viewer:
-            </p>
-            <a href="/openapi.yaml" download className="button button--primary">
-              Download OpenAPI Specification
-            </a>
+          <div className="explorer-option-card">
+            <div className="option-icon">🔗</div>
+            <div className="option-content">
+              <h4>View in Swagger Editor</h4>
+              <p>
+                Open the specification in Swagger Editor to view and generate client code.
+              </p>
+              <a href="https://editor.swagger.io/" target="_blank" rel="noopener noreferrer" className="button button--primary">
+                <span>Open Swagger Editor</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="openapi-explorer-instructions">
-        <h3>Using the API Explorer</h3>
-        <p>
-          The API Explorer provides an interactive interface for exploring our API:
-        </p>
-        <ul>
-          <li>Browse all available API endpoints</li>
-          <li>See detailed parameter descriptions</li>
-          <li>Try out API requests directly from your browser</li>
-          <li>View request and response schemas</li>
-          <li>Understand authentication requirements</li>
-        </ul>
+      <div className="explorer-tips">
+        <h3>Quick Tips</h3>
+        <div className="tips-grid">
+          <div className="tip-card">
+            <div className="tip-icon">🔐</div>
+            <div className="tip-content">
+              <h4>Authentication</h4>
+              <p>Click the <strong>Authorize</strong> button and enter your API key as: <code>Bearer {Constants.EXAMPLE_API_KEY}</code></p>
+            </div>
+          </div>
 
-        <h4>Authentication</h4>
-        <p>
-          To authenticate API requests in the explorer:
-        </p>
-        <ol>
-          <li>Click the <strong>Authorize</strong> button at the top of the explorer</li>
-          <li>Enter your API key in the format: <code>Bearer {Constants.EXAMPLE_API_KEY}</code></li>
-          <li>Click <strong>Authorize</strong></li>
-          <li>Close the authorization dialog</li>
-        </ol>
-        <p>
-          All subsequent requests will include your API key in the Authorization header.
-        </p>
+          <div className="tip-card">
+            <div className="tip-icon">🧪</div>
+            <div className="tip-content">
+              <h4>Testing</h4>
+              <p>Click <strong>Try it out</strong> on any endpoint to send a real API request</p>
+            </div>
+          </div>
+
+          <div className="tip-card">
+            <div className="tip-icon">💻</div>
+            <div className="tip-content">
+              <h4>Code Generation</h4>
+              <p>After clicking <strong>Try it out</strong>, select a language to generate code</p>
+            </div>
+          </div>
+
+          <div className="tip-card">
+            <div className="tip-icon">🔍</div>
+            <div className="tip-content">
+              <h4>Search</h4>
+              <p>Use the search box at the top to quickly find specific endpoints</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

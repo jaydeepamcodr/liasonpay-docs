@@ -1,12 +1,66 @@
+/* API Explorer Styles */
 .openapi-explorer-container {
   margin: 2rem 0;
 }
 
-.openapi-explorer-info {
+/* Explorer Header */
+.explorer-header {
+  background: linear-gradient(135deg, var(--ifm-color-primary-darkest), var(--ifm-color-primary));
+  color: white;
+  padding: 2rem;
+  border-radius: 8px;
   margin-bottom: 2rem;
-  padding: 1rem;
-  background-color: var(--ifm-color-primary-lightest);
-  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.explorer-header-content h2 {
+  color: white;
+  margin-top: 0;
+  font-size: 1.8rem;
+}
+
+.explorer-header-content p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.explorer-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Explorer Container */
+.explorer-container {
+  margin: 2rem 0;
+}
+
+/* Explorer Info Card */
+.explorer-info-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background-color: var(--ifm-color-info-lightest);
+  border-left: 4px solid var(--ifm-color-info);
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.explorer-info-icon {
+  font-size: 2rem;
+  color: var(--ifm-color-info);
+}
+
+.explorer-info-content h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-color-info-darkest);
+}
+
+.explorer-info-content p {
+  margin-bottom: 0;
 }
 
 /* Embedded Swagger UI */
@@ -16,9 +70,10 @@
 
 .swagger-ui-wrapper {
   border: 1px solid var(--ifm-color-emphasis-300);
-  border-radius: 0.5rem;
+  border-radius: 8px;
   overflow: hidden;
   background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .swagger-ui-wrapper iframe {
@@ -27,50 +82,269 @@
   border: none;
 }
 
-/* Alternative options */
-.openapi-explorer-alternatives {
-  margin-bottom: 2rem;
+/* Explorer Options */
+.explorer-options-container {
+  margin: 2rem 0;
 }
 
-.openapi-explorer-options {
+.explorer-options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.explorer-option-card {
   display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  margin-bottom: 2rem;
+  gap: 1rem;
+  padding: 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  background-color: var(--ifm-background-surface-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.openapi-explorer-option {
+.explorer-option-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.option-icon {
+  font-size: 2rem;
+  color: var(--ifm-color-primary);
+}
+
+.option-content {
   flex: 1;
-  min-width: 300px;
-  padding: 1.5rem;
-  border: 1px solid var(--ifm-color-emphasis-300);
-  border-radius: 0.5rem;
-  background-color: var(--ifm-background-surface-color);
 }
 
-.openapi-explorer-instructions {
-  margin-top: 2rem;
-  padding: 1.5rem;
-  border: 1px solid var(--ifm-color-emphasis-300);
-  border-radius: 0.5rem;
-  background-color: var(--ifm-background-surface-color);
-}
-
-.openapi-explorer-instructions h3 {
+.option-content h4 {
   margin-top: 0;
-}
-
-.openapi-explorer-instructions ul,
-.openapi-explorer-instructions ol {
-  padding-left: 1.5rem;
-}
-
-.openapi-explorer-instructions li {
   margin-bottom: 0.5rem;
+  color: var(--ifm-color-primary);
 }
 
-.openapi-explorer-instructions code {
+.option-content p {
+  margin-bottom: 1rem;
+}
+
+/* Explorer Tips */
+.explorer-tips {
+  margin: 2rem 0;
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.tip-card {
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  background-color: var(--ifm-background-surface-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.tip-icon {
+  font-size: 1.5rem;
+  color: var(--ifm-color-primary);
+}
+
+.tip-content {
+  flex: 1;
+}
+
+.tip-content h4 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-color-primary);
+}
+
+.tip-content p {
+  margin-bottom: 0;
+}
+
+/* Endpoint Categories */
+.endpoint-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.endpoint-category {
+  padding: 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  background-color: var(--ifm-background-surface-color);
+}
+
+.endpoint-category h4 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-color-primary);
+}
+
+.endpoint-category p {
+  margin-bottom: 0;
+}
+
+/* Endpoint Details */
+.endpoint-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.detail-icon {
+  font-size: 1.2rem;
+}
+
+/* Languages Section */
+.languages-section {
+  margin: 2rem 0;
+}
+
+.languages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.language-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  background-color: var(--ifm-background-surface-color);
+}
+
+.language-icon {
+  font-size: 1.5rem;
+}
+
+/* Specification Details */
+.spec-details {
+  margin: 2rem 0;
+}
+
+.spec-card {
+  padding: 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  background-color: var(--ifm-background-surface-color);
+}
+
+.spec-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.spec-item {
+  display: flex;
+  align-items: center;
+}
+
+.spec-label {
+  font-weight: bold;
+  width: 120px;
+}
+
+/* Tools Section */
+.tools-section {
+  margin: 2rem 0;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.tool-card {
+  padding: 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  background-color: var(--ifm-background-surface-color);
+}
+
+.tool-card h3 {
+  margin-top: 0;
+  color: var(--ifm-color-primary);
+}
+
+.tool-link {
+  margin-top: 1.5rem;
+}
+
+/* Callouts */
+.info-callout,
+.warning-callout {
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+.info-callout {
+  background-color: var(--ifm-color-info-lightest);
+  border-left: 4px solid var(--ifm-color-info);
+}
+
+.warning-callout {
+  background-color: var(--ifm-color-warning-lightest);
+  border-left: 4px solid var(--ifm-color-warning);
+}
+
+/* Code Blocks */
+.code-block-container {
+  margin: 1.5rem 0;
   background-color: var(--ifm-code-background);
-  padding: 0.2rem 0.4rem;
-  border-radius: 0.2rem;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.code-block {
+  margin: 0;
+  padding: 1rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .explorer-header {
+    padding: 1.5rem;
+  }
+
+  .explorer-options-grid,
+  .tips-grid,
+  .endpoint-categories,
+  .languages-grid,
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .explorer-option-card,
+  .tip-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .option-icon,
+  .tip-icon {
+    margin-bottom: 0.5rem;
+  }
 }
