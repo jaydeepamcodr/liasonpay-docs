@@ -1,6 +1,56 @@
 /* FAQ Page Styles */
 
-/* FAQ Header */
+/* Explorer Header - Matching other pages */
+.explorer-header {
+  background: linear-gradient(135deg, var(--ifm-color-primary-darkest), var(--ifm-color-primary));
+  color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.explorer-header-content {
+  position: relative;
+  z-index: 2;
+}
+
+.explorer-header-content h1 {
+  color: white;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+}
+
+.explorer-header-content p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+  max-width: 800px;
+}
+
+.explorer-header-content h2 {
+  color: white;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+}
+
+.explorer-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.explorer-badges {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Keep the old faq-header for backward compatibility */
 .faq-header {
   background: linear-gradient(135deg, var(--ifm-color-primary-darkest), var(--ifm-color-primary));
   color: white;
@@ -488,19 +538,34 @@
   margin: 0;
 }
 
+.faq-toc-list li {
+  margin-bottom: 0.5rem;
+}
+
 .faq-toc-list a {
-  display: block;
-  padding: 0.5rem 0.75rem;
-  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
   color: var(--ifm-color-emphasis-800);
   text-decoration: none;
   transition: all 0.2s ease;
+  background-color: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  font-weight: 500;
+  text-align: center;
+  height: 100%;
 }
 
 .faq-toc-list a:hover,
 .faq-toc-list a.active {
-  background-color: var(--ifm-color-emphasis-200);
-  color: var(--ifm-color-primary);
+  background-color: var(--ifm-color-primary-lightest);
+  color: var(--ifm-color-primary-darker);
+  border-color: var(--ifm-color-primary-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Support Link */
@@ -730,16 +795,124 @@
   color: var(--ifm-color-emphasis-800);
 }
 
+/* Next Steps Section */
+.next-steps-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.next-step-card {
+  background-color: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.next-step-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+  border-color: var(--ifm-color-primary-lighter);
+}
+
+.next-step-card-header {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, var(--ifm-color-emphasis-200), var(--ifm-color-emphasis-100));
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.next-step-icon-wrapper {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.next-step-icon {
+  font-size: 1.5rem;
+  color: var(--ifm-color-primary);
+}
+
+.next-step-number {
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 1.1rem;
+}
+
+.next-step-card-content {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.next-step-card-content h4 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-color-primary-darker);
+  font-size: 1.25rem;
+}
+
+.next-step-card-content p {
+  margin-bottom: 1rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.next-step-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+.next-step-benefits li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.benefit-icon {
+  color: var(--ifm-color-success);
+  margin-right: 0.5rem;
+  font-weight: bold;
+}
+
+.next-step-action {
+  margin-top: auto;
+}
+
+.button-text {
+  margin-right: 0.5rem;
+}
+
+.button-icon {
+  font-size: 1.1rem;
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
-  .faq-header {
+  .explorer-header {
     padding: 1.5rem;
   }
 
+  .explorer-header-content h1,
   .faq-header-content h1 {
     font-size: 2rem;
   }
 
+  .explorer-header-content p,
   .faq-header-content p {
     font-size: 1rem;
   }
@@ -794,6 +967,10 @@
   .rotation-step-icon {
     margin-bottom: 0.5rem;
   }
+
+  .next-steps-section {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 480px) {
@@ -807,6 +984,10 @@
   }
 
   .rate-limit-content {
+    flex-direction: column;
+  }
+
+  .explorer-buttons {
     flex-direction: column;
   }
 }

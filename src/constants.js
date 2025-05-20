@@ -1,5 +1,6 @@
 export const APP_URL = 'https://liasonpay.net';
 export const API_BASE_URL = 'https://liasonpay.net/api/v1';
+export const DOCS_URL = 'http://localhost:3000/docs-v2';
 
 // Example values
 export const EXAMPLE_STORE_ID = 'STORE_65C0279F05';

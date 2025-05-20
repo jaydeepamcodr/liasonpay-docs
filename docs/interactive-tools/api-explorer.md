@@ -4,6 +4,8 @@ sidebar_position: 3
 
 import OpenApiExplorer from '@site/src/components/OpenApiExplorer';
 import { ApiBaseUrl, ExampleApiKey, AppUrl } from '@site/src/components/DynamicValues';
+import OpenApiUrl from '@site/src/components/OpenApiUrl';
+import DocsUrl, { getDocsUrl } from '@site/src/components/DocsUrl';
 
 # API Explorer
 
@@ -15,7 +17,7 @@ import { ApiBaseUrl, ExampleApiKey, AppUrl } from '@site/src/components/DynamicV
       <a href="#interactive-api-explorer" className="button button--primary button--lg">
         <span>🔍 Open Explorer</span>
       </a>
-      <a href="/openapi.yaml" download className="button button--secondary button--lg">
+      <a href={OpenApiUrl()} download className="button button--secondary button--lg">
         <span>📥 Download OpenAPI Spec</span>
       </a>
     </div>
@@ -71,7 +73,6 @@ import { ApiBaseUrl, ExampleApiKey, AppUrl } from '@site/src/components/DynamicV
         <p><strong>💡 Tip:</strong> You can find your API key in the <a href={`${AppUrl()}/settings/api-keys`} target="_blank" rel="noopener noreferrer">LiasonPay Dashboard</a> under Settings → API Keys.</p>
       </div>
       <div className="step-image">
-        <img src="https://static.swagger.io/unpkg/swagger-ui-dist@4.5.0/oauth2-redirect.html" alt="Swagger UI Authorization" width="400" />
       </div>
     </div>
   </div>
@@ -327,7 +328,7 @@ import { ApiBaseUrl, ExampleApiKey, AppUrl } from '@site/src/components/DynamicV
       <h3>🚀 Postman</h3>
       <p>Import the OpenAPI specification into Postman:</p>
       <ol>
-        <li>Download the <a href="/openapi.yaml" download>OpenAPI specification</a></li>
+        <li>Download the <a href={OpenApiUrl()} download>OpenAPI specification</a></li>
         <li>Open Postman</li>
         <li>Click <strong>Import</strong></li>
         <li>Select the downloaded specification file</li>
@@ -342,7 +343,7 @@ import { ApiBaseUrl, ExampleApiKey, AppUrl } from '@site/src/components/DynamicV
       <h3>🔍 Swagger UI</h3>
       <p>Use the specification with Swagger UI:</p>
       <ol>
-        <li>Download the <a href="/openapi.yaml" download>OpenAPI specification</a></li>
+        <li>Download the <a href={OpenApiUrl()} download>OpenAPI specification</a></li>
         <li>Host Swagger UI on your local machine</li>
         <li>Load the specification file</li>
         <li>Explore the API using Swagger UI</li>
@@ -384,7 +385,7 @@ import { ApiBaseUrl, ExampleApiKey, AppUrl } from '@site/src/components/DynamicV
 
   <div className="faq-item">
     <h3>Can I download the OpenAPI specification?</h3>
-    <p>Yes, you can <a href="/openapi.yaml" download>download the OpenAPI specification</a> and use it with other tools like Postman or Swagger UI.</p>
+    <p>Yes, you can <a href={OpenApiUrl()} download>download the OpenAPI specification</a> and use it with other tools like Postman or Swagger UI.</p>
   </div>
 
   <div className="faq-item">
@@ -420,7 +421,7 @@ import { ApiBaseUrl, ExampleApiKey, AppUrl } from '@site/src/components/DynamicV
           <li><span className="benefit-icon">✓</span> Create test environments</li>
         </ul>
         <div className="next-step-action">
-          <a href="/interactive-tools/postman-collection" className="button button--primary">
+          <a href={getDocsUrl('interactive-tools/postman-collection')} className="button button--primary">
             <span className="button-text">View Postman Collection</span>
             <span className="button-icon">→</span>
           </a>
@@ -444,7 +445,7 @@ import { ApiBaseUrl, ExampleApiKey, AppUrl } from '@site/src/components/DynamicV
           <li><span className="benefit-icon">✓</span> Test in different environments</li>
         </ul>
         <div className="next-step-action">
-          <a href="/interactive-tools/api-testing" className="button button--primary">
+          <a href={getDocsUrl('interactive-tools/api-testing')} className="button button--primary">
             <span className="button-text">Open API Testing Tool</span>
             <span className="button-icon">→</span>
           </a>
@@ -468,7 +469,7 @@ import { ApiBaseUrl, ExampleApiKey, AppUrl } from '@site/src/components/DynamicV
           <li><span className="benefit-icon">✓</span> Parameter descriptions</li>
         </ul>
         <div className="next-step-action">
-          <a href="/api-reference" className="button button--primary">
+          <a href={getDocsUrl('api-reference')} className="button button--primary">
             <span className="button-text">View API Reference</span>
             <span className="button-icon">→</span>
           </a>
@@ -487,7 +488,7 @@ import { ApiBaseUrl, ExampleApiKey, AppUrl } from '@site/src/components/DynamicV
         <a href="https://liasonpay.net/support" target="_blank" rel="noopener noreferrer" className="button button--secondary">
           <span className="button-text">Contact Support</span>
         </a>
-        <a href="/developer-guide/faq" className="button button--secondary">
+        <a href={getDocsUrl('developer-guide/faq')} className="button button--secondary">
           <span className="button-text">View FAQ</span>
         </a>
       </div>

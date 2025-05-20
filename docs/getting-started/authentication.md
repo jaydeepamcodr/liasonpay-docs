@@ -3,6 +3,8 @@ sidebar_position: 2
 ---
 
 import { AppUrl, ApiBaseUrl, ExampleApiKey } from '@site/src/components/DynamicValues';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Authentication
 
@@ -15,7 +17,7 @@ import { AppUrl, ApiBaseUrl, ExampleApiKey } from '@site/src/components/DynamicV
       <span className="badge badge--info">Security</span>
     </div>
     <div className="explorer-buttons">
-      <a href={`${AppUrl()}/settings/api-keys`} target="_blank" rel="noopener noreferrer" className="button button--primary button--lg">
+      <a href={`${AppUrl()}/api-key`} target="_blank" rel="noopener noreferrer" className="button button--primary button--lg">
         <span>🔑 Get API Keys</span>
       </a>
       <a href="#security-best-practices" className="button button--secondary button--lg">
@@ -83,13 +85,8 @@ import { AppUrl, ApiBaseUrl, ExampleApiKey } from '@site/src/components/DynamicV
   <h3>Authentication Methods</h3>
 
   <div className="api-usage-section">
-    <div className="code-tabs">
-      <div className="code-tab-headers">
-        <div className="code-tab-header active">Authorization Header</div>
-        <div className="code-tab-header">Example Request</div>
-      </div>
-
-      <div className="code-tab-content active">
+    <Tabs>
+      <TabItem value="auth-header" label="Authorization Header" default>
         <h4>Authentication Header Format</h4>
         <p>To authenticate your API requests, include an <code>Authorization</code> header with the value <code>Bearer YOUR_API_KEY</code>.</p>
 
@@ -112,9 +109,9 @@ Authorization: Bearer ${ExampleApiKey()}
             <p><strong>Note:</strong> All authenticated endpoints are marked with a <code>requires authentication</code> badge in the API Reference documentation.</p>
           </div>
         </div>
-      </div>
+      </TabItem>
 
-      <div className="code-tab-content">
+      <TabItem value="example-request" label="Example Request">
         <h4>Example Request with Authentication</h4>
         <p>Here's a complete example of an authenticated API request using cURL:</p>
 
@@ -134,8 +131,8 @@ curl --request GET \
 
           </pre>
         </div>
-      </div>
-    </div>
+      </TabItem>
+    </Tabs>
 
   </div>
 </div>
@@ -181,51 +178,30 @@ curl --request GET \
         <h4>Use Environment Variables</h4>
         <p>Store API keys in environment variables rather than hardcoding them:</p>
 
-        <div className="code-tabs">
-          <div className="code-tab-headers">
-            <div className="code-tab-header active">Node.js</div>
-            <div className="code-tab-header">Python</div>
-            <div className="code-tab-header">PHP</div>
-          </div>
-
-          <div className="code-tab-content active">
+        <Tabs>
+          <TabItem value="nodejs" label="Node.js" default>
             <div className="code-block-container">
-              <div className="code-block-header">
-                <span>Node.js</span>
-                <button className="copy-button" title="Copy to clipboard">
-                  <span className="copy-icon">📋</span>
-                </button>
-              </div>
               <pre className="code-block">
-
-```javascript
-// Node.js example
+                <code className="language-javascript">
+{`// Node.js example
 const apiKey = process.env.LIASONPAY_API_KEY;
 
 // Using with a request
 const response = await fetch("https://api.example.com", {
   headers: {
-    Authorization: `Bearer ${apiKey}`,
+    Authorization: \`Bearer \${apiKey}\`,
   },
-});
-```
-
+});`}
+                </code>
               </pre>
             </div>
-          </div>
+          </TabItem>
 
-          <div className="code-tab-content">
+          <TabItem value="python" label="Python">
             <div className="code-block-container">
-              <div className="code-block-header">
-                <span>Python</span>
-                <button className="copy-button" title="Copy to clipboard">
-                  <span className="copy-icon">📋</span>
-                </button>
-              </div>
               <pre className="code-block">
-
-```python
-# Python example
+                <code className="language-python">
+{`# Python example
 import os
 import requests
 
@@ -235,25 +211,17 @@ api_key = os.environ.get('LIASONPAY_API_KEY')
 response = requests.get(
     'https://api.example.com',
     headers={'Authorization': f'Bearer {api_key}'}
-)
-```
-
+)`}
+                </code>
               </pre>
             </div>
-          </div>
+          </TabItem>
 
-          <div className="code-tab-content">
+          <TabItem value="php" label="PHP">
             <div className="code-block-container">
-              <div className="code-block-header">
-                <span>PHP</span>
-                <button className="copy-button" title="Copy to clipboard">
-                  <span className="copy-icon">📋</span>
-                </button>
-              </div>
               <pre className="code-block">
-
-```php
-<?php
+                <code className="language-php">
+{`<?php
 // PHP example
 $apiKey = getenv('LIASONPAY_API_KEY');
 
@@ -265,13 +233,12 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, [
     'Content-Type: application/json'
 ]);
 $response = curl_exec($ch);
-?>
-```
-
+?>`}
+                </code>
               </pre>
             </div>
-          </div>
-        </div>
+          </TabItem>
+        </Tabs>
       </div>
     </div>
 

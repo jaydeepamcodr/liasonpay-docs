@@ -82,6 +82,10 @@ const config: Config = {
       src: "/docs-v2/js/faq-section.js",
       async: true,
     },
+    {
+      src: "/docs-v2/js/faq-page.js",
+      async: true,
+    },
   ],
 
   // Add custom stylesheets
@@ -94,6 +98,9 @@ const config: Config = {
     },
     {
       href: "/docs-v2/css/testing-environments.css",
+    },
+    {
+      href: "/docs-v2/css/faq-page.css",
     },
   ],
 

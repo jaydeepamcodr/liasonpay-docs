@@ -10,6 +10,7 @@ import {
   ApiRateLimit,
   AppUrl,
 } from "@site/src/components/DynamicValues";
+import { getDocsUrl } from "@site/src/components/DocsUrl";
 
 # Subscription API
 
@@ -40,7 +41,7 @@ import {
         <div className="endpoint-item">
           <div className="endpoint-icon">📋</div>
           <div className="endpoint-content">
-            <a href="/api-reference/subscriptions/get-subscriptions">Get Subscriptions</a>
+            <a href={getDocsUrl("api-reference/subscriptions/get-subscriptions")}>Get Subscriptions</a>
             <p>Retrieve a list of subscriptions</p>
           </div>
         </div>
@@ -48,7 +49,7 @@ import {
         <div className="endpoint-item">
           <div className="endpoint-icon">➕</div>
           <div className="endpoint-content">
-            <a href="/api-reference/subscriptions/create-subscription">Create Subscription</a>
+            <a href={getDocsUrl("api-reference/subscriptions/create-subscription")}>Create Subscription</a>
             <p>Create a new subscription</p>
           </div>
         </div>
@@ -56,7 +57,7 @@ import {
         <div className="endpoint-item">
           <div className="endpoint-icon">✅</div>
           <div className="endpoint-content">
-            <a href="/api-reference/subscriptions/verify-subscription">Verify Subscription</a>
+            <a href={getDocsUrl("api-reference/subscriptions/verify-subscription")}>Verify Subscription</a>
             <p>Verify a subscription's status</p>
           </div>
         </div>
@@ -64,7 +65,7 @@ import {
         <div className="endpoint-item">
           <div className="endpoint-icon">❌</div>
           <div className="endpoint-content">
-            <a href="/api-reference/subscriptions/cancel-subscription">Cancel Subscription</a>
+            <a href={getDocsUrl("api-reference/subscriptions/cancel-subscription")}>Cancel Subscription</a>
             <p>Cancel an active subscription</p>
           </div>
         </div>
@@ -72,7 +73,7 @@ import {
         <div className="endpoint-item">
           <div className="endpoint-icon">⬆️</div>
           <div className="endpoint-content">
-            <a href="/api-reference/subscriptions/upgrade-subscription">Upgrade Subscription</a>
+            <a href={getDocsUrl("api-reference/subscriptions/upgrade-subscription")}>Upgrade Subscription</a>
             <p>Change a subscription to a different plan</p>
           </div>
         </div>
@@ -91,6 +92,7 @@ import {
   </div>
 
 {" "}
+
 <div className="use-case-item">
   <h4>Membership Sites</h4>
   <p>

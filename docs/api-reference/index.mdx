@@ -10,6 +10,7 @@ import {
   ApiRateLimit,
   AppUrl,
 } from "@site/src/components/DynamicValues";
+import { getDocsUrl } from "@site/src/components/DocsUrl";
 
 # API Reference
 
@@ -73,7 +74,7 @@ Authorization: Bearer <ExampleApiKey />
     <div className="authentication-steps">
       <h4>Obtaining Your API Key</h4>
       <ol>
-        <li>Log in to your <a href="{AppUrl()}">LiasonPay</a> account</li>
+        <li>Log in to your <a href={AppUrl()}>LiasonPay</a> account</li>
         <li>Navigate to the <strong>Dashboard</strong></li>
         <li>Click on the <strong>Profile icon</strong> in the top right corner</li>
         <li>Click on the <strong>API Keys</strong> section</li>
@@ -94,7 +95,7 @@ Authorization: Bearer <ExampleApiKey />
       </div>
     </div>
 
-    <p>For more details, see the <a href="/getting-started/authentication">Authentication</a> guide.</p>
+    <p>For more details, see the <a href={getDocsUrl("getting-started/authentication")}>Authentication</a> guide.</p>
 
   </div>
 </div>
@@ -111,7 +112,7 @@ Authorization: Bearer <ExampleApiKey />
         <div className="endpoint-item">
           <div className="endpoint-icon">📋</div>
           <div className="endpoint-content">
-            <a href="/api-reference/subscriptions/get-subscriptions">Get Subscriptions</a>
+            <a href={getDocsUrl("api-reference/subscriptions/get-subscriptions")}>Get Subscriptions</a>
             <p>Retrieve a list of subscriptions</p>
           </div>
         </div>
@@ -119,7 +120,7 @@ Authorization: Bearer <ExampleApiKey />
         <div className="endpoint-item">
           <div className="endpoint-icon">➕</div>
           <div className="endpoint-content">
-            <a href="/api-reference/subscriptions/create-subscription">Create Subscription</a>
+            <a href={getDocsUrl("api-reference/subscriptions/create-subscription")}>Create Subscription</a>
             <p>Create a new subscription</p>
           </div>
         </div>
@@ -127,15 +128,15 @@ Authorization: Bearer <ExampleApiKey />
         <div className="endpoint-item">
           <div className="endpoint-icon">✅</div>
           <div className="endpoint-content">
-            <a href="/api-reference/subscriptions/verify-subscription">Verify Subscription</a>
+            <a href={getDocsUrl("api-reference/subscriptions/verify-subscription")}>Verify Subscription</a>
             <p>Verify a subscription's status</p>
           </div>
         </div>
 
         <div className="endpoint-item">
-          <div className="endpoint-icon">🚫</div>
+          <div className="endpoint-icon">❌</div>
           <div className="endpoint-content">
-            <a href="/api-reference/subscriptions/cancel-subscription">Cancel Subscription</a>
+            <a href={getDocsUrl("api-reference/subscriptions/cancel-subscription")}>Cancel Subscription</a>
             <p>Cancel an active subscription</p>
           </div>
         </div>
@@ -143,7 +144,7 @@ Authorization: Bearer <ExampleApiKey />
         <div className="endpoint-item">
           <div className="endpoint-icon">⬆️</div>
           <div className="endpoint-content">
-            <a href="/api-reference/subscriptions/upgrade-subscription">Upgrade Subscription</a>
+            <a href={getDocsUrl("api-reference/subscriptions/upgrade-subscription")}>Upgrade Subscription</a>
             <p>Upgrade a subscription to a different plan</p>
           </div>
         </div>
@@ -158,7 +159,7 @@ Authorization: Bearer <ExampleApiKey />
         <div className="endpoint-item">
           <div className="endpoint-icon">💳</div>
           <div className="endpoint-content">
-            <a href="/api-reference/payments/process-payment">Process Payment</a>
+            <a href={getDocsUrl("api-reference/payments/process-payment")}>Process Payment</a>
             <p>Process a one-time payment</p>
           </div>
         </div>
@@ -166,7 +167,7 @@ Authorization: Bearer <ExampleApiKey />
         <div className="endpoint-item">
           <div className="endpoint-icon">✅</div>
           <div className="endpoint-content">
-            <a href="/api-reference/payments/verify-payment">Verify Payment</a>
+            <a href={getDocsUrl("api-reference/payments/verify-payment")}>Verify Payment</a>
             <p>Verify a payment's status</p>
           </div>
         </div>
@@ -181,7 +182,7 @@ Authorization: Bearer <ExampleApiKey />
         <div className="endpoint-item">
           <div className="endpoint-icon">📦</div>
           <div className="endpoint-content">
-            <a href="/api-reference/packages/get-packages">Get Packages</a>
+            <a href={getDocsUrl("api-reference/packages/get-packages")}>Get Packages</a>
             <p>Retrieve a list of packages</p>
           </div>
         </div>
@@ -198,7 +199,7 @@ Authorization: Bearer <ExampleApiKey />
     <p>
       LiasonPay uses webhooks to notify your application when events happen in your account.
       For detailed information about webhook events and how to handle them, see the
-      <a href="/developer-guide/webhooks">Webhooks</a> guide.
+      <a href={getDocsUrl("developer-guide/webhooks")}>Webhooks</a> guide.
     </p>
 
     <div className="webhook-categories">
@@ -379,7 +380,7 @@ Authorization: Bearer <ExampleApiKey />
       </div>
     </div>
 
-    <p>For more details on error handling, see the <a href="/developer-guide/error-handling">Error Handling</a> guide.</p>
+    <p>For more details on error handling, see the <a href={getDocsUrl("developer-guide/error-handling")}>Error Handling</a> guide.</p>
 
   </div>
 </div>
@@ -534,7 +535,7 @@ GET {ApiBaseUrl()}/subscription/get?store_id={ExampleStoreId()}&limit=10&cursor=
       <div className="resource-item">
         <div className="resource-icon">🧪</div>
         <div className="resource-content">
-          <a href="/interactive-tools/api-testing">Interactive API Testing</a>
+          <a href={getDocsUrl("interactive-tools/api-testing")}>Interactive API Testing</a>
           <p>Try out API endpoints directly in your browser</p>
         </div>
       </div>
@@ -542,7 +543,7 @@ GET {ApiBaseUrl()}/subscription/get?store_id={ExampleStoreId()}&limit=10&cursor=
       <div className="resource-item">
         <div className="resource-icon">📦</div>
         <div className="resource-content">
-          <a href="/interactive-tools/postman-collection">Postman Collection</a>
+          <a href={getDocsUrl("interactive-tools/postman-collection")}>Postman Collection</a>
           <p>Download our Postman collection for easy API testing</p>
         </div>
       </div>
@@ -550,7 +551,7 @@ GET {ApiBaseUrl()}/subscription/get?store_id={ExampleStoreId()}&limit=10&cursor=
       <div className="resource-item">
         <div className="resource-icon">🔍</div>
         <div className="resource-content">
-          <a href="/interactive-tools/api-explorer">API Explorer</a>
+          <a href={getDocsUrl("interactive-tools/api-explorer")}>API Explorer</a>
           <p>Interactive tool to explore and test API endpoints</p>
         </div>
       </div>
@@ -558,7 +559,7 @@ GET {ApiBaseUrl()}/subscription/get?store_id={ExampleStoreId()}&limit=10&cursor=
       <div className="resource-item">
         <div className="resource-icon">⚠️</div>
         <div className="resource-content">
-          <a href="/developer-guide/error-handling">Error Handling Guide</a>
+          <a href={getDocsUrl("developer-guide/error-handling")}>Error Handling Guide</a>
           <p>Learn how to handle API errors effectively</p>
         </div>
       </div>
@@ -566,7 +567,7 @@ GET {ApiBaseUrl()}/subscription/get?store_id={ExampleStoreId()}&limit=10&cursor=
       <div className="resource-item">
         <div className="resource-icon">❓</div>
         <div className="resource-content">
-          <a href="/developer-guide/faq">FAQ and Troubleshooting</a>
+          <a href={getDocsUrl("developer-guide/faq")}>FAQ and Troubleshooting</a>
           <p>Common questions and solutions to problems</p>
         </div>
       </div>
@@ -602,7 +603,7 @@ GET {ApiBaseUrl()}/subscription/get?store_id={ExampleStoreId()}&limit=10&cursor=
           <li><span className="benefit-icon">✓</span> Create test environments</li>
         </ul>
         <div className="next-step-action">
-          <a href="/interactive-tools/postman-collection" className="button button--primary">
+          <a href={getDocsUrl("interactive-tools/postman-collection")} className="button button--primary">
             <span className="button-text">View Postman Collection</span>
             <span className="button-icon">→</span>
           </a>
@@ -626,7 +627,7 @@ GET {ApiBaseUrl()}/subscription/get?store_id={ExampleStoreId()}&limit=10&cursor=
           <li><span className="benefit-icon">✓</span> View request/response examples</li>
         </ul>
         <div className="next-step-action">
-          <a href="/interactive-tools/api-explorer" className="button button--primary">
+          <a href={getDocsUrl("interactive-tools/api-explorer")} className="button button--primary">
             <span className="button-text">Open API Explorer</span>
             <span className="button-icon">→</span>
           </a>
@@ -650,7 +651,7 @@ GET {ApiBaseUrl()}/subscription/get?store_id={ExampleStoreId()}&limit=10&cursor=
           <li><span className="benefit-icon">✓</span> Implement event-driven architecture</li>
         </ul>
         <div className="next-step-action">
-          <a href="/developer-guide/webhooks" className="button button--primary">
+          <a href={getDocsUrl("developer-guide/webhooks")} className="button button--primary">
             <span className="button-text">View Webhooks Guide</span>
             <span className="button-icon">→</span>
           </a>
@@ -669,7 +670,7 @@ GET {ApiBaseUrl()}/subscription/get?store_id={ExampleStoreId()}&limit=10&cursor=
         <a href="https://liasonpay.net/support" target="_blank" rel="noopener noreferrer" className="button button--secondary">
           <span className="button-text">Contact Support</span>
         </a>
-        <a href="/developer-guide/faq" className="button button--secondary">
+        <a href={getDocsUrl("developer-guide/faq")} className="button button--secondary">
           <span className="button-text">View FAQ</span>
         </a>
       </div>

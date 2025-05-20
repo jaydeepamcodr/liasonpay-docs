@@ -1,12 +1,14 @@
 import React from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import * as Constants from '../constants';
+import { getDocsUrl } from './DocsUrl';
 import '../css/api-explorer.css';
 
 // OpenAPI Explorer component with embedded Swagger UI
 export default function OpenApiExplorer() {
   const { siteConfig } = useDocusaurusContext();
   const apiBaseUrl = siteConfig.customFields.apiBaseUrl || Constants.API_BASE_URL;
+  const docsUrl = getDocsUrl('');
 
   return (
     <div className="openapi-explorer-container">
@@ -24,7 +26,7 @@ export default function OpenApiExplorer() {
       <div className="embedded-swagger-ui">
         <div className="swagger-ui-wrapper">
           <iframe
-            src="/swagger-ui/index.html"
+            src={`${docsUrl}/swagger-ui/index.html`}
             title="LiasonPay API Explorer"
             width="100%"
             height="800px"

@@ -2,35 +2,40 @@
 sidebar_position: 4
 ---
 
-import { AppUrl, ApiRateLimit } from '@site/src/components/DynamicValues';
+import { AppUrl, ApiRateLimit, ApiBaseUrl } from '@site/src/components/DynamicValues';
 
-<head>
-  <link rel="stylesheet" href="/css/faq-page.css" />
-  <script src="/js/faq-page.js"></script>
-</head>
-
-<div className="faq-header">
-  <div className="faq-header-bg"></div>
-  <div className="faq-header-content">
+<div className="explorer-header">
+  <div className="explorer-header-content">
     <h1>FAQ / Troubleshooting</h1>
     <p>Find answers to frequently asked questions and solutions to common issues when working with the LiasonPay API. Browse by category or search for specific topics.</p>
+    <div className="explorer-buttons">
+      <a href="/docs-v2/api-reference" className="button button--primary button--lg">
+        <span>📚 API Reference</span>
+      </a>
+      <a href="/docs-v2/developer-guide/error-handling" className="button button--secondary button--lg">
+        <span>❌ Error Handling Guide</span>
+      </a>
+    </div>
   </div>
 </div>
 
-<div className="faq-toc">
-  <div className="faq-toc-header">
-    <span className="faq-toc-icon">📋</span>
-    <span className="faq-toc-title">Quick Navigation</span>
+<div className="step-by-step-card">
+  <h3>Quick Navigation</h3>
+  <div className="faq-toc">
+    <div className="faq-toc-header">
+      <span className="faq-toc-icon">📋</span>
+      <span className="faq-toc-title">Browse by Category</span>
+    </div>
+    <ul className="faq-toc-list">
+      <li><a href="#general-questions" className="button button--outline button--sm">General Questions</a></li>
+      <li><a href="#authentication-issues" className="button button--outline button--sm">Authentication Issues</a></li>
+      <li><a href="#payment-processing" className="button button--outline button--sm">Payment Processing</a></li>
+      <li><a href="#subscription-management" className="button button--outline button--sm">Subscription Management</a></li>
+      <li><a href="#webhook-issues" className="button button--outline button--sm">Webhook Issues</a></li>
+      <li><a href="#api-integration" className="button button--outline button--sm">API Integration</a></li>
+      <li><a href="#technical-issues" className="button button--outline button--sm">Technical Issues</a></li>
+    </ul>
   </div>
-  <ul className="faq-toc-list">
-    <li><a href="#general-questions">General Questions</a></li>
-    <li><a href="#authentication-issues">Authentication Issues</a></li>
-    <li><a href="#payment-processing">Payment Processing</a></li>
-    <li><a href="#subscription-management">Subscription Management</a></li>
-    <li><a href="#webhook-issues">Webhook Issues</a></li>
-    <li><a href="#api-integration">API Integration</a></li>
-    <li><a href="#technical-issues">Technical Issues</a></li>
-  </ul>
 </div>
 
 <div id="general-questions" className="faq-category">
@@ -428,7 +433,7 @@ Authorization: Bearer YOUR_API_KEY`}
       <p>For high-volume merchants, we offer accelerated settlement options. Contact our support team to learn more.</p>
     </div>
   </div>
-  
+
   <div className="faq-item">
     <div className="faq-question">
       <div className="faq-question-content">
@@ -607,7 +612,7 @@ Authorization: Bearer YOUR_API_KEY`}
       </div>
     </div>
   </div>
-  
+
   <div className="faq-item">
     <div className="faq-question">
       <div className="faq-question-content">
@@ -789,7 +794,7 @@ res.status(403).send('Invalid signature');
       </div>
     </div>
   </div>
-  
+
   <div className="faq-item">
     <div className="faq-question">
       <div className="faq-question-content">
@@ -818,7 +823,7 @@ res.status(403).send('Invalid signature');
             </div>
           </div>
         </div>
-        
+
         <div className="webhook-category">
           <h4>Subscription Events</h4>
           <div className="webhook-list">
@@ -843,6 +848,7 @@ res.status(403).send('Invalid signature');
       </div>
       <p>For a complete list of webhook events, see our <a href="/api-reference/webhooks">Webhooks documentation</a>.</p>
     </div>
+
   </div>
 </div>
 
@@ -980,52 +986,55 @@ res.status(403).send('Invalid signature');
           <code>
 {`async function fetchWithRetry(url, options, maxRetries = 3) {
   let retries = 0;
-  
-  while (true) {
-    try {
-      const response = await fetch(url, options);
-      
+
+while (true) {
+try {
+const response = await fetch(url, options);
+
       if (response.status === 429 || (response.status >= 500 && response.status < 600)) {
         // Retryable error
         if (retries >= maxRetries) {
           throw new Error(\`Maximum retries reached (\${maxRetries})\`);
         }
-        
+
         // Calculate delay with exponential backoff and jitter
         const delay = Math.min(
           1000 * Math.pow(2, retries) + Math.random() * 1000,
           10000 // Maximum delay of 10 seconds
         );
-        
+
         console.log(\`Retrying after \${delay}ms (attempt \${retries + 1})\`);
         await new Promise(resolve => setTimeout(resolve, delay));
         retries++;
         continue;
       }
-      
+
       return response;
     } catch (error) {
       if (retries >= maxRetries) {
         throw error;
       }
-      
+
       const delay = Math.min(
         1000 * Math.pow(2, retries) + Math.random() * 1000,
         10000
       );
-      
+
       console.log(\`Network error, retrying after \${delay}ms (attempt \${retries + 1})\`);
       await new Promise(resolve => setTimeout(resolve, delay));
       retries++;
     }
-  }
+
+}
 }`}
-          </code>
-        </pre>
-      </div>
-    </div>
+</code>
+
+</pre>
+</div>
+</div>
+
   </div>
-  
+
   <div className="faq-item">
     <div className="faq-question">
       <div className="faq-question-content">
@@ -1144,21 +1153,24 @@ app.post('/api/proxy/payment', async (req, res) => {
       },
       body: JSON.stringify(req.body)
     });
-    
+
     const data = await response.json();
     res.json(data);
-  } catch (error) {
-    res.status(500).json({ error: 'An error occurred' });
-  }
+
+} catch (error) {
+res.status(500).json({ error: 'An error occurred' });
+}
 });`}
-          </code>
-        </pre>
-      </div>
-      <div className="faq-warning">
-        <span className="faq-warning-icon">⚠️</span>
-        <p>Never include your API key in client-side code. Always use a backend proxy for API requests.</p>
-      </div>
-    </div>
+</code>
+
+</pre>
+</div>
+<div className="faq-warning">
+<span className="faq-warning-icon">⚠️</span>
+<p>Never include your API key in client-side code. Always use a backend proxy for API requests.</p>
+</div>
+</div>
+
   </div>
 </div>
 
@@ -1168,7 +1180,7 @@ app.post('/api/proxy/payment', async (req, res) => {
     <h2 className="support-title">Need More Help?</h2>
   </div>
   <p>If you couldn't find the answer to your question, our support team is here to help.</p>
-  
+
   <div className="support-options">
     <div className="support-option">
       <div className="support-option-icon">📧</div>
@@ -1177,7 +1189,7 @@ app.post('/api/proxy/payment', async (req, res) => {
         <p className="support-option-description">Send us an email at <a href="mailto:support@liasonpay.net">support@liasonpay.net</a></p>
       </div>
     </div>
-    
+
     <div className="support-option">
       <div className="support-option-icon">💬</div>
       <div className="support-option-content">
@@ -1185,7 +1197,7 @@ app.post('/api/proxy/payment', async (req, res) => {
         <p className="support-option-description">Chat with our support team from your dashboard</p>
       </div>
     </div>
-    
+
     <div className="support-option">
       <div className="support-option-icon">📚</div>
       <div className="support-option-content">
@@ -1193,8 +1205,9 @@ app.post('/api/proxy/payment', async (req, res) => {
         <p className="support-option-description">Browse our <a href="/">detailed documentation</a></p>
       </div>
     </div>
+
   </div>
-  
+
   <div className="support-response-times">
     <h4>Response Time Expectations</h4>
     <div className="response-time-grid">
@@ -1214,311 +1227,130 @@ app.post('/api/proxy/payment', async (req, res) => {
   </div>
 </div>
 
-If you're not receiving webhook events, check the following:
-
-1. Verify that your webhook URL is correctly configured in the LiasonPay dashboard
-2. Ensure your server is accessible from the internet
-3. Check that your server is responding with a 200 status code
-4. Look for any firewall or security settings that might be blocking incoming requests
-5. Check the webhook logs in your LiasonPay dashboard for any delivery failures
-
-### How do I test webhooks locally?
-
-To test webhooks in a local development environment:
-
-1. Use a tool like [ngrok](https://ngrok.com/) to create a public URL for your local server
-2. Configure your webhook URL in the LiasonPay dashboard to point to the ngrok URL
-3. Trigger events by creating payments or subscriptions
-4. Check your logs to ensure webhooks are being received and processed correctly
-
-### How do I verify webhook signatures?
-
-To verify webhook signatures:
-
-```javascript
-const crypto = require("crypto");
-
-function verifyWebhookSignature(payload, signatureHeader, secret) {
-  if (!signatureHeader) return false;
-
-  const [timestamp, signature] = signatureHeader.split(",");
-  const timestampValue = timestamp.split("=")[1];
-  const signatureValue = signature.split("=")[1];
-
-  // Check if the timestamp is too old (5 minutes)
-  const now = Math.floor(Date.now() / 1000);
-  if (now - parseInt(timestampValue) > 300) {
-    return false;
-  }
-
-  // Create the expected signature
-  const signedPayload = `${timestampValue}.${JSON.stringify(payload)}`;
-  const expectedSignature = crypto
-    .createHmac("sha256", secret)
-    .update(signedPayload)
-    .digest("hex");
-
-  // Compare signatures using a constant-time comparison
-  return crypto.timingSafeEqual(
-    Buffer.from(signatureValue),
-    Buffer.from(expectedSignature)
-  );
-}
-```
-
-## API Integration
-
-### How do I handle idempotency?
-
-To handle idempotency and prevent duplicate operations:
-
-1. Generate a unique idempotency key for each operation
-2. Include the idempotency key in the `Idempotency-Key` header of your API request
-3. If a request fails or times out, retry the request with the same idempotency key
-4. LiasonPay will recognize the duplicate request and return the result of the original request
-
-Example:
-
-```http
-Idempotency-Key: 123e4567-e89b-12d3-a456-426614174000
-```
-
-### How can I test different payment scenarios?
-
-You can use specific test card numbers to trigger different payment scenarios:
-
-| Card Number      | Scenario                              |
-| ---------------- | ------------------------------------- |
-| 4111111111111111 | Successful payment                    |
-| 4000000000000002 | Declined payment (insufficient funds) |
-| 4000000000000069 | Expired card                          |
-| 4000000000000119 | Card declined (generic)               |
-
-You can also use specific amounts to trigger different responses:
-
-| Amount | Response                            |
-| ------ | ----------------------------------- |
-| 100    | Successful payment                  |
-| 999    | Failed payment (insufficient funds) |
-| 888    | Failed payment (expired card)       |
-| 777    | Failed payment (declined)           |
-
-For more test options, see the [Environment Information](/getting-started/environment-information) guide.
-
-### How do I handle errors in my integration?
-
-Implement comprehensive error handling:
-
-1. Use try-catch blocks around API calls
-2. Check the response status and error messages
-3. Implement retry logic with exponential backoff for transient errors
-4. Log detailed error information for debugging
-5. Provide user-friendly error messages to your customers
-
-See the [Error Handling](/developer-guide/error-handling) guide for more details.
-
-## Technical Issues
-
-### How do I debug API requests?
-
-To debug API requests:
-
-1. Enable detailed logging in your API client
-2. Use tools like Postman or Insomnia to test requests manually
-3. Check the request and response headers
-4. Verify the request payload format
-5. Look for specific error messages in the response
-
-### What should I do if I get a 500 error?
-
-If you receive a 500 error (Internal Server Error):
-
-1. Check if the issue is temporary by retrying the request after a short delay
-2. Verify that your request payload is correctly formatted
-3. Check the LiasonPay status page for any reported issues
-4. Contact LiasonPay support with the request ID and timestamp
-
-### How do I optimize API performance?
-
-To optimize API performance:
-
-1. Minimize the number of API calls
-2. Implement caching for non-sensitive data
-3. Use connection pooling for HTTP requests
-4. Implement proper error handling and retries
-5. Use pagination for large data sets
-
-See the [Performance Optimization](/developer-guide/best-practices/performance) guide for more details.
-
-<div id="still-need-help" className="faq-category">
-  <div className="faq-category-header">
-    <div className="faq-category-icon">💬</div>
-    <h2 className="faq-category-title">Still Need Help?</h2>
-  </div>
-
-  <div className="support-section">
-    <div className="support-header">
-      <div className="support-icon">🤝</div>
-      <h3 className="support-title">We're Here to Help</h3>
-    </div>
-    <p>If you couldn't find an answer to your question, our support team is ready to assist you.</p>
-
-    <div className="support-options">
-      <div className="support-option">
-        <div className="support-option-icon">📧</div>
-        <div className="support-option-content">
-          <h4 className="support-option-title">Email Support</h4>
-          <p className="support-option-description">Send us an email and we'll respond within 24 hours</p>
-          <a href="mailto:support@liasonpay.net" className="support-link">support@liasonpay.net</a>
-        </div>
-      </div>
-
-      <div className="support-option">
-        <div className="support-option-icon">🌐</div>
-        <div className="support-option-content">
-          <h4 className="support-option-title">Support Portal</h4>
-          <p className="support-option-description">Submit tickets and track their status</p>
-          <a href="https://support.liasonpay.net" target="_blank" rel="noopener noreferrer" className="support-link">support.liasonpay.net</a>
-        </div>
-      </div>
-
-      <div className="support-option">
-        <div className="support-option-icon">📚</div>
-        <div className="support-option-content">
-          <h4 className="support-option-title">Documentation</h4>
-          <p className="support-option-description">Browse our comprehensive documentation</p>
-          <a href={`${AppUrl()}/docs`} target="_blank" rel="noopener noreferrer" className="support-link">{AppUrl()}/docs</a>
-        </div>
-      </div>
-
-      <div className="support-option">
-        <div className="support-option-icon">💻</div>
-        <div className="support-option-content">
-          <h4 className="support-option-title">Developer Community</h4>
-          <p className="support-option-description">Connect with other developers</p>
-          <a href="https://community.liasonpay.net" target="_blank" rel="noopener noreferrer" className="support-link">community.liasonpay.net</a>
-        </div>
-      </div>
-    </div>
-
-    <div className="support-response-times">
-      <h4>Response Time Expectations</h4>
-      <div className="response-time-grid">
-        <div className="response-time-item">
-          <div className="priority-indicator high">High</div>
-          <div className="time-estimate">2-4 hours</div>
-        </div>
-        <div className="response-time-item">
-          <div className="priority-indicator medium">Medium</div>
-          <div className="time-estimate">24 hours</div>
-        </div>
-        <div className="response-time-item">
-          <div className="priority-indicator low">Low</div>
-          <div className="time-estimate">48 hours</div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
 ## Next Steps
 
 <div className="next-steps-section">
-  <div className="next-steps-header">
-    <div className="next-steps-header-content">
-      <h3>Continue Your Integration Journey</h3>
-      <p>Explore these resources to enhance your LiasonPay integration</p>
+  <div className="next-step-card">
+    <div className="next-step-card-header">
+      <div className="next-step-icon-wrapper">
+        <div className="next-step-icon">🔍</div>
+      </div>
+      <div className="next-step-number">Explore</div>
+    </div>
+    <div className="next-step-card-content">
+      <h4>API Explorer</h4>
+      <p>Try out API endpoints interactively</p>
+      <ul className="next-step-benefits">
+        <li><span className="benefit-icon">✓</span> Test API calls in real-time</li>
+        <li><span className="benefit-icon">✓</span> See request and response formats</li>
+        <li><span className="benefit-icon">✓</span> Understand parameter requirements</li>
+      </ul>
+      <div className="next-step-action">
+        <a href="/docs-v2/interactive-tools/api-explorer" className="button button--primary">
+          <span className="button-text">Open API Explorer</span>
+          <span className="button-icon">→</span>
+        </a>
+      </div>
     </div>
   </div>
 
-  <div className="next-steps-grid">
-    <div className="next-step-card">
-      <div className="next-step-card-header">
-        <div className="next-step-icon-wrapper">
-          <div className="next-step-icon">🧪</div>
-        </div>
-        <div className="next-step-number">Tools</div>
+  <div className="next-step-card">
+    <div className="next-step-card-header">
+      <div className="next-step-icon-wrapper">
+        <div className="next-step-icon">📚</div>
       </div>
-      <div className="next-step-card-content">
-        <h4>API Testing</h4>
-        <p>Test API endpoints directly in your browser</p>
-        <ul className="next-step-benefits">
-          <li><span className="benefit-icon">✓</span> Try out API requests</li>
-          <li><span className="benefit-icon">✓</span> See real responses</li>
-          <li><span className="benefit-icon">✓</span> Debug your integration</li>
-        </ul>
-        <div className="next-step-action">
-          <a href="/interactive-tools/api-testing" className="button button--primary">
-            <span className="button-text">Open API Testing Tool</span>
-            <span className="button-icon">→</span>
-          </a>
-        </div>
+      <div className="next-step-number">Learn</div>
+    </div>
+    <div className="next-step-card-content">
+      <h4>Error Handling</h4>
+      <p>Learn how to handle API errors properly</p>
+      <ul className="next-step-benefits">
+        <li><span className="benefit-icon">✓</span> Understand error codes</li>
+        <li><span className="benefit-icon">✓</span> Implement proper error handling</li>
+        <li><span className="benefit-icon">✓</span> Improve user experience</li>
+      </ul>
+      <div className="next-step-action">
+        <a href="/docs-v2/developer-guide/error-handling" className="button button--primary">
+          <span className="button-text">View Error Guide</span>
+          <span className="button-icon">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div className="next-step-card">
+    <div className="next-step-card-header">
+      <div className="next-step-icon-wrapper">
+        <div className="next-step-icon">🔔</div>
+      </div>
+      <div className="next-step-number">Integrate</div>
+    </div>
+    <div className="next-step-card-content">
+      <h4>Webhooks</h4>
+      <p>Set up real-time notifications for your application</p>
+      <ul className="next-step-benefits">
+        <li><span className="benefit-icon">✓</span> Receive event notifications</li>
+        <li><span className="benefit-icon">✓</span> Automate workflows</li>
+        <li><span className="benefit-icon">✓</span> Keep data in sync</li>
+      </ul>
+      <div className="next-step-action">
+        <a href="/docs-v2/developer-guide/webhooks" className="button button--primary">
+          <span className="button-text">Webhook Guide</span>
+          <span className="button-icon">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div className="support-section">
+  <div className="support-header">
+    <div className="support-icon">🤝</div>
+    <h2 className="support-title">Need More Help?</h2>
+  </div>
+  <p>If you couldn't find the answer to your question, our support team is here to help.</p>
+
+  <div className="support-options">
+    <div className="support-option">
+      <div className="support-option-icon">📧</div>
+      <div className="support-option-content">
+        <h3 className="support-option-title">Email Support</h3>
+        <p className="support-option-description">Send us an email at <a href="mailto:support@liasonpay.net">support@liasonpay.net</a></p>
       </div>
     </div>
 
-    <div className="next-step-card">
-      <div className="next-step-card-header">
-        <div className="next-step-icon-wrapper">
-          <div className="next-step-icon">⚠️</div>
-        </div>
-        <div className="next-step-number">Guide</div>
-      </div>
-      <div className="next-step-card-content">
-        <h4>Error Handling</h4>
-        <p>Learn how to handle API errors effectively</p>
-        <ul className="next-step-benefits">
-          <li><span className="benefit-icon">✓</span> Understand error codes and messages</li>
-          <li><span className="benefit-icon">✓</span> Implement proper error handling</li>
-          <li><span className="benefit-icon">✓</span> Create better user experiences</li>
-        </ul>
-        <div className="next-step-action">
-          <a href="/developer-guide/error-handling" className="button button--primary">
-            <span className="button-text">View Error Handling Guide</span>
-            <span className="button-icon">→</span>
-          </a>
-        </div>
+    <div className="support-option">
+      <div className="support-option-icon">💬</div>
+      <div className="support-option-content">
+        <h3 className="support-option-title">Live Chat</h3>
+        <p className="support-option-description">Chat with our support team from your dashboard</p>
       </div>
     </div>
 
-    <div className="next-step-card">
-      <div className="next-step-card-header">
-        <div className="next-step-icon-wrapper">
-          <div className="next-step-icon">🔒</div>
-        </div>
-        <div className="next-step-number">Best Practices</div>
-      </div>
-      <div className="next-step-card-content">
-        <h4>Security Guidelines</h4>
-        <p>Learn more about securing your integration</p>
-        <ul className="next-step-benefits">
-          <li><span className="benefit-icon">✓</span> Implement advanced security measures</li>
-          <li><span className="benefit-icon">✓</span> Protect customer information</li>
-          <li><span className="benefit-icon">✓</span> Follow industry best practices</li>
-        </ul>
-        <div className="next-step-action">
-          <a href="/developer-guide/best-practices/security" className="button button--primary">
-            <span className="button-text">View Security Guide</span>
-            <span className="button-icon">→</span>
-          </a>
-        </div>
+    <div className="support-option">
+      <div className="support-option-icon">📚</div>
+      <div className="support-option-content">
+        <h3 className="support-option-title">Documentation</h3>
+        <p className="support-option-description">Browse our <a href="/docs-v2">detailed documentation</a></p>
       </div>
     </div>
 
   </div>
 
-  <div className="help-resources-box">
-    <div className="help-icon">💬</div>
-    <div className="help-content">
-      <h4>Still Have Questions?</h4>
-      <p>If you couldn't find the answer you were looking for, our support team is here to help.</p>
-      <div className="help-actions">
-        <a href="https://liasonpay.net/support" target="_blank" rel="noopener noreferrer" className="button button--secondary">
-          <span className="button-text">Contact Support</span>
-        </a>
-        <a href="mailto:support@liasonpay.net" className="button button--secondary">
-          <span className="button-text">Email Support</span>
-        </a>
+  <div className="support-response-times">
+    <h4>Response Time Expectations</h4>
+    <div className="response-time-grid">
+      <div className="response-time-item">
+        <div className="priority-indicator high">High Priority</div>
+        <div className="time-estimate">1-2 hours</div>
+      </div>
+      <div className="response-time-item">
+        <div className="priority-indicator medium">Medium Priority</div>
+        <div className="time-estimate">4-8 hours</div>
+      </div>
+      <div className="response-time-item">
+        <div className="priority-indicator low">Low Priority</div>
+        <div className="time-estimate">24-48 hours</div>
       </div>
     </div>
   </div>

@@ -3,6 +3,7 @@ sidebar_position: 4
 ---
 
 import { ApiBaseUrl, AppUrl, ExampleApiKey, ExampleStoreId } from '@site/src/components/DynamicValues';
+import { getDocsUrl } from "@site/src/components/DocsUrl";
 
 # How to Use the API
 
@@ -11,10 +12,10 @@ import { ApiBaseUrl, AppUrl, ExampleApiKey, ExampleStoreId } from '@site/src/com
     <h2>Getting Started with the LiasonPay API</h2>
     <p>Learn how to make API requests, handle responses, and implement common workflows</p>
     <div className="explorer-buttons">
-      <a href="/api-reference" className="button button--primary button--lg">
+      <a href={getDocsUrl("api-reference")} className="button button--primary button--lg">
         <span>📚 API Reference</span>
       </a>
-      <a href="/interactive-tools/api-explorer" className="button button--secondary button--lg">
+      <a href={getDocsUrl("interactive-tools/api-explorer")} className="button button--secondary button--lg">
         <span>🔍 API Explorer</span>
       </a>
     </div>

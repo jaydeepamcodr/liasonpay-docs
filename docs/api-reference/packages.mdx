@@ -10,6 +10,7 @@ import {
   ApiRateLimit,
   AppUrl,
 } from "@site/src/components/DynamicValues";
+import { getDocsUrl } from "@site/src/components/DocsUrl";
 
 # Package API
 
@@ -41,7 +42,9 @@ import {
         <div className="endpoint-item">
           <div className="endpoint-icon">📦</div>
           <div className="endpoint-content">
-            <a href="/api-reference/packages/get-packages">Get Packages</a>
+            <a href={getDocsUrl("api-reference/packages/get-packages")}>
+              Get Packages
+            </a>
             <p>Retrieve a list of packages</p>
           </div>
         </div>
@@ -59,6 +62,7 @@ import {
   </div>
 
 {" "}
+
 <div className="use-case-item">
   <h4>Subscription Management</h4>
   <p>
