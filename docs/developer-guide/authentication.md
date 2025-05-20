@@ -34,8 +34,8 @@ import { AppUrl, ExampleApiKey } from '@site/src/components/DynamicValues';
     <h3>🔄 Types of API Keys</h3>
     <p>LiasonPay provides two types of API keys:</p>
     <ul>
-      <li><strong>Test Keys</strong> (<code>sk_test_</code>) - For development and testing</li>
-      <li><strong>Live Keys</strong> (<code>sk_live_</code>) - For production use</li>
+      <li><strong>Test Keys</strong> (<code>lp_test_</code>) - For development and testing</li>
+      <li><strong>Live Keys</strong> (<code>lp_live_</code>) - For production use</li>
     </ul>
     <p>Test keys can only be used with the sandbox environment and won't process real payments.</p>
   </div>
@@ -179,7 +179,7 @@ return await response.json();
 <div className="faq-section">
   <div className="faq-item">
     <h3>Can I use the same API key for testing and production?</h3>
-    <p>No, you should use test keys (<code>sk_test_</code>) for development and testing, and live keys (<code>sk_live_</code>) for production.</p>
+    <p>No, you should use test keys (<code>lp_test_</code>) for development and testing, and live keys (<code>lp_live_</code>) for production.</p>
   </div>
 
   <div className="faq-item">

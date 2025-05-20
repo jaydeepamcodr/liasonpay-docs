@@ -496,6 +496,58 @@
   color: var(--ifm-color-primary);
 }
 
+/* Use Cases Section */
+.use-cases-section {
+  margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.use-case-item {
+  padding: 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  background-color: var(--ifm-background-surface-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.use-case-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.use-case-item h4 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: var(--ifm-color-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.use-case-item h4::before {
+  content: "✓";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background-color: var(--ifm-color-primary-lightest);
+  color: var(--ifm-color-primary);
+  border-radius: 50%;
+  font-size: 0.875rem;
+  margin-right: 0.5rem;
+}
+
+.use-case-item p {
+  margin-bottom: 0;
+  color: var(--ifm-color-emphasis-700);
+}
+
 /* Additional Resources Section */
 .additional-resources-section {
   margin-bottom: 2rem;
@@ -579,9 +631,10 @@
 }
 
 .features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
+  margin: 1.5rem 0;
 }
 
 .feature-item {
@@ -1269,7 +1322,6 @@
     margin-bottom: 0.5rem;
   }
 
-  .features-grid,
   .capabilities-grid,
   .next-steps-grid {
     grid-template-columns: 1fr;

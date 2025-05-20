@@ -1,0 +1,349 @@
+/* Next Steps Section Styles */
+
+/* Next Steps Section */
+.next-steps-section {
+  margin: 2rem 0 3rem;
+}
+
+/* Next Steps Header */
+.next-steps-header {
+  background: linear-gradient(135deg, var(--ifm-color-success-darkest), var(--ifm-color-success));
+  color: white;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.next-steps-header-content h3 {
+  color: white;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+}
+
+.next-steps-header-content p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+/* Progress Indicator */
+.progress-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.progress-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.progress-step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-weight: bold;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.progress-step.completed .progress-step-number {
+  background-color: white;
+  color: var(--ifm-color-success);
+}
+
+.progress-step-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: white;
+}
+
+.progress-connector {
+  width: 4rem;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin: 0 0.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Next Steps Grid */
+.next-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Next Step Card */
+.next-step-card {
+  background-color: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.next-step-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+  border-color: var(--ifm-color-primary-lighter);
+}
+
+.next-step-card-header {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, var(--ifm-color-emphasis-200), var(--ifm-color-emphasis-100));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.next-step-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.next-step-icon {
+  font-size: 2rem;
+  color: var(--ifm-color-primary);
+}
+
+.next-step-number {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-700);
+  background-color: var(--ifm-color-emphasis-200);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+}
+
+.next-step-card-content {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.next-step-card-content h4 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: var(--ifm-color-primary-darker);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.next-step-card-content p {
+  margin-bottom: 1.25rem;
+  color: var(--ifm-color-emphasis-800);
+}
+
+/* Next Step Benefits */
+.next-step-benefits {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 1.5rem;
+}
+
+.next-step-benefits li {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.benefit-icon {
+  color: var(--ifm-color-success);
+  font-weight: bold;
+}
+
+/* Next Step Action */
+.next-step-action {
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+.next-step-action .button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.button-text {
+  flex: 1;
+  text-align: center;
+}
+
+.button-icon {
+  font-size: 1.25rem;
+  margin-left: 0.5rem;
+}
+
+/* Help Resources Box */
+.help-resources-box {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.75rem;
+  background-color: var(--ifm-color-info-lightest);
+  border-radius: 12px;
+  border-left: 5px solid var(--ifm-color-info);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  margin-top: 2rem;
+}
+
+.help-icon {
+  font-size: 2.5rem;
+  color: var(--ifm-color-info);
+  flex-shrink: 0;
+}
+
+.help-content {
+  flex: 1;
+}
+
+.help-content h4 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: var(--ifm-color-info-darker);
+  font-size: 1.25rem;
+}
+
+.help-content p {
+  margin-bottom: 1.25rem;
+}
+
+.help-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .next-steps-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .next-steps-header {
+    padding: 1.25rem;
+  }
+  
+  .next-steps-header-content h3 {
+    font-size: 1.5rem;
+  }
+  
+  .next-steps-header-content p {
+    font-size: 1rem;
+  }
+  
+  .progress-indicator {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .progress-connector {
+    width: 2px;
+    height: 2rem;
+    margin: 0.5rem 0 0.5rem 1.25rem;
+  }
+  
+  .progress-step {
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+  }
+  
+  .progress-step-number {
+    margin-bottom: 0;
+  }
+  
+  .next-step-card {
+    padding: 0;
+  }
+  
+  .next-step-card-header {
+    padding: 1.25rem;
+  }
+  
+  .next-step-card-content {
+    padding: 1.25rem;
+  }
+  
+  .help-resources-box {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.25rem;
+  }
+  
+  .help-icon {
+    margin-bottom: 0.5rem;
+  }
+  
+  .help-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .help-actions .button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+  .next-steps-header-content h3 {
+    font-size: 1.35rem;
+  }
+  
+  .next-step-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .next-step-number {
+    align-self: flex-start;
+  }
+  
+  .next-step-action .button {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .button-icon {
+    margin-left: 0;
+  }
+  
+  .progress-step-label {
+    font-size: 0.75rem;
+  }
+}

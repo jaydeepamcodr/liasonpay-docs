@@ -2,8 +2,15 @@
 sidebar_position: 2
 ---
 
-import ApiTester from '@site/src/components/ApiTester';
-import { AppUrl, ApiBaseUrl, ExampleApiKey, ExampleStoreId, ExamplePriceId, ExampleSubscriptionId } from '@site/src/components/DynamicValues';
+import ApiTester from "@site/src/components/ApiTester";
+import {
+  AppUrl,
+  ApiBaseUrl,
+  ExampleApiKey,
+  ExampleStoreId,
+  ExamplePriceId,
+  ExampleSubscriptionId,
+} from "@site/src/components/DynamicValues";
 
 # Create Subscription
 
@@ -24,12 +31,13 @@ import { AppUrl, ApiBaseUrl, ExampleApiKey, ExampleStoreId, ExamplePriceId, Exam
     <h3>Endpoint</h3>
     <div className="code-block-container">
       <pre className="code-block">
-```http
-POST {ApiBaseUrl()}/subscription/create
-```
+        ```http POST {ApiBaseUrl()}/subscription/create ```
       </pre>
     </div>
-    <p>This endpoint allows you to create a new subscription for a customer and generate a checkout URL for subscription setup.</p>
+    <p>
+      This endpoint allows you to create a new subscription for a customer and
+      generate a checkout URL for subscription setup.
+    </p>
   </div>
 </div>
 
@@ -50,88 +58,203 @@ POST {ApiBaseUrl()}/subscription/create
         </thead>
         <tbody>
           <tr>
-            <td><code>store_id</code></td>
-            <td><span className="param-type">string</span></td>
-            <td><span className="param-required">Yes</span></td>
-            <td>The ID of the store. The <code>store_id</code> of an existing record in the stores table. Must not be greater than 255 characters.</td>
+            <td>
+              <code>store_id</code>
+            </td>
+            <td>
+              <span className="param-type">string</span>
+            </td>
+            <td>
+              <span className="param-required">Yes</span>
+            </td>
+            <td>
+              The ID of the store. The <code>store_id</code> of an existing
+              record in the stores table. Must not be greater than 255
+              characters.
+            </td>
           </tr>
           <tr>
-            <td><code>price_id</code></td>
-            <td><span className="param-type">string</span></td>
-            <td><span className="param-required">Yes</span></td>
-            <td>The ID of the price. The <code>price_id</code> of an existing record in the prices table. Must not be greater than 255 characters.</td>
+            <td>
+              <code>price_id</code>
+            </td>
+            <td>
+              <span className="param-type">string</span>
+            </td>
+            <td>
+              <span className="param-required">Yes</span>
+            </td>
+            <td>
+              The ID of the price. The <code>price_id</code> of an existing
+              record in the prices table. Must not be greater than 255
+              characters.
+            </td>
           </tr>
           <tr>
-            <td><code>trial_period_days</code></td>
-            <td><span className="param-type">integer</span></td>
-            <td><span className="param-optional">No</span></td>
-            <td>The number of days for the trial period. Note: Flutterwave does not support trials. Must be at least 0.</td>
+            <td>
+              <code>trial_period_days</code>
+            </td>
+            <td>
+              <span className="param-type">integer</span>
+            </td>
+            <td>
+              <span className="param-optional">No</span>
+            </td>
+            <td>
+              The number of days for the trial period. Note: Flutterwave does
+              not support trials. Must be at least 0.
+            </td>
           </tr>
           <tr>
-            <td><code>customer</code></td>
-            <td><span className="param-type">object</span></td>
-            <td><span className="param-optional">No</span></td>
+            <td>
+              <code>customer</code>
+            </td>
+            <td>
+              <span className="param-type">object</span>
+            </td>
+            <td>
+              <span className="param-optional">No</span>
+            </td>
             <td>The customer details.</td>
           </tr>
           <tr>
-            <td><code>customer.name</code></td>
-            <td><span className="param-type">string</span></td>
-            <td><span className="param-optional">No</span></td>
-            <td>The name of the customer. Must not be greater than 255 characters.</td>
+            <td>
+              <code>customer.name</code>
+            </td>
+            <td>
+              <span className="param-type">string</span>
+            </td>
+            <td>
+              <span className="param-optional">No</span>
+            </td>
+            <td>
+              The name of the customer. Must not be greater than 255 characters.
+            </td>
           </tr>
           <tr>
-            <td><code>customer.email</code></td>
-            <td><span className="param-type">string</span></td>
-            <td><span className="param-optional">No</span></td>
-            <td>The email of the customer. Must be a valid email address. Must not be greater than 255 characters.</td>
+            <td>
+              <code>customer.email</code>
+            </td>
+            <td>
+              <span className="param-type">string</span>
+            </td>
+            <td>
+              <span className="param-optional">No</span>
+            </td>
+            <td>
+              The email of the customer. Must be a valid email address. Must not
+              be greater than 255 characters.
+            </td>
           </tr>
           <tr>
-            <td><code>customer.phone_number</code></td>
-            <td><span className="param-type">string</span></td>
-            <td><span className="param-optional">No</span></td>
-            <td>The phone number of the customer. Must not be greater than 255 characters.</td>
+            <td>
+              <code>customer.phone_number</code>
+            </td>
+            <td>
+              <span className="param-type">string</span>
+            </td>
+            <td>
+              <span className="param-optional">No</span>
+            </td>
+            <td>
+              The phone number of the customer. Must not be greater than 255
+              characters.
+            </td>
           </tr>
           <tr>
-            <td><code>metadata</code></td>
-            <td><span className="param-type">object</span></td>
-            <td><span className="param-optional">No</span></td>
+            <td>
+              <code>metadata</code>
+            </td>
+            <td>
+              <span className="param-type">object</span>
+            </td>
+            <td>
+              <span className="param-optional">No</span>
+            </td>
             <td>The metadata of the subscription.</td>
           </tr>
           <tr>
-            <td><code>metadata.order_id</code></td>
-            <td><span className="param-type">string</span></td>
-            <td><span className="param-optional">No</span></td>
+            <td>
+              <code>metadata.order_id</code>
+            </td>
+            <td>
+              <span className="param-type">string</span>
+            </td>
+            <td>
+              <span className="param-optional">No</span>
+            </td>
             <td>The order ID.</td>
           </tr>
           <tr>
-            <td><code>metadata.order_code</code></td>
-            <td><span className="param-type">string</span></td>
-            <td><span className="param-optional">No</span></td>
+            <td>
+              <code>metadata.order_code</code>
+            </td>
+            <td>
+              <span className="param-type">string</span>
+            </td>
+            <td>
+              <span className="param-optional">No</span>
+            </td>
             <td>The order code.</td>
           </tr>
           <tr>
-            <td><code>success_url</code></td>
-            <td><span className="param-type">string</span></td>
-            <td><span className="param-required">Yes</span></td>
-            <td>The URL to redirect to after successful subscription setup. Must be a valid URL.</td>
+            <td>
+              <code>success_url</code>
+            </td>
+            <td>
+              <span className="param-type">string</span>
+            </td>
+            <td>
+              <span className="param-required">Yes</span>
+            </td>
+            <td>
+              The URL to redirect to after successful subscription setup. Must
+              be a valid URL.
+            </td>
           </tr>
           <tr>
-            <td><code>cancel_url</code></td>
-            <td><span className="param-type">string</span></td>
-            <td><span className="param-required">Yes</span></td>
-            <td>The URL to redirect to after subscription cancellation. Must be a valid URL.</td>
+            <td>
+              <code>cancel_url</code>
+            </td>
+            <td>
+              <span className="param-type">string</span>
+            </td>
+            <td>
+              <span className="param-required">Yes</span>
+            </td>
+            <td>
+              The URL to redirect to after subscription cancellation. Must be a
+              valid URL.
+            </td>
           </tr>
           <tr>
-            <td><code>return_url</code></td>
-            <td><span className="param-type">string</span></td>
-            <td><span className="param-optional">No</span></td>
-            <td>The URL to redirect to after subscription completion. Must be a valid URL.</td>
+            <td>
+              <code>return_url</code>
+            </td>
+            <td>
+              <span className="param-type">string</span>
+            </td>
+            <td>
+              <span className="param-optional">No</span>
+            </td>
+            <td>
+              The URL to redirect to after subscription completion. Must be a
+              valid URL.
+            </td>
           </tr>
           <tr>
-            <td><code>mode</code></td>
-            <td><span className="param-type">string</span></td>
-            <td><span className="param-required">Yes</span></td>
-            <td>The mode of the subscription. Must be one of: <code>sandbox</code>, <code>production</code>.</td>
+            <td>
+              <code>mode</code>
+            </td>
+            <td>
+              <span className="param-type">string</span>
+            </td>
+            <td>
+              <span className="param-required">Yes</span>
+            </td>
+            <td>
+              The mode of the subscription. Must be one of: <code>sandbox</code>,{" "}
+              <code>production</code>.
+            </td>
           </tr>
         </tbody>
       </table>
@@ -155,29 +278,55 @@ POST {ApiBaseUrl()}/subscription/create
         </thead>
         <tbody>
           <tr>
-            <td><code>status</code></td>
-            <td><span className="param-type">boolean</span></td>
+            <td>
+              <code>status</code>
+            </td>
+            <td>
+              <span className="param-type">boolean</span>
+            </td>
             <td>Whether the request was successful.</td>
           </tr>
           <tr>
-            <td><code>message</code></td>
-            <td><span className="param-type">string</span></td>
+            <td>
+              <code>message</code>
+            </td>
+            <td>
+              <span className="param-type">string</span>
+            </td>
             <td>A message describing the result of the request.</td>
           </tr>
           <tr>
-            <td><code>data</code></td>
-            <td><span className="param-type">object</span></td>
+            <td>
+              <code>data</code>
+            </td>
+            <td>
+              <span className="param-type">object</span>
+            </td>
             <td>The subscription data.</td>
           </tr>
           <tr>
-            <td><code>data.subscription_request_id</code></td>
-            <td><span className="param-type">string</span></td>
-            <td>The ID of the subscription request. Use this to verify the subscription status.</td>
+            <td>
+              <code>data.subscription_request_id</code>
+            </td>
+            <td>
+              <span className="param-type">string</span>
+            </td>
+            <td>
+              The ID of the subscription request. Use this to verify the
+              subscription status.
+            </td>
           </tr>
           <tr>
-            <td><code>data.checkout_url</code></td>
-            <td><span className="param-type">string</span></td>
-            <td>The URL to redirect the customer to for completing the subscription setup.</td>
+            <td>
+              <code>data.checkout_url</code>
+            </td>
+            <td>
+              <span className="param-type">string</span>
+            </td>
+            <td>
+              The URL to redirect the customer to for completing the
+              subscription setup.
+            </td>
           </tr>
         </tbody>
       </table>
@@ -187,14 +336,11 @@ POST {ApiBaseUrl()}/subscription/create
 
 ## Example Request
 
-<div className="code-examples">
-  <div className="code-example-tabs">
-    <button className="code-example-tab active" data-language="curl">cURL</button>
-    <button className="code-example-tab" data-language="javascript">Node.js</button>
-    <button className="code-example-tab" data-language="python">Python</button>
-  </div>
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
 
-  <div className="code-example-panel active" data-language="curl">
+<Tabs>
+  <TabItem value="curl" label="cURL" default>
     <div className="code-block-container">
       <pre className="code-block">
 ```bash
@@ -224,9 +370,8 @@ curl --request POST \
 ```
       </pre>
     </div>
-  </div>
-
-  <div className="code-example-panel" data-language="javascript">
+  </TabItem>
+  <TabItem value="javascript" label="Node.js">
     <div className="code-block-container">
       <pre className="code-block">
 ```javascript
@@ -263,8 +408,8 @@ return_url: "https://example.com/return",
 mode: "production",
 });
 
-      console.log(response.data);
-      return response.data;
+    console.log(response.data);
+    return response.data;
 
 } catch (error) {
 console.error(
@@ -278,9 +423,8 @@ throw error;
 ````
       </pre>
     </div>
-  </div>
-
-  <div className="code-example-panel" data-language="python">
+  </TabItem>
+  <TabItem value="python" label="Python">
     <div className="code-block-container">
       <pre className="code-block">
 ```python
@@ -325,13 +469,13 @@ def create_subscription():
     except requests.exceptions.RequestException as e:
         print(f"Error creating subscription: {e}")
         raise
-````
+```
 
       </pre>
     </div>
 
-  </div>
-</div>
+  </TabItem>
+</Tabs>
 
 ## Example Response
 
@@ -354,15 +498,8 @@ def create_subscription():
 
 ## Error Responses
 
-<div className="error-examples">
-  <div className="error-example-tabs">
-    <button className="error-example-tab active" data-error="validation">Validation Error</button>
-    <button className="error-example-tab" data-error="store-not-found">Store Not Found</button>
-    <button className="error-example-tab" data-error="price-not-found">Price Not Found</button>
-    <button className="error-example-tab" data-error="auth">Authentication Error</button>
-  </div>
-
-  <div className="error-example-panel active" data-error="validation">
+<Tabs>
+  <TabItem value="validation" label="Validation Error" default>
     <div className="code-block-container">
       <pre className="code-block">
 ```json
@@ -383,9 +520,8 @@ def create_subscription():
     <div className="error-description">
       <p>This error occurs when the request is missing required fields or contains invalid data.</p>
     </div>
-  </div>
-
-  <div className="error-example-panel" data-error="store-not-found">
+  </TabItem>
+  <TabItem value="store-not-found" label="Store Not Found">
     <div className="code-block-container">
       <pre className="code-block">
 ```json
@@ -402,9 +538,8 @@ def create_subscription():
     <div className="error-description">
       <p>This error occurs when the specified store ID does not exist in the system.</p>
     </div>
-  </div>
-
-  <div className="error-example-panel" data-error="price-not-found">
+  </TabItem>
+  <TabItem value="price-not-found" label="Price Not Found">
     <div className="code-block-container">
       <pre className="code-block">
 ```json
@@ -421,9 +556,8 @@ def create_subscription():
     <div className="error-description">
       <p>This error occurs when the specified price ID does not exist in the system.</p>
     </div>
-  </div>
-
-  <div className="error-example-panel" data-error="auth">
+  </TabItem>
+  <TabItem value="auth" label="Authentication Error">
     <div className="code-block-container">
       <pre className="code-block">
 ```json
@@ -440,8 +574,8 @@ def create_subscription():
     <div className="error-description">
       <p>This error occurs when the API key provided in the Authorization header is invalid or has been revoked.</p>
     </div>
-  </div>
-</div>
+  </TabItem>
+</Tabs>
 
 ## Notes
 
@@ -574,3 +708,4 @@ def create_subscription():
 
   </div>
 </div>
+````

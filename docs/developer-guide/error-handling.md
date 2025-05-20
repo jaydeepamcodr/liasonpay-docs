@@ -4,6 +4,11 @@ sidebar_position: 2
 
 import { ApiBaseUrl, ExampleApiKey } from '@site/src/components/DynamicValues';
 
+<head>
+  <link rel="stylesheet" href="/css/next-steps.css" />
+  <script src="/js/next-steps.js"></script>
+</head>
+
 # Error Handling
 
 <div className="explorer-header">
@@ -506,21 +511,101 @@ throw new Error(`Failed after ${maxRetries} retries`);
 ## Next Steps
 
 <div className="next-steps-section">
-  <div className="next-step-card">
-    <h3>📚 API Reference</h3>
-    <p>Explore detailed documentation for all API endpoints</p>
-    <a href="/api-reference" className="button button--secondary">View API Reference</a>
+  <div className="next-steps-header">
+    <div className="next-steps-header-content">
+      <h3>Continue Your Integration Journey</h3>
+      <p>Explore these resources to enhance your LiasonPay integration</p>
+    </div>
   </div>
 
-  <div className="next-step-card">
-    <h3>🔔 Webhooks</h3>
-    <p>Learn how to receive real-time notifications</p>
-    <a href="./webhooks" className="button button--secondary">View Webhooks Guide</a>
+  <div className="next-steps-grid">
+    <div className="next-step-card">
+      <div className="next-step-card-header">
+        <div className="next-step-icon-wrapper">
+          <div className="next-step-icon">📚</div>
+        </div>
+        <div className="next-step-number">Reference</div>
+      </div>
+      <div className="next-step-card-content">
+        <h4>API Reference</h4>
+        <p>Explore detailed documentation for all API endpoints</p>
+        <ul className="next-step-benefits">
+          <li><span className="benefit-icon">✓</span> View all available endpoints</li>
+          <li><span className="benefit-icon">✓</span> See request and response formats</li>
+          <li><span className="benefit-icon">✓</span> Understand parameter requirements</li>
+        </ul>
+        <div className="next-step-action">
+          <a href="/api-reference" className="button button--primary">
+            <span className="button-text">View API Reference</span>
+            <span className="button-icon">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div className="next-step-card">
+      <div className="next-step-card-header">
+        <div className="next-step-icon-wrapper">
+          <div className="next-step-icon">🔔</div>
+        </div>
+        <div className="next-step-number">Related</div>
+      </div>
+      <div className="next-step-card-content">
+        <h4>Webhooks</h4>
+        <p>Learn how to receive real-time notifications about payment events</p>
+        <ul className="next-step-benefits">
+          <li><span className="benefit-icon">✓</span> Get notified about payment events</li>
+          <li><span className="benefit-icon">✓</span> Automate your payment workflows</li>
+          <li><span className="benefit-icon">✓</span> Implement event-driven architecture</li>
+        </ul>
+        <div className="next-step-action">
+          <a href="./webhooks" className="button button--primary">
+            <span className="button-text">View Webhooks Guide</span>
+            <span className="button-icon">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div className="next-step-card">
+      <div className="next-step-card-header">
+        <div className="next-step-icon-wrapper">
+          <div className="next-step-icon">✅</div>
+        </div>
+        <div className="next-step-number">Advanced</div>
+      </div>
+      <div className="next-step-card-content">
+        <h4>Best Practices</h4>
+        <p>Explore best practices for integrating with the API</p>
+        <ul className="next-step-benefits">
+          <li><span className="benefit-icon">✓</span> Follow industry standards</li>
+          <li><span className="benefit-icon">✓</span> Optimize your integration</li>
+          <li><span className="benefit-icon">✓</span> Ensure reliability and security</li>
+        </ul>
+        <div className="next-step-action">
+          <a href="./best-practices" className="button button--primary">
+            <span className="button-text">View Best Practices</span>
+            <span className="button-icon">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div className="next-step-card">
-    <h3>✅ Best Practices</h3>
-    <p>Explore best practices for integrating with the API</p>
-    <a href="./best-practices" className="button button--secondary">View Best Practices</a>
+  <div className="help-resources-box">
+    <div className="help-icon">💬</div>
+    <div className="help-content">
+      <h4>Need Help?</h4>
+      <p>If you have any questions about error handling or need assistance with your integration, our support team is here to help.</p>
+      <div className="help-actions">
+        <a href="https://liasonpay.net/support" target="_blank" rel="noopener noreferrer" className="button button--secondary">
+          <span className="button-text">Contact Support</span>
+        </a>
+        <a href="/developer-guide/faq" className="button button--secondary">
+          <span className="button-text">View FAQ</span>
+        </a>
+      </div>
+    </div>
   </div>
 </div>
+```

@@ -4,6 +4,8 @@ sidebar_position: 1
 
 import ApiTester from '@site/src/components/ApiTester';
 import { AppUrl, ApiBaseUrl, ExampleApiKey, ExampleStoreId, ExamplePriceId, ExamplePackageId } from '@site/src/components/DynamicValues';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Get Packages
 
@@ -207,14 +209,8 @@ GET {ApiBaseUrl()}/packages/get
 
 ## Example Request
 
-<div className="code-examples">
-  <div className="code-example-tabs">
-    <button className="code-example-tab active" data-language="curl">cURL</button>
-    <button className="code-example-tab" data-language="javascript">Node.js</button>
-    <button className="code-example-tab" data-language="python">Python</button>
-  </div>
-
-  <div className="code-example-panel active" data-language="curl">
+<Tabs>
+  <TabItem value="curl" label="cURL" default>
     <div className="code-block-container">
       <pre className="code-block">
 ```bash
@@ -226,9 +222,8 @@ curl --request GET \
 ```
       </pre>
     </div>
-  </div>
-
-  <div className="code-example-panel" data-language="javascript">
+  </TabItem>
+  <TabItem value="javascript" label="Node.js">
     <div className="code-block-container">
       <pre className="code-block">
 ```javascript
@@ -255,8 +250,8 @@ cursor: null
 }
 });
 
-      console.log(response.data);
-      return response.data;
+    console.log(response.data);
+    return response.data;
 
 } catch (error) {
 console.error(
@@ -270,9 +265,8 @@ throw error;
 ````
       </pre>
     </div>
-  </div>
-
-  <div className="code-example-panel" data-language="python">
+  </TabItem>
+  <TabItem value="python" label="Python">
     <div className="code-block-container">
       <pre className="code-block">
 ```python
@@ -304,13 +298,13 @@ def get_packages():
     except requests.exceptions.RequestException as e:
         print(f"Error fetching packages: {e}")
         raise
-````
+```
 
       </pre>
     </div>
 
-  </div>
-</div>
+  </TabItem>
+</Tabs>
 
 ## Example Response
 
@@ -352,10 +346,6 @@ def get_packages():
       "updated_at": "2023-04-01T10:00:00Z"
     }
   ],
-  "meta": {
-    "has_more": false,
-    "next_cursor": null
-  }
 }
 ```
     </pre>
@@ -364,13 +354,8 @@ def get_packages():
 
 ## Error Responses
 
-<div className="error-examples">
-  <div className="error-example-tabs">
-    <button className="error-example-tab active" data-error="store-not-found">Invalid Store ID</button>
-    <button className="error-example-tab" data-error="auth">Authentication Error</button>
-  </div>
-
-  <div className="error-example-panel active" data-error="store-not-found">
+<Tabs>
+  <TabItem value="store-not-found" label="Invalid Store ID" default>
     <div className="code-block-container">
       <pre className="code-block">
 ```json
@@ -387,9 +372,8 @@ def get_packages():
     <div className="error-description">
       <p>This error occurs when the specified store ID does not exist in the system.</p>
     </div>
-  </div>
-
-  <div className="error-example-panel" data-error="auth">
+  </TabItem>
+  <TabItem value="auth" label="Authentication Error">
     <div className="code-block-container">
       <pre className="code-block">
 ```json
@@ -406,8 +390,8 @@ def get_packages():
     <div className="error-description">
       <p>This error occurs when the API key provided in the Authorization header is invalid or has been revoked.</p>
     </div>
-  </div>
-</div>
+  </TabItem>
+</Tabs>
 
 ## Notes
 
@@ -518,3 +502,4 @@ def get_packages():
 
   </div>
 </div>
+````

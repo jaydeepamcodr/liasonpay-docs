@@ -4,6 +4,11 @@ sidebar_position: 4
 
 import { ApiBaseUrl, AppUrl, ExampleApiKey, ExampleStoreId } from '@site/src/components/DynamicValues';
 
+<head>
+  <link rel="stylesheet" href="/css/next-steps.css" />
+  <script src="/js/next-steps.js"></script>
+</head>
+
 # How to Use the API
 
 <div className="explorer-header">
@@ -59,17 +64,6 @@ import { ApiBaseUrl, AppUrl, ExampleApiKey, ExampleStoreId } from '@site/src/com
 Authorization: Bearer {ExampleApiKey()}
 Content-Type: application/json
 Accept: application/json
-```
-    </pre>
-  </div>
-
-  <h3>File Upload Headers</h3>
-  <p>For requests with file uploads, use:</p>
-
-  <div className="code-block-container">
-    <pre className="code-block">
-```http
-Content-Type: multipart/form-data
 ```
     </pre>
   </div>
@@ -440,7 +434,7 @@ const paymentId = getPaymentIdFromUrl(); // Extract from URL or session
 const verifyResponse = await liasonpay.get(`/payments/verify?payment_id=${paymentId}`);
 const paymentStatus = verifyResponse.data.data.status;
 
-```
+````
           </pre>
         </div>
       </div>
@@ -668,28 +662,117 @@ print_r($result);
 ## Next Steps
 
 <div className="next-steps-section">
-  <div className="next-step-card">
-    <h3>📚 API Reference</h3>
-    <p>Explore detailed documentation for all API endpoints</p>
-    <a href="/api-reference" className="button button--secondary">View API Reference</a>
+  <div className="next-steps-header">
+    <div className="next-steps-header-content">
+      <h3>Continue Your Integration Journey</h3>
+      <p>Follow these steps to complete your LiasonPay API integration</p>
+      <div className="progress-indicator">
+        <div className="progress-step completed">
+          <div className="progress-step-number">1</div>
+          <div className="progress-step-label">Authentication</div>
+        </div>
+        <div className="progress-connector"></div>
+        <div className="progress-step completed">
+          <div className="progress-step-number">2</div>
+          <div className="progress-step-label">Environment</div>
+        </div>
+        <div className="progress-connector"></div>
+        <div className="progress-step completed">
+          <div className="progress-step-number">3</div>
+          <div className="progress-step-label">Implementation</div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div className="next-step-card">
-    <h3>🔔 Webhooks</h3>
-    <p>Learn how to receive real-time notifications</p>
-    <a href="/developer-guide/webhooks" className="button button--secondary">View Webhooks Guide</a>
+  <div className="next-steps-grid">
+    <div className="next-step-card">
+      <div className="next-step-card-header">
+        <div className="next-step-icon-wrapper">
+          <div className="next-step-icon">📚</div>
+        </div>
+        <div className="next-step-number">Next</div>
+      </div>
+      <div className="next-step-card-content">
+        <h4>API Reference</h4>
+        <p>Explore detailed documentation for all API endpoints</p>
+        <ul className="next-step-benefits">
+          <li><span className="benefit-icon">✓</span> View all available endpoints</li>
+          <li><span className="benefit-icon">✓</span> See request and response formats</li>
+          <li><span className="benefit-icon">✓</span> Understand parameter requirements</li>
+        </ul>
+        <div className="next-step-action">
+          <a href="/api-reference" className="button button--primary">
+            <span className="button-text">View API Reference</span>
+            <span className="button-icon">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div className="next-step-card">
+      <div className="next-step-card-header">
+        <div className="next-step-icon-wrapper">
+          <div className="next-step-icon">🔔</div>
+        </div>
+        <div className="next-step-number">Advanced</div>
+      </div>
+      <div className="next-step-card-content">
+        <h4>Set Up Webhooks</h4>
+        <p>Learn how to receive real-time notifications about payment events</p>
+        <ul className="next-step-benefits">
+          <li><span className="benefit-icon">✓</span> Get notified about payment events</li>
+          <li><span className="benefit-icon">✓</span> Automate your payment workflows</li>
+          <li><span className="benefit-icon">✓</span> Implement event-driven architecture</li>
+        </ul>
+        <div className="next-step-action">
+          <a href="/developer-guide/webhooks" className="button button--primary">
+            <span className="button-text">View Webhooks Guide</span>
+            <span className="button-icon">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div className="next-step-card">
+      <div className="next-step-card-header">
+        <div className="next-step-icon-wrapper">
+          <div className="next-step-icon">❌</div>
+        </div>
+        <div className="next-step-number">Advanced</div>
+      </div>
+      <div className="next-step-card-content">
+        <h4>Error Handling</h4>
+        <p>Learn how to handle API errors effectively</p>
+        <ul className="next-step-benefits">
+          <li><span className="benefit-icon">✓</span> Understand error codes and messages</li>
+          <li><span className="benefit-icon">✓</span> Implement proper error handling</li>
+          <li><span className="benefit-icon">✓</span> Create better user experiences</li>
+        </ul>
+        <div className="next-step-action">
+          <a href="/developer-guide/error-handling" className="button button--primary">
+            <span className="button-text">View Error Handling Guide</span>
+            <span className="button-icon">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
   </div>
 
-  <div className="next-step-card">
-    <h3>❌ Error Handling</h3>
-    <p>Learn how to handle API errors effectively</p>
-    <a href="/developer-guide/error-handling" className="button button--secondary">View Error Handling Guide</a>
-  </div>
-
-  <div className="next-step-card">
-    <h3>✅ Best Practices</h3>
-    <p>Explore best practices for integrating with the API</p>
-    <a href="/developer-guide/best-practices/security" className="button button--secondary">View Best Practices</a>
+  <div className="help-resources-box">
+    <div className="help-icon">💬</div>
+    <div className="help-content">
+      <h4>Need Help?</h4>
+      <p>If you have any questions or need assistance with your integration, our support team is here to help.</p>
+      <div className="help-actions">
+        <a href="https://liasonpay.net/support" target="_blank" rel="noopener noreferrer" className="button button--secondary">
+          <span className="button-text">Contact Support</span>
+        </a>
+        <a href="/developer-guide/faq" className="button button--secondary">
+          <span className="button-text">View FAQ</span>
+        </a>
+      </div>
+    </div>
   </div>
 </div>
-````

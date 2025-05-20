@@ -2,15 +2,25 @@
 sidebar_position: 4
 ---
 
-import ApiTester from '@site/src/components/ApiTester';
-import { AppUrl, ApiBaseUrl, ExampleApiKey, ExampleStoreId, ExamplePriceId, ExampleSubscriptionId } from '@site/src/components/DynamicValues';
+import ApiTester from "@site/src/components/ApiTester";
+import {
+  AppUrl,
+  ApiBaseUrl,
+  ExampleApiKey,
+  ExampleStoreId,
+  ExamplePriceId,
+  ExampleSubscriptionId,
+} from "@site/src/components/DynamicValues";
 
 # Cancel Subscription
 
 <div className="explorer-header">
   <div className="explorer-header-content">
     <h2>Cancel an Active Subscription</h2>
-    <p>End a customer's recurring billing plan immediately or at the end of the current period</p>
+    <p>
+      End a customer's recurring billing plan immediately or at the end of the
+      current period
+    </p>
     <div className="explorer-badges">
       <span className="badge badge--primary">requires authentication</span>
       <span className="badge badge--success">POST</span>
@@ -24,12 +34,13 @@ import { AppUrl, ApiBaseUrl, ExampleApiKey, ExampleStoreId, ExamplePriceId, Exam
     <h3>Endpoint</h3>
     <div className="code-block-container">
       <pre className="code-block">
-```http
-POST {ApiBaseUrl()}/subscription/cancel
-```
+        ```http POST {ApiBaseUrl()}/subscription/cancel ```
       </pre>
     </div>
-    <p>This endpoint allows you to cancel an active subscription either immediately or at the end of the current billing period.</p>
+    <p>
+      This endpoint allows you to cancel an active subscription either
+      immediately or at the end of the current billing period.
+    </p>
   </div>
 </div>
 
@@ -50,16 +61,35 @@ POST {ApiBaseUrl()}/subscription/cancel
         </thead>
         <tbody>
           <tr>
-            <td><code>subscription_id</code></td>
-            <td><span className="param-type">string</span></td>
-            <td><span className="param-required">Yes</span></td>
-            <td>The ID of the subscription. The <code>subscription_id</code> of an existing record in the subscriptions table. Must not be greater than 255 characters.</td>
+            <td>
+              <code>subscription_id</code>
+            </td>
+            <td>
+              <span className="param-type">string</span>
+            </td>
+            <td>
+              <span className="param-required">Yes</span>
+            </td>
+            <td>
+              The ID of the subscription. The <code>subscription_id</code> of an
+              existing record in the subscriptions table. Must not be greater
+              than 255 characters.
+            </td>
           </tr>
           <tr>
-            <td><code>cancel_at_period_end</code></td>
-            <td><span className="param-type">boolean</span></td>
-            <td><span className="param-optional">No</span></td>
-            <td>Cancel the subscription at the end of the billing period. Default: <code>false</code>.</td>
+            <td>
+              <code>cancel_at_period_end</code>
+            </td>
+            <td>
+              <span className="param-type">boolean</span>
+            </td>
+            <td>
+              <span className="param-optional">No</span>
+            </td>
+            <td>
+              Cancel the subscription at the end of the billing period. Default:{" "}
+              <code>false</code>.
+            </td>
           </tr>
         </tbody>
       </table>
@@ -83,74 +113,143 @@ POST {ApiBaseUrl()}/subscription/cancel
         </thead>
         <tbody>
           <tr>
-            <td><code>status</code></td>
-            <td><span className="param-type">boolean</span></td>
+            <td>
+              <code>status</code>
+            </td>
+            <td>
+              <span className="param-type">boolean</span>
+            </td>
             <td>Whether the request was successful.</td>
           </tr>
           <tr>
-            <td><code>message</code></td>
-            <td><span className="param-type">string</span></td>
+            <td>
+              <code>message</code>
+            </td>
+            <td>
+              <span className="param-type">string</span>
+            </td>
             <td>A message describing the result of the request.</td>
           </tr>
           <tr>
-            <td><code>data</code></td>
-            <td><span className="param-type">object</span></td>
+            <td>
+              <code>data</code>
+            </td>
+            <td>
+              <span className="param-type">object</span>
+            </td>
             <td>The canceled subscription data.</td>
           </tr>
           <tr>
-            <td><code>data.subscription_id</code></td>
-            <td><span className="param-type">string</span></td>
+            <td>
+              <code>data.subscription_id</code>
+            </td>
+            <td>
+              <span className="param-type">string</span>
+            </td>
             <td>The unique identifier for the subscription.</td>
           </tr>
           <tr>
-            <td><code>data.store_id</code></td>
-            <td><span className="param-type">string</span></td>
+            <td>
+              <code>data.store_id</code>
+            </td>
+            <td>
+              <span className="param-type">string</span>
+            </td>
             <td>The ID of the store the subscription belongs to.</td>
           </tr>
           <tr>
-            <td><code>data.customer_id</code></td>
-            <td><span className="param-type">string</span></td>
+            <td>
+              <code>data.customer_id</code>
+            </td>
+            <td>
+              <span className="param-type">string</span>
+            </td>
             <td>The ID of the customer who owns the subscription.</td>
           </tr>
           <tr>
-            <td><code>data.price_id</code></td>
-            <td><span className="param-type">string</span></td>
+            <td>
+              <code>data.price_id</code>
+            </td>
+            <td>
+              <span className="param-type">string</span>
+            </td>
             <td>The ID of the price associated with the subscription.</td>
           </tr>
           <tr>
-            <td><code>data.status</code></td>
-            <td><span className="param-type">string</span></td>
-            <td>The status of the subscription. Will be <code>canceled</code> if immediate cancellation, or <code>active</code> if canceling at period end.</td>
+            <td>
+              <code>data.status</code>
+            </td>
+            <td>
+              <span className="param-type">string</span>
+            </td>
+            <td>
+              The status of the subscription. Will be <code>canceled</code> if
+              immediate cancellation, or <code>active</code> if canceling at
+              period end.
+            </td>
           </tr>
           <tr>
-            <td><code>data.current_period_start</code></td>
-            <td><span className="param-type">string</span></td>
-            <td>The start date of the current billing period in ISO 8601 format.</td>
+            <td>
+              <code>data.current_period_start</code>
+            </td>
+            <td>
+              <span className="param-type">string</span>
+            </td>
+            <td>
+              The start date of the current billing period in ISO 8601 format.
+            </td>
           </tr>
           <tr>
-            <td><code>data.current_period_end</code></td>
-            <td><span className="param-type">string</span></td>
-            <td>The end date of the current billing period in ISO 8601 format.</td>
+            <td>
+              <code>data.current_period_end</code>
+            </td>
+            <td>
+              <span className="param-type">string</span>
+            </td>
+            <td>
+              The end date of the current billing period in ISO 8601 format.
+            </td>
           </tr>
           <tr>
-            <td><code>data.cancel_at_period_end</code></td>
-            <td><span className="param-type">boolean</span></td>
-            <td>Whether the subscription will be canceled at the end of the current period.</td>
+            <td>
+              <code>data.cancel_at_period_end</code>
+            </td>
+            <td>
+              <span className="param-type">boolean</span>
+            </td>
+            <td>
+              Whether the subscription will be canceled at the end of the
+              current period.
+            </td>
           </tr>
           <tr>
-            <td><code>data.canceled_at</code></td>
-            <td><span className="param-type">string</span></td>
+            <td>
+              <code>data.canceled_at</code>
+            </td>
+            <td>
+              <span className="param-type">string</span>
+            </td>
             <td>The date the subscription was canceled in ISO 8601 format.</td>
           </tr>
           <tr>
-            <td><code>data.created_at</code></td>
-            <td><span className="param-type">string</span></td>
+            <td>
+              <code>data.created_at</code>
+            </td>
+            <td>
+              <span className="param-type">string</span>
+            </td>
             <td>The date the subscription was created in ISO 8601 format.</td>
           </tr>
           <tr>
-            <td><code>data.updated_at</code></td>
-            <td><span className="param-type">string</span></td>
-            <td>The date the subscription was last updated in ISO 8601 format.</td>
+            <td>
+              <code>data.updated_at</code>
+            </td>
+            <td>
+              <span className="param-type">string</span>
+            </td>
+            <td>
+              The date the subscription was last updated in ISO 8601 format.
+            </td>
           </tr>
         </tbody>
       </table>
@@ -160,14 +259,11 @@ POST {ApiBaseUrl()}/subscription/cancel
 
 ## Example Request
 
-<div className="code-examples">
-  <div className="code-example-tabs">
-    <button className="code-example-tab active" data-language="curl">cURL</button>
-    <button className="code-example-tab" data-language="javascript">Node.js</button>
-    <button className="code-example-tab" data-language="python">Python</button>
-  </div>
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
 
-  <div className="code-example-panel active" data-language="curl">
+<Tabs>
+  <TabItem value="curl" label="cURL" default>
     <div className="code-block-container">
       <pre className="code-block">
 ```bash
@@ -183,9 +279,8 @@ curl --request POST \
 ```
       </pre>
     </div>
-  </div>
-
-  <div className="code-example-panel" data-language="javascript">
+  </TabItem>
+  <TabItem value="javascript" label="Node.js">
     <div className="code-block-container">
       <pre className="code-block">
 ```javascript
@@ -208,8 +303,8 @@ subscription_id: "{ExampleSubscriptionId()}",
 cancel_at_period_end: false,
 });
 
-      console.log(response.data);
-      return response.data;
+    console.log(response.data);
+    return response.data;
 
 } catch (error) {
 console.error(
@@ -223,9 +318,8 @@ throw error;
 ````
       </pre>
     </div>
-  </div>
-
-  <div className="code-example-panel" data-language="python">
+  </TabItem>
+  <TabItem value="python" label="Python">
     <div className="code-block-container">
       <pre className="code-block">
 ```python
@@ -256,13 +350,13 @@ def cancel_subscription():
     except requests.exceptions.RequestException as e:
         print(f"Error canceling subscription: {e}")
         raise
-````
+```
 
       </pre>
     </div>
 
-  </div>
-</div>
+  </TabItem>
+</Tabs>
 
 ## Example Response
 
@@ -294,14 +388,8 @@ def cancel_subscription():
 
 ## Error Responses
 
-<div className="error-examples">
-  <div className="error-example-tabs">
-    <button className="error-example-tab active" data-error="not-found">Subscription Not Found</button>
-    <button className="error-example-tab" data-error="already-canceled">Already Canceled</button>
-    <button className="error-example-tab" data-error="auth">Authentication Error</button>
-  </div>
-
-  <div className="error-example-panel active" data-error="not-found">
+<Tabs>
+  <TabItem value="not-found" label="Subscription Not Found" default>
     <div className="code-block-container">
       <pre className="code-block">
 ```json
@@ -318,9 +406,8 @@ def cancel_subscription():
     <div className="error-description">
       <p>This error occurs when the specified subscription ID does not exist in the system.</p>
     </div>
-  </div>
-
-  <div className="error-example-panel" data-error="already-canceled">
+  </TabItem>
+  <TabItem value="already-canceled" label="Already Canceled">
     <div className="code-block-container">
       <pre className="code-block">
 ```json
@@ -337,9 +424,8 @@ def cancel_subscription():
     <div className="error-description">
       <p>This error occurs when you try to cancel a subscription that has already been canceled.</p>
     </div>
-  </div>
-
-  <div className="error-example-panel" data-error="auth">
+  </TabItem>
+  <TabItem value="auth" label="Authentication Error">
     <div className="code-block-container">
       <pre className="code-block">
 ```json
@@ -356,8 +442,8 @@ def cancel_subscription():
     <div className="error-description">
       <p>This error occurs when the API key provided in the Authorization header is invalid or has been revoked.</p>
     </div>
-  </div>
-</div>
+  </TabItem>
+</Tabs>
 
 ## Notes
 
@@ -441,3 +527,4 @@ def cancel_subscription():
 
   </div>
 </div>
+````

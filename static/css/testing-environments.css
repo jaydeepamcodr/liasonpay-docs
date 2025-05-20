@@ -1,0 +1,275 @@
+/* Testing Environments Styles */
+
+/* Testing Environments Section */
+.testing-environments-section {
+  margin-bottom: 3rem;
+}
+
+/* Testing Environments Grid */
+.testing-environments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Testing Environment Card */
+.testing-environment-card {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  background-color: var(--ifm-background-surface-color);
+}
+
+.testing-environment-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  border-color: var(--ifm-color-primary-lighter);
+}
+
+/* Environment Header */
+.environment-header {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.environment-header.sandbox {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+}
+
+.environment-header.production {
+  background: linear-gradient(135deg, #f43f5e, #ec4899);
+  color: white;
+}
+
+.environment-icon {
+  font-size: 2rem;
+}
+
+.environment-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+}
+
+/* Environment Content */
+.environment-content {
+  padding: 1.5rem;
+}
+
+.environment-description {
+  font-size: 1.1rem;
+  margin-bottom: 1.25rem;
+  color: var(--ifm-color-emphasis-800);
+}
+
+/* Environment Details */
+.environment-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.environment-detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.detail-label {
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-700);
+  min-width: 120px;
+}
+
+.detail-value {
+  color: var(--ifm-color-emphasis-900);
+}
+
+.highlight-param {
+  background-color: var(--ifm-color-primary-lightest);
+  color: var(--ifm-color-primary-darker);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+/* Environment Code Example */
+.environment-code-example {
+  margin: 1.5rem 0;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background-color: var(--ifm-color-emphasis-200);
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.copy-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.copy-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.copy-icon {
+  font-size: 1rem;
+}
+
+/* Callouts */
+.info-callout, .warning-callout {
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.info-callout {
+  background-color: var(--ifm-color-info-lightest);
+  border-left: 4px solid var(--ifm-color-info);
+}
+
+.warning-callout {
+  background-color: var(--ifm-color-warning-lightest);
+  border-left: 4px solid var(--ifm-color-warning);
+}
+
+.info-callout p, .warning-callout p {
+  margin: 0;
+}
+
+/* Environments Comparison */
+.environments-comparison {
+  margin-top: 2.5rem;
+  padding: 1.5rem;
+  background-color: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.comparison-header {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.comparison-header h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-color-primary-darker);
+}
+
+.comparison-header p {
+  margin-bottom: 0;
+  color: var(--ifm-color-emphasis-700);
+}
+
+/* Comparison Table */
+.comparison-table-container {
+  overflow-x: auto;
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.comparison-table th, .comparison-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.comparison-table th {
+  background-color: var(--ifm-color-emphasis-100);
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-800);
+}
+
+.comparison-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Tags */
+.tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.tag.sandbox {
+  background-color: var(--ifm-color-info-lightest);
+  color: var(--ifm-color-info-darker);
+}
+
+.tag.production {
+  background-color: var(--ifm-color-warning-lightest);
+  color: var(--ifm-color-warning-darker);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .testing-environments-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .environment-header {
+    padding: 1.25rem;
+  }
+  
+  .environment-content {
+    padding: 1.25rem;
+  }
+  
+  .environment-detail {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .detail-label {
+    min-width: auto;
+  }
+  
+  .environments-comparison {
+    padding: 1.25rem;
+  }
+  
+  .comparison-table th, .comparison-table td {
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .environment-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .comparison-table {
+    font-size: 0.875rem;
+  }
+}

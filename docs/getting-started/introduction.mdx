@@ -4,6 +4,11 @@ sidebar_position: 1
 
 import { AppUrl, ApiBaseUrl } from "@site/src/components/DynamicValues";
 
+<head>
+  <link rel="stylesheet" href="/css/next-steps.css" />
+  <script src="/js/next-steps.js"></script>
+</head>
+
 # Introduction
 
 <div className="explorer-header">
@@ -274,35 +279,120 @@ import { AppUrl, ApiBaseUrl } from "@site/src/components/DynamicValues";
   </div>
 </div>
 
+## Next Steps
+
 <div className="next-steps-section">
-  <div className="next-steps-card">
-    <h3>Next Steps</h3>
-
-    <div className="next-steps-grid">
-      <div className="next-step-item">
-        <div className="next-step-icon">🔑</div>
-        <div className="next-step-content">
-          <a href="./authentication">Learn about Authentication</a>
-          <p>Understand how to authenticate your API requests</p>
+  <div className="next-steps-header">
+    <div className="next-steps-header-content">
+      <h3>Begin Your Integration Journey</h3>
+      <p>Follow these steps to integrate with the LiasonPay API</p>
+      <div className="progress-indicator">
+        <div className="progress-step completed">
+          <div className="progress-step-number">1</div>
+          <div className="progress-step-label">Introduction</div>
+        </div>
+        <div className="progress-connector"></div>
+        <div className="progress-step">
+          <div className="progress-step-number">2</div>
+          <div className="progress-step-label">Authentication</div>
+        </div>
+        <div className="progress-connector"></div>
+        <div className="progress-step">
+          <div className="progress-step-number">3</div>
+          <div className="progress-step-label">Implementation</div>
         </div>
       </div>
+    </div>
+  </div>
 
-      <div className="next-step-item">
-        <div className="next-step-icon">⚙️</div>
-        <div className="next-step-content">
-          <a href="./environment-information">Understand Environment Information</a>
-          <p>Configure your development environment</p>
+  <div className="next-steps-grid">
+    <div className="next-step-card">
+      <div className="next-step-card-header">
+        <div className="next-step-icon-wrapper">
+          <div className="next-step-icon">🔑</div>
         </div>
+        <div className="next-step-number">Step 2</div>
       </div>
-
-      <div className="next-step-item">
-        <div className="next-step-icon">📘</div>
-        <div className="next-step-content">
-          <a href="./how-to-use">Explore How to Use the API</a>
-          <p>Get started with practical examples</p>
+      <div className="next-step-card-content">
+        <h4>Authentication</h4>
+        <p>Learn how to authenticate your API requests</p>
+        <ul className="next-step-benefits">
+          <li><span className="benefit-icon">✓</span> Obtain your API keys</li>
+          <li><span className="benefit-icon">✓</span> Understand authentication methods</li>
+          <li><span className="benefit-icon">✓</span> Implement secure API access</li>
+        </ul>
+        <div className="next-step-action">
+          <a href="./authentication" className="button button--primary">
+            <span className="button-text">Learn Authentication</span>
+            <span className="button-icon">→</span>
+          </a>
         </div>
       </div>
     </div>
 
+    <div className="next-step-card">
+      <div className="next-step-card-header">
+        <div className="next-step-icon-wrapper">
+          <div className="next-step-icon">⚙️</div>
+        </div>
+        <div className="next-step-number">Step 3</div>
+      </div>
+      <div className="next-step-card-content">
+        <h4>Environment Setup</h4>
+        <p>Configure your development environment</p>
+        <ul className="next-step-benefits">
+          <li><span className="benefit-icon">✓</span> Set up testing environments</li>
+          <li><span className="benefit-icon">✓</span> Understand sandbox vs. production</li>
+          <li><span className="benefit-icon">✓</span> Configure API endpoints</li>
+        </ul>
+        <div className="next-step-action">
+          <a href="./environment-information" className="button button--primary">
+            <span className="button-text">Setup Environment</span>
+            <span className="button-icon">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div className="next-step-card">
+      <div className="next-step-card-header">
+        <div className="next-step-icon-wrapper">
+          <div className="next-step-icon">📘</div>
+        </div>
+        <div className="next-step-number">Step 4</div>
+      </div>
+      <div className="next-step-card-content">
+        <h4>Using the API</h4>
+        <p>Get started with practical examples</p>
+        <ul className="next-step-benefits">
+          <li><span className="benefit-icon">✓</span> Learn request/response formats</li>
+          <li><span className="benefit-icon">✓</span> Understand error handling</li>
+          <li><span className="benefit-icon">✓</span> See practical code examples</li>
+        </ul>
+        <div className="next-step-action">
+          <a href="./how-to-use" className="button button--primary">
+            <span className="button-text">Explore API Usage</span>
+            <span className="button-icon">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div className="help-resources-box">
+    <div className="help-icon">💬</div>
+    <div className="help-content">
+      <h4>Need Help?</h4>
+      <p>If you have any questions or need assistance with your integration, our support team is here to help.</p>
+      <div className="help-actions">
+        <a href="mailto:support@liasonpay.net" className="button button--secondary">
+          <span className="button-text">Email Support</span>
+        </a>
+        <a href="https://support.liasonpay.net" target="_blank" rel="noopener noreferrer" className="button button--secondary">
+          <span className="button-text">Visit Support Portal</span>
+        </a>
+      </div>
+    </div>
   </div>
 </div>

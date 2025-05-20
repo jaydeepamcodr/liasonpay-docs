@@ -4,6 +4,8 @@ sidebar_position: 2
 
 import ApiTester from '@site/src/components/ApiTester';
 import { AppUrl, ApiBaseUrl, ExampleApiKey, ExampleStoreId, ExampleTransactionId } from '@site/src/components/DynamicValues';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Verify Payment
 
@@ -149,14 +151,8 @@ POST {ApiBaseUrl()}/payments/verify
 
 ## Example Request
 
-<div className="code-examples">
-  <div className="code-example-tabs">
-    <button className="code-example-tab active" data-language="curl">cURL</button>
-    <button className="code-example-tab" data-language="javascript">Node.js</button>
-    <button className="code-example-tab" data-language="python">Python</button>
-  </div>
-
-  <div className="code-example-panel active" data-language="curl">
+<Tabs>
+  <TabItem value="curl" label="cURL" default>
     <div className="code-block-container">
       <pre className="code-block">
 ```bash
@@ -171,49 +167,46 @@ curl --request POST \
 ```
       </pre>
     </div>
-  </div>
-
-  <div className="code-example-panel" data-language="javascript">
+  </TabItem>
+  <TabItem value="javascript" label="Node.js">
     <div className="code-block-container">
       <pre className="code-block">
 ```javascript
 const axios = require("axios");
 
 const verifyPayment = async () => {
-  // Initialize API client
-  const liasonpay = axios.create({
-  baseURL: "{ApiBaseUrl()}",
-  headers: {
-  Authorization: `Bearer ${process.env.LIASONPAY_API_KEY}`,
-  "Content-Type": "application/json",
-  Accept: "application/json",
-  },
-  });
-  
-  try {
-  const response = await liasonpay.post("/payments/verify", {
-  transaction_id: "{ExampleTransactionId()}"
-  });
-  
-      console.log(response.data);
-      return response.data;
-  
-  } catch (error) {
-  console.error(
-  "Error verifying payment:",
-  error.response?.data || error.message
-  );
-  throw error;
-  }
-  }
+// Initialize API client
+const liasonpay = axios.create({
+baseURL: "{ApiBaseUrl()}",
+headers: {
+Authorization: `Bearer ${process.env.LIASONPAY_API_KEY}`,
+"Content-Type": "application/json",
+Accept: "application/json",
+},
+});
+
+try {
+const response = await liasonpay.post("/payments/verify", {
+transaction_id: "{ExampleTransactionId()}"
+});
+
+    console.log(response.data);
+    return response.data;
+
+} catch (error) {
+console.error(
+"Error verifying payment:",
+error.response?.data || error.message
+);
+throw error;
+}
 };
 
-```
+````
       </pre>
     </div>
-  </div>
-
-  <div className="code-example-panel" data-language="python">
+  </TabItem>
+  <TabItem value="python" label="Python">
     <div className="code-block-container">
       <pre className="code-block">
 ```python
@@ -243,13 +236,13 @@ def verify_payment():
     except requests.exceptions.RequestException as e:
         print(f"Error verifying payment: {e}")
         raise
-````
+```
 
       </pre>
     </div>
 
-  </div>
-</div>
+  </TabItem>
+</Tabs>
 
 ## Example Response
 
@@ -283,14 +276,8 @@ def verify_payment():
 
 ## Error Responses
 
-<div className="error-examples">
-  <div className="error-example-tabs">
-    <button className="error-example-tab active" data-error="not-found">Transaction Not Found</button>
-    <button className="error-example-tab" data-error="incomplete">Payment Not Completed</button>
-    <button className="error-example-tab" data-error="auth">Authentication Error</button>
-  </div>
-
-  <div className="error-example-panel active" data-error="not-found">
+<Tabs>
+  <TabItem value="not-found" label="Transaction Not Found" default>
     <div className="code-block-container">
       <pre className="code-block">
 ```json
@@ -307,9 +294,8 @@ def verify_payment():
     <div className="error-description">
       <p>This error occurs when the specified transaction ID does not exist in the system.</p>
     </div>
-  </div>
-
-  <div className="error-example-panel" data-error="incomplete">
+  </TabItem>
+  <TabItem value="incomplete" label="Payment Not Completed">
     <div className="code-block-container">
       <pre className="code-block">
 ```json
@@ -327,9 +313,8 @@ def verify_payment():
     <div className="error-description">
       <p>This error occurs when the payment process has been initiated but the customer has not completed the payment yet.</p>
     </div>
-  </div>
-
-  <div className="error-example-panel" data-error="auth">
+  </TabItem>
+  <TabItem value="auth" label="Authentication Error">
     <div className="code-block-container">
       <pre className="code-block">
 ```json
@@ -346,8 +331,8 @@ def verify_payment():
     <div className="error-description">
       <p>This error occurs when the API key provided in the Authorization header is invalid or has been revoked.</p>
     </div>
-  </div>
-</div>
+  </TabItem>
+</Tabs>
 
 ## Notes
 
@@ -430,3 +415,4 @@ def verify_payment():
 
   </div>
 </div>
+````

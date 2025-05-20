@@ -4,6 +4,8 @@ sidebar_position: 1
 
 import ApiTester from '@site/src/components/ApiTester';
 import { AppUrl, ApiBaseUrl, ExampleApiKey, ExampleStoreId } from '@site/src/components/DynamicValues';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Process Payment
 
@@ -227,14 +229,8 @@ POST {ApiBaseUrl()}/payments/process
 
 ## Example Request
 
-<div className="code-examples">
-  <div className="code-example-tabs">
-    <button className="code-example-tab active" data-language="curl">cURL</button>
-    <button className="code-example-tab" data-language="javascript">Node.js</button>
-    <button className="code-example-tab" data-language="python">Python</button>
-  </div>
-
-  <div className="code-example-panel active" data-language="curl">
+<Tabs>
+  <TabItem value="curl" label="cURL" default>
     <div className="code-block-container">
       <pre className="code-block">
 ```bash
@@ -272,9 +268,8 @@ curl --request POST \
 ```
       </pre>
     </div>
-  </div>
-
-  <div className="code-example-panel" data-language="javascript">
+  </TabItem>
+  <TabItem value="javascript" label="Node.js">
     <div className="code-block-container">
       <pre className="code-block">
 ```javascript
@@ -337,9 +332,8 @@ throw error;
 ````
       </pre>
     </div>
-  </div>
-
-  <div className="code-example-panel" data-language="python">
+  </TabItem>
+  <TabItem value="python" label="Python">
     <div className="code-block-container">
       <pre className="code-block">
 ```python
@@ -394,11 +388,12 @@ def process_payment():
         print(f"Error processing payment: {e}")
         raise
 ```
+
       </pre>
     </div>
 
-  </div>
-</div>
+  </TabItem>
+</Tabs>
 
 ## Example Response
 
@@ -423,15 +418,8 @@ def process_payment():
 
 ## Error Responses
 
-<div className="error-examples">
-  <div className="error-example-tabs">
-    <button className="error-example-tab active" data-error="validation">Validation Error</button>
-    <button className="error-example-tab" data-error="not-found">Store Not Found</button>
-    <button className="error-example-tab" data-error="coupon">Invalid Coupon</button>
-    <button className="error-example-tab" data-error="auth">Authentication Error</button>
-  </div>
-
-  <div className="error-example-panel active" data-error="validation">
+<Tabs>
+  <TabItem value="validation" label="Validation Error" default>
     <div className="code-block-container">
       <pre className="code-block">
 ```json
@@ -453,9 +441,8 @@ def process_payment():
     <div className="error-description">
       <p>This error occurs when the request is missing required fields or contains invalid data.</p>
     </div>
-  </div>
-
-  <div className="error-example-panel" data-error="not-found">
+  </TabItem>
+  <TabItem value="not-found" label="Store Not Found">
     <div className="code-block-container">
       <pre className="code-block">
 ```json
@@ -472,9 +459,8 @@ def process_payment():
     <div className="error-description">
       <p>This error occurs when the specified store ID does not exist in the system.</p>
     </div>
-  </div>
-
-  <div className="error-example-panel" data-error="coupon">
+  </TabItem>
+  <TabItem value="coupon" label="Invalid Coupon">
     <div className="code-block-container">
       <pre className="code-block">
 ```json
@@ -491,9 +477,8 @@ def process_payment():
     <div className="error-description">
       <p>This error occurs when the provided coupon code is invalid, expired, or has already been used.</p>
     </div>
-  </div>
-
-  <div className="error-example-panel" data-error="auth">
+  </TabItem>
+  <TabItem value="auth" label="Authentication Error">
     <div className="code-block-container">
       <pre className="code-block">
 ```json
@@ -510,8 +495,8 @@ def process_payment():
     <div className="error-description">
       <p>This error occurs when the API key provided in the Authorization header is invalid or has been revoked.</p>
     </div>
-  </div>
-</div>
+  </TabItem>
+</Tabs>
 
 ## Notes
 
@@ -567,6 +552,7 @@ def process_payment():
         </div>
       </div>
     </div>
+
   </div>
 </div>
 
@@ -668,5 +654,7 @@ def process_payment():
         }
       ]}
     />
+
   </div>
 </div>
+````

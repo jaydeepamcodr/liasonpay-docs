@@ -33,7 +33,7 @@ import { AppUrl, ApiBaseUrl, ExampleApiKey, ExampleStoreId } from '@site/src/com
           </div>
           <div className="environment-detail">
             <span className="detail-label">API Keys:</span>
-            <span className="detail-value">Live API keys (prefixed with <code>sk_live_</code>)</span>
+            <span className="detail-value">Live API keys (prefixed with <code>lp_live_</code>)</span>
           </div>
           <div className="environment-detail">
             <span className="detail-label">Payments:</span>
@@ -78,7 +78,7 @@ POST {ApiBaseUrl()}/subscriptions/create
       <div className="code-block-container">
         <pre className="code-block">
 ```http
-Authorization: Bearer sk_live_your_api_key
+Authorization: Bearer lp_live_your_api_key
 ```
         </pre>
       </div>

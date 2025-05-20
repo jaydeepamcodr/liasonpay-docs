@@ -2,6 +2,11 @@
 sidebar_position: 5
 ---
 
+<head>
+  <link rel="stylesheet" href="/css/next-steps.css" />
+  <script src="/js/next-steps.js"></script>
+</head>
+
 # Testing Strategy
 
 <div className="explorer-header">
@@ -43,7 +48,7 @@ sidebar_position: 5
           <div className="environment-content">
             <ul className="testing-checklist">
               <li><strong>Base URL</strong>: <code>https://sandbox.liasonpay.net/</code></li>
-              <li><strong>API Keys</strong>: Test API keys (prefixed with <code>sk_test_</code>)</li>
+              <li><strong>API Keys</strong>: Test API keys (prefixed with <code>lp_test_</code>)</li>
               <li><strong>Payments</strong>: No real money is processed</li>
               <li><strong>Features</strong>: Full API functionality with simulated responses</li>
             </ul>
@@ -1001,5 +1006,107 @@ module.exports = {
       </div>
     </div>
 
+  </div>
+</div>
+
+## Next Steps
+
+<div className="next-steps-section">
+  <div className="next-steps-header">
+    <div className="next-steps-header-content">
+      <h3>Explore More Best Practices</h3>
+      <p>Enhance your integration with these additional resources</p>
+    </div>
+  </div>
+
+  <div className="next-steps-grid">
+    <div className="next-step-card">
+      <div className="next-step-card-header">
+        <div className="next-step-icon-wrapper">
+          <div className="next-step-icon">⚡</div>
+        </div>
+        <div className="next-step-number">Related</div>
+      </div>
+      <div className="next-step-card-content">
+        <h4>Performance Optimization</h4>
+        <p>Optimize your integration for speed and reliability</p>
+        <ul className="next-step-benefits">
+          <li><span className="benefit-icon">✓</span> Improve response times</li>
+          <li><span className="benefit-icon">✓</span> Reduce resource usage</li>
+          <li><span className="benefit-icon">✓</span> Implement caching strategies</li>
+        </ul>
+        <div className="next-step-action">
+          <a href="./performance" className="button button--primary">
+            <span className="button-text">View Performance Guide</span>
+            <span className="button-icon">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div className="next-step-card">
+      <div className="next-step-card-header">
+        <div className="next-step-icon-wrapper">
+          <div className="next-step-icon">🔒</div>
+        </div>
+        <div className="next-step-number">Related</div>
+      </div>
+      <div className="next-step-card-content">
+        <h4>Security Best Practices</h4>
+        <p>Keep payment data secure and protect your users</p>
+        <ul className="next-step-benefits">
+          <li><span className="benefit-icon">✓</span> Implement advanced security measures</li>
+          <li><span className="benefit-icon">✓</span> Protect customer information</li>
+          <li><span className="benefit-icon">✓</span> Follow industry best practices</li>
+        </ul>
+        <div className="next-step-action">
+          <a href="./security" className="button button--primary">
+            <span className="button-text">View Security Guide</span>
+            <span className="button-icon">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div className="next-step-card">
+      <div className="next-step-card-header">
+        <div className="next-step-icon-wrapper">
+          <div className="next-step-icon">🎨</div>
+        </div>
+        <div className="next-step-number">Related</div>
+      </div>
+      <div className="next-step-card-content">
+        <h4>User Experience Guidelines</h4>
+        <p>Create a seamless payment experience for your users</p>
+        <ul className="next-step-benefits">
+          <li><span className="benefit-icon">✓</span> Design intuitive payment flows</li>
+          <li><span className="benefit-icon">✓</span> Improve conversion rates</li>
+          <li><span className="benefit-icon">✓</span> Enhance user satisfaction</li>
+        </ul>
+        <div className="next-step-action">
+          <a href="./user-experience" className="button button--primary">
+            <span className="button-text">View UX Guide</span>
+            <span className="button-icon">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div className="help-resources-box">
+    <div className="help-icon">💬</div>
+    <div className="help-content">
+      <h4>Need Help with Testing?</h4>
+      <p>If you have any questions about implementing these testing strategies or need assistance with your integration, our support team is here to help.</p>
+      <div className="help-actions">
+        <a href="https://liasonpay.net/support" target="_blank" rel="noopener noreferrer" className="button button--secondary">
+          <span className="button-text">Contact Support</span>
+        </a>
+        <a href="/developer-guide/faq" className="button button--secondary">
+          <span className="button-text">View FAQ</span>
+        </a>
+      </div>
+    </div>
   </div>
 </div>

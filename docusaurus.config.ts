@@ -66,6 +66,17 @@ const config: Config = {
       src: "/js/homepage.js",
       async: true,
     },
+    {
+      src: "/js/authentication-tabs.js",
+      async: true,
+    },
+  ],
+
+  // Add custom stylesheets
+  stylesheets: [
+    {
+      href: "/css/authentication-tabs.css",
+    },
   ],
 
   themeConfig: {

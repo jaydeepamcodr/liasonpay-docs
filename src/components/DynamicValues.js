@@ -6,10 +6,20 @@ import * as Constants from '../constants';
 export function ApiBaseUrl() {
   const { siteConfig } = useDocusaurusContext();
   const apiBaseUrl = siteConfig.customFields.apiBaseUrl || Constants.API_BASE_URL;
+  return apiBaseUrl;
+}
+
+export function ApiBaseUrlCodeBlock() {
+  const { siteConfig } = useDocusaurusContext();
+  const apiBaseUrl = siteConfig.customFields.apiBaseUrl || Constants.API_BASE_URL;
   return <code>{apiBaseUrl}</code>;
 }
 
 export function AppUrl() {
+  return Constants.APP_URL;
+}
+
+export function AppUrlCodeBlock() {
   return <code>{Constants.APP_URL}</code>;
 }
 

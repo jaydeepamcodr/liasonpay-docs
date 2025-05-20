@@ -29,6 +29,7 @@
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  margin-top: 1rem;
 }
 
 /* Explorer Container */
@@ -88,8 +89,8 @@
 }
 
 .explorer-options-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
 }
 
@@ -134,8 +135,8 @@
 }
 
 .tips-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
 }
 
@@ -170,8 +171,8 @@
 
 /* Endpoint Categories */
 .endpoint-categories {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
   margin: 1.5rem 0;
 }
@@ -217,8 +218,8 @@
 }
 
 .languages-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
 }
 
@@ -271,8 +272,8 @@
 }
 
 .tools-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
 }
 
@@ -329,12 +330,11 @@
     padding: 1.5rem;
   }
 
-  .explorer-options-grid,
   .tips-grid,
   .endpoint-categories,
   .languages-grid,
   .tools-grid {
-    grid-template-columns: 1fr;
+    flex-direction: column;
   }
 
   .explorer-option-card,

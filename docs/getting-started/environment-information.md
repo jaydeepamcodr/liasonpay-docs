@@ -4,6 +4,14 @@ sidebar_position: 3
 
 import { AppUrl, ApiBaseUrl, ExampleApiKey, ExampleStoreId } from '@site/src/components/DynamicValues';
 
+<head>
+  <link rel="stylesheet" href="/css/testing-environments.css" />
+  <script src="/js/testing-environments.js"></script>
+  <script src="/js/faq-section.js"></script>
+  <link rel="stylesheet" href="/css/next-steps.css" />
+  <script src="/js/next-steps.js"></script>
+</head>
+
 # Environment Information
 
 <div className="explorer-header">
@@ -18,6 +26,75 @@ import { AppUrl, ApiBaseUrl, ExampleApiKey, ExampleStoreId } from '@site/src/com
         <span>💳 View Test Cards</span>
       </a>
     </div>
+  </div>
+</div>
+
+## ⚙️ Testing Environments
+
+<div className="testing-environments-section">
+  <div className="testing-environments-grid">
+    <div className="testing-environment-card">
+      <div className="environment-header sandbox">
+        <div className="environment-icon">🧪</div>
+        <h3>Sandbox Testing</h3>
+      </div>
+      <div className="environment-content">
+        <p className="environment-description">For testing without processing real payments:</p>
+        <div className="environment-details">
+          <div className="environment-detail">
+            <span className="detail-label">API Base URL:</span>
+            <span className="detail-value"><code>{ApiBaseUrl()}</code></span>
+          </div>
+          <div className="environment-detail">
+            <span className="detail-label">API Key:</span>
+            <span className="detail-value">Use <strong>your standard API key</strong></span>
+          </div>
+          <div className="environment-detail">
+            <span className="detail-label">Mode Parameter:</span>
+            <span className="detail-value">Set to <code className="highlight-param">sandbox</code></span>
+          </div>
+          <div className="environment-detail">
+            <span className="detail-label">Payment Method:</span>
+            <span className="detail-value">Use <strong>test card numbers</strong> for payment simulation</span>
+          </div>
+        </div>
+        <div className="info-callout">
+          <p><strong>💡 Tip:</strong> Sandbox mode allows you to test safely without affecting live data or charging real cards.</p>
+        </div>
+      </div>
+    </div>
+
+    <div className="testing-environment-card">
+      <div className="environment-header production">
+        <div className="environment-icon">💳</div>
+        <h3>Production Testing</h3>
+      </div>
+      <div className="environment-content">
+        <p className="environment-description">For real payments:</p>
+        <div className="environment-details">
+          <div className="environment-detail">
+            <span className="detail-label">API Base URL:</span>
+            <span className="detail-value"><code>{ApiBaseUrl()}</code></span>
+          </div>
+          <div className="environment-detail">
+            <span className="detail-label">API Key:</span>
+            <span className="detail-value">Use the <strong>same API key</strong></span>
+          </div>
+          <div className="environment-detail">
+            <span className="detail-label">Mode Parameter:</span>
+            <span className="detail-value">Set to <code className="highlight-param">production</code></span>
+          </div>
+          <div className="environment-detail">
+            <span className="detail-label">Payment Method:</span>
+            <span className="detail-value">Use <strong>real card information</strong></span>
+          </div>
+        </div>
+        <div className="warning-callout">
+          <p><strong>⚠️ Important:</strong> Production mode processes real payments and affects live data. Use with caution.</p>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -41,7 +118,7 @@ import { AppUrl, ApiBaseUrl, ExampleApiKey, ExampleStoreId } from '@site/src/com
           </div>
           <div className="environment-detail">
             <span className="detail-label">API Keys:</span>
-            <span className="detail-value">Live API keys (prefixed with <code>sk_</code>)</span>
+            <span className="detail-value">Live API keys (prefixed with <code>lp_</code>)</span>
           </div>
           <div className="environment-detail">
             <span className="detail-label">Payments:</span>
@@ -142,7 +219,7 @@ import { AppUrl, ApiBaseUrl, ExampleApiKey, ExampleStoreId } from '@site/src/com
 
     <div className="api-info-card">
       <h3>🔑 API Keys</h3>
-      <p>Keys prefixed with <code>sk_</code></p>
+      <p>Keys prefixed with <code>lp_</code></p>
     </div>
 
     <div className="api-info-card">
@@ -230,41 +307,6 @@ import { AppUrl, ApiBaseUrl, ExampleApiKey, ExampleStoreId } from '@site/src/com
 
     <div className="info-callout">
       <p><strong>💡 Tip:</strong> These test cards can be used in production without processing real payments.</p>
-    </div>
-
-  </div>
-
-  <div className="testing-card">
-    <h3>🔄 Test Amounts</h3>
-    <p>You can trigger specific responses by using special amounts:</p>
-
-    <div className="test-responses-table">
-      <table>
-        <thead>
-          <tr>
-            <th>Amount</th>
-            <th>Response</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>100</code></td>
-            <td><span className="response-success">✅ Successful payment</span></td>
-          </tr>
-          <tr>
-            <td><code>999</code></td>
-            <td><span className="response-error">❌ Failed payment (insufficient funds)</span></td>
-          </tr>
-          <tr>
-            <td><code>888</code></td>
-            <td><span className="response-error">❌ Failed payment (expired card)</span></td>
-          </tr>
-          <tr>
-            <td><code>777</code></td>
-            <td><span className="response-error">❌ Failed payment (declined)</span></td>
-          </tr>
-        </tbody>
-      </table>
     </div>
 
   </div>
@@ -434,45 +476,180 @@ curl --request GET \
 ## Frequently Asked Questions
 
 <div className="faq-section">
-  <div className="faq-item">
-    <h3>How do I know if my integration is ready for production?</h3>
-    <p>Your integration is ready for production when you've thoroughly tested all payment flows, implemented proper error handling, set up webhook processing, and completed all compliance requirements.</p>
-  </div>
+  <div className="faq-category">
+    <div className="faq-category-header">
+      <span className="faq-category-icon">🔍</span>
+      <h2 className="faq-category-title">Common Questions</h2>
+    </div>
 
-  <div className="faq-item">
-    <h3>What should I do if I encounter issues in production?</h3>
-    <p>If you encounter issues in production, check your logs for error details, review the API response for error messages, and contact LiasonPay support if needed. Having a rollback plan is also essential.</p>
-  </div>
+    <div className="faq-item faq-item-with-icon question">
+      <h3>How do I know if my integration is ready for production?</h3>
+      <p>Your integration is ready for production when you've thoroughly tested all payment flows, implemented proper error handling, set up webhook processing, and completed all compliance requirements. We recommend going through the following checklist:</p>
+      <ul>
+        <li>All payment flows have been tested with various scenarios</li>
+        <li>Error handling is implemented for all API calls</li>
+        <li>Webhook endpoints are properly configured and tested</li>
+        <li>Security best practices are followed</li>
+        <li>Compliance requirements are met</li>
+        <li>Monitoring and logging are in place</li>
+      </ul>
+    </div>
 
-  <div className="faq-item">
-    <h3>How can I monitor my API usage?</h3>
-    <p>You can monitor your API usage through the LiasonPay Dashboard, which provides insights into request volumes, error rates, and other metrics. Setting up your own monitoring and alerting is also recommended.</p>
-  </div>
+    <div className="faq-item faq-item-with-icon api">
+      <h3>What should I do if I encounter issues in production?</h3>
+      <p>If you encounter issues in production, follow these steps:</p>
+      <ol>
+        <li>Check your application logs for error details</li>
+        <li>Review the API response for specific error messages</li>
+        <li>Consult the error codes documentation</li>
+        <li>Implement your rollback plan if necessary</li>
+        <li>Contact LiasonPay support with detailed information about the issue</li>
+      </ol>
+      <p>Having a well-defined rollback plan is essential for quickly resolving production issues.</p>
+    </div>
 
-  <div className="faq-item">
-    <h3>Are there any limits on webhook events?</h3>
-    <p>There are no limits on the number of webhook events you can receive, but your endpoint should respond quickly (within 5 seconds) to acknowledge receipt. If your endpoint fails to respond, we'll retry the webhook delivery several times.</p>
+    <div className="faq-item faq-item-with-icon payment">
+      <h3>How can I monitor my API usage?</h3>
+      <p>You can monitor your API usage through several channels:</p>
+      <ul>
+        <li><strong>LiasonPay Dashboard:</strong> Provides insights into request volumes, error rates, and other metrics</li>
+        <li><strong>API Logs:</strong> Set up logging in your application to track API calls</li>
+        <li><strong>Webhook Events:</strong> Subscribe to relevant webhook events for real-time notifications</li>
+        <li><strong>Custom Monitoring:</strong> Implement your own monitoring and alerting system</li>
+      </ul>
+      <p>We recommend setting up automated alerts for unusual activity or error rates.</p>
+    </div>
+
+    <div className="faq-item faq-item-with-icon security">
+      <h3>Are there any limits on webhook events?</h3>
+      <p>There are no limits on the number of webhook events you can receive, but there are some important considerations:</p>
+      <ul>
+        <li>Your endpoint should respond quickly (within 5 seconds) to acknowledge receipt</li>
+        <li>If your endpoint fails to respond, we'll retry the webhook delivery several times</li>
+        <li>After 3 failed attempts, the webhook will be marked as failed</li>
+        <li>You can view failed webhooks in the LiasonPay Dashboard</li>
+        <li>You can manually trigger a retry for failed webhooks</li>
+      </ul>
+      <p>We recommend implementing a queue system to handle webhook events asynchronously if you expect high volumes.</p>
+    </div>
+
   </div>
 </div>
 
 ## Next Steps
 
 <div className="next-steps-section">
-  <div className="next-step-card">
-    <h3>📚 How to Use the API</h3>
-    <p>Learn how to make API requests and handle responses</p>
-    <a href="./how-to-use" className="button button--secondary">View API Usage Guide</a>
+  <div className="next-steps-header">
+    <div className="next-steps-header-content">
+      <h3>Continue Your Integration Journey</h3>
+      <p>Follow these steps to complete your LiasonPay API integration</p>
+      <div className="progress-indicator">
+        <div className="progress-step completed">
+          <div className="progress-step-number">1</div>
+          <div className="progress-step-label">Authentication</div>
+        </div>
+        <div className="progress-connector"></div>
+        <div className="progress-step completed">
+          <div className="progress-step-number">2</div>
+          <div className="progress-step-label">Environment</div>
+        </div>
+        <div className="progress-connector"></div>
+        <div className="progress-step">
+          <div className="progress-step-number">3</div>
+          <div className="progress-step-label">Implementation</div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div className="next-step-card">
-    <h3>🔒 Security Best Practices</h3>
-    <p>Explore best practices for securing your integration</p>
-    <a href="/developer-guide/best-practices/security" className="button button--secondary">View Security Guide</a>
+  <div className="next-steps-grid">
+    <div className="next-step-card">
+      <div className="next-step-card-header">
+        <div className="next-step-icon-wrapper">
+          <div className="next-step-icon">📚</div>
+        </div>
+        <div className="next-step-number">Step 3</div>
+      </div>
+      <div className="next-step-card-content">
+        <h4>How to Use the API</h4>
+        <p>Explore detailed instructions for making API requests and handling responses</p>
+        <ul className="next-step-benefits">
+          <li><span className="benefit-icon">✓</span> Learn request/response formats</li>
+          <li><span className="benefit-icon">✓</span> Understand error handling</li>
+          <li><span className="benefit-icon">✓</span> See practical code examples</li>
+        </ul>
+        <div className="next-step-action">
+          <a href="./how-to-use" className="button button--primary">
+            <span className="button-text">View API Usage Guide</span>
+            <span className="button-icon">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div className="next-step-card">
+      <div className="next-step-card-header">
+        <div className="next-step-icon-wrapper">
+          <div className="next-step-icon">🔔</div>
+        </div>
+        <div className="next-step-number">Advanced</div>
+      </div>
+      <div className="next-step-card-content">
+        <h4>Set Up Webhooks</h4>
+        <p>Learn how to receive real-time notifications about payment events</p>
+        <ul className="next-step-benefits">
+          <li><span className="benefit-icon">✓</span> Get notified about payment events</li>
+          <li><span className="benefit-icon">✓</span> Automate your payment workflows</li>
+          <li><span className="benefit-icon">✓</span> Implement event-driven architecture</li>
+        </ul>
+        <div className="next-step-action">
+          <a href="/developer-guide/webhooks" className="button button--primary">
+            <span className="button-text">View Webhooks Guide</span>
+            <span className="button-icon">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div className="next-step-card">
+      <div className="next-step-card-header">
+        <div className="next-step-icon-wrapper">
+          <div className="next-step-icon">🔒</div>
+        </div>
+        <div className="next-step-number">Advanced</div>
+      </div>
+      <div className="next-step-card-content">
+        <h4>Security Best Practices</h4>
+        <p>Learn more about securing your integration and protecting sensitive data</p>
+        <ul className="next-step-benefits">
+          <li><span className="benefit-icon">✓</span> Implement advanced security measures</li>
+          <li><span className="benefit-icon">✓</span> Protect customer information</li>
+          <li><span className="benefit-icon">✓</span> Follow industry best practices</li>
+        </ul>
+        <div className="next-step-action">
+          <a href="/developer-guide/best-practices/security" className="button button--primary">
+            <span className="button-text">View Security Guide</span>
+            <span className="button-icon">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
   </div>
 
-  <div className="next-step-card">
-    <h3>🔔 Set Up Webhooks</h3>
-    <p>Learn how to receive real-time notifications</p>
-    <a href="/developer-guide/webhooks" className="button button--secondary">View Webhooks Guide</a>
+  <div className="help-resources-box">
+    <div className="help-icon">💬</div>
+    <div className="help-content">
+      <h4>Need Help?</h4>
+      <p>If you have any questions or need assistance with your integration, our support team is here to help.</p>
+      <div className="help-actions">
+        <a href="https://liasonpay.net/support" target="_blank" rel="noopener noreferrer" className="button button--secondary">
+          <span className="button-text">Contact Support</span>
+        </a>
+        <a href="/developer-guide/faq" className="button button--secondary">
+          <span className="button-text">View FAQ</span>
+        </a>
+      </div>
+    </div>
   </div>
 </div>

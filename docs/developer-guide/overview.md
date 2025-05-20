@@ -118,7 +118,7 @@ import { AppUrl, ApiBaseUrl } from '@site/src/components/DynamicValues';
       <div className="code-block-container">
         <pre className="code-block">
 ```http
-Authorization: Bearer sk_test_your_api_key
+Authorization: Bearer lp_test_your_api_key
 ```
         </pre>
       </div>
@@ -146,7 +146,7 @@ Authorization: Bearer sk_test_your_api_key
       <div className="environment-content">
         <p><strong>Purpose:</strong> For testing and development</p>
         <p><strong>Base URL:</strong> <code>{ApiBaseUrl()}</code></p>
-        <p><strong>API Keys:</strong> Use test keys (<code>sk_test_</code>)</p>
+        <p><strong>API Keys:</strong> Use test keys (<code>lp_test_</code>)</p>
         <div className="info-callout">
           <p><strong>💡 Tip:</strong> Always use the sandbox environment for testing before moving to production.</p>
         </div>
@@ -160,7 +160,7 @@ Authorization: Bearer sk_test_your_api_key
       <div className="environment-content">
         <p><strong>Purpose:</strong> For live transactions</p>
         <p><strong>Base URL:</strong> <code>{ApiBaseUrl()}</code></p>
-        <p><strong>API Keys:</strong> Use live keys (<code>sk_live_</code>)</p>
+        <p><strong>API Keys:</strong> Use live keys (<code>lp_live_</code>)</p>
         <div className="warning-callout">
           <p><strong>⚠️ Important:</strong> Production environment processes real payments and affects live data.</p>
         </div>

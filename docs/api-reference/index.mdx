@@ -11,6 +11,11 @@ import {
   AppUrl,
 } from "@site/src/components/DynamicValues";
 
+<head>
+  <link rel="stylesheet" href="/css/next-steps.css" />
+  <script src="/js/next-steps.js"></script>
+</head>
+
 # API Reference
 
 <div className="explorer-header">
@@ -500,10 +505,6 @@ GET {ApiBaseUrl()}/subscription/get?store_id={ExampleStoreId()}&limit=10&cursor=
     "status": true,
     "message": "Subscriptions retrieved successfully",
     "data": [...],
-    "meta": {
-        "has_more": true,
-        "next_cursor": "NEXT_CURSOR_TOKEN"
-    }
 }
 ```
 
@@ -576,5 +577,107 @@ GET {ApiBaseUrl()}/subscription/get?store_id={ExampleStoreId()}&limit=10&cursor=
       </div>
     </div>
 
+  </div>
+</div>
+
+## Next Steps
+
+<div className="next-steps-section">
+  <div className="next-steps-header">
+    <div className="next-steps-header-content">
+      <h3>Explore Our API Tools</h3>
+      <p>Enhance your development experience with these helpful resources</p>
+    </div>
+  </div>
+
+  <div className="next-steps-grid">
+    <div className="next-step-card">
+      <div className="next-step-card-header">
+        <div className="next-step-icon-wrapper">
+          <div className="next-step-icon">📦</div>
+        </div>
+        <div className="next-step-number">Tools</div>
+      </div>
+      <div className="next-step-card-content">
+        <h4>Postman Collection</h4>
+        <p>Download our Postman collection for easy API testing</p>
+        <ul className="next-step-benefits">
+          <li><span className="benefit-icon">✓</span> Test API endpoints in Postman</li>
+          <li><span className="benefit-icon">✓</span> Save and organize requests</li>
+          <li><span className="benefit-icon">✓</span> Create test environments</li>
+        </ul>
+        <div className="next-step-action">
+          <a href="/interactive-tools/postman-collection" className="button button--primary">
+            <span className="button-text">View Postman Collection</span>
+            <span className="button-icon">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div className="next-step-card">
+      <div className="next-step-card-header">
+        <div className="next-step-icon-wrapper">
+          <div className="next-step-icon">🔍</div>
+        </div>
+        <div className="next-step-number">Tools</div>
+      </div>
+      <div className="next-step-card-content">
+        <h4>API Explorer</h4>
+        <p>Interactive tool to explore and test API endpoints</p>
+        <ul className="next-step-benefits">
+          <li><span className="benefit-icon">✓</span> Interactive documentation</li>
+          <li><span className="benefit-icon">✓</span> Try endpoints in your browser</li>
+          <li><span className="benefit-icon">✓</span> View request/response examples</li>
+        </ul>
+        <div className="next-step-action">
+          <a href="/interactive-tools/api-explorer" className="button button--primary">
+            <span className="button-text">Open API Explorer</span>
+            <span className="button-icon">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div className="next-step-card">
+      <div className="next-step-card-header">
+        <div className="next-step-icon-wrapper">
+          <div className="next-step-icon">🔔</div>
+        </div>
+        <div className="next-step-number">Guide</div>
+      </div>
+      <div className="next-step-card-content">
+        <h4>Webhooks</h4>
+        <p>Learn how to receive real-time notifications about payment events</p>
+        <ul className="next-step-benefits">
+          <li><span className="benefit-icon">✓</span> Get notified about payment events</li>
+          <li><span className="benefit-icon">✓</span> Automate your payment workflows</li>
+          <li><span className="benefit-icon">✓</span> Implement event-driven architecture</li>
+        </ul>
+        <div className="next-step-action">
+          <a href="/developer-guide/webhooks" className="button button--primary">
+            <span className="button-text">View Webhooks Guide</span>
+            <span className="button-icon">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div className="help-resources-box">
+    <div className="help-icon">💬</div>
+    <div className="help-content">
+      <h4>Need Help?</h4>
+      <p>If you have any questions about our API or need assistance with your integration, our support team is here to help.</p>
+      <div className="help-actions">
+        <a href="https://liasonpay.net/support" target="_blank" rel="noopener noreferrer" className="button button--secondary">
+          <span className="button-text">Contact Support</span>
+        </a>
+        <a href="/developer-guide/faq" className="button button--secondary">
+          <span className="button-text">View FAQ</span>
+        </a>
+      </div>
+    </div>
   </div>
 </div>

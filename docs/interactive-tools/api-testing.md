@@ -4,6 +4,11 @@ sidebar_position: 1
 
 import { ApiBaseUrl, ExampleApiKey, AppUrl, ExampleStoreId } from '@site/src/components/DynamicValues';
 
+<head>
+  <link rel="stylesheet" href="/css/next-steps.css" />
+  <script src="/js/next-steps.js"></script>
+</head>
+
 # API Testing Tool
 
 <div className="explorer-header">
@@ -52,8 +57,8 @@ import { ApiBaseUrl, ExampleApiKey, AppUrl, ExampleStoreId } from '@site/src/com
       <p>To use the API Testing Tool with authenticated endpoints:</p>
       <ol>
         <li>Enter your API key in the <strong>Authorization</strong> header field</li>
-        <li>Use a test API key (<code>sk_test_</code>) for sandbox testing</li>
-        <li>Use a live API key (<code>sk_live_</code>) for production testing</li>
+        <li>Use a test API key (<code>lp_test_</code>) for sandbox testing</li>
+        <li>Use a live API key (<code>lp_live_</code>) for production testing</li>
       </ol>
       <div className="code-block-container">
         <pre className="code-block">
@@ -188,46 +193,172 @@ Authorization: Bearer {ExampleApiKey()}
   </div>
 </div>
 
-## Testing Environments
+## ⚙️ Testing Environments
 
-<div className="environments-section">
-  <div className="environment-cards">
-    <div className="environment-card">
+<div className="testing-environments-section">
+  <div className="testing-environments-grid">
+    <div className="testing-environment-card">
       <div className="environment-header sandbox">
-        <h3>🧪 Sandbox Testing</h3>
+        <div className="environment-icon">🧪</div>
+        <h3>Sandbox Testing</h3>
       </div>
       <div className="environment-content">
-        <p>For testing without processing real payments:</p>
-        <ul>
-          <li>Use the sandbox base URL: <code>https://liasonpay.net/api/v1/</code></li>
-          <li>Use a test API key (<code>sk_test_</code>)</li>
-          <li>Set the <code>mode</code> parameter to "sandbox"</li>
-          <li>Use test card numbers for payment testing</li>
-        </ul>
+        <p className="environment-description">For testing without processing real payments:</p>
+        <div className="environment-details">
+          <div className="environment-detail">
+            <span className="detail-label">API Base URL:</span>
+            <span className="detail-value"><code>{ApiBaseUrl()}</code></span>
+          </div>
+          <div className="environment-detail">
+            <span className="detail-label">API Key:</span>
+            <span className="detail-value">Use <strong>your standard API key</strong></span>
+          </div>
+          <div className="environment-detail">
+            <span className="detail-label">Mode Parameter:</span>
+            <span className="detail-value">Set to <code className="highlight-param">sandbox</code></span>
+          </div>
+          <div className="environment-detail">
+            <span className="detail-label">Payment Method:</span>
+            <span className="detail-value">Use <strong>test card numbers</strong> for payment simulation</span>
+          </div>
+        </div>
+        <div className="environment-code-example">
+          <div className="code-header">
+            <span>Example API Request</span>
+            <button className="copy-button" title="Copy to clipboard">
+              <span className="copy-icon">📋</span>
+            </button>
+          </div>
+          <pre className="code-block">
+```javascript
+fetch('{ApiBaseUrl()}/payments', {
+  method: 'POST',
+  headers: {
+    'Authorization': 'Bearer YOUR_API_KEY',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    amount: 1000,
+    currency: 'USD',
+    mode: 'sandbox'  // Set to sandbox for testing
+  })
+})
+```
+          </pre>
+        </div>
         <div className="info-callout">
-          <p><strong>💡 Tip:</strong> Sandbox mode is perfect for development and testing without affecting real data or processing actual payments.</p>
+          <p><strong>💡 Tip:</strong> Sandbox mode allows you to test safely without affecting live data or charging real cards.</p>
         </div>
       </div>
     </div>
 
-    <div className="environment-card">
+    <div className="testing-environment-card">
       <div className="environment-header production">
-        <h3>🚀 Production Testing</h3>
+        <div className="environment-icon">�</div>
+        <h3>Production Testing</h3>
       </div>
       <div className="environment-content">
-        <p>For testing with real payments:</p>
-        <ul>
-          <li>Use the production base URL: <code>{ApiBaseUrl()}</code></li>
-          <li>Use a live API key (<code>sk_live_</code>)</li>
-          <li>Set the <code>mode</code> parameter to "production"</li>
-          <li>Use real card information</li>
-        </ul>
+        <p className="environment-description">For real payments:</p>
+        <div className="environment-details">
+          <div className="environment-detail">
+            <span className="detail-label">API Base URL:</span>
+            <span className="detail-value"><code>{ApiBaseUrl()}</code></span>
+          </div>
+          <div className="environment-detail">
+            <span className="detail-label">API Key:</span>
+            <span className="detail-value">Use the <strong>same API key</strong></span>
+          </div>
+          <div className="environment-detail">
+            <span className="detail-label">Mode Parameter:</span>
+            <span className="detail-value">Set to <code className="highlight-param">production</code></span>
+          </div>
+          <div className="environment-detail">
+            <span className="detail-label">Payment Method:</span>
+            <span className="detail-value">Use <strong>real card information</strong></span>
+          </div>
+        </div>
+        <div className="environment-code-example">
+          <div className="code-header">
+            <span>Example API Request</span>
+            <button className="copy-button" title="Copy to clipboard">
+              <span className="copy-icon">📋</span>
+            </button>
+          </div>
+          <pre className="code-block">
+
+```javascript
+fetch("{ApiBaseUrl()}/payments", {
+  method: "POST",
+  headers: {
+    Authorization: "Bearer YOUR_API_KEY",
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    amount: 1000,
+    currency: "USD",
+    mode: "production", // Set to production for real payments
+  }),
+});
+```
+
+          </pre>
+        </div>
         <div className="warning-callout">
           <p><strong>⚠️ Important:</strong> Production mode processes real payments and affects live data. Use with caution.</p>
         </div>
       </div>
     </div>
 
+  </div>
+
+  <div className="environments-comparison">
+    <div className="comparison-header">
+      <h3>Environment Comparison</h3>
+      <p>Understanding the differences between sandbox and production modes</p>
+    </div>
+    <div className="comparison-table-container">
+      <table className="comparison-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Sandbox Mode</th>
+            <th>Production Mode</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>API Base URL</td>
+            <td><code>{ApiBaseUrl()}</code></td>
+            <td><code>{ApiBaseUrl()}</code></td>
+          </tr>
+          <tr>
+            <td>API Key</td>
+            <td>Same API key</td>
+            <td>Same API key</td>
+          </tr>
+          <tr>
+            <td>Money Movement</td>
+            <td><span className="tag sandbox">No real money</span></td>
+            <td><span className="tag production">Real money</span></td>
+          </tr>
+          <tr>
+            <td>Card Processing</td>
+            <td>Test cards only</td>
+            <td>Real cards</td>
+          </tr>
+          <tr>
+            <td>Webhooks</td>
+            <td>Test events</td>
+            <td>Live events</td>
+          </tr>
+          <tr>
+            <td>Dashboard Data</td>
+            <td>Visible but marked as test</td>
+            <td>Live data</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 
@@ -342,21 +473,101 @@ curl -X POST "https://liasonpay.net/api/v1/payments/process" \
 ## Next Steps
 
 <div className="next-steps-section">
-  <div className="next-step-card">
-    <h3>📦 Download Postman Collection</h3>
-    <p>Get our Postman Collection for more advanced testing capabilities</p>
-    <a href="/interactive-tools/postman-collection" className="button button--secondary">View Postman Collection</a>
+  <div className="next-steps-header">
+    <div className="next-steps-header-content">
+      <h3>Explore More API Tools</h3>
+      <p>Enhance your development experience with these additional resources</p>
+    </div>
   </div>
 
-  <div className="next-step-card">
-    <h3>🔍 Explore API Explorer</h3>
-    <p>Use our interactive API Explorer for a comprehensive API reference</p>
-    <a href="/interactive-tools/api-explorer" className="button button--secondary">Open API Explorer</a>
+  <div className="next-steps-grid">
+    <div className="next-step-card">
+      <div className="next-step-card-header">
+        <div className="next-step-icon-wrapper">
+          <div className="next-step-icon">📦</div>
+        </div>
+        <div className="next-step-number">Related</div>
+      </div>
+      <div className="next-step-card-content">
+        <h4>Postman Collection</h4>
+        <p>Get our Postman Collection for more advanced testing capabilities</p>
+        <ul className="next-step-benefits">
+          <li><span className="benefit-icon">✓</span> Test API endpoints in Postman</li>
+          <li><span className="benefit-icon">✓</span> Save and organize requests</li>
+          <li><span className="benefit-icon">✓</span> Create test environments</li>
+        </ul>
+        <div className="next-step-action">
+          <a href="/interactive-tools/postman-collection" className="button button--primary">
+            <span className="button-text">View Postman Collection</span>
+            <span className="button-icon">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div className="next-step-card">
+      <div className="next-step-card-header">
+        <div className="next-step-icon-wrapper">
+          <div className="next-step-icon">🔍</div>
+        </div>
+        <div className="next-step-number">Related</div>
+      </div>
+      <div className="next-step-card-content">
+        <h4>API Explorer</h4>
+        <p>Use our interactive API Explorer for a comprehensive API reference</p>
+        <ul className="next-step-benefits">
+          <li><span className="benefit-icon">✓</span> Interactive documentation</li>
+          <li><span className="benefit-icon">✓</span> Try endpoints in your browser</li>
+          <li><span className="benefit-icon">✓</span> View request/response examples</li>
+        </ul>
+        <div className="next-step-action">
+          <a href="/interactive-tools/api-explorer" className="button button--primary">
+            <span className="button-text">Open API Explorer</span>
+            <span className="button-icon">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div className="next-step-card">
+      <div className="next-step-card-header">
+        <div className="next-step-icon-wrapper">
+          <div className="next-step-icon">📚</div>
+        </div>
+        <div className="next-step-number">Reference</div>
+      </div>
+      <div className="next-step-card-content">
+        <h4>API Reference</h4>
+        <p>Read detailed documentation for all endpoints</p>
+        <ul className="next-step-benefits">
+          <li><span className="benefit-icon">✓</span> Comprehensive endpoint details</li>
+          <li><span className="benefit-icon">✓</span> Request and response formats</li>
+          <li><span className="benefit-icon">✓</span> Parameter descriptions</li>
+        </ul>
+        <div className="next-step-action">
+          <a href="/api-reference" className="button button--primary">
+            <span className="button-text">View API Reference</span>
+            <span className="button-icon">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
   </div>
 
-  <div className="next-step-card">
-    <h3>📚 Review API Reference</h3>
-    <p>Read detailed documentation for all endpoints</p>
-    <a href="/api-reference" className="button button--secondary">View API Reference</a>
+  <div className="help-resources-box">
+    <div className="help-icon">💬</div>
+    <div className="help-content">
+      <h4>Need Help?</h4>
+      <p>If you have any questions about using the API Testing Tool or need assistance with your integration, our support team is here to help.</p>
+      <div className="help-actions">
+        <a href="https://liasonpay.net/support" target="_blank" rel="noopener noreferrer" className="button button--secondary">
+          <span className="button-text">Contact Support</span>
+        </a>
+        <a href="/developer-guide/faq" className="button button--secondary">
+          <span className="button-text">View FAQ</span>
+        </a>
+      </div>
+    </div>
   </div>
 </div>
