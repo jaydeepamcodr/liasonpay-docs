@@ -4,11 +4,6 @@ sidebar_position: 1
 
 import { AppUrl } from '@site/src/components/DynamicValues';
 
-<head>
-  <link rel="stylesheet" href="/css/next-steps.css" />
-  <script src="/js/next-steps.js"></script>
-</head>
-
 # Webhooks
 
 <div className="explorer-header">

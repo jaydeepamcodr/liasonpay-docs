@@ -4,14 +4,6 @@ sidebar_position: 3
 
 import { AppUrl, ApiBaseUrl, ExampleApiKey, ExampleStoreId } from '@site/src/components/DynamicValues';
 
-<head>
-  <link rel="stylesheet" href="/css/testing-environments.css" />
-  <script src="/js/testing-environments.js"></script>
-  <script src="/js/faq-section.js"></script>
-  <link rel="stylesheet" href="/css/next-steps.css" />
-  <script src="/js/next-steps.js"></script>
-</head>
-
 # Environment Information
 
 <div className="explorer-header">

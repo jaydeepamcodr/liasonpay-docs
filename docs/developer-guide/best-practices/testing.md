@@ -2,11 +2,6 @@
 sidebar_position: 5
 ---
 
-<head>
-  <link rel="stylesheet" href="/css/next-steps.css" />
-  <script src="/js/next-steps.js"></script>
-</head>
-
 # Testing Strategy
 
 <div className="explorer-header">

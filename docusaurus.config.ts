@@ -26,7 +26,7 @@ const config: Config = {
   // Set the production url of your site here
   url: APP_URL,
   // Set the /<baseUrl>/ pathname under which your site is served
-  baseUrl: "/",
+  baseUrl: "/docs-v2",
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -55,19 +55,31 @@ const config: Config = {
   // Add custom scripts
   scripts: [
     {
-      src: "/js/custom.js",
+      src: "/docs-v2/js/custom.js",
       async: true,
     },
     {
-      src: "/js/api-reference.js",
+      src: "/docs-v2/js/api-reference.js",
       async: true,
     },
     {
-      src: "/js/homepage.js",
+      src: "/docs-v2/js/homepage.js",
       async: true,
     },
     {
-      src: "/js/authentication-tabs.js",
+      src: "/docs-v2/js/authentication-tabs.js",
+      async: true,
+    },
+    {
+      src: "/docs-v2/js/next-steps.js",
+      async: true,
+    },
+    {
+      src: "/docs-v2/js/testing-environments.js",
+      async: true,
+    },
+    {
+      src: "/docs-v2/js/faq-section.js",
       async: true,
     },
   ],
@@ -75,7 +87,13 @@ const config: Config = {
   // Add custom stylesheets
   stylesheets: [
     {
-      href: "/css/authentication-tabs.css",
+      href: "/docs-v2/css/authentication-tabs.css",
+    },
+    {
+      href: "/docs-v2/css/next-steps.css",
+    },
+    {
+      href: "/docs-v2/css/testing-environments.css",
     },
   ],
 

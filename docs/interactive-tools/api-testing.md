@@ -4,11 +4,6 @@ sidebar_position: 1
 
 import { ApiBaseUrl, ExampleApiKey, AppUrl, ExampleStoreId } from '@site/src/components/DynamicValues';
 
-<head>
-  <link rel="stylesheet" href="/css/next-steps.css" />
-  <script src="/js/next-steps.js"></script>
-</head>
-
 # API Testing Tool
 
 <div className="explorer-header">

@@ -7,8 +7,6 @@ import { AppUrl, ApiRateLimit } from '@site/src/components/DynamicValues';
 <head>
   <link rel="stylesheet" href="/css/faq-page.css" />
   <script src="/js/faq-page.js"></script>
-  <link rel="stylesheet" href="/css/next-steps.css" />
-  <script src="/js/next-steps.js"></script>
 </head>
 
 <div className="faq-header">
@@ -713,32 +711,34 @@ Authorization: Bearer YOUR_API_KEY`}
 
 // Express route handler
 app.post('/webhook', express.raw({type: 'application/json'}), (req, res) => {
-  const signature = req.headers['liason-signature'];
-  const payload = req.body;
-  const secret = 'YOUR_WEBHOOK_SECRET';
-  
-  // Create HMAC
-  const hmac = crypto.createHmac('sha256', secret);
-  const expectedSignature = hmac.update(payload).digest('hex');
-  
-  // Compare signatures
-  if (crypto.timingSafeEqual(
-    Buffer.from(signature),
-    Buffer.from(expectedSignature)
-  )) {
-    // Signature is valid, process the webhook
-    const event = JSON.parse(payload);
-    handleWebhookEvent(event);
-    res.status(200).send('Webhook received');
-  } else {
-    // Invalid signature
-    res.status(403).send('Invalid signature');
-  }
+const signature = req.headers['liason-signature'];
+const payload = req.body;
+const secret = 'YOUR_WEBHOOK_SECRET';
+
+// Create HMAC
+const hmac = crypto.createHmac('sha256', secret);
+const expectedSignature = hmac.update(payload).digest('hex');
+
+// Compare signatures
+if (crypto.timingSafeEqual(
+Buffer.from(signature),
+Buffer.from(expectedSignature)
+)) {
+// Signature is valid, process the webhook
+const event = JSON.parse(payload);
+handleWebhookEvent(event);
+res.status(200).send('Webhook received');
+} else {
+// Invalid signature
+res.status(403).send('Invalid signature');
+}
 });`}
-          </code>
-        </pre>
-      </div>
-    </div>
+</code>
+
+</pre>
+</div>
+</div>
+
   </div>
 
   <div className="faq-item">

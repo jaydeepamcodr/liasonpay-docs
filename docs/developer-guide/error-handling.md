@@ -4,11 +4,6 @@ sidebar_position: 2
 
 import { ApiBaseUrl, ExampleApiKey } from '@site/src/components/DynamicValues';
 
-<head>
-  <link rel="stylesheet" href="/css/next-steps.css" />
-  <script src="/js/next-steps.js"></script>
-</head>
-
 # Error Handling
 
 <div className="explorer-header">

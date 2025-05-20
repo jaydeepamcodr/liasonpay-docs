@@ -1,4 +1,4 @@
-<!-- 
+<!--
 Next Steps Template
 
 Instructions:
@@ -8,11 +8,6 @@ Instructions:
 4. Set the appropriate "completed" step based on the current page
 5. Update the links and content for each card
 -->
-
-<head>
-  <link rel="stylesheet" href="/css/next-steps.css" />
-  <script src="/js/next-steps.js"></script>
-</head>
 
 ## Next Steps
 
@@ -112,6 +107,7 @@ Instructions:
         </div>
       </div>
     </div>
+
   </div>
   
   <div className="help-resources-box">

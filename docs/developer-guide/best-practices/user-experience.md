@@ -4,11 +4,6 @@ sidebar_position: 3
 
 import { AppUrl, ApiBaseUrl } from "@site/src/components/DynamicValues";
 
-<head>
-  <link rel="stylesheet" href="/css/next-steps.css" />
-  <script src="/js/next-steps.js"></script>
-</head>
-
 # User Experience (UX) Guidelines
 
 <div className="explorer-header">

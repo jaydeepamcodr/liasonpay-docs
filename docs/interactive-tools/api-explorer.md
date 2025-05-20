@@ -5,11 +5,6 @@ sidebar_position: 3
 import OpenApiExplorer from '@site/src/components/OpenApiExplorer';
 import { ApiBaseUrl, ExampleApiKey, AppUrl } from '@site/src/components/DynamicValues';
 
-<head>
-  <link rel="stylesheet" href="/css/next-steps.css" />
-  <script src="/js/next-steps.js"></script>
-</head>
-
 # API Explorer
 
 <div className="explorer-header">
