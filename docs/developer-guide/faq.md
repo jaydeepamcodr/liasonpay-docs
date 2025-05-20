@@ -9,10 +9,10 @@ import { AppUrl, ApiRateLimit, ApiBaseUrl } from '@site/src/components/DynamicVa
     <h1>FAQ / Troubleshooting</h1>
     <p>Find answers to frequently asked questions and solutions to common issues when working with the LiasonPay API. Browse by category or search for specific topics.</p>
     <div className="explorer-buttons">
-      <a href="/docs-v2/api-reference" className="button button--primary button--lg">
+      <a href="/documentation/api-reference" className="button button--primary button--lg">
         <span>📚 API Reference</span>
       </a>
-      <a href="/docs-v2/developer-guide/error-handling" className="button button--secondary button--lg">
+      <a href="/documentation/developer-guide/error-handling" className="button button--secondary button--lg">
         <span>❌ Error Handling Guide</span>
       </a>
     </div>
@@ -1246,7 +1246,7 @@ res.status(500).json({ error: 'An error occurred' });
         <li><span className="benefit-icon">✓</span> Understand parameter requirements</li>
       </ul>
       <div className="next-step-action">
-        <a href="/docs-v2/interactive-tools/api-explorer" className="button button--primary">
+        <a href="/documentation/interactive-tools/api-explorer" className="button button--primary">
           <span className="button-text">Open API Explorer</span>
           <span className="button-icon">→</span>
         </a>
@@ -1270,7 +1270,7 @@ res.status(500).json({ error: 'An error occurred' });
         <li><span className="benefit-icon">✓</span> Improve user experience</li>
       </ul>
       <div className="next-step-action">
-        <a href="/docs-v2/developer-guide/error-handling" className="button button--primary">
+        <a href="/documentation/developer-guide/error-handling" className="button button--primary">
           <span className="button-text">View Error Guide</span>
           <span className="button-icon">→</span>
         </a>
@@ -1294,7 +1294,7 @@ res.status(500).json({ error: 'An error occurred' });
         <li><span className="benefit-icon">✓</span> Keep data in sync</li>
       </ul>
       <div className="next-step-action">
-        <a href="/docs-v2/developer-guide/webhooks" className="button button--primary">
+        <a href="/documentation/developer-guide/webhooks" className="button button--primary">
           <span className="button-text">Webhook Guide</span>
           <span className="button-icon">→</span>
         </a>
@@ -1331,7 +1331,7 @@ res.status(500).json({ error: 'An error occurred' });
       <div className="support-option-icon">📚</div>
       <div className="support-option-content">
         <h3 className="support-option-title">Documentation</h3>
-        <p className="support-option-description">Browse our <a href="/docs-v2">detailed documentation</a></p>
+        <p className="support-option-description">Browse our <a href="/documentation">detailed documentation</a></p>
       </div>
     </div>
 

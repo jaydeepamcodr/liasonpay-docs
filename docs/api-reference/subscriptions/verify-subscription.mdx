@@ -2,8 +2,15 @@
 sidebar_position: 3
 ---
 
-import ApiTester from '@site/src/components/ApiTester';
-import { AppUrl, ApiBaseUrl, ExampleApiKey, ExampleStoreId, ExamplePriceId, ExampleSubscriptionId } from '@site/src/components/DynamicValues';
+import ApiTester from "@site/src/components/ApiTester";
+import {
+  AppUrl,
+  ApiBaseUrl,
+  ExampleApiKey,
+  ExampleStoreId,
+  ExamplePriceId,
+  ExampleSubscriptionId,
+} from "@site/src/components/DynamicValues";
 
 # Verify Subscription
 
@@ -24,12 +31,13 @@ import { AppUrl, ApiBaseUrl, ExampleApiKey, ExampleStoreId, ExamplePriceId, Exam
     <h3>Endpoint</h3>
     <div className="code-block-container">
       <pre className="code-block">
-```http
-POST {ApiBaseUrl()}/subscription/verify
-```
+        ```http POST {ApiBaseUrl()}/subscription/verify ```
       </pre>
     </div>
-    <p>This endpoint allows you to verify the status of a subscription after the customer has been redirected to the checkout page.</p>
+    <p>
+      This endpoint allows you to verify the status of a subscription after the
+      customer has been redirected to the checkout page.
+    </p>
   </div>
 </div>
 
@@ -50,10 +58,20 @@ POST {ApiBaseUrl()}/subscription/verify
         </thead>
         <tbody>
           <tr>
-            <td><code>subscription_request_id</code></td>
-            <td><span className="param-type">string</span></td>
-            <td><span className="param-required">Yes</span></td>
-            <td>The ID of the subscription request. The <code>log_id</code> of an existing record in the subscription_logs table. Must not be greater than 255 characters.</td>
+            <td>
+              <code>subscription_request_id</code>
+            </td>
+            <td>
+              <span className="param-type">string</span>
+            </td>
+            <td>
+              <span className="param-required">Yes</span>
+            </td>
+            <td>
+              The ID of the subscription request. The <code>log_id</code> of an
+              existing record in the subscription_logs table. Must not be
+              greater than 255 characters.
+            </td>
           </tr>
         </tbody>
       </table>
@@ -77,74 +95,146 @@ POST {ApiBaseUrl()}/subscription/verify
         </thead>
         <tbody>
           <tr>
-            <td><code>status</code></td>
-            <td><span className="param-type">boolean</span></td>
+            <td>
+              <code>status</code>
+            </td>
+            <td>
+              <span className="param-type">boolean</span>
+            </td>
             <td>Whether the request was successful.</td>
           </tr>
           <tr>
-            <td><code>message</code></td>
-            <td><span className="param-type">string</span></td>
+            <td>
+              <code>message</code>
+            </td>
+            <td>
+              <span className="param-type">string</span>
+            </td>
             <td>A message describing the result of the request.</td>
           </tr>
           <tr>
-            <td><code>data</code></td>
-            <td><span className="param-type">object</span></td>
+            <td>
+              <code>data</code>
+            </td>
+            <td>
+              <span className="param-type">object</span>
+            </td>
             <td>The subscription data.</td>
           </tr>
           <tr>
-            <td><code>data.subscription_id</code></td>
-            <td><span className="param-type">string</span></td>
+            <td>
+              <code>data.subscription_id</code>
+            </td>
+            <td>
+              <span className="param-type">string</span>
+            </td>
             <td>The unique identifier for the subscription.</td>
           </tr>
           <tr>
-            <td><code>data.store_id</code></td>
-            <td><span className="param-type">string</span></td>
+            <td>
+              <code>data.store_id</code>
+            </td>
+            <td>
+              <span className="param-type">string</span>
+            </td>
             <td>The ID of the store the subscription belongs to.</td>
           </tr>
           <tr>
-            <td><code>data.customer_id</code></td>
-            <td><span className="param-type">string</span></td>
+            <td>
+              <code>data.customer_id</code>
+            </td>
+            <td>
+              <span className="param-type">string</span>
+            </td>
             <td>The ID of the customer who owns the subscription.</td>
           </tr>
           <tr>
-            <td><code>data.price_id</code></td>
-            <td><span className="param-type">string</span></td>
+            <td>
+              <code>data.price_id</code>
+            </td>
+            <td>
+              <span className="param-type">string</span>
+            </td>
             <td>The ID of the price associated with the subscription.</td>
           </tr>
           <tr>
-            <td><code>data.status</code></td>
-            <td><span className="param-type">string</span></td>
-            <td>The status of the subscription. Possible values: <code>active</code>, <code>canceled</code>, <code>past_due</code>, <code>unpaid</code>, <code>trialing</code>.</td>
+            <td>
+              <code>data.status</code>
+            </td>
+            <td>
+              <span className="param-type">string</span>
+            </td>
+            <td>
+              The status of the subscription. Possible values:{" "}
+              <code>active</code>, <code>canceled</code>, <code>past_due</code>,{" "}
+              <code>unpaid</code>, <code>trialing</code>.
+            </td>
           </tr>
           <tr>
-            <td><code>data.current_period_start</code></td>
-            <td><span className="param-type">string</span></td>
-            <td>The start date of the current billing period in ISO 8601 format.</td>
+            <td>
+              <code>data.current_period_start</code>
+            </td>
+            <td>
+              <span className="param-type">string</span>
+            </td>
+            <td>
+              The start date of the current billing period in ISO 8601 format.
+            </td>
           </tr>
           <tr>
-            <td><code>data.current_period_end</code></td>
-            <td><span className="param-type">string</span></td>
-            <td>The end date of the current billing period in ISO 8601 format.</td>
+            <td>
+              <code>data.current_period_end</code>
+            </td>
+            <td>
+              <span className="param-type">string</span>
+            </td>
+            <td>
+              The end date of the current billing period in ISO 8601 format.
+            </td>
           </tr>
           <tr>
-            <td><code>data.cancel_at_period_end</code></td>
-            <td><span className="param-type">boolean</span></td>
-            <td>Whether the subscription will be canceled at the end of the current period.</td>
+            <td>
+              <code>data.cancel_at_period_end</code>
+            </td>
+            <td>
+              <span className="param-type">boolean</span>
+            </td>
+            <td>
+              Whether the subscription will be canceled at the end of the
+              current period.
+            </td>
           </tr>
           <tr>
-            <td><code>data.canceled_at</code></td>
-            <td><span className="param-type">string</span></td>
-            <td>If the subscription has been canceled, the date of that cancellation in ISO 8601 format.</td>
+            <td>
+              <code>data.canceled_at</code>
+            </td>
+            <td>
+              <span className="param-type">string</span>
+            </td>
+            <td>
+              If the subscription has been canceled, the date of that
+              cancellation in ISO 8601 format.
+            </td>
           </tr>
           <tr>
-            <td><code>data.created_at</code></td>
-            <td><span className="param-type">string</span></td>
+            <td>
+              <code>data.created_at</code>
+            </td>
+            <td>
+              <span className="param-type">string</span>
+            </td>
             <td>The date the subscription was created in ISO 8601 format.</td>
           </tr>
           <tr>
-            <td><code>data.updated_at</code></td>
-            <td><span className="param-type">string</span></td>
-            <td>The date the subscription was last updated in ISO 8601 format.</td>
+            <td>
+              <code>data.updated_at</code>
+            </td>
+            <td>
+              <span className="param-type">string</span>
+            </td>
+            <td>
+              The date the subscription was last updated in ISO 8601 format.
+            </td>
           </tr>
         </tbody>
       </table>
@@ -402,7 +492,7 @@ def verify_subscription():
     <p>Use the interactive API tester below to try out this endpoint with your own API key and parameters.</p>
 
     <ApiTester
-      endpoint="/api/v1/subscription/verify"
+      endpoint="/subscription/verify"
       method="POST"
       baseUrl="{ApiBaseUrl()}"
       params={[

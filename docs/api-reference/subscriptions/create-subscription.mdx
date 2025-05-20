@@ -252,8 +252,8 @@ import {
               <span className="param-required">Yes</span>
             </td>
             <td>
-              The mode of the subscription. Must be one of: <code>sandbox</code>,{" "}
-              <code>production</code>.
+              The mode of the subscription. Must be one of: <code>sandbox</code>
+              , <code>production</code>.
             </td>
           </tr>
         </tbody>
@@ -629,7 +629,7 @@ def create_subscription():
     <p>Use the interactive API tester below to try out this endpoint with your own API key and parameters.</p>
 
     <ApiTester
-      endpoint="/api/v1/subscription/create"
+      endpoint="/subscription/create"
       method="POST"
       baseUrl="{ApiBaseUrl()}"
       params={[

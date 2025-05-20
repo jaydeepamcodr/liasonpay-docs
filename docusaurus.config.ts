@@ -26,7 +26,7 @@ const config: Config = {
   // Set the production url of your site here
   url: APP_URL,
   // Set the /<baseUrl>/ pathname under which your site is served
-  baseUrl: "/docs-v2",
+  baseUrl: "/documentation",
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -55,35 +55,35 @@ const config: Config = {
   // Add custom scripts
   scripts: [
     {
-      src: "/docs-v2/js/custom.js",
+      src: "/documentation/js/custom.js",
       async: true,
     },
     {
-      src: "/docs-v2/js/api-reference.js",
+      src: "/documentation/js/api-reference.js",
       async: true,
     },
     {
-      src: "/docs-v2/js/homepage.js",
+      src: "/documentation/js/homepage.js",
       async: true,
     },
     {
-      src: "/docs-v2/js/authentication-tabs.js",
+      src: "/documentation/js/authentication-tabs.js",
       async: true,
     },
     {
-      src: "/docs-v2/js/next-steps.js",
+      src: "/documentation/js/next-steps.js",
       async: true,
     },
     {
-      src: "/docs-v2/js/testing-environments.js",
+      src: "/documentation/js/testing-environments.js",
       async: true,
     },
     {
-      src: "/docs-v2/js/faq-section.js",
+      src: "/documentation/js/faq-section.js",
       async: true,
     },
     {
-      src: "/docs-v2/js/faq-page.js",
+      src: "/documentation/js/faq-page.js",
       async: true,
     },
   ],
@@ -91,16 +91,16 @@ const config: Config = {
   // Add custom stylesheets
   stylesheets: [
     {
-      href: "/docs-v2/css/authentication-tabs.css",
+      href: "/documentation/css/authentication-tabs.css",
     },
     {
-      href: "/docs-v2/css/next-steps.css",
+      href: "/documentation/css/next-steps.css",
     },
     {
-      href: "/docs-v2/css/testing-environments.css",
+      href: "/documentation/css/testing-environments.css",
     },
     {
-      href: "/docs-v2/css/faq-page.css",
+      href: "/documentation/css/faq-page.css",
     },
   ],
 

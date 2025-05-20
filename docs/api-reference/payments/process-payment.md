@@ -564,7 +564,7 @@ def process_payment():
     <p>Use the interactive API tester below to try out this endpoint with your own API key and parameters.</p>
 
     <ApiTester
-      endpoint="/api/v1/payments/process"
+      endpoint="/payments/process"
       method="POST"
       baseUrl="{ApiBaseUrl()}"
       params={[

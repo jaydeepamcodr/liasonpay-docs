@@ -466,7 +466,7 @@ def get_packages():
     <p>Use the interactive API tester below to try out this endpoint with your own API key and parameters.</p>
 
     <ApiTester
-      endpoint="/api/v1/packages/get"
+      endpoint="/packages/get"
       method="GET"
       baseUrl="{ApiBaseUrl()}"
       params={[

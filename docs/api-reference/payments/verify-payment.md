@@ -399,7 +399,7 @@ def verify_payment():
     <p>Use the interactive API tester below to try out this endpoint with your own API key and parameters.</p>
 
     <ApiTester
-      endpoint="/api/v1/payments/verify"
+      endpoint="/payments/verify"
       method="POST"
       baseUrl="{ApiBaseUrl()}"
       params={[
