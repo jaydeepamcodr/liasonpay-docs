@@ -65,6 +65,15 @@ const sidebars: SidebarsConfig = {
       label: "Package Endpoints",
       items: ["api-reference/packages/get-packages"],
     },
+    "api-reference/disputes",
+    {
+      type: "category",
+      label: "Dispute Endpoints",
+      items: [
+        "api-reference/disputes/raise-dispute",
+        "api-reference/disputes/view-dispute",
+      ],
+    },
     "api-reference/faq",
   ],
 

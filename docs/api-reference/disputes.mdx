@@ -1,0 +1,200 @@
+---
+sidebar_position: 5
+---
+
+import {
+  ApiBaseUrl,
+  ExampleApiKey,
+  ExampleStoreId,
+  ExampleTransactionId,
+  ApiRateLimit,
+  AppUrl,
+} from "@site/src/components/DynamicValues";
+import { getDocsUrl } from "@site/src/components/DocsUrl";
+
+# Dispute API
+
+<div className="explorer-header">
+  <div className="explorer-header-content">
+    <h2>Dispute Management API</h2>
+    <p>Manage payment disputes and chargebacks</p>
+  </div>
+</div>
+
+<div className="introduction-section">
+  <div className="introduction-card">
+    <h3>Overview</h3>
+    <p>
+      The Dispute API allows you to manage payment disputes and chargebacks.
+      These endpoints provide a way to raise disputes for transactions and view
+      dispute details.
+    </p>
+  </div>
+</div>
+
+## Available Endpoints
+
+<div className="endpoints-section">
+  <div className="endpoints-card">
+    <div className="endpoint-category">
+      <div className="endpoint-list">
+        <div className="endpoint-item">
+          <div className="endpoint-icon">⚠️</div>
+          <div className="endpoint-content">
+            <a href={getDocsUrl("api-reference/disputes/raise-dispute")}>Raise Dispute</a>
+            <p>Raise a dispute for a transaction</p>
+          </div>
+        </div>
+
+        <div className="endpoint-item">
+          <div className="endpoint-icon">🔍</div>
+          <div className="endpoint-content">
+            <a href={getDocsUrl("api-reference/disputes/view-dispute")}>View Dispute</a>
+            <p>Get dispute details for a transaction</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+## Common Use Cases
+
+<div className="use-cases-section">
+  <div className="use-case-item">
+    <h4>Customer Complaints</h4>
+    <p>Allow customers to raise disputes for transactions they believe are incorrect or fraudulent.</p>
+  </div>
+
+{" "}
+
+<div className="use-case-item">
+  <h4>Dispute Resolution</h4>
+  <p>
+    Track and manage disputes through their lifecycle, from creation to
+    resolution.
+  </p>
+</div>
+
+  <div className="use-case-item">
+    <h4>Chargeback Management</h4>
+    <p>Handle chargebacks efficiently by accessing dispute details and providing evidence.</p>
+  </div>
+</div>
+
+## Dispute Lifecycle
+
+<div className="lifecycle-section">
+  <div className="lifecycle-card">
+    <h3>Understanding the Dispute Process</h3>
+    <div className="lifecycle-steps">
+      <div className="lifecycle-step">
+        <div className="step-number">1</div>
+        <div className="step-content">
+          <h4>Dispute Creation</h4>
+          <p>A dispute is created when a customer raises an issue with a transaction.</p>
+        </div>
+      </div>
+
+      <div className="lifecycle-step">
+        <div className="step-number">2</div>
+        <div className="step-content">
+          <h4>Evidence Collection</h4>
+          <p>Both parties provide evidence to support their case.</p>
+        </div>
+      </div>
+
+      <div className="lifecycle-step">
+        <div className="step-number">3</div>
+        <div className="step-content">
+          <h4>Review Process</h4>
+          <p>The payment processor reviews the evidence and makes a decision.</p>
+        </div>
+      </div>
+
+      <div className="lifecycle-step">
+        <div className="step-number">4</div>
+        <div className="step-content">
+          <h4>Resolution</h4>
+          <p>The dispute is resolved, and the outcome is communicated to both parties.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+## Getting Started
+
+To start using the Dispute API, you'll need:
+
+1. Your API key for authentication
+2. The transaction ID for the disputed payment
+
+Check out the [Raise Dispute](/api-reference/disputes/raise-dispute) endpoint to begin implementing dispute functionality in your application.
+
+## Webhook Events
+
+<div className="webhook-section">
+  <div className="webhook-card">
+    <h3>Real-time Dispute Notifications</h3>
+    <p>
+      LiasonPay sends webhook events for dispute-related activities. Subscribe to these events to stay informed about dispute status changes.
+    </p>
+
+    <div className="webhook-events">
+      <div className="webhook-event">
+        <div className="webhook-event-name">
+          <code>charge.dispute.created</code>
+        </div>
+        <div className="webhook-event-description">
+          Triggered when a new dispute is created
+        </div>
+      </div>
+
+      <div className="webhook-event">
+        <div className="webhook-event-name">
+          <code>charge.dispute.closed</code>
+        </div>
+        <div className="webhook-event-description">
+          Triggered when a dispute is resolved
+        </div>
+      </div>
+    </div>
+
+    <p>
+      For more information on webhooks, see the <a href={getDocsUrl("developer-guide/webhooks")}>Webhooks Guide</a>.
+    </p>
+
+  </div>
+</div>
+
+## Next Steps
+
+<div className="next-steps-section">
+  <div className="next-step-card">
+    <h3>🔔 Set Up Webhooks</h3>
+    <p>Receive real-time notifications about dispute events</p>
+    <a href={getDocsUrl("developer-guide/webhooks")} className="button button--secondary">View Webhooks Guide</a>
+  </div>
+
+{" "}
+
+<div className="next-step-card">
+  <h3>❓ FAQ</h3>
+  <p>Find answers to common questions about disputes</p>
+  <a
+    href={getDocsUrl("api-reference/faq")}
+    className="button button--secondary"
+  >
+    View FAQ
+  </a>
+</div>
+
+  <div className="next-step-card">
+    <h3>📚 API Reference</h3>
+    <p>Explore all available API endpoints</p>
+    <a href={getDocsUrl("api-reference")} className="button button--secondary">View API Reference</a>
+  </div>
+</div>

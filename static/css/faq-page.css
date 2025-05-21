@@ -798,7 +798,7 @@
 /* Next Steps Section */
 .next-steps-section {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, -3fr));
   gap: 1.5rem;
   margin: 2rem 0;
 }

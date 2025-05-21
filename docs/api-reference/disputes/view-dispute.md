@@ -1,0 +1,306 @@
+---
+sidebar_position: 2
+---
+
+import ApiTester from '@site/src/components/ApiTester';
+import { AppUrl, ApiBaseUrl, ExampleApiKey, ExampleStoreId, ExampleTransactionId } from '@site/src/components/DynamicValues';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# View Dispute
+
+<div className="explorer-header">
+  <div className="explorer-header-content">
+    <h2>Get Dispute Details</h2>
+    <p>Retrieve information about a specific dispute</p>
+    <div className="explorer-badges">
+      <span className="badge badge--primary">requires authentication</span>
+      <span className="badge badge--info">POST</span>
+      <span className="badge badge--info">/api/v1/disputes/view</span>
+    </div>
+  </div>
+</div>
+
+<div className="endpoint-section">
+  <div className="endpoint-card">
+    <h3>Endpoint</h3>
+    <div className="code-block-container">
+      <pre className="code-block">
+```http
+POST {ApiBaseUrl()}/disputes/view
+```
+      </pre>
+    </div>
+    <p>This endpoint allows you to retrieve detailed information about a specific dispute, including its current status, reason, and associated transaction details.</p>
+  </div>
+</div>
+
+## Request Parameters
+
+<div className="parameters-section">
+  <div className="parameters-card">
+    <h3>Required Parameters</h3>
+    <div className="parameters-table-container">
+      <table className="parameters-table">
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Type</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>dispute_id</code></td>
+            <td>string</td>
+            <td>The ID of the dispute to retrieve</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+## Example Request
+
+<Tabs>
+  <TabItem value="curl" label="cURL" default>
+    <div className="code-block-container">
+      <pre className="code-block">
+```bash
+curl --request POST \
+    "{ApiBaseUrl()}/disputes/view?dispute_id=DSP_9EEC97F54D0A486383ED676DC2110E22" \
+    --header "Authorization: Bearer YOUR_API_KEY" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"
+```
+      </pre>
+    </div>
+  </TabItem>
+  <TabItem value="javascript" label="Node.js">
+    <div className="code-block-container">
+      <pre className="code-block">
+```javascript
+const axios = require("axios");
+
+const viewDispute = async () => {
+  // Initialize API client
+  const liasonpay = axios.create({
+    baseURL: "{ApiBaseUrl()}",
+    headers: {
+      Authorization: `Bearer ${process.env.LIASONPAY_API_KEY}`,
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+  });
+
+  try {
+    const response = await liasonpay.post("/disputes/view", null, {
+      params: {
+        dispute_id: "DSP_9EEC97F54D0A486383ED676DC2110E22"
+      }
+    });
+
+    console.log(response.data);
+    return response.data;
+  } catch (error) {
+    console.error(
+      "Error retrieving dispute:",
+      error.response?.data || error.message
+    );
+    throw error;
+  }
+};
+```
+      </pre>
+    </div>
+  </TabItem>
+  <TabItem value="python" label="Python">
+    <div className="code-block-container">
+      <pre className="code-block">
+```python
+import requests
+import os
+
+def view_dispute():
+    # API configuration
+    api_base_url = "{ApiBaseUrl()}"
+    api_key = os.environ.get("LIASONPAY_API_KEY")
+
+    url = f"{api_base_url}/disputes/view"
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+    }
+    params = {
+        "dispute_id": "DSP_9EEC97F54D0A486383ED676DC2110E22"
+    }
+
+    try:
+        response = requests.post(url, headers=headers, params=params)
+        response.raise_for_status()
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"Error retrieving dispute: {e}")
+        raise
+```
+      </pre>
+    </div>
+  </TabItem>
+</Tabs>
+
+## Example Response
+
+<div className="response-section">
+  <div className="response-card">
+    <h3>Success Response</h3>
+    <div className="code-block-container">
+      <pre className="code-block">
+```json
+{
+  "status": true,
+  "message": "Dispute details retrieved successfully",
+  "data": {
+    "dispute_id": "DSP_9EEC97F54D0A486383ED676DC2110E22",
+    "transaction_id": "TRX_1234567890",
+    "merchant_id": "MERCHANT_001",
+    "amount": 100.00,
+    "currency": "USD",
+    "status": "open",
+    "reason": "Item not as described",
+    "description": "The item was damaged and different from the listing photo.",
+    "created_at": "2023-05-15T10:50:00Z",
+    "updated_at": "2023-05-15T10:50:00Z",
+    "attachments": [
+      {
+        "id": "ATT_001",
+        "filename": "evidence.jpg",
+        "url": "https://liasonpay.net/attachments/evidence.jpg",
+        "content_type": "image/jpeg",
+        "created_at": "2023-05-15T10:50:00Z"
+      }
+    ],
+    "metadata": {
+      "order_id": "12345",
+      "customer_reference": "CUST-001"
+    }
+  }
+}
+```
+      </pre>
+    </div>
+  </div>
+
+  <div className="response-card">
+    <h3>Error Response</h3>
+    <div className="code-block-container">
+      <pre className="code-block">
+```json
+{
+  "status": false,
+  "message": "Failed to retrieve dispute details",
+  "errors": {
+    "dispute_id": [
+      "The dispute ID is invalid or not found."
+    ]
+  }
+}
+```
+      </pre>
+    </div>
+  </div>
+</div>
+
+## Dispute Status Values
+
+<div className="status-section">
+  <div className="status-card">
+    <h3>Understanding Dispute Statuses</h3>
+    <div className="status-table-container">
+      <table className="status-table">
+        <thead>
+          <tr>
+            <th>Status</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>open</code></td>
+            <td>The dispute has been created and is under review</td>
+          </tr>
+          <tr>
+            <td><code>under_review</code></td>
+            <td>The dispute is being reviewed by the payment processor</td>
+          </tr>
+          <tr>
+            <td><code>won</code></td>
+            <td>The dispute was resolved in favor of the merchant</td>
+          </tr>
+          <tr>
+            <td><code>lost</code></td>
+            <td>The dispute was resolved in favor of the customer</td>
+          </tr>
+          <tr>
+            <td><code>closed</code></td>
+            <td>The dispute has been closed (may be due to withdrawal or other reasons)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+## Notes
+
+<div className="notes-section">
+  <div className="notes-card">
+    <div className="notes-items">
+      <div className="notes-item">
+        <div className="notes-icon">🔄</div>
+        <div className="notes-content">
+          <p>Regularly check the status of disputes to stay updated on their progress.</p>
+        </div>
+      </div>
+
+      <div className="notes-item">
+        <div className="notes-icon">📊</div>
+        <div className="notes-content">
+          <p>The <code>status</code> field indicates the current state of the dispute in the resolution process.</p>
+        </div>
+      </div>
+
+      <div className="notes-item">
+        <div className="notes-icon">🔔</div>
+        <div className="notes-content">
+          <p>Set up webhooks to receive real-time notifications when a dispute's status changes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Interactive Testing
+
+<div className="interactive-testing-section">
+  <div className="interactive-testing-card">
+    <h3>Try It Out</h3>
+    <p>Use the interactive API tester below to try out this endpoint with your own API key and parameters.</p>
+
+    <ApiTester
+      endpoint="/disputes/view"
+      method="POST"
+      baseUrl="{ApiBaseUrl()}"
+      params={[
+        {
+          name: "dispute_id",
+          required: true,
+          in: "query",
+          description: "The ID of the dispute to retrieve",
+          defaultValue: "DSP_9EEC97F54D0A486383ED676DC2110E22"
+        }
+      ]}
+    />
+  </div>
+</div>

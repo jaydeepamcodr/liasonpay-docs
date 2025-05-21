@@ -189,6 +189,29 @@ Authorization: Bearer <ExampleApiKey />
       </div>
     </div>
 
+    <div className="endpoint-category">
+      <h4>Dispute Endpoints</h4>
+      <p>The Dispute API allows you to manage payment disputes and chargebacks.</p>
+
+      <div className="endpoint-list">
+        <div className="endpoint-item">
+          <div className="endpoint-icon">⚠️</div>
+          <div className="endpoint-content">
+            <a href={getDocsUrl("api-reference/disputes/raise-dispute")}>Raise Dispute</a>
+            <p>Raise a dispute for a transaction</p>
+          </div>
+        </div>
+
+        <div className="endpoint-item">
+          <div className="endpoint-icon">🔍</div>
+          <div className="endpoint-content">
+            <a href={getDocsUrl("api-reference/disputes/view-dispute")}>View Dispute</a>
+            <p>Get dispute details for a transaction</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
