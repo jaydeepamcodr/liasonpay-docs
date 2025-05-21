@@ -3,7 +3,6 @@
 .code-block-wrapper {
   margin: 1.5rem 0;
   border-radius: 8px;
-  overflow: hidden;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   background-color: var(--ifm-code-background);
   border: 1px solid var(--ifm-color-emphasis-300);
@@ -95,7 +94,8 @@
   font-family: var(--ifm-font-family-monospace);
   font-size: var(--ifm-code-font-size);
   line-height: 1.5;
-  overflow: visible;
+  white-space: pre;
+  min-width: 0;
 }
 
 /* Line styles */
@@ -162,7 +162,6 @@
 .code-tabs-wrapper {
   margin: 1.5rem 0;
   border-radius: 8px;
-  overflow: hidden;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   background-color: var(--ifm-code-background);
   border: 1px solid var(--ifm-color-emphasis-300);

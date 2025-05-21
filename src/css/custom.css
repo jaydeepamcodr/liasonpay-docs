@@ -405,13 +405,6 @@
   margin-top: 2rem;
 }
 
-.code-block-container {
-  margin: 1.5rem 0;
-  background-color: var(--ifm-code-background);
-  border-radius: 8px;
-  overflow: hidden;
-}
-
 .code-block {
   margin: 0;
   padding: 1rem;

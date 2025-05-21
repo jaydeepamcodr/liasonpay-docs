@@ -6,6 +6,7 @@ import ApiTester from '@site/src/components/ApiTester';
 import { AppUrl, ApiBaseUrl, ExampleApiKey, ExampleStoreId, ExampleTransactionId } from '@site/src/components/DynamicValues';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
 
 # Raise Dispute
 
@@ -24,13 +25,9 @@ import TabItem from '@theme/TabItem';
 <div className="endpoint-section">
   <div className="endpoint-card">
     <h3>Endpoint</h3>
-    <div className="code-block-container">
-      <pre className="code-block">
-```http
-POST {ApiBaseUrl()}/disputes/raise
-```
-      </pre>
-    </div>
+    <CodeBlock className="language-http" title="HTTP Request">
+{`POST {ApiBaseUrl()}/disputes/raise`}
+    </CodeBlock>
     <p>This endpoint allows you to raise a dispute for a completed transaction. You can provide details about the dispute and attach supporting documents.</p>
   </div>
 </div>
@@ -102,10 +99,8 @@ POST {ApiBaseUrl()}/disputes/raise
 
 <Tabs>
   <TabItem value="curl" label="cURL" default>
-    <div className="code-block-container">
-      <pre className="code-block">
-```bash
-curl --request POST \
+    <CodeBlock className="language-bash" title="cURL Request">
+{`curl --request POST \
     "{ApiBaseUrl()}/disputes/raise" \
     --header "Authorization: Bearer YOUR_API_KEY" \
     --header "Content-Type: multipart/form-data" \
@@ -115,68 +110,58 @@ curl --request POST \
     --form "description=The item was damaged and different from the listing photo." \
     --form "metadata[order_id]=12345" \
     --form "metadata[customer_reference]=CUST-001" \
-    --form "attachments[]=@/path/to/evidence.jpg"
-```
-      </pre>
-    </div>
+    --form "attachments[]=@/path/to/evidence.jpg"`}
+    </CodeBlock>
   </TabItem>
   <TabItem value="javascript" label="Node.js">
-    <div className="code-block-container">
-      <pre className="code-block">
-```javascript
-const axios = require("axios");
+    <CodeBlock className="language-javascript" title="Node.js Example">
+{`const axios = require("axios");
 const FormData = require("form-data");
 const fs = require("fs");
 
 const raiseDispute = async () => {
-// Initialize form data
-const formData = new FormData();
-formData.append("transaction_id", "TRX_1234567890");
-formData.append("reason", "Item not as described");
-formData.append("description", "The item was damaged and different from the listing photo.");
-formData.append("metadata[order_id]", "12345");
-formData.append("metadata[customer_reference]", "CUST-001");
+  // Initialize form data
+  const formData = new FormData();
+  formData.append("transaction_id", "TRX_1234567890");
+  formData.append("reason", "Item not as described");
+  formData.append("description", "The item was damaged and different from the listing photo.");
+  formData.append("metadata[order_id]", "12345");
+  formData.append("metadata[customer_reference]", "CUST-001");
 
-// Add attachment if available
-const filePath = "/path/to/evidence.jpg";
-if (fs.existsSync(filePath)) {
-formData.append("attachments[]", fs.createReadStream(filePath));
-}
+  // Add attachment if available
+  const filePath = "/path/to/evidence.jpg";
+  if (fs.existsSync(filePath)) {
+    formData.append("attachments[]", fs.createReadStream(filePath));
+  }
 
-try {
-const response = await axios.post(
-"{ApiBaseUrl()}/disputes/raise",
-formData,
-{
-headers: {
-Authorization: `Bearer ${process.env.LIASONPAY_API_KEY}`,
-...formData.getHeaders(),
-Accept: "application/json",
-},
-}
-);
+  try {
+    const response = await axios.post(
+      "{ApiBaseUrl()}/disputes/raise",
+      formData,
+      {
+        headers: {
+          Authorization: \`Bearer \${process.env.LIASONPAY_API_KEY}\`,
+          ...formData.getHeaders(),
+          Accept: "application/json",
+        },
+      }
+    );
 
     console.log(response.data);
     return response.data;
-
-} catch (error) {
-console.error(
-"Error raising dispute:",
-error.response?.data || error.message
-);
-throw error;
-}
-};
-
-````
-      </pre>
-    </div>
+  } catch (error) {
+    console.error(
+      "Error raising dispute:",
+      error.response?.data || error.message
+    );
+    throw error;
+  }
+};`}
+    </CodeBlock>
   </TabItem>
   <TabItem value="python" label="Python">
-    <div className="code-block-container">
-      <pre className="code-block">
-```python
-import requests
+    <CodeBlock className="language-python" title="Python Example">
+{`import requests
 import os
 
 def raise_dispute():
@@ -210,12 +195,8 @@ def raise_dispute():
         return response.json()
     except requests.exceptions.RequestException as e:
         print(f"Error raising dispute: {e}")
-        raise
-````
-
-      </pre>
-    </div>
-
+        raise`}
+    </CodeBlock>
   </TabItem>
 </Tabs>
 
@@ -224,10 +205,8 @@ def raise_dispute():
 <div className="response-section">
   <div className="response-card">
     <h3>Success Response</h3>
-    <div className="code-block-container">
-      <pre className="code-block">
-```json
-{
+    <CodeBlock className="language-json" title="Success Response">
+{`{
   "status": true,
   "message": "Dispute raised successfully",
   "data": {
@@ -237,18 +216,14 @@ def raise_dispute():
     "status": "open",
     "created_at": "2023-05-15T10:50:00Z"
   }
-}
-```
-      </pre>
-    </div>
+}`}
+    </CodeBlock>
   </div>
 
   <div className="response-card">
     <h3>Error Response</h3>
-    <div className="code-block-container">
-      <pre className="code-block">
-```json
-{
+    <CodeBlock className="language-json" title="Error Response">
+{`{
   "status": false,
   "message": "Failed to raise dispute",
   "errors": {
@@ -256,10 +231,8 @@ def raise_dispute():
       "The transaction ID is invalid or not found."
     ]
   }
-}
-```
-      </pre>
-    </div>
+}`}
+    </CodeBlock>
   </div>
 </div>
 

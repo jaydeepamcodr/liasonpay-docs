@@ -316,7 +316,6 @@
   margin: 1.5rem 0;
   background-color: var(--ifm-code-background);
   border-radius: 8px;
-  overflow: hidden;
 }
 
 .code-block {
