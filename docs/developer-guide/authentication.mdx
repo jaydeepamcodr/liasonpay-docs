@@ -2,14 +2,17 @@
 sidebar_position: 2
 ---
 
-import { AppUrl, ExampleApiKey } from '@site/src/components/DynamicValues';
+import { AppUrl, ExampleApiKey } from "@site/src/components/DynamicValues";
 
 # Authentication
 
 <div className="explorer-header">
   <div className="explorer-header-content">
     <h2>Secure Your API Requests with Authentication</h2>
-    <p>Learn how to obtain and use API keys to authenticate your requests to the LiasonPay API</p>
+    <p>
+      Learn how to obtain and use API keys to authenticate your requests to the
+      LiasonPay API
+    </p>
   </div>
 </div>
 
@@ -52,16 +55,22 @@ import { AppUrl, ExampleApiKey } from '@site/src/components/DynamicValues';
     </div>
   </div>
 
-  <div className="setup-step">
-    <div className="step-number">2</div>
-    <div className="step-content">
-      <h3>Find API Keys Section</h3>
-      <ol>
-        <li>Click on the <strong>Profile icon</strong> in the top right corner</li>
-        <li>Click on the <strong>API Keys</strong> section</li>
-      </ol>
-    </div>
+{" "}
+
+<div className="setup-step">
+  <div className="step-number">2</div>
+  <div className="step-content">
+    <h3>Find API Keys Section</h3>
+    <ol>
+      <li>
+        Click on the <strong>Profile icon</strong> in the top right corner
+      </li>
+      <li>
+        Click on the <strong>API Keys</strong> section
+      </li>
+    </ol>
   </div>
+</div>
 
   <div className="setup-step">
     <div className="step-number">3</div>
@@ -83,12 +92,11 @@ import { AppUrl, ExampleApiKey } from '@site/src/components/DynamicValues';
     <p>To authenticate your API requests, include an <strong>Authorization</strong> header with the value <strong>"Bearer {'{API_KEY}'}"</strong>.</p>
     <div className="code-block-container">
       <pre className="code-block">
-```http
-Authorization: Bearer {ExampleApiKey()}
-```
+        <code>Authorization: Bearer ${ExampleApiKey()}</code>
       </pre>
     </div>
     <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the API Reference documentation.</p>
+
   </div>
 
   <div className="example-card">

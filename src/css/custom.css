@@ -5,6 +5,7 @@
  */
 
 @import './api-reference.css';
+@import '../components/CodeBlock.css';
 
 /* You can override the default Infima variables here. */
 :root {

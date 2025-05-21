@@ -2,9 +2,11 @@
 sidebar_position: 2
 ---
 
-import { AppUrl, ApiBaseUrl, ExampleApiKey } from '@site/src/components/DynamicValues';
+import { AppUrl, ApiBaseUrl, ExampleApiKey, ExampleStoreId } from '@site/src/components/DynamicValues';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import CodeBlock, { CodeTabs } from '@site/src/components/CodeBlock';
+import * as CodeExamples from '@site/src/components/CodeExamples';
 
 # Authentication
 
@@ -90,18 +92,12 @@ import TabItem from '@theme/TabItem';
         <h4>Authentication Header Format</h4>
         <p>To authenticate your API requests, include an <code>Authorization</code> header with the value <code>Bearer YOUR_API_KEY</code>.</p>
 
-        <div className="code-block-container">
-          <div className="code-block-header">
-            <span>HTTP Header</span>
-          </div>
-          <pre className="code-block">
-
-```http
-Authorization: Bearer ${ExampleApiKey()}
-```
-
-          </pre>
-        </div>
+        <CodeBlock
+          language="http"
+          title="HTTP Header"
+        >
+{CodeExamples.AUTH_HEADER}
+        </CodeBlock>
 
         <div className="note-box">
           <div className="note-icon">💡</div>
@@ -115,22 +111,12 @@ Authorization: Bearer ${ExampleApiKey()}
         <h4>Example Request with Authentication</h4>
         <p>Here's a complete example of an authenticated API request using cURL:</p>
 
-        <div className="code-block-container">
-          <div className="code-block-header">
-            <span>cURL Example</span>
-          </div>
-          <pre className="code-block">
-
-```bash
-curl --request GET \
-  --url "${ApiBaseUrl()}/subscription/get?store_id=STORE_123" \
-  --header "Authorization: Bearer ${ExampleApiKey()}" \
-  --header "Content-Type: application/json" \
-  --header "Accept: application/json"
-```
-
-          </pre>
-        </div>
+        <CodeBlock
+          language="bash"
+          title="cURL Example"
+        >
+{CodeExamples.CURL_GET_SUBSCRIPTION}
+        </CodeBlock>
       </TabItem>
     </Tabs>
 
@@ -178,67 +164,27 @@ curl --request GET \
         <h4>Use Environment Variables</h4>
         <p>Store API keys in environment variables rather than hardcoding them:</p>
 
-        <Tabs>
-          <TabItem value="nodejs" label="Node.js" default>
-            <div className="code-block-container">
-              <pre className="code-block">
-                <code className="language-javascript">
-{`// Node.js example
-const apiKey = process.env.LIASONPAY_API_KEY;
-
-// Using with a request
-const response = await fetch("https://api.example.com", {
-  headers: {
-    Authorization: \`Bearer \${apiKey}\`,
-  },
-});`}
-                </code>
-              </pre>
-            </div>
-          </TabItem>
-
-          <TabItem value="python" label="Python">
-            <div className="code-block-container">
-              <pre className="code-block">
-                <code className="language-python">
-{`# Python example
-import os
-import requests
-
-api_key = os.environ.get('LIASONPAY_API_KEY')
-
-# Using with a request
-response = requests.get(
-    'https://api.example.com',
-    headers={'Authorization': f'Bearer {api_key}'}
-)`}
-                </code>
-              </pre>
-            </div>
-          </TabItem>
-
-          <TabItem value="php" label="PHP">
-            <div className="code-block-container">
-              <pre className="code-block">
-                <code className="language-php">
-{`<?php
-// PHP example
-$apiKey = getenv('LIASONPAY_API_KEY');
-
-// Using with a request
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://api.example.com');
-curl_setopt($ch, CURLOPT_HTTPHEADER, [
-    'Authorization: Bearer ' . $apiKey,
-    'Content-Type: application/json'
-]);
-$response = curl_exec($ch);
-?>`}
-                </code>
-              </pre>
-            </div>
-          </TabItem>
-        </Tabs>
+        <CodeTabs
+          tabs={[
+            {
+              language: 'javascript',
+              label: 'Node.js',
+              code: CodeExamples.NODE_ENV_VARS
+            },
+            {
+              language: 'python',
+              label: 'Python',
+              code: CodeExamples.PYTHON_ENV_VARS
+            },
+            {
+              language: 'php',
+              label: 'PHP',
+              code: CodeExamples.PHP_ENV_VARS
+            }
+          ]}
+          title="Environment Variables Examples"
+          showLineNumbers={true}
+        />
       </div>
     </div>
 
@@ -317,7 +263,6 @@ $response = curl_exec($ch);
         </div>
       </div>
     </div>
-
   </div>
 
   <div className="security-summary-box">
@@ -382,25 +327,15 @@ $response = curl_exec($ch);
 
     <div className="error-example-card">
       <h4>Example Authentication Error Response</h4>
-      <div className="code-block-container">
-        <div className="code-block-header">
-          <span>JSON Response</span>
-          <span className="code-example-badge bad">Error Response</span>
-        </div>
-        <pre className="code-block">
-
-```json
-{
-  "status": false,
-  "message": "Invalid or inactive API key.",
-  "data": {}
-}
-```
-
-        </pre>
-      </div>
+      <CodeBlock
+        language="json"
+        title="JSON Response"
+        badge="bad"
+        badgeText="Error Response"
+      >
+{CodeExamples.AUTH_ERROR_RESPONSE}
+      </CodeBlock>
     </div>
-
   </div>
 </div>
 
@@ -447,7 +382,6 @@ $response = curl_exec($ch);
         <p>Currently, API keys have full access to your account. We recommend using different API keys for different applications and implementing proper access controls in your own systems.</p>
       </div>
     </div>
-
   </div>
 </div>
 
@@ -549,7 +483,6 @@ $response = curl_exec($ch);
         </div>
       </div>
     </div>
-
   </div>
 
   <div className="help-resources-box">

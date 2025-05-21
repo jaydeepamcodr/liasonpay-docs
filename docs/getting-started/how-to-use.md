@@ -4,6 +4,8 @@ sidebar_position: 4
 
 import { ApiBaseUrl, AppUrl, ExampleApiKey, ExampleStoreId } from '@site/src/components/DynamicValues';
 import { getDocsUrl } from "@site/src/components/DocsUrl";
+import CodeBlock, { CodeTabs } from '@site/src/components/CodeBlock';
+import * as CodeExamples from '@site/src/components/CodeExamples';
 
 # How to Use the API
 
@@ -54,15 +56,12 @@ import { getDocsUrl } from "@site/src/components/DocsUrl";
   <h3>Standard API Headers</h3>
   <p>Include these headers with all API requests:</p>
 
-  <div className="code-block-container">
-    <pre className="code-block">
-```http
-Authorization: Bearer {ExampleApiKey()}
-Content-Type: application/json
-Accept: application/json
-```
-    </pre>
-  </div>
+  <CodeBlock
+    language="http"
+    title="HTTP Headers"
+  >
+{CodeExamples.AUTH_HEADER}
+  </CodeBlock>
 </div>
 
 ## Response Format
@@ -72,19 +71,13 @@ Accept: application/json
     <h3>✅ Success Response</h3>
     <p>All API responses are returned in JSON format with the following structure:</p>
 
-    <div className="code-block-container">
-      <pre className="code-block">
-
-```json
-{
-  "status": true,
-  "message": "Operation successful",
-  "data": {}
-}
-```
-
-</pre>
-    </div>
+    <CodeBlock
+      language="json"
+      title="Success Response"
+      badge="good"
+    >
+{CodeExamples.SUCCESS_RESPONSE}
+    </CodeBlock>
 
     <div className="response-fields">
       <div className="response-field">
@@ -107,22 +100,13 @@ Accept: application/json
     <h3>❌ Error Response</h3>
     <p>When an error occurs, the API will return a JSON response with a <code>status</code> of <code>false</code> and an error message:</p>
 
-    <div className="code-block-container">
-      <pre className="code-block">
-
-```json
-{
-  "status": false,
-  "message": "Error message",
-  "data": {
-    "error_code": "error_type",
-    "errors": {}
-  }
-}
-```
-
-</pre>
-    </div>
+    <CodeBlock
+      language="json"
+      title="Error Response"
+      badge="bad"
+    >
+{CodeExamples.ERROR_RESPONSE}
+    </CodeBlock>
 
     <div className="response-fields">
       <div className="response-field">
@@ -159,25 +143,13 @@ Accept: application/json
         <li>Prepare error handling and logging</li>
       </ul>
 
-      <div className="code-block-container">
-        <pre className="code-block">
-
-```javascript
-// Example configuration in Node.js
-const axios = require("axios");
-
-const liasonpay = axios.create({
-  baseURL: "{ApiBaseUrl()}",
-  headers: {
-    Authorization: `Bearer ${process.env.LIASONPAY_API_KEY}`,
-    "Content-Type": "application/json",
-    Accept: "application/json",
-  },
-});
-```
-
-</pre>
-      </div>
+      <CodeBlock
+        language="javascript"
+        title="API Client Setup"
+        showLineNumbers={true}
+      >
+{CodeExamples.API_CLIENT_SETUP}
+      </CodeBlock>
     </div>
 
   </div>
@@ -189,69 +161,22 @@ const liasonpay = axios.create({
       <p>Here are examples of common API requests:</p>
 
       <h4>Example: Process a Payment</h4>
-      <div className="code-block-container">
-        <pre className="code-block">
-
-```javascript
-// Request body
-const paymentData = {
-  store_id: "{ExampleStoreId()}",
-  currency: "usd",
-  products: [
-    {
-      name: "Product 1",
-      description: "Product description",
-      price: 100,
-      quantity: 1,
-    },
-  ],
-  customer: {
-    name: "John Doe",
-    email: "john.doe@example.com",
-    phone_number: "+1234567890",
-  },
-  success_url: "https://example.com/success",
-  cancel_url: "https://example.com/cancel",
-  mode: "production",
-};
-
-// Make the request
-try {
-  const response = await liasonpay.post("/payments/process", paymentData);
-  console.log("Payment processed:", response.data);
-} catch (error) {
-  console.error(
-    "Error processing payment:",
-    error.response?.data || error.message
-  );
-}
-```
-
-</pre>
-      </div>
+      <CodeBlock
+        language="javascript"
+        title="Process Payment Request"
+        showLineNumbers={true}
+      >
+{CodeExamples.PROCESS_PAYMENT_REQUEST}
+      </CodeBlock>
 
       <h4>Example: Get Subscriptions</h4>
-      <div className="code-block-container">
-        <pre className="code-block">
-
-```javascript
-try {
-  const response = await liasonpay.get("/subscription/get", {
-    params: {
-      store_id: "{ExampleStoreId()}",
-    },
-  });
-  console.log("Subscriptions:", response.data);
-} catch (error) {
-  console.error(
-    "Error fetching subscriptions:",
-    error.response?.data || error.message
-  );
-}
-```
-
-</pre>
-      </div>
+      <CodeBlock
+        language="javascript"
+        title="Get Subscriptions"
+        showLineNumbers={true}
+      >
+{CodeExamples.GET_SUBSCRIPTIONS}
+      </CodeBlock>
     </div>
 
   </div>
@@ -262,36 +187,13 @@ try {
       <h3>Handle Responses</h3>
       <p>Always implement proper error handling:</p>
 
-      <div className="code-block-container">
-        <pre className="code-block">
-
-```javascript
-try {
-  const response = await liasonpay.post("/endpoint", data);
-
-  if (response.data.status) {
-    // Success case
-    handleSuccess(response.data);
-  } else {
-    // API returned an error
-    handleApiError(response.data);
-  }
-} catch (error) {
-  if (error.response) {
-    // The request was made and the server responded with an error status
-    handleApiError(error.response.data);
-  } else if (error.request) {
-    // The request was made but no response was received
-    handleNetworkError(error.request);
-  } else {
-    // Something happened in setting up the request
-    handleClientError(error.message);
-  }
-}
-```
-
-</pre>
-      </div>
+      <CodeBlock
+        language="javascript"
+        title="Error Handling"
+        showLineNumbers={true}
+      >
+{CodeExamples.ERROR_HANDLING}
+      </CodeBlock>
 
       <div className="info-callout">
         <p><strong>💡 Tip:</strong> Always check both the HTTP status code and the <code>status</code> field in the response body to properly handle errors.</p>
@@ -314,58 +216,13 @@ try {
       </ol>
 
       <h4>Example Webhook Handler in Express.js</h4>
-      <div className="code-block-container">
-        <pre className="code-block">
-
-```javascript
-const express = require("express");
-const crypto = require("crypto");
-const app = express();
-
-app.post("/webhooks/liasonpay", express.json(), (req, res) => {
-  // Verify webhook signature
-  const signature = req.headers["liasonpay-signature"];
-  const isValid = verifyWebhookSignature(
-    req.body,
-    signature,
-    process.env.WEBHOOK_SECRET
-  );
-
-  if (!isValid) {
-    return res.status(401).send("Invalid signature");
-  }
-
-  // Acknowledge receipt immediately
-  res.status(200).send("Webhook received");
-
-  // Process the webhook asynchronously
-  const event = req.body;
-
-  // Handle different event types
-  switch (event.event_type) {
-    case "charge.completed":
-      // Handle successful payment
-      updateOrderStatus(event.data.transaction_id, "paid");
-      sendOrderConfirmation(event.data.customer.email);
-      break;
-    case "charge.failed":
-      // Handle failed payment
-      updateOrderStatus(event.data.transaction_id, "payment_failed");
-      sendPaymentFailureNotification(event.data.customer.email);
-      break;
-    case "subscription.created":
-      // Handle new subscription
-      activateSubscription(event.data.subscription_id);
-      break;
-    // Handle other event types...
-    default:
-      console.log(`Received event: ${event.event_type}`);
-  }
-});
-```
-
-</pre>
-      </div>
+      <CodeBlock
+        language="javascript"
+        title="Webhook Handler"
+        showLineNumbers={true}
+      >
+{CodeExamples.WEBHOOK_HANDLER}
+      </CodeBlock>
 
       <div className="warning-callout">
         <p><strong>⚠️ Important:</strong> Always acknowledge webhook receipt immediately with a 200 response, then process the webhook asynchronously to avoid timeouts.</p>
@@ -389,50 +246,13 @@ app.post("/webhooks/liasonpay", express.json(), (req, res) => {
           <li>After payment completion, the customer will be redirected to your success or cancel URL</li>
           <li>Verify the payment status using the <a href="/api-reference/payments/verify-payment">Verify a payment</a> endpoint</li>
         </ol>
-        <div className="code-block-container">
-          <pre className="code-block">
-```javascript
-// Initialize API client
-const liasonpay = axios.create({
-  baseURL: "{ApiBaseUrl()}",
-  headers: {
-    Authorization: `Bearer ${process.env.LIASONPAY_API_KEY}`,
-    "Content-Type": "application/json",
-    Accept: "application/json",
-  },
-});
-
-// Create payment request
-const paymentData = {
-store_id: "{ExampleStoreId()}",
-currency: "usd",
-products: [
-{
-name: "Premium Plan",
-price: 99.99,
-quantity: 1
-}
-],
-success_url: "https://example.com/success",
-cancel_url: "https://example.com/cancel",
-mode: "production"
-};
-
-// Step 1: Process payment
-const paymentResponse = await liasonpay.post("/payments/process", paymentData);
-const paymentUrl = paymentResponse.data.data.payment_url;
-
-// Step 2: Redirect customer to payment URL
-window.location.href = paymentUrl;
-
-// Step 4: Verify payment status (after redirect back to success_url)
-const paymentId = getPaymentIdFromUrl(); // Extract from URL or session
-const verifyResponse = await liasonpay.get(`/payments/verify?payment_id=${paymentId}`);
-const paymentStatus = verifyResponse.data.data.status;
-
-````
-          </pre>
-        </div>
+        <CodeBlock
+          language="javascript"
+          title="Payment Workflow"
+          showLineNumbers={true}
+        >
+{CodeExamples.PAYMENT_WORKFLOW}
+        </CodeBlock>
       </div>
     </div>
 
@@ -446,43 +266,13 @@ const paymentStatus = verifyResponse.data.data.status;
           <li>After subscription setup, the customer will be redirected to your success or cancel URL</li>
           <li>Verify the subscription status using the <a href="/api-reference/subscriptions/verify-subscription">Verify a subscription</a> endpoint</li>
         </ol>
-        <div className="code-block-container">
-          <pre className="code-block">
-```javascript
-// Initialize API client (if not already initialized)
-const liasonpay = axios.create({
-  baseURL: "{ApiBaseUrl()}",
-  headers: {
-    Authorization: `Bearer ${process.env.LIASONPAY_API_KEY}`,
-    "Content-Type": "application/json",
-    Accept: "application/json",
-  },
-});
-
-// Create subscription request
-const subscriptionData = {
-  store_id: "{ExampleStoreId()}",
-  price_id: "PRICE_SUB123",
-  success_url: "https://example.com/subscription/success",
-  cancel_url: "https://example.com/subscription/cancel",
-  mode: "production"
-};
-
-// Step 1: Create subscription
-const subscriptionResponse = await liasonpay.post("/subscription/create", subscriptionData);
-const subscriptionUrl = subscriptionResponse.data.data.subscription_url;
-
-// Step 2: Redirect customer to subscription URL
-window.location.href = subscriptionUrl;
-
-// Step 4: Verify subscription status (after redirect back to success_url)
-const subscriptionId = getSubscriptionIdFromUrl(); // Extract from URL or session
-const verifyResponse = await liasonpay.get(`/subscription/verify?subscription_id=${subscriptionId}`);
-const subscriptionStatus = verifyResponse.data.data.status;
-````
-
-          </pre>
-        </div>
+        <CodeBlock
+          language="javascript"
+          title="Subscription Workflow"
+          showLineNumbers={true}
+        >
+{CodeExamples.SUBSCRIPTION_WORKFLOW}
+        </CodeBlock>
       </div>
     </div>
 
@@ -495,13 +285,12 @@ const subscriptionStatus = verifyResponse.data.data.status;
   <div className="feature-card">
     <h3>🔄 Idempotency</h3>
     <p>To prevent duplicate operations, use idempotency keys:</p>
-    <div className="code-block-container">
-      <pre className="code-block">
-```http
-Idempotency-Key: 123e4567-e89b-12d3-a456-426614174000
-```
-      </pre>
-    </div>
+    <CodeBlock
+      language="http"
+      title="Idempotency Header"
+    >
+{CodeExamples.IDEMPOTENCY_KEY}
+    </CodeBlock>
     <div className="info-callout">
       <p><strong>💡 Tip:</strong> Use a unique UUID for each request to ensure idempotency.</p>
     </div>
@@ -510,13 +299,12 @@ Idempotency-Key: 123e4567-e89b-12d3-a456-426614174000
   <div className="feature-card">
     <h3>📄 Pagination</h3>
     <p>For endpoints that return lists, use pagination parameters:</p>
-    <div className="code-block-container">
-      <pre className="code-block">
-```
-?page=1&per_page=20
-```
-      </pre>
-    </div>
+    <CodeBlock
+      language="text"
+      title="Pagination Parameters"
+    >
+{CodeExamples.PAGINATION_PARAMS}
+    </CodeBlock>
     <p>This helps manage large result sets and improves performance.</p>
   </div>
 
@@ -548,86 +336,24 @@ Idempotency-Key: 123e4567-e89b-12d3-a456-426614174000
 <div className="examples-container">
   <div className="example-card">
     <h3>🐍 Python</h3>
-    <div className="code-block-container">
-      <pre className="code-block">
-```python
-import requests
-
-api_key = "{ExampleApiKey()}"
-base_url = "{ApiBaseUrl()}"
-
-headers = {
-"Authorization": f"Bearer {api_key}",
-"Content-Type": "application/json",
-"Accept": "application/json"
-}
-
-# Process a payment
-
-payment_data = {
-"store_id": "{ExampleStoreId()}",
-"currency": "usd",
-"products": [
-{
-"name": "Product 1",
-"description": "Product description",
-"price": 100,
-"quantity": 1
-}
-],
-"success_url": "https://example.com/success",
-"cancel_url": "https://example.com/cancel",
-"mode": "production"
-}
-
-response = requests.post(
-f"{base_url}/payments/process",
-json=payment_data,
-headers=headers
-)
-
-print(response.json())
-
-````
-      </pre>
-    </div>
+    <CodeBlock
+      language="python"
+      title="Python Example"
+      showLineNumbers={true}
+    >
+{CodeExamples.PYTHON_EXAMPLE}
+    </CodeBlock>
   </div>
 
   <div className="example-card">
     <h3>🐘 PHP</h3>
-    <div className="code-block-container">
-      <pre className="code-block">
-```php
-<?php
-$api_key = "{ExampleApiKey()}";
-$base_url = "{ApiBaseUrl()}";
-
-$headers = [
-    "Authorization: Bearer " . $api_key,
-    "Content-Type: application/json",
-    "Accept: application/json"
-];
-
-// Get subscriptions
-$store_id = "{ExampleStoreId()}";
-$url = $base_url . "/subscription/get?store_id=" . urlencode($store_id);
-
-$ch = curl_init($url);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
-$response = curl_exec($ch);
-$status_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-curl_close($ch);
-
-$result = json_decode($response, true);
-print_r($result);
-?>
-````
-
-      </pre>
-    </div>
-
+    <CodeBlock
+      language="php"
+      title="PHP Example"
+      showLineNumbers={true}
+    >
+{CodeExamples.PHP_EXAMPLE}
+    </CodeBlock>
   </div>
 </div>
 
