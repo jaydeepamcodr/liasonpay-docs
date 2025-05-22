@@ -26,7 +26,7 @@ const config: Config = {
   // Set the production url of your site here
   url: APP_URL,
   // Set the /<baseUrl>/ pathname under which your site is served
-  baseUrl: "/documentation",
+  baseUrl: "/documentation/",
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",

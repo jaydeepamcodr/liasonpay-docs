@@ -2,22 +2,36 @@
 sidebar_position: 4
 ---
 
-import { ApiBaseUrl, AppUrl, ExampleApiKey, ExampleStoreId } from '@site/src/components/DynamicValues';
+import {
+  ApiBaseUrl,
+  AppUrl,
+  ExampleApiKey,
+  ExampleStoreId,
+} from "@site/src/components/DynamicValues";
 import { getDocsUrl } from "@site/src/components/DocsUrl";
-import CodeBlock, { CodeTabs } from '@site/src/components/CodeBlock';
-import * as CodeExamples from '@site/src/components/CodeExamples';
+import CodeBlock, { CodeTabs } from "@site/src/components/CodeBlock";
+import * as CodeExamples from "@site/src/components/CodeExamples";
 
 # How to Use the API
 
 <div className="explorer-header">
   <div className="explorer-header-content">
     <h2>Getting Started with the LiasonPay API</h2>
-    <p>Learn how to make API requests, handle responses, and implement common workflows</p>
+    <p>
+      Learn how to make API requests, handle responses, and implement common
+      workflows
+    </p>
     <div className="explorer-buttons">
-      <a href={getDocsUrl("api-reference")} className="button button--primary button--lg">
+      <a
+        href={getDocsUrl("api-reference")}
+        className="button button--primary button--lg"
+      >
         <span>📚 API Reference</span>
       </a>
-      <a href={getDocsUrl("interactive-tools/api-explorer")} className="button button--secondary button--lg">
+      <a
+        href={getDocsUrl("interactive-tools/api-explorer")}
+        className="button button--secondary button--lg"
+      >
         <span>🔍 API Explorer</span>
       </a>
     </div>
@@ -76,8 +90,10 @@ import * as CodeExamples from '@site/src/components/CodeExamples';
       title="Success Response"
       badge="good"
     >
+
 {CodeExamples.SUCCESS_RESPONSE}
-    </CodeBlock>
+
+</CodeBlock>
 
     <div className="response-fields">
       <div className="response-field">
@@ -105,8 +121,10 @@ import * as CodeExamples from '@site/src/components/CodeExamples';
       title="Error Response"
       badge="bad"
     >
+
 {CodeExamples.ERROR_RESPONSE}
-    </CodeBlock>
+
+</CodeBlock>
 
     <div className="response-fields">
       <div className="response-field">
@@ -148,9 +166,11 @@ import * as CodeExamples from '@site/src/components/CodeExamples';
         title="API Client Setup"
         showLineNumbers={true}
       >
+
 {CodeExamples.API_CLIENT_SETUP}
-      </CodeBlock>
-    </div>
+
+</CodeBlock>
+</div>
 
   </div>
 
@@ -166,8 +186,10 @@ import * as CodeExamples from '@site/src/components/CodeExamples';
         title="Process Payment Request"
         showLineNumbers={true}
       >
+
 {CodeExamples.PROCESS_PAYMENT_REQUEST}
-      </CodeBlock>
+
+</CodeBlock>
 
       <h4>Example: Get Subscriptions</h4>
       <CodeBlock
@@ -175,9 +197,11 @@ import * as CodeExamples from '@site/src/components/CodeExamples';
         title="Get Subscriptions"
         showLineNumbers={true}
       >
+
 {CodeExamples.GET_SUBSCRIPTIONS}
-      </CodeBlock>
-    </div>
+
+</CodeBlock>
+</div>
 
   </div>
 
@@ -192,8 +216,10 @@ import * as CodeExamples from '@site/src/components/CodeExamples';
         title="Error Handling"
         showLineNumbers={true}
       >
+
 {CodeExamples.ERROR_HANDLING}
-      </CodeBlock>
+
+</CodeBlock>
 
       <div className="info-callout">
         <p><strong>💡 Tip:</strong> Always check both the HTTP status code and the <code>status</code> field in the response body to properly handle errors.</p>
@@ -221,8 +247,10 @@ import * as CodeExamples from '@site/src/components/CodeExamples';
         title="Webhook Handler"
         showLineNumbers={true}
       >
+
 {CodeExamples.WEBHOOK_HANDLER}
-      </CodeBlock>
+
+</CodeBlock>
 
       <div className="warning-callout">
         <p><strong>⚠️ Important:</strong> Always acknowledge webhook receipt immediately with a 200 response, then process the webhook asynchronously to avoid timeouts.</p>
@@ -271,10 +299,12 @@ import * as CodeExamples from '@site/src/components/CodeExamples';
           title="Subscription Workflow"
           showLineNumbers={true}
         >
+
 {CodeExamples.SUBSCRIPTION_WORKFLOW}
-        </CodeBlock>
-      </div>
-    </div>
+
+</CodeBlock>
+</div>
+</div>
 
   </div>
 </div>
@@ -296,28 +326,29 @@ import * as CodeExamples from '@site/src/components/CodeExamples';
     </div>
   </div>
 
-  <div className="feature-card">
-    <h3>📄 Pagination</h3>
-    <p>For endpoints that return lists, use pagination parameters:</p>
-    <CodeBlock
-      language="text"
-      title="Pagination Parameters"
-    >
-{CodeExamples.PAGINATION_PARAMS}
-    </CodeBlock>
-    <p>This helps manage large result sets and improves performance.</p>
-  </div>
+{" "}
 
-  <div className="feature-card">
-    <h3>❌ Error Handling</h3>
-    <p>Best practices for handling errors:</p>
-    <ul>
-      <li>Implement retry logic with exponential backoff for transient errors</li>
-      <li>Log detailed error information for debugging</li>
-      <li>Provide user-friendly error messages to your customers</li>
-      <li>Handle different error types appropriately</li>
-    </ul>
-  </div>
+<div className="feature-card">
+  <h3>📄 Pagination</h3>
+  <p>For endpoints that return lists, use pagination parameters:</p>
+  <CodeBlock language="text" title="Pagination Parameters">
+    {CodeExamples.PAGINATION_PARAMS}
+  </CodeBlock>
+  <p>This helps manage large result sets and improves performance.</p>
+</div>
+
+{" "}
+
+<div className="feature-card">
+  <h3>❌ Error Handling</h3>
+  <p>Best practices for handling errors:</p>
+  <ul>
+    <li>Implement retry logic with exponential backoff for transient errors</li>
+    <li>Log detailed error information for debugging</li>
+    <li>Provide user-friendly error messages to your customers</li>
+    <li>Handle different error types appropriately</li>
+  </ul>
+</div>
 
   <div className="feature-card">
     <h3>🧪 Testing</h3>
@@ -365,15 +396,27 @@ import * as CodeExamples from '@site/src/components/CodeExamples';
     <p>Implement exponential backoff and retry logic to handle rate limits. When you receive a 429 response, wait for the time specified in the <code>retry-after</code> header before retrying the request.</p>
   </div>
 
-  <div className="faq-item">
-    <h3>What's the best way to debug API issues?</h3>
-    <p>Log detailed request and response information, including headers and body. Use the <code>request_id</code> from error responses when contacting support. Test with the API Explorer to isolate issues.</p>
-  </div>
+{" "}
 
-  <div className="faq-item">
-    <h3>How do I handle webhook failures?</h3>
-    <p>Implement a retry mechanism on your server to handle webhook delivery failures. Store failed webhooks in a queue and retry them with exponential backoff. Monitor webhook delivery rates and set up alerts for failures.</p>
-  </div>
+<div className="faq-item">
+  <h3>What's the best way to debug API issues?</h3>
+  <p>
+    Log detailed request and response information, including headers and body.
+    Use the <code>request_id</code> from error responses when contacting
+    support. Test with the API Explorer to isolate issues.
+  </p>
+</div>
+
+{" "}
+
+<div className="faq-item">
+  <h3>How do I handle webhook failures?</h3>
+  <p>
+    Implement a retry mechanism on your server to handle webhook delivery
+    failures. Store failed webhooks in a queue and retry them with exponential
+    backoff. Monitor webhook delivery rates and set up alerts for failures.
+  </p>
+</div>
 
   <div className="faq-item">
     <h3>Can I use the API in a mobile app?</h3>

@@ -2,16 +2,29 @@
 sidebar_position: 3
 ---
 
-import { AppUrl, ApiBaseUrl, ExampleApiKey, ExampleStoreId } from '@site/src/components/DynamicValues';
+import {
+  AppUrl,
+  ApiBaseUrl,
+  ExampleApiKey,
+  ExampleStoreId,
+} from "@site/src/components/DynamicValues";
 
 # Environment Information
 
 <div className="explorer-header">
   <div className="explorer-header-content">
     <h2>Understanding the LiasonPay Environment</h2>
-    <p>Learn how to effectively set up and use the LiasonPay environment for processing payments</p>
+    <p>
+      Learn how to effectively set up and use the LiasonPay environment for
+      processing payments
+    </p>
     <div className="explorer-buttons">
-      <a href={AppUrl()} target="_blank" rel="noopener noreferrer" className="button button--primary button--lg">
+      <a
+        href={AppUrl()}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="button button--primary button--lg"
+      >
         <span>🚀 Access Dashboard</span>
       </a>
       <a href="#test-cards" className="button button--secondary button--lg">
@@ -102,15 +115,21 @@ import { AppUrl, ApiBaseUrl, ExampleApiKey, ExampleStoreId } from '@site/src/com
         <div className="environment-details">
           <div className="environment-detail">
             <span className="detail-label">Base URL:</span>
-            <span className="detail-value"><code>{ApiBaseUrl()}</code></span>
+            <span className="detail-value">
+              <code>{ApiBaseUrl()}</code>
+            </span>
           </div>
           <div className="environment-detail">
             <span className="detail-label">Purpose:</span>
-            <span className="detail-value">Live transactions and real payments</span>
+            <span className="detail-value">
+              Live transactions and real payments
+            </span>
           </div>
           <div className="environment-detail">
             <span className="detail-label">API Keys:</span>
-            <span className="detail-value">Live API keys (prefixed with <code>lp_</code>)</span>
+            <span className="detail-value">
+              Live API keys (prefixed with <code>lp_</code>)
+            </span>
           </div>
           <div className="environment-detail">
             <span className="detail-label">Payments:</span>
@@ -118,11 +137,16 @@ import { AppUrl, ApiBaseUrl, ExampleApiKey, ExampleStoreId } from '@site/src/com
           </div>
           <div className="environment-detail">
             <span className="detail-label">Features:</span>
-            <span className="detail-value">Full API functionality with actual payment processing</span>
+            <span className="detail-value">
+              Full API functionality with actual payment processing
+            </span>
           </div>
         </div>
         <div className="warning-callout">
-          <p><strong>⚠️ Important:</strong> The production environment processes real payments and affects live data. Use with caution.</p>
+          <p>
+            <strong>⚠️ Important:</strong> The production environment processes
+            real payments and affects live data. Use with caution.
+          </p>
         </div>
       </div>
     </div>
@@ -144,20 +168,30 @@ import { AppUrl, ApiBaseUrl, ExampleApiKey, ExampleStoreId } from '@site/src/com
     </div>
   </div>
 
-  <div className="setup-step">
-    <div className="step-number">2</div>
-    <div className="step-content">
-      <h3>Generate API Keys</h3>
-      <ul>
-        <li>Navigate to <strong>Settings</strong> → <strong>API Keys</strong> in the dashboard</li>
-        <li>Click <strong>Generate New Key</strong></li>
-        <li>Copy and securely store your API key</li>
-      </ul>
-      <div className="info-callout">
-        <p><strong>💡 Tip:</strong> Store your API key securely as it will only be displayed once.</p>
-      </div>
+{" "}
+
+<div className="setup-step">
+  <div className="step-number">2</div>
+  <div className="step-content">
+    <h3>Generate API Keys</h3>
+    <ul>
+      <li>
+        Navigate to <strong>Settings</strong> → <strong>API Keys</strong> in the
+        dashboard
+      </li>
+      <li>
+        Click <strong>Generate New Key</strong>
+      </li>
+      <li>Copy and securely store your API key</li>
+    </ul>
+    <div className="info-callout">
+      <p>
+        <strong>💡 Tip:</strong> Store your API key securely as it will only be
+        displayed once.
+      </p>
     </div>
   </div>
+</div>
 
   <div className="setup-step">
     <div className="step-number">3</div>

@@ -2,27 +2,43 @@
 sidebar_position: 2
 ---
 
-import { AppUrl, ApiBaseUrl, ExampleApiKey, ExampleStoreId } from '@site/src/components/DynamicValues';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import CodeBlock, { CodeTabs } from '@site/src/components/CodeBlock';
-import * as CodeExamples from '@site/src/components/CodeExamples';
+import {
+  AppUrl,
+  ApiBaseUrl,
+  ExampleApiKey,
+  ExampleStoreId,
+} from "@site/src/components/DynamicValues";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock, { CodeTabs } from "@site/src/components/CodeBlock";
+import * as CodeExamples from "@site/src/components/CodeExamples";
 
 # Authentication
 
 <div className="explorer-header">
   <div className="explorer-header-content">
     <h2>Authenticating with the LiasonPay API</h2>
-    <p>Learn how to obtain and use API keys to securely authenticate your requests</p>
+    <p>
+      Learn how to obtain and use API keys to securely authenticate your
+      requests
+    </p>
     <div className="explorer-badges">
       <span className="badge badge--primary">Required</span>
       <span className="badge badge--info">Security</span>
     </div>
     <div className="explorer-buttons">
-      <a href={`${AppUrl()}/api-key`} target="_blank" rel="noopener noreferrer" className="button button--primary button--lg">
+      <a
+        href={`${AppUrl()}/api-key`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="button button--primary button--lg"
+      >
         <span>🔑 Get API Keys</span>
       </a>
-      <a href="#security-best-practices" className="button button--secondary button--lg">
+      <a
+        href="#security-best-practices"
+        className="button button--secondary button--lg"
+      >
         <span>🔒 Security Best Practices</span>
       </a>
     </div>
@@ -96,8 +112,10 @@ import * as CodeExamples from '@site/src/components/CodeExamples';
           language="http"
           title="HTTP Header"
         >
+
 {CodeExamples.AUTH_HEADER}
-        </CodeBlock>
+
+</CodeBlock>
 
         <div className="note-box">
           <div className="note-icon">💡</div>
@@ -115,10 +133,12 @@ import * as CodeExamples from '@site/src/components/CodeExamples';
           language="bash"
           title="cURL Example"
         >
+
 {CodeExamples.CURL_GET_SUBSCRIPTION}
-        </CodeBlock>
-      </TabItem>
-    </Tabs>
+
+</CodeBlock>
+</TabItem>
+</Tabs>
 
   </div>
 </div>
@@ -263,6 +283,7 @@ import * as CodeExamples from '@site/src/components/CodeExamples';
         </div>
       </div>
     </div>
+
   </div>
 
   <div className="security-summary-box">
@@ -333,9 +354,12 @@ import * as CodeExamples from '@site/src/components/CodeExamples';
         badge="bad"
         badgeText="Error Response"
       >
+
 {CodeExamples.AUTH_ERROR_RESPONSE}
-      </CodeBlock>
-    </div>
+
+</CodeBlock>
+</div>
+
   </div>
 </div>
 
@@ -382,6 +406,7 @@ import * as CodeExamples from '@site/src/components/CodeExamples';
         <p>Currently, API keys have full access to your account. We recommend using different API keys for different applications and implementing proper access controls in your own systems.</p>
       </div>
     </div>
+
   </div>
 </div>
 
@@ -483,6 +508,7 @@ import * as CodeExamples from '@site/src/components/CodeExamples';
         </div>
       </div>
     </div>
+
   </div>
 
   <div className="help-resources-box">
