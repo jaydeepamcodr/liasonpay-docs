@@ -44,7 +44,7 @@ export default function OpenApiExplorer() {
               <p>
                 Download the OpenAPI specification file and use it with your preferred OpenAPI viewer.
               </p>
-              <a href="/openapi.yaml" download className="button button--primary">
+              <a href={`${docsUrl}openapi.json`} download className="button button--primary">
                 <span>Download Specification</span>
               </a>
             </div>
@@ -101,6 +101,6 @@ export default function OpenApiExplorer() {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 }

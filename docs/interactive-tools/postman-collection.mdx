@@ -2,19 +2,39 @@
 sidebar_position: 1
 ---
 
-import { AppUrl, ApiBaseUrl, ExampleApiKey, ExampleStoreId } from '@site/src/components/DynamicValues';
+import {
+  AppUrl,
+  ApiBaseUrl,
+  ExampleApiKey,
+  ExampleStoreId,
+} from "@site/src/components/DynamicValues";
+import { getDocsUrl } from "@site/src/components/DocsUrl";
 
 # Postman Collection
 
 <div className="postman-header">
   <div className="postman-header-content">
-    <h2>Test and explore the LiasonPay API with our official Postman Collection</h2>
-    <p>A comprehensive set of pre-configured API requests to help you integrate faster and more efficiently</p>
+    <h2>
+      Test and explore the LiasonPay API with our official Postman Collection
+    </h2>
+    <p>
+      A comprehensive set of pre-configured API requests to help you integrate
+      faster and more efficiently
+    </p>
     <div className="postman-buttons">
-      <a href="/collection.json" download className="button button--primary button--lg">
+      <a
+        href={getDocsUrl("collection.json")}
+        download
+        className="button button--primary button--lg"
+      >
         <span>📥 Download Collection</span>
       </a>
-      <a href="https://learning.postman.com/docs/getting-started/importing-and-exporting-data/" target="_blank" rel="noopener noreferrer" className="button button--secondary button--lg">
+      <a
+        href="https://learning.postman.com/docs/getting-started/importing-and-exporting-data/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="button button--secondary button--lg"
+      >
         <span>📚 Postman Docs</span>
       </a>
     </div>
@@ -51,10 +71,16 @@ Our Postman Collection is designed to make API integration as smooth as possible
 Download our Postman Collection with a single click:
 
 <div className="download-container">
-  <a href="/collection.json" download className="button button--primary button--lg">
+  <a
+    href={getDocsUrl("collection.json")}
+    download
+    className="button button--primary button--lg"
+  >
     <span>📥 Download Postman Collection</span>
   </a>
-  <p className="download-note">Save the file to your computer, then import it into Postman</p>
+  <p className="download-note">
+    Save the file to your computer, then import it into Postman
+  </p>
 </div>
 
 ### Option 2: Import from URL
@@ -62,7 +88,7 @@ Download our Postman Collection with a single click:
 Import the collection directly in Postman using this URL:
 
 ```bash
-{AppUrl()}/collection.json
+https://liasonpay.net/documentation/collection.json
 ```
 
 ## Setting Up the Collection
@@ -150,24 +176,31 @@ Import the collection directly in Postman using this URL:
 <div className="usage-section">
   <h3>Making API Requests</h3>
 
-  <div className="usage-steps">
-    <ol>
-      <li>Navigate to the <strong>LiasonPay</strong> collection in the Collections sidebar</li>
-      <li>Browse through the folders to find the desired endpoint</li>
-      <li>Click on the request to open it</li>
-      <li>Review and modify the request parameters as needed</li>
-      <li>Click <strong>Send</strong> to execute the request</li>
-    </ol>
-  </div>
+{" "}
 
-  <h3>Authentication</h3>
+<div className="usage-steps">
+  <ol>
+    <li>
+      Navigate to the <strong>LiasonPay</strong> collection in the Collections
+      sidebar
+    </li>
+    <li>Browse through the folders to find the desired endpoint</li>
+    <li>Click on the request to open it</li>
+    <li>Review and modify the request parameters as needed</li>
+    <li>
+      Click <strong>Send</strong> to execute the request
+    </li>
+  </ol>
+</div>
+
+<h3>Authentication</h3>
 
   <div className="auth-section">
     <p>The collection is pre-configured to use your API key from the environment variables:</p>
 
     <div className="code-block-container">
       <pre className="code-block">
-        <code>Authorization: Bearer {'{{'}{'{apiKey}'}{'}}'}</code>
+        <code>Authorization: Bearer `{{apiKey}}`</code>
       </pre>
     </div>
 
@@ -196,7 +229,7 @@ Import the collection directly in Postman using this URL:
 
 ```json
 {
-  "store_id": "{'{{'}{'{storeId}'}{'}}'}",
+  "store_id": "{{storeId}}",
   "currency": "usd",
   "products": [
     {
@@ -407,15 +440,25 @@ Import the collection directly in Postman using this URL:
     <p>To update your API key, edit the <code>apiKey</code> variable in your environment settings in Postman.</p>
   </div>
 
-  <div className="faq-item">
-    <h3>Can I use the collection with Postman on mobile?</h3>
-    <p>Yes, the collection is compatible with Postman's mobile apps for iOS and Android.</p>
-  </div>
+{" "}
 
-  <div className="faq-item">
-    <h3>How do I share the collection with my team?</h3>
-    <p>You can export the collection and share it with your team, or use Postman's team workspaces feature.</p>
-  </div>
+<div className="faq-item">
+  <h3>Can I use the collection with Postman on mobile?</h3>
+  <p>
+    Yes, the collection is compatible with Postman's mobile apps for iOS and
+    Android.
+  </p>
+</div>
+
+{" "}
+
+<div className="faq-item">
+  <h3>How do I share the collection with my team?</h3>
+  <p>
+    You can export the collection and share it with your team, or use Postman's
+    team workspaces feature.
+  </p>
+</div>
 
   <div className="faq-item">
     <h3>Are the API requests made through Postman secure?</h3>
@@ -450,7 +493,7 @@ Import the collection directly in Postman using this URL:
           <li><span className="benefit-icon">✓</span> View request/response examples</li>
         </ul>
         <div className="next-step-action">
-          <a href="/interactive-tools/api-explorer" className="button button--primary">
+          <a href={getDocsUrl("/interactive-tools/api-explorer")} className="button button--primary">
             <span className="button-text">Open API Explorer</span>
             <span className="button-icon">→</span>
           </a>
@@ -474,7 +517,7 @@ Import the collection directly in Postman using this URL:
           <li><span className="benefit-icon">✓</span> Test in different environments</li>
         </ul>
         <div className="next-step-action">
-          <a href="/interactive-tools/api-testing" className="button button--primary">
+          <a href={getDocsUrl("/interactive-tools/api-testing")} className="button button--primary">
             <span className="button-text">Open API Testing Tool</span>
             <span className="button-icon">→</span>
           </a>
@@ -498,7 +541,7 @@ Import the collection directly in Postman using this URL:
           <li><span className="benefit-icon">✓</span> Parameter descriptions</li>
         </ul>
         <div className="next-step-action">
-          <a href="/api-reference" className="button button--primary">
+          <a href={getDocsUrl('/api-reference')} className="button button--primary">
             <span className="button-text">View API Reference</span>
             <span className="button-icon">→</span>
           </a>
@@ -517,7 +560,7 @@ Import the collection directly in Postman using this URL:
         <a href="https://liasonpay.net/support" target="_blank" rel="noopener noreferrer" className="button button--secondary">
           <span className="button-text">Contact Support</span>
         </a>
-        <a href="/developer-guide/faq" className="button button--secondary">
+        <a href={getDocsUrl('/developer-guide/faq')} className="button button--secondary">
           <span className="button-text">View FAQ</span>
         </a>
       </div>

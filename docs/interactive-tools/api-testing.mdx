@@ -2,19 +2,34 @@
 sidebar_position: 1
 ---
 
-import { ApiBaseUrl, ExampleApiKey, AppUrl, ExampleStoreId } from '@site/src/components/DynamicValues';
+import {
+  ApiBaseUrl,
+  ExampleApiKey,
+  AppUrl,
+  ExampleStoreId,
+} from "@site/src/components/DynamicValues";
+import { getDocsUrl } from "@site/src/components/DocsUrl";
 
 # API Testing Tool
 
 <div className="explorer-header">
   <div className="explorer-header-content">
     <h2>Test the LiasonPay API directly in your browser</h2>
-    <p>A simple and intuitive interface for testing API endpoints with real-time responses</p>
+    <p>
+      A simple and intuitive interface for testing API endpoints with real-time
+      responses
+    </p>
     <div className="explorer-buttons">
-      <a href="#example-processing-a-payment" className="button button--primary button--lg">
+      <a
+        href="#example-processing-a-payment"
+        className="button button--primary button--lg"
+      >
         <span>🧪 Try an Example</span>
       </a>
-      <a href="/interactive-tools/postman-collection" className="button button--secondary button--lg">
+      <a
+        href="/interactive-tools/postman-collection"
+        className="button button--secondary button--lg"
+      >
         <span>📦 Get Postman Collection</span>
       </a>
     </div>
@@ -26,11 +41,16 @@ import { ApiBaseUrl, ExampleApiKey, AppUrl, ExampleStoreId } from '@site/src/com
 <div className="features-grid">
   <div className="feature-card">
     <h3>🧪 Interactive Testing</h3>
-    <p>Test API endpoints with your own parameters and see real-time responses</p>
+    <p>
+      Test API endpoints with your own parameters and see real-time responses
+    </p>
   </div>
   <div className="feature-card">
     <h3>📋 Request Builder</h3>
-    <p>Easily build API requests with a user-friendly interface for all parameters</p>
+    <p>
+      Easily build API requests with a user-friendly interface for all
+      parameters
+    </p>
   </div>
   <div className="feature-card">
     <h3>📊 Response Viewer</h3>
@@ -68,27 +88,37 @@ Authorization: Bearer {ExampleApiKey()}
     </div>
   </div>
 
-  <div className="setup-step">
-    <div className="step-number">2</div>
-    <div className="step-content">
-      <h3>Request Parameters</h3>
-      <p>The tool provides input fields for all required and optional parameters:</p>
-      <div className="parameter-details">
-        <div className="detail-item">
-          <span className="detail-icon">🔑</span>
-          <span className="detail-text">Fill in the required parameters (marked with *)</span>
-        </div>
-        <div className="detail-item">
-          <span className="detail-icon">➕</span>
-          <span className="detail-text">Add any optional parameters as needed</span>
-        </div>
-        <div className="detail-item">
-          <span className="detail-icon">🚀</span>
-          <span className="detail-text">Click <strong>Send Request</strong> to execute the API call</span>
-        </div>
+{" "}
+
+<div className="setup-step">
+  <div className="step-number">2</div>
+  <div className="step-content">
+    <h3>Request Parameters</h3>
+    <p>
+      The tool provides input fields for all required and optional parameters:
+    </p>
+    <div className="parameter-details">
+      <div className="detail-item">
+        <span className="detail-icon">🔑</span>
+        <span className="detail-text">
+          Fill in the required parameters (marked with *)
+        </span>
+      </div>
+      <div className="detail-item">
+        <span className="detail-icon">➕</span>
+        <span className="detail-text">
+          Add any optional parameters as needed
+        </span>
+      </div>
+      <div className="detail-item">
+        <span className="detail-icon">🚀</span>
+        <span className="detail-text">
+          Click <strong>Send Request</strong> to execute the API call
+        </span>
       </div>
     </div>
   </div>
+</div>
 
   <div className="setup-step">
     <div className="step-number">3</div>
@@ -449,15 +479,25 @@ curl -X POST "https://liasonpay.net/api/v1/payments/process" \
     <p>Yes, you can use the API Testing Tool with production credentials, but be aware that this will process real payments and affect live data.</p>
   </div>
 
-  <div className="faq-item">
-    <h3>How do I test recurring billing?</h3>
-    <p>Use the Create Subscription endpoint with test credentials to simulate recurring billing without processing real payments.</p>
-  </div>
+{" "}
 
-  <div className="faq-item">
-    <h3>Can I test webhook events?</h3>
-    <p>Yes, any actions you take with the API Testing Tool will trigger corresponding webhook events if you have webhooks configured.</p>
-  </div>
+<div className="faq-item">
+  <h3>How do I test recurring billing?</h3>
+  <p>
+    Use the Create Subscription endpoint with test credentials to simulate
+    recurring billing without processing real payments.
+  </p>
+</div>
+
+{" "}
+
+<div className="faq-item">
+  <h3>Can I test webhook events?</h3>
+  <p>
+    Yes, any actions you take with the API Testing Tool will trigger
+    corresponding webhook events if you have webhooks configured.
+  </p>
+</div>
 
   <div className="faq-item">
     <h3>Are there rate limits for testing?</h3>
@@ -492,7 +532,7 @@ curl -X POST "https://liasonpay.net/api/v1/payments/process" \
           <li><span className="benefit-icon">✓</span> Create test environments</li>
         </ul>
         <div className="next-step-action">
-          <a href="/interactive-tools/postman-collection" className="button button--primary">
+          <a href={getDocsUrl('/interactive-tools/postman-collection')} className="button button--primary">
             <span className="button-text">View Postman Collection</span>
             <span className="button-icon">→</span>
           </a>
@@ -516,7 +556,7 @@ curl -X POST "https://liasonpay.net/api/v1/payments/process" \
           <li><span className="benefit-icon">✓</span> View request/response examples</li>
         </ul>
         <div className="next-step-action">
-          <a href="/interactive-tools/api-explorer" className="button button--primary">
+          <a href={getDocsUrl('/interactive-tools/api-explorer')} className="button button--primary">
             <span className="button-text">Open API Explorer</span>
             <span className="button-icon">→</span>
           </a>
@@ -540,7 +580,7 @@ curl -X POST "https://liasonpay.net/api/v1/payments/process" \
           <li><span className="benefit-icon">✓</span> Parameter descriptions</li>
         </ul>
         <div className="next-step-action">
-          <a href="/api-reference" className="button button--primary">
+          <a href={getDocsUrl('/api-reference')} className="button button--primary">
             <span className="button-text">View API Reference</span>
             <span className="button-icon">→</span>
           </a>

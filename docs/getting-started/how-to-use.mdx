@@ -269,10 +269,10 @@ import * as CodeExamples from "@site/src/components/CodeExamples";
       <div className="step-content">
         <h3>Processing a One-Time Payment</h3>
         <ol>
-          <li>Create a payment request using the <a href="/api-reference/payments/process-payment">Process a payment</a> endpoint</li>
+          <li>Create a payment request using the <a href={getDocsUrl('/api-reference/payments/process-payment')}>Process a payment</a> endpoint</li>
           <li>Redirect the customer to the payment URL returned in the response</li>
           <li>After payment completion, the customer will be redirected to your success or cancel URL</li>
-          <li>Verify the payment status using the <a href="/api-reference/payments/verify-payment">Verify a payment</a> endpoint</li>
+          <li>Verify the payment status using the <a href={getDocsUrl('/api-reference/payments/verify-payment')}>Verify a payment</a> endpoint</li>
         </ol>
         <CodeBlock
           language="javascript"
@@ -289,10 +289,10 @@ import * as CodeExamples from "@site/src/components/CodeExamples";
       <div className="step-content">
         <h3>Creating a Subscription</h3>
         <ol>
-          <li>Create a subscription using the <a href="/api-reference/subscriptions/create-subscription">Create a subscription</a> endpoint</li>
+          <li>Create a subscription using the <a href={getDocsUrl('/api-reference/subscriptions/create-subscription')}>Create a subscription</a> endpoint</li>
           <li>Redirect the customer to the subscription URL returned in the response</li>
           <li>After subscription setup, the customer will be redirected to your success or cancel URL</li>
-          <li>Verify the subscription status using the <a href="/api-reference/subscriptions/verify-subscription">Verify a subscription</a> endpoint</li>
+          <li>Verify the subscription status using the <a href={getDocsUrl('/api-reference/subscriptions/verify-subscription')}>Verify a subscription</a> endpoint</li>
         </ol>
         <CodeBlock
           language="javascript"
@@ -467,7 +467,7 @@ import * as CodeExamples from "@site/src/components/CodeExamples";
           <li><span className="benefit-icon">✓</span> Understand parameter requirements</li>
         </ul>
         <div className="next-step-action">
-          <a href="/api-reference" className="button button--primary">
+          <a href={getDocsUrl('/api-reference')} className="button button--primary">
             <span className="button-text">View API Reference</span>
             <span className="button-icon">→</span>
           </a>
@@ -491,7 +491,7 @@ import * as CodeExamples from "@site/src/components/CodeExamples";
           <li><span className="benefit-icon">✓</span> Implement event-driven architecture</li>
         </ul>
         <div className="next-step-action">
-          <a href="/developer-guide/webhooks" className="button button--primary">
+          <a href={getDocsUrl('/developer-guide/webhooks')} className="button button--primary">
             <span className="button-text">View Webhooks Guide</span>
             <span className="button-icon">→</span>
           </a>
@@ -515,7 +515,7 @@ import * as CodeExamples from "@site/src/components/CodeExamples";
           <li><span className="benefit-icon">✓</span> Create better user experiences</li>
         </ul>
         <div className="next-step-action">
-          <a href="/developer-guide/error-handling" className="button button--primary">
+          <a href={getDocsUrl('/developer-guide/error-handling')} className="button button--primary">
             <span className="button-text">View Error Handling Guide</span>
             <span className="button-icon">→</span>
           </a>

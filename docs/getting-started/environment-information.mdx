@@ -8,6 +8,7 @@ import {
   ExampleApiKey,
   ExampleStoreId,
 } from "@site/src/components/DynamicValues";
+import { getDocsUrl } from "@site/src/components/DocsUrl";
 
 # Environment Information
 
@@ -605,7 +606,7 @@ curl --request GET \
           <li><span className="benefit-icon">✓</span> See practical code examples</li>
         </ul>
         <div className="next-step-action">
-          <a href="./how-to-use" className="button button--primary">
+          <a href="{getDocsUrl('/how-to-use')}" className="button button--primary">
             <span className="button-text">View API Usage Guide</span>
             <span className="button-icon">→</span>
           </a>
@@ -629,7 +630,7 @@ curl --request GET \
           <li><span className="benefit-icon">✓</span> Implement event-driven architecture</li>
         </ul>
         <div className="next-step-action">
-          <a href="/developer-guide/webhooks" className="button button--primary">
+          <a href={getDocsUrl('/developer-guide/webhooks')} className="button button--primary">
             <span className="button-text">View Webhooks Guide</span>
             <span className="button-icon">→</span>
           </a>
@@ -653,7 +654,7 @@ curl --request GET \
           <li><span className="benefit-icon">✓</span> Follow industry best practices</li>
         </ul>
         <div className="next-step-action">
-          <a href="/developer-guide/best-practices/security" className="button button--primary">
+          <a href={getDocsUrl('/developer-guide/best-practices/security')} className="button button--primary">
             <span className="button-text">View Security Guide</span>
             <span className="button-icon">→</span>
           </a>
