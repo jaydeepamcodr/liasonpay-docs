@@ -57,6 +57,7 @@ const sidebars: SidebarsConfig = {
       items: [
         "api-reference/payments/process-payment",
         "api-reference/payments/verify-payment",
+        "api-reference/payments/charge-payment-with-token",
       ],
     },
     "api-reference/packages",

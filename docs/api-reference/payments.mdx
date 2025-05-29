@@ -12,12 +12,12 @@ import {
 } from "@site/src/components/DynamicValues";
 import { getDocsUrl } from "@site/src/components/DocsUrl";
 
-# Payment API
+# Payments API
 
 <div className="explorer-header">
   <div className="explorer-header-content">
     <h2>Payment Processing API</h2>
-    <p>Process one-time payments from your customers</p>
+    <p>Process and manage payments securely</p>
   </div>
 </div>
 
@@ -25,9 +25,8 @@ import { getDocsUrl } from "@site/src/components/DocsUrl";
   <div className="introduction-card">
     <h3>Overview</h3>
     <p>
-      The Payment API allows you to process one-time payments and verify payment
-      status. These endpoints provide a simple way to integrate payment
-      processing into your application.
+      The Payments API allows you to process payments, verify transactions, and handle tokenized payments.
+      With these endpoints, you can implement a complete payment processing system in your application.
     </p>
   </div>
 </div>
@@ -42,7 +41,7 @@ import { getDocsUrl } from "@site/src/components/DocsUrl";
           <div className="endpoint-icon">💳</div>
           <div className="endpoint-content">
             <a href={getDocsUrl("api-reference/payments/process-payment")}>Process Payment</a>
-            <p>Process a one-time payment</p>
+            <p>Process a new payment transaction</p>
           </div>
         </div>
 
@@ -50,12 +49,19 @@ import { getDocsUrl } from "@site/src/components/DocsUrl";
           <div className="endpoint-icon">✅</div>
           <div className="endpoint-content">
             <a href={getDocsUrl("api-reference/payments/verify-payment")}>Verify Payment</a>
-            <p>Verify a payment's status</p>
+            <p>Verify the status of a payment</p>
+          </div>
+        </div>
+
+        <div className="endpoint-item">
+          <div className="endpoint-icon">🔑</div>
+          <div className="endpoint-content">
+            <a href={getDocsUrl("api-reference/payments/charge-payment-with-token")}>Charge with Token</a>
+            <p>Process payment using a stored token</p>
           </div>
         </div>
       </div>
     </div>
-
   </div>
 </div>
 
@@ -63,46 +69,127 @@ import { getDocsUrl } from "@site/src/components/DocsUrl";
 
 <div className="use-cases-section">
   <div className="use-case-item">
-    <h4>E-commerce Checkout</h4>
-    <p>Integrate payment processing into your online store checkout flow. Support multiple payment methods with a unified API.</p>
+    <h4>One-Time Payments</h4>
+    <p>Process single payments for products or services.</p>
   </div>
 
-{" "}
-
-<div className="use-case-item">
-  <h4>Donation Collection</h4>
-  <p>
-    Accept one-time donations for your organization or cause. Create seamless
-    giving experiences for your supporters.
-  </p>
-</div>
+  <div className="use-case-item">
+    <h4>Recurring Billing</h4>
+    <p>Handle subscription payments and recurring charges using tokens.</p>
+  </div>
 
   <div className="use-case-item">
-    <h4>Service Payments</h4>
-    <p>Collect payments for one-time services or products. Simplify your billing process with automated receipts.</p>
+    <h4>Payment Verification</h4>
+    <p>Verify payment status and reconcile transactions.</p>
   </div>
   
   <div className="use-case-item">
-    <h4>Event Ticketing</h4>
-    <p>Sell tickets to events with secure payment processing and instant confirmation emails.</p>
+    <h4>Tokenized Payments</h4>
+    <p>Enable secure repeat purchases with stored payment methods.</p>
   </div>
   
   <div className="use-case-item">
-    <h4>Digital Downloads</h4>
-    <p>Sell digital products with immediate access upon successful payment verification.</p>
+    <h4>Transaction Management</h4>
+    <p>Track and manage payment transactions across your platform.</p>
   </div>
   
   <div className="use-case-item">
-    <h4>Invoice Payments</h4>
-    <p>Allow customers to pay invoices online with automatic reconciliation in your accounting system.</p>
+    <h4>Payment Analytics</h4>
+    <p>Monitor payment trends and transaction success rates.</p>
   </div>
 </div>
 
 ## Getting Started
 
-To start using the Payment API, you'll need:
+To start using the Payments API, you'll need:
 
 1. Your API key for authentication
 2. Your store ID to identify your account
+3. Customer and payment details for processing transactions
 
-Check out the [Process Payment](/api-reference/payments/process-payment) endpoint to begin implementing payment functionality in your application.
+Check out the [Process Payment](/api-reference/payments/process-payment) endpoint to begin accepting payments in your application.
+
+## Webhook Events
+
+<div className="webhook-section">
+  <div className="webhook-card">
+    <h3>Real-time Payment Notifications</h3>
+    <p>
+      LiasonPay sends webhook events for payment-related activities. Subscribe to these events to stay informed about transaction status changes.
+    </p>
+
+    <div className="webhook-events">
+      <div className="webhook-event">
+        <div className="webhook-event-name">
+          <code>payment.success</code>
+        </div>
+        <div className="webhook-event-description">
+          Triggered when a payment is successful
+        </div>
+      </div>
+
+      <div className="webhook-event">
+        <div className="webhook-event-name">
+          <code>payment.failed</code>
+        </div>
+        <div className="webhook-event-description">
+          Triggered when a payment fails
+        </div>
+      </div>
+
+      <div className="webhook-event">
+        <div className="webhook-event-name">
+          <code>payment.pending</code>
+        </div>
+        <div className="webhook-event-description">
+          Triggered when a payment is pending
+        </div>
+      </div>
+    </div>
+
+    <p>
+      For more information on webhooks, see the <a href={getDocsUrl("developer-guide/webhooks")}>Webhooks Guide</a>.
+    </p>
+  </div>
+</div>
+
+## Security Best Practices
+
+<div className="security-section">
+  <div className="security-item">
+    <h4>PCI Compliance</h4>
+    <p>Never handle raw card data. Use our secure payment form or tokenization.</p>
+  </div>
+
+  <div className="security-item">
+    <h4>API Key Security</h4>
+    <p>Keep your API keys secure and never expose them in client-side code.</p>
+  </div>
+
+  <div className="security-item">
+    <h4>Webhook Verification</h4>
+    <p>Always verify webhook signatures to ensure authenticity.</p>
+  </div>
+</div>
+
+## Next Steps
+
+<div className="next-steps-section">
+  <div className="next-step-card">
+    <h3>🔔 Set Up Webhooks</h3>
+    <p>Receive real-time notifications about payment events</p>
+    <a href={getDocsUrl("developer-guide/webhooks")} className="button button--secondary">View Webhooks Guide</a>
+  </div>
+
+  <div className="next-step-card">
+    <h3>❓ FAQ</h3>
+    <p>Find answers to common payment questions</p>
+    <a href={getDocsUrl("api-reference/faq")} className="button button--secondary">View FAQ</a>
+  </div>
+
+  <div className="next-step-card">
+    <h3>📚 API Reference</h3>
+    <p>Explore all available API endpoints</p>
+    <a href={getDocsUrl("api-reference")} className="button button--secondary">View API Reference</a>
+  </div>
+</div>

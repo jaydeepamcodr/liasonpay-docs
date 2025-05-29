@@ -12,12 +12,12 @@ import {
 } from "@site/src/components/DynamicValues";
 import { getDocsUrl } from "@site/src/components/DocsUrl";
 
-# Dispute API
+# Disputes API
 
 <div className="explorer-header">
   <div className="explorer-header-content">
     <h2>Dispute Management API</h2>
-    <p>Manage payment disputes and chargebacks</p>
+    <p>Handle transaction disputes and manage customer claims</p>
   </div>
 </div>
 
@@ -25,9 +25,8 @@ import { getDocsUrl } from "@site/src/components/DocsUrl";
   <div className="introduction-card">
     <h3>Overview</h3>
     <p>
-      The Dispute API allows you to manage payment disputes and chargebacks.
-      These endpoints provide a way to raise disputes for transactions and view
-      dispute details.
+      The Disputes API allows you to handle customer claims and manage transaction disputes.
+      With these endpoints, you can implement a complete dispute resolution system in your application.
     </p>
   </div>
 </div>
@@ -39,10 +38,10 @@ import { getDocsUrl } from "@site/src/components/DocsUrl";
     <div className="endpoint-category">
       <div className="endpoint-list">
         <div className="endpoint-item">
-          <div className="endpoint-icon">⚠️</div>
+          <div className="endpoint-icon">📝</div>
           <div className="endpoint-content">
             <a href={getDocsUrl("api-reference/disputes/raise-dispute")}>Raise Dispute</a>
-            <p>Raise a dispute for a transaction</p>
+            <p>Create a new dispute for a transaction</p>
           </div>
         </div>
 
@@ -50,12 +49,11 @@ import { getDocsUrl } from "@site/src/components/DocsUrl";
           <div className="endpoint-icon">🔍</div>
           <div className="endpoint-content">
             <a href={getDocsUrl("api-reference/disputes/view-dispute")}>View Dispute</a>
-            <p>Get dispute details for a transaction</p>
+            <p>Retrieve details of a specific dispute</p>
           </div>
         </div>
       </div>
     </div>
-
   </div>
 </div>
 
@@ -63,74 +61,43 @@ import { getDocsUrl } from "@site/src/components/DocsUrl";
 
 <div className="use-cases-section">
   <div className="use-case-item">
-    <h4>Customer Complaints</h4>
-    <p>Allow customers to raise disputes for transactions they believe are incorrect or fraudulent.</p>
+    <h4>Customer Claims</h4>
+    <p>Handle customer complaints and disputes for transactions with proper documentation and tracking.</p>
   </div>
-
-{" "}
-
-<div className="use-case-item">
-  <h4>Dispute Resolution</h4>
-  <p>
-    Track and manage disputes through their lifecycle, from creation to
-    resolution.
-  </p>
-</div>
 
   <div className="use-case-item">
-    <h4>Chargeback Management</h4>
-    <p>Handle chargebacks efficiently by accessing dispute details and providing evidence.</p>
+    <h4>Dispute Resolution</h4>
+    <p>Manage the complete lifecycle of transaction disputes from creation to resolution.</p>
   </div>
-</div>
 
-## Dispute Lifecycle
-
-<div className="lifecycle-section">
-  <div className="lifecycle-card">
-    <h3>Understanding the Dispute Process</h3>
-    <div className="lifecycle-steps">
-      <div className="lifecycle-step">
-        <div className="step-number">1</div>
-        <div className="step-content">
-          <h4>Dispute Creation</h4>
-          <p>A dispute is created when a customer raises an issue with a transaction.</p>
-        </div>
-      </div>
-
-      <div className="lifecycle-step">
-        <div className="step-number">2</div>
-        <div className="step-content">
-          <h4>Evidence Collection</h4>
-          <p>Both parties provide evidence to support their case.</p>
-        </div>
-      </div>
-
-      <div className="lifecycle-step">
-        <div className="step-number">3</div>
-        <div className="step-content">
-          <h4>Review Process</h4>
-          <p>The payment processor reviews the evidence and makes a decision.</p>
-        </div>
-      </div>
-
-      <div className="lifecycle-step">
-        <div className="step-number">4</div>
-        <div className="step-content">
-          <h4>Resolution</h4>
-          <p>The dispute is resolved, and the outcome is communicated to both parties.</p>
-        </div>
-      </div>
-    </div>
-
+  <div className="use-case-item">
+    <h4>Evidence Management</h4>
+    <p>Upload and manage supporting documents and evidence for dispute cases.</p>
+  </div>
+  
+  <div className="use-case-item">
+    <h4>Status Tracking</h4>
+    <p>Monitor and track the progress of disputes through various stages of resolution.</p>
+  </div>
+  
+  <div className="use-case-item">
+    <h4>Compliance Records</h4>
+    <p>Maintain detailed records of disputes and resolutions for compliance and auditing.</p>
+  </div>
+  
+  <div className="use-case-item">
+    <h4>Customer Support</h4>
+    <p>Integrate dispute management with your customer support workflow for better service.</p>
   </div>
 </div>
 
 ## Getting Started
 
-To start using the Dispute API, you'll need:
+To start using the Disputes API, you'll need:
 
 1. Your API key for authentication
-2. The transaction ID for the disputed payment
+2. Transaction IDs for the disputed transactions
+3. Supporting documentation for dispute claims
 
 Check out the [Raise Dispute](/api-reference/disputes/raise-dispute) endpoint to begin implementing dispute functionality in your application.
 

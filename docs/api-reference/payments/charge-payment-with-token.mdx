@@ -1,0 +1,400 @@
+---
+sidebar_position: 3
+---
+
+import ApiTester from '@site/src/components/ApiTester';
+import { AppUrl, ApiBaseUrl, ExampleApiKey, ExampleStoreId, ExampleTransactionId } from '@site/src/components/DynamicValues';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
+
+# Charge Payment with Token
+
+<div className="explorer-header">
+  <div className="explorer-header-content">
+    <h2>Charge Payment with Token</h2>
+    <p>Process a payment using a previously stored payment token</p>
+    <div className="explorer-badges">
+      <span className="badge badge--primary">requires authentication</span>
+      <span className="badge badge--success">POST</span>
+      <span className="badge badge--info">/api/v1/payment/charge-with-token</span>
+    </div>
+  </div>
+</div>
+
+<div className="endpoint-section">
+  <div className="endpoint-card">
+    <h3>Endpoint</h3>
+    <CodeBlock className="language-http" title="HTTP Request">
+{`POST {ApiBaseUrl()}/payment/charge-with-token`}
+    </CodeBlock>
+    <p>This endpoint allows you to process payments using a previously stored payment token, enabling recurring billing and one-click payments for returning customers.</p>
+  </div>
+</div>
+
+## Request Parameters
+
+<div className="parameters-section">
+  <div className="parameters-card">
+    <h3>Required Parameters</h3>
+    <div className="parameters-table-container">
+      <table className="parameters-table">
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Type</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>store_id</code></td>
+            <td>string</td>
+            <td>Your store identifier</td>
+          </tr>
+          <tr>
+            <td><code>token</code></td>
+            <td>string</td>
+            <td>The payment token to charge</td>
+          </tr>
+          <tr>
+            <td><code>amount</code></td>
+            <td>number</td>
+            <td>Amount to charge (in smallest currency unit)</td>
+          </tr>
+          <tr>
+            <td><code>currency</code></td>
+            <td>string</td>
+            <td>Currency code (e.g., NGN, USD)</td>
+          </tr>
+          <tr>
+            <td><code>customer.email</code></td>
+            <td>string</td>
+            <td>Customer's email address</td>
+          </tr>
+          <tr>
+            <td><code>customer.name</code></td>
+            <td>string</td>
+            <td>Customer's full name</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div className="parameters-card">
+    <h3>Optional Parameters</h3>
+    <div className="parameters-table-container">
+      <table className="parameters-table">
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Type</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>customer.phone_number</code></td>
+            <td>string</td>
+            <td>Customer's phone number</td>
+          </tr>
+          <tr>
+            <td><code>metadata</code></td>
+            <td>object</td>
+            <td>Additional data in key-value format</td>
+          </tr>
+          <tr>
+            <td><code>reference</code></td>
+            <td>string</td>
+            <td>Your unique transaction reference</td>
+          </tr>
+          <tr>
+            <td><code>description</code></td>
+            <td>string</td>
+            <td>Description of the transaction</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+## Example Request
+
+<Tabs>
+  <TabItem value="curl" label="cURL" default>
+    <CodeBlock className="language-bash" title="cURL Request">
+{`curl --request POST \\
+    "{ApiBaseUrl()}/payment/charge-with-token" \\
+    --header "Authorization: Bearer YOUR_API_KEY" \\
+    --header "Content-Type: application/json" \\
+    --header "Accept: application/json" \\
+    --data '{
+        "store_id": "STORE_123",
+        "token": "tok_123456789",
+        "amount": 5000,
+        "currency": "NGN",
+        "customer": {
+            "email": "john.doe@example.com",
+            "name": "John Doe",
+            "phone_number": "+2348123456789"
+        },
+        "metadata": {
+            "order_id": "ORD_123456",
+            "product_name": "Premium Subscription"
+        },
+        "reference": "TX_123456789",
+        "description": "Monthly subscription payment"
+    }'`}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="javascript" label="Node.js">
+    <CodeBlock className="language-javascript" title="Node.js Example">
+{`const axios = require("axios");
+
+const chargeWithToken = async () => {
+  try {
+    const response = await axios.post(
+      "{ApiBaseUrl()}/payment/charge-with-token",
+      {
+        store_id: "STORE_123",
+        token: "tok_123456789",
+        amount: 5000,
+        currency: "NGN",
+        customer: {
+          email: "john.doe@example.com",
+          name: "John Doe",
+          phone_number: "+2348123456789"
+        },
+        metadata: {
+          order_id: "ORD_123456",
+          product_name: "Premium Subscription"
+        },
+        reference: "TX_123456789",
+        description: "Monthly subscription payment"
+      },
+      {
+        headers: {
+          Authorization: \`Bearer \${process.env.LIASONPAY_API_KEY}\`,
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      }
+    );
+
+    console.log(response.data);
+    return response.data;
+  } catch (error) {
+    console.error(
+      "Error charging payment:",
+      error.response?.data || error.message
+    );
+    throw error;
+  }
+};`}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="python" label="Python">
+    <CodeBlock className="language-python" title="Python Example">
+{`import requests
+import os
+
+def charge_with_token():
+    # API configuration
+    api_base_url = "{ApiBaseUrl()}"
+    api_key = os.environ.get("LIASONPAY_API_KEY")
+
+    url = f"{api_base_url}/payment/charge-with-token"
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+    }
+
+    # Request payload
+    data = {
+        "store_id": "STORE_123",
+        "token": "tok_123456789",
+        "amount": 5000,
+        "currency": "NGN",
+        "customer": {
+            "email": "john.doe@example.com",
+            "name": "John Doe",
+            "phone_number": "+2348123456789"
+        },
+        "metadata": {
+            "order_id": "ORD_123456",
+            "product_name": "Premium Subscription"
+        },
+        "reference": "TX_123456789",
+        "description": "Monthly subscription payment"
+    }
+
+    try:
+        response = requests.post(url, headers=headers, json=data)
+        response.raise_for_status()
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"Error charging payment: {e}")
+        raise`}
+    </CodeBlock>
+  </TabItem>
+</Tabs>
+
+## Example Response
+
+<div className="response-section">
+  <div className="response-card">
+    <h3>Success Response</h3>
+    <CodeBlock className="language-json" title="Success Response">
+{`{
+  "status": true,
+  "message": "Payment processed successfully",
+  "data": {
+    "transaction_id": "TRX_1234567890",
+    "reference": "TX_123456789",
+    "amount": 5000,
+    "currency": "NGN",
+    "status": "success",
+    "payment_method": "card",
+    "customer": {
+      "email": "john.doe@example.com",
+      "name": "John Doe",
+      "phone_number": "+2348123456789"
+    },
+    "metadata": {
+      "order_id": "ORD_123456",
+      "product_name": "Premium Subscription"
+    },
+    "created_at": "2024-03-15T10:30:00Z"
+  }
+}`}
+    </CodeBlock>
+  </div>
+
+  <div className="response-card">
+    <h3>Error Response</h3>
+    <CodeBlock className="language-json" title="Error Response">
+{`{
+  "status": false,
+  "message": "Error processing payment",
+  "errors": {
+    "token": [
+      "Invalid or expired token"
+    ],
+    "amount": [
+      "Amount must be greater than 0"
+    ]
+  }
+}`}
+    </CodeBlock>
+  </div>
+</div>
+
+## Common Use Cases
+
+<div className="use-cases-section">
+  <div className="use-case-item">
+    <h4>Recurring Billing</h4>
+    <p>Charge returning customers without requiring them to enter payment details again.</p>
+  </div>
+
+  <div className="use-case-item">
+    <h4>Subscription Payments</h4>
+    <p>Process automated subscription renewals using stored payment tokens.</p>
+  </div>
+
+  <div className="use-case-item">
+    <h4>One-Click Payments</h4>
+    <p>Enable quick checkout for returning customers using saved payment methods.</p>
+  </div>
+</div>
+
+## Notes
+
+<div className="notes-section">
+  <div className="notes-card">
+    <div className="notes-items">
+      <div className="notes-item">
+        <div className="notes-icon">🔒</div>
+        <div className="notes-content">
+          <p>Never store payment tokens in your database. Only store the token reference provided by LiasonPay.</p>
+        </div>
+      </div>
+
+      <div className="notes-item">
+        <div className="notes-icon">⏱️</div>
+        <div className="notes-content">
+          <p>Payment tokens may expire for security reasons. Always handle token expiration gracefully.</p>
+        </div>
+      </div>
+
+      <div className="notes-item">
+        <div className="notes-icon">✅</div>
+        <div className="notes-content">
+          <p>Always validate the token and implement proper error handling for failed transactions.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Interactive Testing
+
+<div className="interactive-testing-section">
+  <div className="interactive-testing-card">
+    <h3>Try It Out</h3>
+    <p>Use the interactive API tester below to try out this endpoint with your own API key and parameters.</p>
+
+    <ApiTester
+      endpoint="/payment/charge-with-token"
+      method="POST"
+      baseUrl="{ApiBaseUrl()}"
+      params={[
+        {
+          name: "store_id",
+          required: true,
+          in: "body",
+          description: "Your store identifier",
+          defaultValue: "STORE_123"
+        },
+        {
+          name: "token",
+          required: true,
+          in: "body",
+          description: "The payment token to charge",
+          defaultValue: "tok_123456789"
+        },
+        {
+          name: "amount",
+          required: true,
+          in: "body",
+          description: "Amount to charge (in smallest currency unit)",
+          defaultValue: "5000"
+        },
+        {
+          name: "currency",
+          required: true,
+          in: "body",
+          description: "Currency code (e.g., NGN, USD)",
+          defaultValue: "NGN"
+        },
+        {
+          name: "customer.email",
+          required: true,
+          in: "body",
+          description: "Customer's email address",
+          defaultValue: "john.doe@example.com"
+        },
+        {
+          name: "customer.name",
+          required: true,
+          in: "body",
+          description: "Customer's full name",
+          defaultValue: "John Doe"
+        }
+      ]}
+    />
+  </div>
+</div>
