@@ -279,7 +279,7 @@ fetch('{ApiBaseUrl()}/payments', {
 
     <div className="testing-environment-card">
       <div className="environment-header production">
-        <div className="environment-icon">�</div>
+        <div className="environment-icon">💰</div>
         <h3>Production Testing</h3>
       </div>
       <div className="environment-content">
@@ -310,7 +310,6 @@ fetch('{ApiBaseUrl()}/payments', {
             </button>
           </div>
           <pre className="code-block">
-
 ```javascript
 fetch("{ApiBaseUrl()}/payments", {
   method: "POST",
@@ -444,24 +443,24 @@ fetch("{ApiBaseUrl()}/payments", {
         <pre className="code-block">
 
 ```bash
-curl -X POST "https://liasonpay.net/api/v1/payments/process" \
-  -H "Authorization: Bearer {ExampleApiKey()}" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "store_id": "{ExampleStoreId()}",
-    "currency": "usd",
-    "products": [
-      {
-        "name": "Product 1",
-        "description": "Product description",
-        "price": 100,
-        "quantity": 1
-      }
-    ],
-    "success_url": "https://example.com/success",
-    "cancel_url": "https://example.com/cancel",
-    "mode": "sandbox"
-  }'
+curl -X POST "{ApiBaseUrl()}/payments/process" \
+    -H "Authorization: Bearer YOUR_API_KEY" \
+    -H "Content-Type: application/json" \
+    -d '{
+      "store_id": "{ExampleStoreId()}",
+      "currency": "usd",
+      "products": [
+        {
+          "name": "Product 1",
+          "description": "Product description",
+          "price": 100,
+          "quantity": 1
+        }
+      ],
+      "success_url": "https://example.com/success",
+      "cancel_url": "https://example.com/cancel",
+      "mode": "sandbox"
+    }'
 ```
 
         </pre>
@@ -596,7 +595,7 @@ curl -X POST "https://liasonpay.net/api/v1/payments/process" \
       <h4>Need Help?</h4>
       <p>If you have any questions about using the API Testing Tool or need assistance with your integration, our support team is here to help.</p>
       <div className="help-actions">
-        <a href="https://liasonpay.net/support" target="_blank" rel="noopener noreferrer" className="button button--secondary">
+        <a href={`${AppUrl()}/support`} target="_blank" rel="noopener noreferrer" className="button button--secondary">
           <span className="button-text">Contact Support</span>
         </a>
         <a href="/developer-guide/faq" className="button button--secondary">
@@ -605,4 +604,13 @@ curl -X POST "https://liasonpay.net/api/v1/payments/process" \
       </div>
     </div>
   </div>
+</div>
+
+<div className="next-steps-buttons">
+    <a href={`${AppUrl()}/dashboard`} target="_blank" rel="noopener noreferrer" className="button button--primary">
+        Go to Dashboard
+    </a>
+    <a href={`${AppUrl()}/support`} target="_blank" rel="noopener noreferrer" className="button button--secondary">
+        Contact Support
+    </a>
 </div>

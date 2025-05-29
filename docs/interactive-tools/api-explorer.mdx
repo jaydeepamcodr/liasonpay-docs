@@ -191,7 +191,7 @@ import DocsUrl, { getDocsUrl } from '@site/src/components/DocsUrl';
   "status": "pending",
   "amount": 100,
   "currency": "usd",
-  "payment_url": "https://liasonpay.net/pay/PAYMENT_123456789",
+  "payment_url": "${AppUrl()}/pay/PAYMENT_123456789",
   "created_at": "2023-06-15T10:30:00Z"
 }
 ```
@@ -485,7 +485,7 @@ import DocsUrl, { getDocsUrl } from '@site/src/components/DocsUrl';
       <h4>Need Help?</h4>
       <p>If you have any questions about using the API Explorer or need assistance with your integration, our support team is here to help.</p>
       <div className="help-actions">
-        <a href="https://liasonpay.net/support" target="_blank" rel="noopener noreferrer" className="button button--secondary">
+        <a href={`${AppUrl()}/support`} target="_blank" rel="noopener noreferrer" className="button button--secondary">
           <span className="button-text">Contact Support</span>
         </a>
         <a href={getDocsUrl('developer-guide/faq')} className="button button--secondary">
@@ -494,4 +494,13 @@ import DocsUrl, { getDocsUrl } from '@site/src/components/DocsUrl';
       </div>
     </div>
   </div>
+</div>
+
+<div className="next-steps-buttons">
+    <a href={`${AppUrl()}/dashboard`} target="_blank" rel="noopener noreferrer" className="button button--primary">
+        Go to Dashboard
+    </a>
+    <a href={`${AppUrl()}/support`} target="_blank" rel="noopener noreferrer" className="button button--secondary">
+        Contact Support
+    </a>
 </div>

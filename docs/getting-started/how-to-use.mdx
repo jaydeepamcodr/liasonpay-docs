@@ -525,16 +525,25 @@ import * as CodeExamples from "@site/src/components/CodeExamples";
 
   </div>
 
+  <div className="next-steps-buttons">
+    <a href={`${AppUrl()}/dashboard`} target="_blank" rel="noopener noreferrer" className="button button--primary">
+        Go to Dashboard
+    </a>
+    <a href={`${AppUrl()}/support`} target="_blank" rel="noopener noreferrer" className="button button--secondary">
+        Contact Support
+    </a>
+  </div>
+
   <div className="help-resources-box">
     <div className="help-icon">💬</div>
     <div className="help-content">
       <h4>Need Help?</h4>
       <p>If you have any questions or need assistance with your integration, our support team is here to help.</p>
       <div className="help-actions">
-        <a href="https://liasonpay.net/support" target="_blank" rel="noopener noreferrer" className="button button--secondary">
+        <a href={`${AppUrl()}/support`} target="_blank" rel="noopener noreferrer" className="button button--secondary">
           <span className="button-text">Contact Support</span>
         </a>
-        <a href="/developer-guide/faq" className="button button--secondary">
+        <a href={getDocsUrl('/developer-guide/faq')} className="button button--secondary">
           <span className="button-text">View FAQ</span>
         </a>
       </div>

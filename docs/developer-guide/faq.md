@@ -248,7 +248,7 @@ Authorization: Bearer YOUR_API_KEY`}
           <div className="rotation-step-icon">1️⃣</div>
           <div className="rotation-step-content">
             <h4>Access Dashboard</h4>
-            <p>Log in to your <a href="https://liasonpay.net" target="_blank" rel="noopener noreferrer">LiasonPay dashboard</a></p>
+            <p>Log in to your <a href={`${AppUrl()}/dashboard`} target="_blank" rel="noopener noreferrer">LiasonPay dashboard</a></p>
           </div>
         </div>
         <div className="rotation-step">
@@ -350,7 +350,7 @@ Authorization: Bearer YOUR_API_KEY`}
         <div className="troubleshooting-step">
           <div className="step-number">1</div>
           <div className="step-content">
-            <p>Log in to your <a href="https://liasonpay.net" target="_blank" rel="noopener noreferrer">LiasonPay dashboard</a></p>
+            <p>Log in to your <a href={`${AppUrl()}/dashboard`} target="_blank" rel="noopener noreferrer">LiasonPay dashboard</a></p>
           </div>
         </div>
         <div className="troubleshooting-step">
@@ -396,7 +396,7 @@ Authorization: Bearer YOUR_API_KEY`}
         </div>
         <pre>
           <code>
-{`fetch('https://liasonpay.net/api/v1/payments/refund', {
+{`fetch('${ApiBaseUrl()}/payments/refund', {
   method: 'POST',
   headers: {
     'Authorization': 'Bearer YOUR_API_KEY',
@@ -496,7 +496,7 @@ Authorization: Bearer YOUR_API_KEY`}
         </div>
         <pre>
           <code>
-{`fetch('https://liasonpay.net/api/v1/subscription/cancel', {
+{`fetch('${ApiBaseUrl()}/subscription/cancel', {
   method: 'POST',
   headers: {
     'Authorization': 'Bearer YOUR_API_KEY',
@@ -592,7 +592,7 @@ Authorization: Bearer YOUR_API_KEY`}
         </div>
         <pre>
           <code>
-{`fetch('https://liasonpay.net/api/v1/subscription/upgrade', {
+{`fetch('${ApiBaseUrl()}/subscription/upgrade', {
   method: 'POST',
   headers: {
     'Authorization': 'Bearer YOUR_API_KEY',
@@ -655,7 +655,7 @@ Authorization: Bearer YOUR_API_KEY`}
         <div className="troubleshooting-step">
           <div className="step-number">1</div>
           <div className="step-content">
-            <p>Log in to your <a href="https://liasonpay.net" target="_blank" rel="noopener noreferrer">LiasonPay dashboard</a></p>
+            <p>Log in to your <a href={`${AppUrl()}/dashboard`} target="_blank" rel="noopener noreferrer">LiasonPay dashboard</a></p>
           </div>
         </div>
         <div className="troubleshooting-step">
@@ -1146,7 +1146,7 @@ const response = await fetch(url, options);
 {`// Express.js proxy endpoint
 app.post('/api/proxy/payment', async (req, res) => {
   try {
-    const response = await fetch('https://liasonpay.net/api/v1/payments', {
+    const response = await fetch('${ApiBaseUrl()}/payments', {
       method: 'POST',
       headers: {
         'Authorization': \`Bearer \${process.env.LIASONPAY_API_KEY}\`,

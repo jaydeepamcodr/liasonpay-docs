@@ -9,6 +9,7 @@ import {
   ExampleStoreId,
 } from "@site/src/components/DynamicValues";
 import { getDocsUrl } from "@site/src/components/DocsUrl";
+import * as Constants from '@site/src/constants';
 
 # Postman Collection
 
@@ -85,11 +86,9 @@ Download our Postman Collection with a single click:
 
 ### Option 2: Import from URL
 
-Import the collection directly in Postman using this URL:
+Alternatively, you can import the collection directly into Postman using this URL:
 
-```bash
-https://liasonpay.net/documentation/collection.json
-```
+[`${Constants.DOCS_URL}/collection.json`]({`${Constants.DOCS_URL}/collection.json`})
 
 ## Setting Up the Collection
 
@@ -557,11 +556,11 @@ https://liasonpay.net/documentation/collection.json
       <h4>Need Help?</h4>
       <p>If you have any questions about using the Postman Collection or need assistance with your integration, our support team is here to help.</p>
       <div className="help-actions">
-        <a href="https://liasonpay.net/support" target="_blank" rel="noopener noreferrer" className="button button--secondary">
-          <span className="button-text">Contact Support</span>
+        <a href={`${AppUrl()}/dashboard`} target="_blank" rel="noopener noreferrer" className="button button--primary">
+          <span className="button-text">Go to Dashboard</span>
         </a>
-        <a href={getDocsUrl('/developer-guide/faq')} className="button button--secondary">
-          <span className="button-text">View FAQ</span>
+        <a href={`${AppUrl()}/support`} target="_blank" rel="noopener noreferrer" className="button button--secondary">
+          <span className="button-text">Contact Support</span>
         </a>
       </div>
     </div>

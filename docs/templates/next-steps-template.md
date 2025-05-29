@@ -9,6 +9,9 @@ Instructions:
 5. Update the links and content for each card
 -->
 
+import React from 'react';
+import { AppUrl } from '@site/src/components/DynamicValues';
+
 ## Next Steps
 
 <div className="next-steps-section">
@@ -116,7 +119,7 @@ Instructions:
       <h4>Need Help?</h4>
       <p>If you have any questions or need assistance with your integration, our support team is here to help.</p>
       <div className="help-actions">
-        <a href="https://liasonpay.net/support" target="_blank" rel="noopener noreferrer" className="button button--secondary">
+        <a href={`${AppUrl()}/support`} target="_blank" rel="noopener noreferrer" className="button button--secondary">
           <span className="button-text">Contact Support</span>
         </a>
         <a href="/developer-guide/faq" className="button button--secondary">

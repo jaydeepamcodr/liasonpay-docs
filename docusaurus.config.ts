@@ -1,11 +1,11 @@
 import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
+import { APP_URL } from './src/constants';
 
 // Import constants
 const {
   API_BASE_URL,
-  APP_URL,
   EXAMPLE_STORE_ID,
   EXAMPLE_SUBSCRIPTION_ID,
   EXAMPLE_PACKAGE_ID,
@@ -196,7 +196,7 @@ const config: Config = {
             },
             {
               label: "API Keys",
-              href: "https://liasonpay.net/api-key",
+              href: `${APP_URL}/api-key`,
             },
           ],
         },
