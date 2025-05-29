@@ -201,7 +201,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} LiasonPay. All rights reserved. Last updated: May 14, 2025`,
+      copyright: `Copyright © ${new Date().getFullYear()} LiasonPay. All rights reserved.`,
     },
     prism: {
       theme: prismThemes.github,
