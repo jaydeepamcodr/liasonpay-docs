@@ -32,6 +32,10 @@ export function ExampleSubscriptionId() {
   return <code>{Constants.EXAMPLE_SUBSCRIPTION_ID}</code>;
 }
 
+export function ExampleSubscriptionRequestId() {
+  return <code>{Constants.EXAMPLE_SUBSCRIPTION_REQUEST_ID}</code>;
+}
+
 export function ExamplePackageId() {
   return <code>{Constants.EXAMPLE_PACKAGE_ID}</code>;
 }

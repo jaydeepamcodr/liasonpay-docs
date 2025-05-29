@@ -10,6 +10,7 @@ import {
   ExampleStoreId,
   ExamplePriceId,
   ExampleSubscriptionId,
+  ExampleSubscriptionRequestId,
 } from "@site/src/components/DynamicValues";
 
 # Create Subscription
@@ -365,7 +366,7 @@ curl --request POST \
     \"success_url\": \"https://example.com/success\",
     \"cancel_url\": \"https://example.com/cancel\",
     \"return_url\": \"https://example.com/return\",
-    \"mode\": \"production\"
+    \"mode\": \"sandbox\"
 }"
 ```
       </pre>
@@ -405,7 +406,7 @@ order_code: "ORD_1234567890",
 success_url: "https://example.com/success",
 cancel_url: "https://example.com/cancel",
 return_url: "https://example.com/return",
-mode: "production",
+mode: "sandbox",
 });
 
     console.log(response.data);
@@ -459,7 +460,7 @@ def create_subscription():
         "success_url": "https://example.com/success",
         "cancel_url": "https://example.com/cancel",
         "return_url": "https://example.com/return",
-        "mode": "production"
+        "mode": "sandbox"
     }
 
     try:
@@ -510,7 +511,7 @@ function createSubscription() {
         'success_url' => 'https://example.com/success',
         'cancel_url' => 'https://example.com/cancel',
         'return_url' => 'https://example.com/return',
-        'mode' => 'production' // or 'sandbox'
+        'mode' => 'sandbox' // or 'sandbox'
     ];
 
     try {
@@ -567,8 +568,8 @@ function createSubscription() {
   "status": true,
   "message": "Subscription created successfully",
   "data": {
-    "subscription_request_id": "{ExampleSubscriptionId()}",
-    "checkout_url": "https://checkout.liasonpay.net/c/{ExampleSubscriptionId()}"
+    "subscription_request_id": "{ExampleSubscriptionRequestId()}",
+    "checkout_url": "https://checkout.liasonpay.net/c/{ExampleSubscriptionRequestId()}"
   }
 }
 ```
@@ -781,7 +782,7 @@ function createSubscription() {
           required: true,
           in: "body",
           description: "The mode of the subscription (sandbox or production)",
-          defaultValue: "production"
+          defaultValue: "sandbox"
         }
       ]}
     />
