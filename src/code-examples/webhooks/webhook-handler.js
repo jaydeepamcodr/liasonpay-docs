@@ -352,7 +352,8 @@ export const webhookEvents = {
     },
     "metadata": {
       "order_id": "order_123457"
-    }
+    },
+    "payment_token_id": "tok_123456789"
   }
 }`
   },

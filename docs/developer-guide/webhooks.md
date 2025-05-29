@@ -273,6 +273,7 @@ import { AppUrl } from '@site/src/components/DynamicValues';
 "metadata": {
 "order_id": "ORDER_001"
 }
+"payment_token_id": "token32323223"
 }
 }
 
