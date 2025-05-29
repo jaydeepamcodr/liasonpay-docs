@@ -198,6 +198,93 @@ def raise_dispute():
         raise`}
     </CodeBlock>
   </TabItem>
+  <TabItem value="php" label="PHP">
+    <CodeBlock className="language-php" title="PHP Example">
+{`<?php
+require 'vendor/autoload.php'; // Ensure Guzzle is loaded
+
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
+
+function raiseDispute() {
+    $apiKey = getenv('LIASONPAY_API_KEY');
+    $apiBaseUrl = '{ApiBaseUrl()}'; // Replace with your actual base URL
+
+    $client = new Client([
+        'base_uri' => $apiBaseUrl,
+        'timeout'  => 10.0, // Increased timeout for file uploads
+    ]);
+
+    $multipart = [
+        [
+            'name'     => 'transaction_id',
+            'contents' => 'TRX_1234567890' // Replace with an actual transaction ID
+        ],
+        [
+            'name'     => 'reason',
+            'contents' => 'Item not as described'
+        ],
+        [
+            'name'     => 'description',
+            'contents' => 'The item was damaged and different from the listing photo.'
+        ],
+        [
+            'name'     => 'metadata[order_id]', // Optional metadata
+            'contents' => '12345'
+        ],
+        [
+            'name'     => 'metadata[customer_reference]', // Optional metadata
+            'contents' => 'CUST-001'
+        ],
+        // Optional: Add attachments
+        // [
+        //     'name'     => 'attachments[]',
+        //     'contents' => fopen('/path/to/evidence.jpg', 'r'),
+        //     'filename' => 'evidence.jpg'
+        // ],
+        // [
+        //     'name'     => 'attachments[]',
+        //     'contents' => fopen('/path/to/another_document.pdf', 'r'),
+        //     'filename' => 'another_document.pdf'
+        // ]
+    ];
+
+    try {
+        $response = $client->request('POST', '/disputes/raise', [
+            'headers' => [
+                'Authorization' => 'Bearer ' . $apiKey,
+                'Accept'        => 'application/json',
+            ],
+            'multipart' => $multipart
+        ]);
+
+        $body = $response->getBody();
+        $data = json_decode((string) $body, true);
+        
+        // print_r($data); // Or handle the data as needed
+        return $data;
+
+    } catch (RequestException $e) {
+        if ($e->hasResponse()) {
+            $responseBody = $e->getResponse()->getBody()->getContents();
+            // error_log("Error raising dispute: " . $responseBody);
+            throw new Exception("Error raising dispute: " . $responseBody);
+        } else {
+            // error_log("Error raising dispute: " . $e->getMessage());
+            throw new Exception("Error raising dispute: " . $e->getMessage());
+        }
+    }
+}
+
+// Example usage:
+// Ensure LIASONPAY_API_KEY is set as an environment variable
+// $disputeData = raiseDispute();
+// if ($disputeData && isset($disputeData['data']['dispute_id'])) {
+//     // Dispute raised successfully
+// }
+?>`}
+    </CodeBlock>
+  </TabItem>
 </Tabs>
 
 ## Example Response

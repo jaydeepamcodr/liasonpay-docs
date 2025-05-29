@@ -304,6 +304,71 @@ def get_packages():
     </div>
 
   </TabItem>
+  <TabItem value="php" label="PHP">
+    <div className="code-block-container">
+      <pre className="code-block">
+```php
+<?php
+require 'vendor/autoload.php'; // Ensure Guzzle is loaded
+
+use GuzzleHttp\\Client;
+use GuzzleHttp\\Exception\\RequestException;
+
+function getPackages() {
+    $apiKey = getenv('LIASONPAY_API_KEY');
+    $apiBaseUrl = '{ApiBaseUrl()}'; // Replace with your actual base URL
+
+    $client = new Client([
+        'base_uri' => $apiBaseUrl,
+        'timeout'  => 5.0,
+    ]);
+
+    $queryParams = [
+        'store_id' => '{ExampleStoreId()}', // Replace with an actual or example store ID
+        // 'package_id' => '{ExamplePackageId()}', // Optional: Replace with an actual or example package ID
+        // 'limit' => 20, // Optional
+        // 'cursor' => null, // Optional: for pagination
+    ];
+
+    try {
+        $response = $client->request('GET', '/packages/get', [
+            'headers' => [
+                'Authorization' => 'Bearer ' . $apiKey,
+                'Content-Type'  => 'application/json',
+                'Accept'        => 'application/json',
+            ],
+            'query' => $queryParams
+        ]);
+
+        $body = $response->getBody();
+        $data = json_decode((string) $body, true);
+        
+        // print_r($data); // Or handle the data as needed
+        return $data;
+
+    } catch (RequestException $e) {
+        if ($e->hasResponse()) {
+            $responseBody = $e->getResponse()->getBody()->getContents();
+            // error_log("Error fetching packages: " . $responseBody);
+            throw new Exception("Error fetching packages: " . $responseBody);
+        } else {
+            // error_log("Error fetching packages: " . $e->getMessage());
+            throw new Exception("Error fetching packages: " . $e->getMessage());
+        }
+    }
+}
+
+// Example usage:
+// Ensure LIASONPAY_API_KEY is set as an environment variable
+// $packages = getPackages();
+// if ($packages) {
+//     // Process $packages
+// }
+?>
+```
+      </pre>
+    </div>
+  </TabItem>
 </Tabs>
 
 ## Example Response
@@ -502,4 +567,4 @@ def get_packages():
 
   </div>
 </div>
-````
+```

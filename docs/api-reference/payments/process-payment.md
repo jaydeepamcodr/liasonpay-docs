@@ -393,6 +393,94 @@ def process_payment():
     </div>
 
   </TabItem>
+  <TabItem value="php" label="PHP">
+    <div className="code-block-container">
+      <pre className="code-block">
+```php
+<?php
+require 'vendor/autoload.php'; // Ensure Guzzle is loaded
+
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
+
+function processPayment() {
+    $apiKey = getenv('LIASONPAY_API_KEY');
+    $apiBaseUrl = '{ApiBaseUrl()}'; // Replace with your actual base URL
+
+    $client = new Client([
+        'base_uri' => $apiBaseUrl,
+        'timeout'  => 5.0,
+    ]);
+
+    $payload = [
+        'store_id' => '{ExampleStoreId()}', // Replace with an actual or example store ID
+        'currency' => 'usd',
+        'products' => [
+            [
+                'name' => 'Product 1',
+                'description' => 'Product 1 description',
+                'price' => 100,
+                'quantity' => 1
+            ]
+        ],
+        'customer' => [
+            'name' => 'John Doe',
+            'email' => 'john.doe@example.com',
+            'phone_number' => '+2348123456789'
+        ],
+        'metadata' => [
+            'order_id' => '1234567890',
+            'order_code' => 'ORD_1234567890'
+        ],
+        'success_url' => 'https://example.com/success',
+        'cancel_url' => 'https://example.com/cancel',
+        'return_url' => 'https://example.com/return',
+        'mode' => 'production', // or 'sandbox'
+        'coupon' => 'GYRPVBK06Q' // Optional coupon code
+    ];
+
+    try {
+        $response = $client->request('POST', '/payments/process', [
+            'headers' => [
+                'Authorization' => 'Bearer ' . $apiKey,
+                'Content-Type'  => 'application/json',
+                'Accept'        => 'application/json',
+            ],
+            'json' => $payload
+        ]);
+
+        $body = $response->getBody();
+        $data = json_decode((string) $body, true);
+        
+        // print_r($data); // Or handle the data as needed
+        // Expected response: {"status":true,"message":"Payment processed successfully","data":{"transaction_id":"TRANSACTION_XYZ","checkout_url":"https://checkout.liasonpay.net/c/TRANSACTION_XYZ","amount":100,"currency":"usd"}}
+        return $data;
+
+    } catch (RequestException $e) {
+        if ($e->hasResponse()) {
+            $responseBody = $e->getResponse()->getBody()->getContents();
+            // error_log("Error processing payment: " . $responseBody);
+            throw new Exception("Error processing payment: " . $responseBody);
+        } else {
+            // error_log("Error processing payment: " . $e->getMessage());
+            throw new Exception("Error processing payment: " . $e->getMessage());
+        }
+    }
+}
+
+// Example usage:
+// Ensure LIASONPAY_API_KEY is set as an environment variable
+// $paymentData = processPayment();
+// if ($paymentData && isset($paymentData['data']['checkout_url'])) {
+//     // Redirect customer to $paymentData['data']['checkout_url']
+//     // header('Location: ' . $paymentData['data']['checkout_url']);
+//     // exit;
+// }
+?>
+```
+      </pre>
+    </div>
+  </TabItem>
 </Tabs>
 
 ## Example Response
@@ -657,4 +745,4 @@ def process_payment():
 
   </div>
 </div>
-````
+```

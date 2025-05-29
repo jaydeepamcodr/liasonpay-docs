@@ -352,6 +352,78 @@ def upgrade_subscription():
     </div>
 
   </TabItem>
+  <TabItem value="php" label="PHP">
+    <div className="code-block-container">
+      <pre className="code-block">
+```php
+<?php
+require 'vendor/autoload.php'; // Ensure Guzzle is loaded
+
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
+
+function upgradeSubscription() {
+    $apiKey = getenv('LIASONPAY_API_KEY');
+    $apiBaseUrl = '{ApiBaseUrl()}'; // Replace with your actual base URL or use a dynamic value
+
+    $client = new Client([
+        'base_uri' => $apiBaseUrl,
+        'timeout'  => 5.0,
+    ]);
+
+    $payload = [
+        'subscription_id' => '{ExampleSubscriptionId()}', // Replace with the ID of the subscription to upgrade
+        'store_id' => '{ExampleStoreId()}', // Replace with the store ID
+        'price_id' => 'NEW_PRICE_ID', // Replace with the ID of the new price plan
+        'metadata' => [
+            'order_id' => 'UPGRADE_ORDER_123',
+            'order_code' => 'UPG_ORD_123'
+        ],
+        'mode' => 'production' // or 'sandbox', must match original subscription mode
+    ];
+
+    try {
+        $response = $client->request('POST', '/subscription/upgrade', [
+            'headers' => [
+                'Authorization' => 'Bearer ' . $apiKey,
+                'Content-Type'  => 'application/json',
+                'Accept'        => 'application/json',
+            ],
+            'json' => $payload
+        ]);
+
+        $body = $response->getBody();
+        $data = json_decode((string) $body, true);
+        
+        // print_r($data); // Or handle the data as needed
+        // Expected response: {"status":true,"message":"Subscription upgrade initiated successfully","data":{"upgrade_request_id":"UPGRADE_XYZ","checkout_url":"https://checkout.liasonpay.net/c/UPGRADE_XYZ"}}
+        return $data;
+
+    } catch (RequestException $e) {
+        if ($e->hasResponse()) {
+            $responseBody = $e->getResponse()->getBody()->getContents();
+            // error_log("Error upgrading subscription: " . $responseBody);
+            throw new Exception("Error upgrading subscription: " . $responseBody);
+        } else {
+            // error_log("Error upgrading subscription: " . $e->getMessage());
+            throw new Exception("Error upgrading subscription: " . $e->getMessage());
+        }
+    }
+}
+
+// Example usage:
+// Ensure LIASONPAY_API_KEY is set as an environment variable
+// $upgradeData = upgradeSubscription();
+// if ($upgradeData && isset($upgradeData['data']['checkout_url'])) {
+//     // Redirect customer to $upgradeData['data']['checkout_url'] to complete the upgrade
+//     // header('Location: ' . $upgradeData['data']['checkout_url']);
+//     // exit;
+// }
+?>
+```
+      </pre>
+    </div>
+  </TabItem>
 </Tabs>
 
 ## Example Response

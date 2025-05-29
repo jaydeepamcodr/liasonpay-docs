@@ -240,6 +240,78 @@ def charge_with_token():
         raise`}
     </CodeBlock>
   </TabItem>
+  <TabItem value="php" label="PHP">
+    <CodeBlock className="language-php" title="PHP Example">
+{`<?php
+require 'vendor/autoload.php'; // Ensure Guzzle is loaded
+
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
+
+function chargeWithToken() {
+    $apiKey = getenv('LIASONPAY_API_KEY');
+    $apiBaseUrl = '{ApiBaseUrl()}'; // Replace with your actual base URL
+
+    $client = new Client([
+        'base_uri' => $apiBaseUrl,
+        'timeout'  => 5.0,
+    ]);
+
+    $payload = [
+        'store_id' => 'STORE_123',
+        'token' => 'tok_123456789',
+        'amount' => 5000, // Amount in smallest currency unit (e.g., kobo for NGN, cents for USD)
+        'currency' => 'NGN',
+        'customer' => [
+            'email' => 'john.doe@example.com',
+            'name' => 'John Doe',
+            'phone_number' => '+2348123456789' // Optional
+        ],
+        'metadata' => [ // Optional
+            'order_id' => 'ORD_123456',
+            'product_name' => 'Premium Subscription'
+        ],
+        'reference' => 'TX_123456789', // Optional: Your unique transaction reference
+        'description' => 'Monthly subscription payment' // Optional
+    ];
+
+    try {
+        $response = $client->request('POST', '/payment/charge-with-token', [
+            'headers' => [
+                'Authorization' => 'Bearer ' . $apiKey,
+                'Content-Type'  => 'application/json',
+                'Accept'        => 'application/json',
+            ],
+            'json' => $payload
+        ]);
+
+        $body = $response->getBody();
+        $data = json_decode((string) $body, true);
+        
+        // print_r($data); // Or handle the data as needed
+        return $data;
+
+    } catch (RequestException $e) {
+        if ($e->hasResponse()) {
+            $responseBody = $e->getResponse()->getBody()->getContents();
+            // error_log("Error charging payment with token: " . $responseBody);
+            throw new Exception("Error charging payment with token: " . $responseBody);
+        } else {
+            // error_log("Error charging payment with token: " . $e->getMessage());
+            throw new Exception("Error charging payment with token: " . $e->getMessage());
+        }
+    }
+}
+
+// Example usage:
+// Ensure LIASONPAY_API_KEY is set as an environment variable
+// $paymentData = chargeWithToken();
+// if ($paymentData && isset($paymentData['data']['status']) && $paymentData['data']['status'] === 'success') {
+//     // Payment successful
+// }
+?>`}
+    </CodeBlock>
+  </TabItem>
 </Tabs>
 
 ## Example Response

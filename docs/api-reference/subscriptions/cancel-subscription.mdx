@@ -356,6 +356,72 @@ def cancel_subscription():
     </div>
 
   </TabItem>
+  <TabItem value="php" label="PHP">
+    <div className="code-block-container">
+      <pre className="code-block">
+```php
+<?php
+require 'vendor/autoload.php'; // Ensure Guzzle is loaded
+
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
+
+function cancelSubscription() {
+    $apiKey = getenv('LIASONPAY_API_KEY');
+    $apiBaseUrl = '{ApiBaseUrl()}'; // Replace with your actual base URL or use a dynamic value
+
+    $client = new Client([
+        'base_uri' => $apiBaseUrl,
+        'timeout'  => 5.0,
+    ]);
+
+    $payload = [
+        'subscription_id' => '{ExampleSubscriptionId()}', // Replace with an actual or example subscription ID
+        'cancel_at_period_end' => false // Set to true to cancel at the end of the current billing period
+    ];
+
+    try {
+        $response = $client->request('POST', '/subscription/cancel', [
+            'headers' => [
+                'Authorization' => 'Bearer ' . $apiKey,
+                'Content-Type'  => 'application/json',
+                'Accept'        => 'application/json',
+            ],
+            'json' => $payload
+        ]);
+
+        $body = $response->getBody();
+        $data = json_decode((string) $body, true);
+        
+        // print_r($data); // Or handle the data as needed
+        // Expected response: {"status":true,"message":"Subscription cancelled successfully","data":{...subscription_object...}}
+        return $data;
+
+    } catch (RequestException $e) {
+        if ($e->hasResponse()) {
+            $responseBody = $e->getResponse()->getBody()->getContents();
+            // error_log("Error canceling subscription: " . $responseBody);
+            throw new Exception("Error canceling subscription: " . $responseBody);
+        } else {
+            // error_log("Error canceling subscription: " . $e->getMessage());
+            throw new Exception("Error canceling subscription: " . $e->getMessage());
+        }
+    }
+}
+
+// Example usage:
+// Ensure LIASONPAY_API_KEY is set as an environment variable
+// $canceledSubscription = cancelSubscription();
+// if ($canceledSubscription && isset($canceledSubscription['data']['status'])) {
+//    if ($canceledSubscription['data']['status'] === 'canceled' || $canceledSubscription['data']['cancel_at_period_end'] === true) {
+//        // Subscription is canceled or will be canceled at period end
+//    }
+// }
+?>
+```
+      </pre>
+    </div>
+  </TabItem>
 </Tabs>
 
 ## Example Response

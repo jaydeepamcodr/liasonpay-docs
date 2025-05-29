@@ -242,6 +242,69 @@ def verify_payment():
     </div>
 
   </TabItem>
+  <TabItem value="php" label="PHP">
+    <div className="code-block-container">
+      <pre className="code-block">
+```php
+<?php
+require 'vendor/autoload.php'; // Ensure Guzzle is loaded
+
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
+
+function verifyPayment() {
+    $apiKey = getenv('LIASONPAY_API_KEY');
+    $apiBaseUrl = '{ApiBaseUrl()}'; // Replace with your actual base URL
+
+    $client = new Client([
+        'base_uri' => $apiBaseUrl,
+        'timeout'  => 5.0,
+    ]);
+
+    $payload = [
+        'transaction_id' => '{ExampleTransactionId()}' // Replace with an actual transaction ID
+    ];
+
+    try {
+        $response = $client->request('POST', '/payments/verify', [
+            'headers' => [
+                'Authorization' => 'Bearer ' . $apiKey,
+                'Content-Type'  => 'application/json',
+                'Accept'        => 'application/json',
+            ],
+            'json' => $payload
+        ]);
+
+        $body = $response->getBody();
+        $data = json_decode((string) $body, true);
+        
+        // print_r($data); // Or handle the data as needed
+        // Expected response: {"status":true,"message":"Payment verified successfully","data":{...payment_object...}}
+        return $data;
+
+    } catch (RequestException $e) {
+        if ($e->hasResponse()) {
+            $responseBody = $e->getResponse()->getBody()->getContents();
+            // error_log("Error verifying payment: " . $responseBody);
+            throw new Exception("Error verifying payment: " . $responseBody);
+        } else {
+            // error_log("Error verifying payment: " . $e->getMessage());
+            throw new Exception("Error verifying payment: " . $e->getMessage());
+        }
+    }
+}
+
+// Example usage:
+// Ensure LIASONPAY_API_KEY is set as an environment variable
+// $paymentDetails = verifyPayment();
+// if ($paymentDetails && isset($paymentDetails['data']['payment_status']) && $paymentDetails['data']['payment_status'] === 'succeeded') {
+//     // Payment is successful
+// }
+?>
+```
+      </pre>
+    </div>
+  </TabItem>
 </Tabs>
 
 ## Example Response

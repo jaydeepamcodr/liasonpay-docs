@@ -148,6 +148,70 @@ def view_dispute():
       </pre>
     </div>
   </TabItem>
+  <TabItem value="php" label="PHP">
+    <div className="code-block-container">
+      <pre className="code-block">
+```php
+<?php
+require 'vendor/autoload.php'; // Ensure Guzzle is loaded
+
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
+
+function viewDispute() {
+    $apiKey = getenv('LIASONPAY_API_KEY');
+    $apiBaseUrl = '{ApiBaseUrl()}'; // Replace with your actual base URL
+
+    $client = new Client([
+        'base_uri' => $apiBaseUrl,
+        'timeout'  => 5.0,
+    ]);
+
+    $queryParams = [
+        'dispute_id' => 'DSP_9EEC97F54D0A486383ED676DC2110E22' // Replace with an actual dispute ID
+    ];
+
+    try {
+        // Note: The Scribe documentation shows this as a POST request with query parameters.
+        // Adjust method to GET if your actual API implementation uses GET for this endpoint.
+        $response = $client->request('POST', '/disputes/view', [
+            'headers' => [
+                'Authorization' => 'Bearer ' . $apiKey,
+                'Content-Type'  => 'application/json',
+                'Accept'        => 'application/json',
+            ],
+            'query' => $queryParams
+        ]);
+
+        $body = $response->getBody();
+        $data = json_decode((string) $body, true);
+        
+        // print_r($data); // Or handle the data as needed
+        return $data;
+
+    } catch (RequestException $e) {
+        if ($e->hasResponse()) {
+            $responseBody = $e->getResponse()->getBody()->getContents();
+            // error_log("Error retrieving dispute: " . $responseBody);
+            throw new Exception("Error retrieving dispute: " . $responseBody);
+        } else {
+            // error_log("Error retrieving dispute: " . $e->getMessage());
+            throw new Exception("Error retrieving dispute: " . $e->getMessage());
+        }
+    }
+}
+
+// Example usage:
+// Ensure LIASONPAY_API_KEY is set as an environment variable
+// $disputeDetails = viewDispute();
+// if ($disputeDetails && isset($disputeDetails['data']['status'])) {
+//     // Process dispute details
+// }
+?>
+```
+      </pre>
+    </div>
+  </TabItem>
 </Tabs>
 
 ## Example Response
