@@ -2,7 +2,11 @@
 sidebar_position: 2
 ---
 
-import { AppUrl, ExampleApiKey, ApiBaseUrl } from "@site/src/components/DynamicValues";
+import {
+  AppUrl,
+  ExampleApiKey,
+  ApiBaseUrl,
+} from "@site/src/components/DynamicValues";
 import { getDocsUrl } from "@site/src/components/DocsUrl";
 
 # Authentication
@@ -57,7 +61,6 @@ import { getDocsUrl } from "@site/src/components/DocsUrl";
   </div>
 
 {" "}
-
 <div className="setup-step">
   <div className="step-number">2</div>
   <div className="step-content">
@@ -103,7 +106,6 @@ import { getDocsUrl } from "@site/src/components/DocsUrl";
   <div className="example-card">
     <h3>💻 Code Examples</h3>
     <div className="code-block-container">
-      <pre className="code-block">
 ```javascript
 // JavaScript/Node.js example
 const fetch = require('node-fetch');
@@ -111,7 +113,7 @@ const fetch = require('node-fetch');
 const apiKey = process.env.LIASONPAY_API_KEY; // Store in environment variable
 
 async function makeApiRequest() {
-const response = await fetch('https://liasonpay.net/api/v1/payments', {
+const response = await fetch(`${ApiBaseUrl()}/api/v1/payments`, {
 method: 'POST',
 headers: {
 'Authorization': `Bearer ${apiKey}`,
@@ -126,7 +128,6 @@ return await response.json();
 }
 
 ```
-      </pre>
     </div>
   </div>
 </div>
@@ -291,3 +292,4 @@ return await response.json();
     </div>
   </div>
 </div>
+```
