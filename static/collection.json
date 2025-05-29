@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "LiasonPay API Documentation",
-        "_postman_id": "6c0d33ff-9293-4c05-8846-32e0e4dae204",
+        "_postman_id": "e36efcf5-d6cd-4a4b-86b1-625921a6d293",
         "description": "This documentation aims to provide all the information you need to work with our API.",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -250,7 +250,7 @@
                     ]
                 },
                 {
-                    "name": "POST api\/v1\/payments\/process",
+                    "name": "Process a payment",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -275,10 +275,17 @@
                         },
                         "description": ""
                     },
-                    "response": []
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"status\": true,\n    \"message\": \"Payment processed successfully\",\n    \"data\": {}\n}",
+                            "name": ""
+                        }
+                    ]
                 },
                 {
-                    "name": "POST api\/v1\/payments\/verify",
+                    "name": "Verify a payment",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -301,6 +308,262 @@
                             "mode": "raw",
                             "raw": "{\"transaction_id\":\"1234567890\"}"
                         },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"status\": true,\n    \"message\": \"Payment verified successfully\",\n    \"data\": {}\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Charge a payment with a token",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/payments\/tokenize\/charge",
+                            "query": [
+                                {
+                                    "key": "store_id",
+                                    "value": "STORE_1DB9B0447A",
+                                    "description": "The ID of the store. Must not be greater than 255 characters.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "currency",
+                                    "value": "usd",
+                                    "description": "The currency of the payment. Must not be greater than 3 characters.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "products[]",
+                                    "value": "",
+                                    "description": "The products to be purchased.",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "customer[]",
+                                    "value": "",
+                                    "description": "The customer details.",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "customer.name",
+                                    "value": "John+Doe",
+                                    "description": "The name of the customer. Must not be greater than 255 characters.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "customer.email",
+                                    "value": "john.doe%40example.com",
+                                    "description": "The email of the customer. Must be a valid email address. Must not be greater than 255 characters.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "customer.phone_number",
+                                    "value": "%2B2348123456789",
+                                    "description": "The phone number of the customer. Must not be greater than 255 characters.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "metadata[]",
+                                    "value": "",
+                                    "description": "The metadata of the payment.",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "metadata.order_id",
+                                    "value": "1234567890",
+                                    "description": "The order ID.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "metadata.order_code",
+                                    "value": "ORD_1234567890",
+                                    "description": "The order code.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "success_url",
+                                    "value": "https%3A%2F%2Fexample.com%2Fsuccess",
+                                    "description": "The URL to redirect to after successful payment. Must be a valid URL.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "cancel_url",
+                                    "value": "https%3A%2F%2Fexample.com%2Fcancel",
+                                    "description": "The URL to redirect to after payment cancellation. Must be a valid URL.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "return_url",
+                                    "value": "https%3A%2F%2Fexample.com%2Freturn",
+                                    "description": "The URL to redirect to after payment completion. Must be a valid URL.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "mode",
+                                    "value": "sandbox",
+                                    "description": "The mode of the payment.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "coupon",
+                                    "value": "GYRPVBK06Q",
+                                    "description": "The coupon code. The code of an existing record in the coupons table.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "token",
+                                    "value": "PMTOKEN20250528133152837180817000177",
+                                    "description": "Payment token (If you want to generate a token, leave this blank).",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "products%5B%5D.name",
+                                    "value": "Product+1",
+                                    "description": "The name of the product. Must not be greater than 255 characters.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "products%5B%5D.description",
+                                    "value": "Product+1+description",
+                                    "description": "The description of the product. Must not be greater than 500 characters.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "products%5B%5D.price",
+                                    "value": "100",
+                                    "description": "The price of the product. Must be at least 1.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "products%5B%5D.quantity",
+                                    "value": "1",
+                                    "description": "The quantity of the product. Must be at least 1.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/v1\/payments\/tokenize\/charge?store_id=STORE_1DB9B0447A&currency=usd&products[]=&customer[]=&customer.name=John+Doe&customer.email=john.doe%40example.com&customer.phone_number=%2B2348123456789&metadata[]=&metadata.order_id=1234567890&metadata.order_code=ORD_1234567890&success_url=https%3A%2F%2Fexample.com%2Fsuccess&cancel_url=https%3A%2F%2Fexample.com%2Fcancel&return_url=https%3A%2F%2Fexample.com%2Freturn&mode=sandbox&coupon=GYRPVBK06Q&token=PMTOKEN20250528133152837180817000177&products%5B%5D.name=Product+1&products%5B%5D.description=Product+1+description&products%5B%5D.price=100&products%5B%5D.quantity=1"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"status\": true,\n    \"message\": \"Payment processed successfully\",\n    \"data\": {}\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Raise a dispute for a transaction",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/disputes\/raise",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/disputes\/raise"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "transaction_id",
+                                    "value": "TRX_1234567890",
+                                    "type": "text",
+                                    "description": "The ID of the transaction. The <code>transaction_id<\/code> of an existing record in the transactions table. Must not be greater than 255 characters."
+                                },
+                                {
+                                    "key": "reason",
+                                    "value": "Item not as described",
+                                    "type": "text",
+                                    "description": "The reason for the dispute. Must not be greater than 255 characters."
+                                },
+                                {
+                                    "key": "description",
+                                    "value": "The item was damaged and different from the listing photo.",
+                                    "type": "text",
+                                    "description": "Detailed description of the dispute."
+                                },
+                                {
+                                    "key": "metadata[order_id]",
+                                    "value": "12345",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "metadata[customer_reference]",
+                                    "value": "CUST-001",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "attachments[]",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get dispute details for a transaction",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/disputes\/view",
+                            "query": [
+                                {
+                                    "key": "dispute_id",
+                                    "value": "DSP_9EEC97F54D0A486383ED676DC2110E22",
+                                    "description": "The ID of the dispute. The dispute_id of an existing record in the disputes table.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/v1\/disputes\/view?dispute_id=DSP_9EEC97F54D0A486383ED676DC2110E22"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
                         "description": ""
                     },
                     "response": []
