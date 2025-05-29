@@ -25,8 +25,9 @@ import { getDocsUrl } from "@site/src/components/DocsUrl";
   <div className="introduction-card">
     <h3>Overview</h3>
     <p>
-      The Disputes API allows you to handle customer claims and manage transaction disputes.
-      With these endpoints, you can implement a complete dispute resolution system in your application.
+      The Disputes API allows you to handle customer claims and manage
+      transaction disputes. With these endpoints, you can implement a complete
+      dispute resolution system in your application.
     </p>
   </div>
 </div>
@@ -54,6 +55,7 @@ import { getDocsUrl } from "@site/src/components/DocsUrl";
         </div>
       </div>
     </div>
+
   </div>
 </div>
 
@@ -65,10 +67,14 @@ import { getDocsUrl } from "@site/src/components/DocsUrl";
     <p>Handle customer complaints and disputes for transactions with proper documentation and tracking.</p>
   </div>
 
-  <div className="use-case-item">
-    <h4>Dispute Resolution</h4>
-    <p>Manage the complete lifecycle of transaction disputes from creation to resolution.</p>
-  </div>
+{" "}
+<div className="use-case-item">
+  <h4>Dispute Resolution</h4>
+  <p>
+    Manage the complete lifecycle of transaction disputes from creation to
+    resolution.
+  </p>
+</div>
 
   <div className="use-case-item">
     <h4>Evidence Management</h4>
@@ -139,29 +145,235 @@ Check out the [Raise Dispute](/api-reference/disputes/raise-dispute) endpoint to
 
 ## Next Steps
 
-<div className="next-steps-section">
-  <div className="next-step-card">
-    <h3>🔔 Set Up Webhooks</h3>
-    <p>Receive real-time notifications about dispute events</p>
-    <a href={getDocsUrl("developer-guide/webhooks")} className="button button--secondary">View Webhooks Guide</a>
+<div class="next-steps-section">
+  <div class="next-steps-header">
+    <div class="next-steps-header-content">
+      <h3>Continue Your API Journey</h3>
+      <p>Explore these tools to enhance your LiasonPay integration experience</p>
+    </div>
   </div>
 
-{" "}
+  <div class="next-steps-grid">
+    <div class="next-step-card">
+      <div class="next-step-card-header">
+        <div class="next-step-icon-wrapper">
+          <div class="next-step-icon">📦</div>
+        </div>
+        <div class="next-step-number">Related</div>
+      </div>
+      <div class="next-step-card-content">
+        <h4>Postman Collection</h4>
+        <p>Get our Postman Collection for more advanced testing capabilities</p>
+        <ul class="next-step-benefits">
+          <li><span class="benefit-icon">✓</span> Test API endpoints in Postman</li>
+          <li><span class="benefit-icon">✓</span> Save and organize requests</li>
+          <li><span class="benefit-icon">✓</span> Create test environments</li>
+        </ul>
+        <div class="next-step-action">
+          <a href={getDocsUrl('interactive-tools/postman-collection')} class="button button--primary">
+            <span class="button-text">View Postman Collection</span>
+            <span class="button-icon">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
 
-<div className="next-step-card">
-  <h3>❓ FAQ</h3>
-  <p>Find answers to common questions about disputes</p>
-  <a
-    href={getDocsUrl("api-reference/faq")}
-    className="button button--secondary"
-  >
-    View FAQ
-  </a>
-</div>
+    <div class="next-step-card">
+      <div class="next-step-card-header">
+        <div class="next-step-icon-wrapper">
+          <div class="next-step-icon">🧪</div>
+        </div>
+        <div class="next-step-number">Related</div>
+      </div>
+      <div class="next-step-card-content">
+        <h4>API Testing Tool</h4>
+        <p>Use our simplified API testing tool for quick tests</p>
+        <ul class="next-step-benefits">
+          <li><span class="benefit-icon">✓</span> Simplified testing interface</li>
+          <li><span class="benefit-icon">✓</span> Quick request configuration</li>
+          <li><span class="benefit-icon">✓</span> Test in different environments</li>
+        </ul>
+        <div class="next-step-action">
+          <a href={getDocsUrl('interactive-tools/api-testing')} class="button button--primary">
+            <span class="button-text">Open API Testing Tool</span>
+            <span class="button-icon">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
 
-  <div className="next-step-card">
-    <h3>📚 API Reference</h3>
-    <p>Explore all available API endpoints</p>
-    <a href={getDocsUrl("api-reference")} className="button button--secondary">View API Reference</a>
+    <div class="next-step-card">
+      <div class="next-step-card-header">
+        <div class="next-step-icon-wrapper">
+          <div class="next-step-icon">📚</div>
+        </div>
+        <div class="next-step-number">Reference</div>
+      </div>
+      <div class="next-step-card-content">
+        <h4>API Reference</h4>
+        <p>Read detailed documentation for all endpoints</p>
+        <ul class="next-step-benefits">
+          <li><span class="benefit-icon">✓</span> Comprehensive endpoint details</li>
+          <li><span class="benefit-icon">✓</span> Request and response formats</li>
+          <li><span class="benefit-icon">✓</span> Parameter descriptions</li>
+        </ul>
+        <div class="next-step-action">
+          <a href={getDocsUrl('api-reference')} class="button button--primary">
+            <span class="button-text">View API Reference</span>
+            <span class="button-icon">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
+<style>
+{`
+/* Next Steps Section */
+.next-steps-section {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+.next-steps-header {
+  background-color: var(--ifm-color-success); /* Green background */
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.next-steps-header-content h3 {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+}
+
+.next-steps-header-content p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  margin: 0;
+}
+
+.next-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.next-step-card {
+  background-color: var(--ifm-card-background-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.next-step-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.next-step-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.next-step-icon-wrapper {
+  background-color: var(--ifm-color-emphasis-100);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.next-step-icon {
+  font-size: 1.5rem; /* Slightly smaller icon */
+  color: var(--ifm-color-primary);
+}
+
+.next-step-number {
+  background-color: var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.25rem 0.6rem;
+  border-radius: 12px;
+  text-transform: uppercase;
+}
+
+.next-step-card-content h4 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-color-primary-darkest);
+}
+
+.next-step-card-content p {
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-700);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.next-step-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+.next-step-benefits li {
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-700);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.benefit-icon {
+  color: var(--ifm-color-success);
+  margin-right: 0.5rem;
+  font-weight: 600;
+}
+
+.next-step-action {
+  margin-top: auto; /* Pushes button to the bottom */
+}
+
+.next-step-action .button {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--ifm-color-primary);
+  color: white !important; /* Ensure text is white */
+}
+
+.next-step-action .button:hover {
+  background-color: var(--ifm-color-primary-darker);
+}
+
+.button-text {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.button-icon {
+  margin-left: 0.5rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+.next-step-action .button:hover .button-icon {
+  transform: translateX(3px);
+}
+`}
+</style>
