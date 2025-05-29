@@ -270,11 +270,11 @@
 }
 
 .codeExamplePanel {
-  display: none;
+  display: none !important;
 }
 
 .activePanel {
-  display: block;
+  display: block !important;
 }
 
 .codeBlock {
