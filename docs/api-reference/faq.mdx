@@ -2,19 +2,33 @@
 sidebar_position: 5
 ---
 
-import { AppUrl, ApiBaseUrl, ExampleApiKey } from '@site/src/components/DynamicValues';
+import {
+  AppUrl,
+  ApiBaseUrl,
+  ExampleApiKey,
+} from "@site/src/components/DynamicValues";
+import { getDocsUrl } from "@site/src/components/DocsUrl";
 
 # FAQ / Troubleshooting
 
 <div className="explorer-header">
   <div className="explorer-header-content">
     <h2>API Frequently Asked Questions</h2>
-    <p>Find answers to common questions and solutions to issues when working with the LiasonPay API</p>
+    <p>
+      Find answers to common questions and solutions to issues when working with
+      the LiasonPay API
+    </p>
     <div className="explorer-buttons">
-      <a href="/interactive-tools/api-explorer" className="button button--primary button--lg">
+      <a
+        href={getDocsUrl("interactive-tools/api-explorer")}
+        className="button button--primary button--lg"
+      >
         <span>🔍 Try API Explorer</span>
       </a>
-      <a href="/developer-guide/error-handling" className="button button--secondary button--lg">
+      <a
+        href={getDocsUrl("developer-guide/error-handling")}
+        className="button button--secondary button--lg"
+      >
         <span>❌ Error Handling Guide</span>
       </a>
     </div>
@@ -31,54 +45,63 @@ import { AppUrl, ApiBaseUrl, ExampleApiKey } from '@site/src/components/DynamicV
       <li>Use test card numbers like <code>4111111111111111</code> for successful payments</li>
       <li>Use specific amounts to trigger different responses (e.g., 999 for insufficient funds)</li>
     </ul>
-    <p>For more details, see the <a href="/developer-guide/environment-info">Environment Information</a> guide.</p>
+    <p>For more details, see the <a href={getDocsUrl("developer-guide/environment-info")}>Environment Information</a> guide.</p>
   </div>
 
-  <div className="faq-item">
-    <h3>How do I set up my production environment?</h3>
-    <p>To set up your production environment:</p>
-    <ol>
-      <li>Ensure you're using the correct API key</li>
-      <li>Use the base URL <code>{ApiBaseUrl()}</code> for all API calls</li>
-      <li>Set the <code>mode</code> parameter to <code>production</code> in relevant API calls</li>
-      <li>Configure your webhook endpoints to handle events</li>
-    </ol>
-  </div>
+{" "}
 
-  <div className="faq-item">
-    <h3>What currencies are supported?</h3>
-    <p>LiasonPay currently supports the following currencies:</p>
-    <div className="currency-grid">
-      <div className="currency-card">
-        <span className="currency-code">USD</span>
-        <span className="currency-name">US Dollar</span>
-      </div>
-      <div className="currency-card">
-        <span className="currency-code">EUR</span>
-        <span className="currency-name">Euro</span>
-      </div>
-      <div className="currency-card">
-        <span className="currency-code">GBP</span>
-        <span className="currency-name">British Pound</span>
-      </div>
-      <div className="currency-card">
-        <span className="currency-code">NGN</span>
-        <span className="currency-name">Nigerian Naira</span>
-      </div>
-      <div className="currency-card">
-        <span className="currency-code">KES</span>
-        <span className="currency-name">Kenyan Shilling</span>
-      </div>
-      <div className="currency-card">
-        <span className="currency-code">GHS</span>
-        <span className="currency-name">Ghanaian Cedi</span>
-      </div>
-      <div className="currency-card">
-        <span className="currency-code">ZAR</span>
-        <span className="currency-name">South African Rand</span>
-      </div>
+<div className="faq-item">
+  <h3>How do I set up my production environment?</h3>
+  <p>To set up your production environment:</p>
+  <ol>
+    <li>Ensure you're using the correct API key</li>
+    <li>
+      Use the base URL <code>{ApiBaseUrl()}</code> for all API calls
+    </li>
+    <li>
+      Set the <code>mode</code> parameter to <code>production</code> in relevant
+      API calls
+    </li>
+    <li>Configure your webhook endpoints to handle events</li>
+  </ol>
+</div>
+
+{" "}
+
+<div className="faq-item">
+  <h3>What currencies are supported?</h3>
+  <p>LiasonPay currently supports the following currencies:</p>
+  <div className="currency-grid">
+    <div className="currency-card">
+      <span className="currency-code">USD</span>
+      <span className="currency-name">US Dollar</span>
+    </div>
+    <div className="currency-card">
+      <span className="currency-code">EUR</span>
+      <span className="currency-name">Euro</span>
+    </div>
+    <div className="currency-card">
+      <span className="currency-code">GBP</span>
+      <span className="currency-name">British Pound</span>
+    </div>
+    <div className="currency-card">
+      <span className="currency-code">NGN</span>
+      <span className="currency-name">Nigerian Naira</span>
+    </div>
+    <div className="currency-card">
+      <span className="currency-code">KES</span>
+      <span className="currency-name">Kenyan Shilling</span>
+    </div>
+    <div className="currency-card">
+      <span className="currency-code">GHS</span>
+      <span className="currency-name">Ghanaian Cedi</span>
+    </div>
+    <div className="currency-card">
+      <span className="currency-code">ZAR</span>
+      <span className="currency-name">South African Rand</span>
     </div>
   </div>
+</div>
 
   <div className="faq-item">
     <h3>Are there any rate limits?</h3>
@@ -305,7 +328,7 @@ await liasonpay.post("/subscription/cancel", {
         <div className="step-number">2</div>
         <div className="step-content">
           <h4>Create New Subscription</h4>
-          <p>Create a new subscription with the desired billing cycle using the <a href="/api-reference/subscriptions/create-subscription">Create a subscription</a> endpoint</p>
+          <p>Create a new subscription with the desired billing cycle using the <a href={getDocsUrl("api-reference/subscriptions/create-subscription")}>Create a subscription</a> endpoint</p>
           <div className="code-block-container">
             <pre className="code-block">
 
@@ -613,7 +636,7 @@ const response = await axios.post(
       </table>
     </div>
 
-    <p>For more test options, see the <a href="/developer-guide/environment-info">Environment Information</a> guide.</p>
+    <p>For more test options, see the <a href={getDocsUrl("developer-guide/environment-info")}>Environment Information</a> guide.</p>
 
   </div>
 </div>
@@ -630,41 +653,116 @@ const response = await axios.post(
     </div>
   </div>
 
-  <div className="support-card">
-    <div className="support-icon">🌐</div>
-    <div className="support-content">
-      <h3>Support Portal</h3>
-      <p>Visit our support portal for additional resources</p>
-      <a href="https://support.liasonpay.net" target="_blank" rel="noopener noreferrer" className="button button--secondary">Open Support Portal</a>
-    </div>
+{" "}
+
+<div className="support-card">
+  <div className="support-icon">🌐</div>
+  <div className="support-content">
+    <h3>Support Portal</h3>
+    <p>Visit our support portal for additional resources</p>
+    <a
+      href="https://liasonpay.net"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="button button--secondary"
+    >
+      Open Support Portal
+    </a>
   </div>
+</div>
 
   <div className="support-card">
     <div className="support-icon">📚</div>
     <div className="support-content">
       <h3>Documentation</h3>
       <p>Browse our comprehensive documentation</p>
-      <a href={`${AppUrl()}/docs`} target="_blank" rel="noopener noreferrer" className="button button--secondary">View Documentation</a>
+      <a href={`${AppUrl()}/documentation`} target="_blank" rel="noopener noreferrer" className="button button--secondary">View Documentation</a>
     </div>
   </div>
 </div>
 
-<div className="next-steps-section">
-  <div className="next-step-card">
-    <h3>🔍 API Explorer</h3>
-    <p>Try out API endpoints interactively</p>
-    <a href="/interactive-tools/api-explorer" className="button button--secondary">Open API Explorer</a>
+## Next Steps
+
+<div class="next-steps-section">
+  <div class="next-steps-header">
+    <div class="next-steps-header-content">
+      <h3>Continue Your API Journey</h3>
+      <p>Explore these tools to enhance your LiasonPay integration experience</p>
+    </div>
   </div>
 
-  <div className="next-step-card">
-    <h3>🧪 API Testing</h3>
-    <p>Test your API integration</p>
-    <a href="/interactive-tools/api-testing" className="button button--secondary">Open API Testing</a>
-  </div>
+  <div class="next-steps-grid">
+    <div class="next-step-card">
+      <div class="next-step-card-header">
+        <div class="next-step-icon-wrapper">
+          <div class="next-step-icon">📦</div>
+        </div>
+        <div class="next-step-number">Related</div>
+      </div>
+      <div class="next-step-card-content">
+        <h4>Postman Collection</h4>
+        <p>Get our Postman Collection for more advanced testing capabilities</p>
+        <ul class="next-step-benefits">
+          <li><span class="benefit-icon">✓</span> Test API endpoints in Postman</li>
+          <li><span class="benefit-icon">✓</span> Save and organize requests</li>
+          <li><span class="benefit-icon">✓</span> Create test environments</li>
+        </ul>
+        <div class="next-step-action">
+          <a href={getDocsUrl("interactive-tools/postman-collection")} class="button button--primary">
+            <span class="button-text">View Postman Collection</span>
+            <span class="button-icon">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
 
-  <div className="next-step-card">
-    <h3>📦 Postman Collection</h3>
-    <p>Download our Postman collection</p>
-    <a href="/interactive-tools/postman-collection" className="button button--secondary">Get Postman Collection</a>
+    <div class="next-step-card">
+      <div class="next-step-card-header">
+        <div class="next-step-icon-wrapper">
+          <div class="next-step-icon">🧪</div>
+        </div>
+        <div class="next-step-number">Related</div>
+      </div>
+      <div class="next-step-card-content">
+        <h4>API Testing Tool</h4>
+        <p>Use our simplified API testing tool for quick tests</p>
+        <ul class="next-step-benefits">
+          <li><span class="benefit-icon">✓</span> Simplified testing interface</li>
+          <li><span class="benefit-icon">✓</span> Quick request configuration</li>
+          <li><span class="benefit-icon">✓</span> Test in different environments</li>
+        </ul>
+        <div class="next-step-action">
+          <a href={getDocsUrl('interactive-tools/api-testing')} class="button button--primary">
+            <span class="button-text">Open API Testing Tool</span>
+            <span class="button-icon">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="next-step-card">
+      <div class="next-step-card-header">
+        <div class="next-step-icon-wrapper">
+          <div class="next-step-icon">📚</div>
+        </div>
+        <div class="next-step-number">Reference</div>
+      </div>
+      <div class="next-step-card-content">
+        <h4>API Reference</h4>
+        <p>Read detailed documentation for all endpoints</p>
+        <ul class="next-step-benefits">
+          <li><span class="benefit-icon">✓</span> Comprehensive endpoint details</li>
+          <li><span class="benefit-icon">✓</span> Request and response formats</li>
+          <li><span class="benefit-icon">✓</span> Parameter descriptions</li>
+        </ul>
+        <div class="next-step-action">
+          <a href={getDocsUrl('api-reference')} class="button button--primary">
+            <span class="button-text">View API Reference</span>
+            <span class="button-icon">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
